@@ -30,7 +30,7 @@ executor_entry: examples/poisoning_setting/customized_executor.py
 aggregator_entry: aggregator.py
 
 auth:
-    ssh_user: ""
+    ssh_user: "zjiangaj"
     ssh_private_key: ~/.ssh/id_rsa
 
 # cmd to run before we can indeed run FAR (in order)
