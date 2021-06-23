@@ -21,9 +21,6 @@ server*.lsf
 vms
 jobinfo
 quotas
-core/evals/scripts/*
-data/*
-scripts/logs/*
-dataset/google_speech/*
-dataset/open_images/*
-dataset/stackoverflow/*
+./data/*
+./scripts/logs/*
+data/
