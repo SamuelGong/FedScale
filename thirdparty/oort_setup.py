@@ -8,4 +8,9 @@ setup(
     author="Fan Lai and Xiangfeng Zhu",
     author_email="fanlai@umich.edu",
     packages=["oort", "oort.utils"],
+<<<<<<< HEAD
 )
+=======
+)
+
+>>>>>>> 2af119c2efb3f007f2279a2425aa0b3adb1bc8d6

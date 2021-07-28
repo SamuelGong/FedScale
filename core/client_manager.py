@@ -45,9 +45,9 @@ class clientManager(object):
             self.feasible_samples += size
 
             if self.mode == "oort":
-                feedbacks = {'reward': min(size, self.args.local_steps * self.args.batch_size),
-                             'duration': duration,
-                             }
+                feedbacks = {'reward':min(size, self.args.local_steps*self.args.batch_size),
+                            'duration':duration,
+                            }
                 self.ucbSampler.register_client(clientId, feedbacks=feedbacks)
 
     def getAllClients(self):
