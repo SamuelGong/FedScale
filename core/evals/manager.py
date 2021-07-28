@@ -86,6 +86,7 @@ def process_cmd(yaml_file):
                 with open(f"{job_name}_logging", 'a') as fout:
                     subprocess.Popen(f'ssh {submit_user}{worker} "{setup_cmd} {worker_cmd}"',
                                     shell=True, stdout=fout, stderr=fout)
+                time.sleep(3)
 
     # dump the address of running workers
     current_path = os.path.dirname(os.path.abspath(__file__))

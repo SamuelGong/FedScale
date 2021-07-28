@@ -32,7 +32,9 @@ if args.task == 'nlp':
         AdamW,
         AutoConfig,
         AutoTokenizer,
+        AlbertTokenizer,
         MobileBertForPreTraining,
+        AutoModelWithLMHead
     )
 elif args.task == 'speech':
     import numba
@@ -76,9 +78,12 @@ def init_model():
     logging.info("Initializing the model ...")
 
     if args.task == 'nlp':
-        config = AutoConfig.from_pretrained(os.path.join(args.data_dir, args.model_name+'-config.json'))
+        config = AutoConfig.from_pretrained(args.model)
         model = AutoModelWithLMHead.from_config(config)
-        tokenizer = AlbertTokenizer.from_pretrained(args.model_name, do_lower_case=True)
+        tokenizer = AlbertTokenizer.from_pretrained(args.model, do_lower_case=True)
+        # config = AutoConfig.from_pretrained(os.path.join(args.data_dir, args.model_name+'-config.json'))
+        # model = AutoModelWithLMHead.from_config(config)
+        # tokenizer = AlbertTokenizer.from_pretrained(args.model_name, do_lower_case=True)
 
         # model_name = 'google/mobilebert-uncased'
         # config = AutoConfig.from_pretrained(model_name)
