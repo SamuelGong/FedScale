@@ -1,24 +1,24 @@
 # Configuration file of FAR training experiment
 
 # ========== Cluster configuration ========== 
-# ip address of the parameter server (need 1 GPU process)
-ps_ip: 10.0.0.2
+# ip address of the parameter server (need 1 GPU)
+ps_ip: 127.0.0.1
 
-# ip address of each worker:# of available gpus process on each gpu in this node
-# Note that if we collocate ps and worker on same GPU, then we need to decrease this number of available processes on that GPU by 1
-# E.g., master node has 4 available processes, then 1 for the ps, and worker should be set to: worker:3
+# ip address of each worker:# of gpus on this worker
+# Note that if we collocate ps and worker, then we need to decrease this number of gpus by 1
+# E.g., master node has 4 GPUs, then 1 for the ps, and worker should be set to: worker:3
 worker_ips: 
-    - 10.0.0.3:[5] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
-    - 10.0.0.4:[5]
-    - 10.0.0.5:[5]
-    - 10.0.0.6:[5]
-    - 10.0.0.7:[5]
-    - 10.0.0.8:[5]
-    - 10.0.0.9:[4]
-    - 10.0.0.10:[4]
-    - 10.0.0.11:[4]
-    - 10.0.0.12:[4]
-    - 10.0.0.13:[4]
+    - 127.0.0.1:[0,0,0,0,0,0,2,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
+#    - 10.0.0.4:[5]
+#    - 10.0.0.5:[5]
+#    - 10.0.0.6:[5]
+#    - 10.0.0.7:[5]
+#    - 10.0.0.8:[5]
+#    - 10.0.0.9:[4]
+#    - 10.0.0.10:[4]
+#    - 10.0.0.11:[4]
+#    - 10.0.0.12:[4]
+#    - 10.0.0.13:[4]
 
 exp_path: $HOME/FedScale/core
 
@@ -28,13 +28,13 @@ executor_entry: executor.py
 aggregator_entry: aggregator.py
 
 auth:
-    ssh_user: ""
+    ssh_user: "zjiangaj"
     ssh_private_key: ~/.ssh/id_rsa
 
 # cmd to run before we can indeed run FAR (in order)
 setup_commands:
     - source $HOME/anaconda3/bin/activate fedscale    
-    - export NCCL_SOCKET_IFNAME='enp94s0f0'         # Run "ifconfig" to ensure the right NIC for nccl if you have multiple NICs
+    - export NCCL_SOCKET_IFNAME='enp129s0f0'         # Run "ifconfig" to ensure the right NIC for nccl if you have multiple NICs
 
 # ========== Additional job configuration ========== 
 # Default parameters are specified in argParser.py, wherein more description of the parameter can be found
@@ -51,10 +51,10 @@ job_conf:
     - device_avail_file: $HOME/FedScale/dataset/data/device_info/client_behave_trace
     - model: albert-base-v2                            # Models: e.g., shufflenet_v2_x2_0, mobilenet_v2, resnet34, albert-base-v2
     - eval_interval: 30                     # How many rounds to run a testing on the testing set
-    - epochs: 5000                          # Number of rounds to run this training. We use 1000 in our paper, while it may converge w/ ~400 rounds
+    - epochs: 500                          # Number of rounds to run this training. We use 1000 in our paper, while it may converge w/ ~400 rounds
     - filter_less: 21                       # Remove clients w/ less than 21 samples
     - num_loaders: 4                        # Dataloaders 
-    - local_steps: 30
+    - local_steps: 4
     - learning_rate: 4e-5
     - min_learning_rate: 1e-5
     - batch_size: 20
