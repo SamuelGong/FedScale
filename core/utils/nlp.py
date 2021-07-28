@@ -34,8 +34,48 @@ import torch
 import collections
 import csv
 from torch.utils.data import DataLoader, Dataset
+import time
+from multiprocessing import Pool, cpu_count
 
+N_JOBS = cpu_count()
 logger = logging.getLogger(__name__)
+
+
+def chunks_idx(l, n):
+    d, r = divmod(len(l), n)
+    for i in range(n):
+        si = (d+1)*(i if i < r else r) + d*(0 if i < r else i - r)
+        yield si, si+(d+1 if i < r else d)
+
+
+def feature_creation_worker(files, tokenizer, block_size, worker_idx):
+    examples = []
+    sample_client = []
+    client_mapping = collections.defaultdict(list)
+
+    user_id = -1
+    start_time = time.time()
+    for idx, file in enumerate(files):
+        try:
+            with open(file, encoding="utf-8", errors='ignore') as f:
+                text = f.read()
+
+            tokenized_text = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(text))
+            if len(tokenized_text) > 0:
+                user_id += 1
+
+            for i in range(0, len(tokenized_text) - block_size + 1, block_size):  # Truncate in block of block_size
+                examples.append(tokenizer.build_inputs_with_special_tokens(tokenized_text[i : i + block_size]))
+                client_mapping[user_id].append(len(examples)-1)
+                sample_client.append(user_id)
+        except Exception as e:
+            logging.error(f"Worker {worker_idx}: fail due to {e}")
+        if idx % 10000 == 0:
+            logging.info(f"Worker {worker_idx}: {len(files)-idx} files left, {idx} files complete, remaining time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
+            gc.collect()
+
+    return (examples, client_mapping, sample_client)
+
 
 class TextDataset(Dataset):
     def __init__(self, tokenizer, args, file_path, block_size=512):
@@ -66,18 +106,27 @@ class TextDataset(Dataset):
             # make sure files are ordered
             files = [os.path.join(file_path, x) for x in sorted(files)]
 
-            for file in files:
-                with open(file, encoding="utf-8") as f:
-                    text = f.read()
+            pool_inputs = []
+            pool = Pool(N_JOBS)
+            worker_cnt = 0
+            for begin, end in chunks_idx(range(len(files)), N_JOBS):
+                pool_inputs.append([files[begin:end], tokenizer, block_size, worker_cnt])
+                worker_cnt += 1
 
-                tokenized_text = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(text))
-                if len(tokenized_text) > 0:
-                    user_id += 1
+            pool_outputs = pool.starmap(feature_creation_worker, pool_inputs)
+            pool.close()
+            pool.join()
 
-                for i in range(0, len(tokenized_text) - block_size + 1, block_size):  # Truncate in block of block_size
-                    self.examples.append(tokenizer.build_inputs_with_special_tokens(tokenized_text[i : i + block_size]))
-                    self.client_mapping[user_id].append(len(self.examples)-1)
-                    self.sample_client.append(user_id)
+            user_id_base = 0
+            for (examples, client_mapping, sample_client) in pool_outputs:
+                self.examples += examples
+                true_sample_client = [i + user_id_base for i in sample_client]
+                self.sample_client += true_sample_client
+                for user_id, true_user_id in zip(sample_client, true_sample_client):
+                    self.client_mapping[true_user_id] = client_mapping[user_id]
+                user_id_base = true_sample_client[-1] + 1
+
+
             # Note that we are loosing the last truncated example here for the sake of simplicity (no padding)
             # If your dataset is small, first you should look for a bigger one :-) and second you
             # can change this behavior by adding (model specific) padding.
@@ -90,7 +139,7 @@ class TextDataset(Dataset):
             # dump the data_mapping_file
             results = [['client_id', 'sample_path', 'label_name', 'label_id']]
             for i in range(len(self.sample_client)):
-                result.append([self.sample_client[i], i, -1, -1])
+                results.append([self.sample_client[i], i, -1, -1])
 
             with open(os.path.join(file_path, '../client_data_mapping', 'result.csv'), 'w') as csvFile:
                 writer = csv.writer(csvFile)
@@ -138,4 +187,3 @@ def mask_tokens(inputs, tokenizer, args, device='cpu') -> Tuple[torch.Tensor, to
 
     # The rest of the time (10% of the time) we keep the masked input tokens unchanged
     return inputs, labels
-
