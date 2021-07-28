@@ -87,4 +87,8 @@ def lp_gurobi(data, systems, budget, preference, data_trans_size, init_values = 
         m.write('temp.mst')
     m.write('model.lp')
 
+<<<<<<< HEAD
     return result, m.objVal, lpruntime
+=======
+    return result, m.objVal, lpruntime
+>>>>>>> 2af119c2efb3f007f2279a2425aa0b3adb1bc8d6
