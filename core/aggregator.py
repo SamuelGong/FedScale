@@ -521,7 +521,7 @@ class Aggregator(object):
                     self.executor_info_handler(executorId, results)
 
                 else:
-                    logging.error("Unknown message types!")
+                    logging.error(f"Unknown message types: {event_msg}")
 
             # execute every 100 ms
             time.sleep(0.1)
