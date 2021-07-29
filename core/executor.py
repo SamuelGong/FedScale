@@ -255,6 +255,30 @@ class Executor(object):
 
         return testResults
 
+    def all_testing_handler(self, clientId):
+        """Test model"""
+        evalStart = time.time()
+        device = self.device
+        data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
+                                     collate_fn=self.collate_fn)
+
+        if self.task == 'voice':
+            criterion = CTCLoss(reduction='mean').to(device=device)
+        else:
+            criterion = torch.nn.CrossEntropyLoss().to(device=device)
+
+        all_test_res = test_model(clientId, self.model, data_loader, device=device, criterion=criterion,
+                              tokenizer=tokenizer)
+
+        test_loss, acc, acc_5, testResults = all_test_res
+        logging.info(
+            "After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
+            .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
+                    test_loss, acc * 100., acc_5 * 100.))
+
+        gc.collect()
+
+        return testResults
 
     def event_monitor(self):
         """Activate event handler once receiving new message"""
@@ -286,6 +310,13 @@ class Executor(object):
                 elif event_msg == 'test':
                     test_res = self.testing_handler(args=self.args)
                     self.push_msg_to_server(event_msg, test_res)
+
+                elif event_msg == "all_test":
+                    clientId = event_dict['clientId']
+
+                    all_test_res = self.all_testing_handler(clientId=clientId)
+                    self.push_msg_to_server('all_test_nowait', None)
+                    self.push_msg_to_server_asyn(event_msg, all_test_res)
 
                 elif event_msg == 'stop':
                     self.stop()

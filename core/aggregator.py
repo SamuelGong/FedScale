@@ -67,6 +67,7 @@ class Aggregator(object):
         # ======== Task specific ============
         self.imdb = None           # object detection
 
+        self.test_mode = self.args.test_mode
 
     def setup_env(self):
         self.setup_seed(seed=self.this_rank)
@@ -390,43 +391,49 @@ class Aggregator(object):
     def testing_completion_handler(self, results):
         self.test_result_accumulator.append(results)
 
+        if self.test_mode == "all" and len(self.test_result_accumulator) == len(self.client_manager.feasibleClients):
+            pass
+        elif len(self.test_result_accumulator) == len(self.executors):
+            pass
+        else:
+            return
+
         # Have collected all testing results
-        if len(self.test_result_accumulator) == len(self.executors):
-            accumulator = self.test_result_accumulator[0]
-            for i in range(1, len(self.test_result_accumulator)):
-                if self.args.task == "detection":
-                    for key in accumulator:
-                        if key == "boxes":
-                            for j in range(self.imdb.num_classes):
-                                accumulator[key][j] = accumulator[key][j] + self.test_result_accumulator[i][key][j]
-                        else:
-                            accumulator[key] += self.test_result_accumulator[i][key]
-                else:
-                    for key in accumulator:
-                        accumulator[key] += self.test_result_accumulator[i][key]
+        accumulator = self.test_result_accumulator[0]
+        for i in range(1, len(self.test_result_accumulator)):
             if self.args.task == "detection":
-                self.testing_history['perf'][self.epoch] = {'round': self.epoch, 'clock': self.global_virtual_clock,
-                    'top_1': round(accumulator['top_1']*100.0/len(self.test_result_accumulator), 4),
-                    'top_5': round(accumulator['top_5']*100.0/len(self.test_result_accumulator), 4),
-                    'loss': accumulator['test_loss'],
-                    'test_len': accumulator['test_len']
-                    }
+                for key in accumulator:
+                    if key == "boxes":
+                        for j in range(self.imdb.num_classes):
+                            accumulator[key][j] = accumulator[key][j] + self.test_result_accumulator[i][key][j]
+                    else:
+                        accumulator[key] += self.test_result_accumulator[i][key]
             else:
-                self.testing_history['perf'][self.epoch] = {'round': self.epoch, 'clock': self.global_virtual_clock,
-                    'top_1': round(accumulator['top_1']/accumulator['test_len']*100.0, 4),
-                    'top_5': round(accumulator['top_5']/accumulator['test_len']*100.0, 4),
-                    'loss': accumulator['test_loss']/accumulator['test_len'],
-                    'test_len': accumulator['test_len']
-                    }
+                for key in accumulator:
+                    accumulator[key] += self.test_result_accumulator[i][key]
+        if self.args.task == "detection":
+            self.testing_history['perf'][self.epoch] = {'round': self.epoch, 'clock': self.global_virtual_clock,
+                'top_1': round(accumulator['top_1']*100.0/len(self.test_result_accumulator), 4),
+                'top_5': round(accumulator['top_5']*100.0/len(self.test_result_accumulator), 4),
+                'loss': accumulator['test_loss'],
+                'test_len': accumulator['test_len']
+                }
+        else:
+            self.testing_history['perf'][self.epoch] = {'round': self.epoch, 'clock': self.global_virtual_clock,
+                'top_1': round(accumulator['top_1']/accumulator['test_len']*100.0, 4),
+                'top_5': round(accumulator['top_5']/accumulator['test_len']*100.0, 4),
+                'loss': accumulator['test_loss']/accumulator['test_len'],
+                'test_len': accumulator['test_len']
+                }
 
 
-            logging.info("FL Testing in epoch: {}, virtual_clock: {}, top_1: {} %, top_5: {} %, test loss: {:.4f}, test len: {}"
-                    .format(self.epoch, self.global_virtual_clock, self.testing_history['perf'][self.epoch]['top_1'],
-                    self.testing_history['perf'][self.epoch]['top_5'], self.testing_history['perf'][self.epoch]['loss'],
-                    self.testing_history['perf'][self.epoch]['test_len']))
+        logging.info("FL Testing in epoch: {}, virtual_clock: {}, top_1: {} %, top_5: {} %, test loss: {:.4f}, test len: {}"
+                .format(self.epoch, self.global_virtual_clock, self.testing_history['perf'][self.epoch]['top_1'],
+                self.testing_history['perf'][self.epoch]['top_5'], self.testing_history['perf'][self.epoch]['loss'],
+                self.testing_history['perf'][self.epoch]['test_len']))
 
 
-            self.event_queue.append('start_round')
+        self.event_queue.append('start_round')
 
     def get_client_conf(self, clientId):
         # learning rate scheduler
@@ -462,14 +469,22 @@ class Aggregator(object):
                     self.broadcast_msg(send_msg)
 
                 elif event_msg == 'test':
-                    self.broadcast_msg(send_msg)
+                    if self.test_mode == "all":
+                        for executorId in self.executors:
+                            next_clientId = self.resource_manager.get_next_all_test_task()
+                            if next_clientId is not None:
+                                self.server_event_queue[executorId].put(
+                                    {'event': 'all_test', 'clientId': next_clientId}
+                                )
+                    else:
+                        self.broadcast_msg(send_msg)
 
             elif not self.client_event_queue.empty():
 
                 event_dict = self.client_event_queue.get()
                 event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
 
-                if event_msg != 'train_nowait':
+                if event_msg != 'train_nowait' and event_msg != 'all_test_nowait':
                     logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
 
                 # collect training returns from the executor
@@ -482,6 +497,12 @@ class Aggregator(object):
                         runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
                         self.server_event_queue[executorId].put(runtime_profile)
 
+                if event_msg == 'all_test_nowait':
+                    next_clientId = self.resource_manager.get_next_task()
+
+                    if next_clientId is not None:
+                        runtime_profile = {'event': 'all_test', 'clientId': next_clientId}
+                        self.server_event_queue[executorId].put(runtime_profile)
 
                 elif event_msg == 'train':
                     # push training results
@@ -490,7 +511,7 @@ class Aggregator(object):
                     if len(self.stats_util_accumulator) == self.tasks_round:
                         self.round_completion_handler()
 
-                elif event_msg == 'test':
+                elif event_msg == 'test' or event_msg == 'all_test':
                     self.testing_completion_handler(results)
 
                 elif event_msg == 'report_executor_info':
