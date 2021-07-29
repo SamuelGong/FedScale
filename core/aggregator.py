@@ -392,7 +392,7 @@ class Aggregator(object):
         self.test_result_accumulator.append(results)
 
         if self.test_mode == "all" and len(self.test_result_accumulator) == len(self.client_manager.feasibleClients):
-            pass
+            logging.info(f"{len(self.test_result_accumulator)}/{len(self.client_manager.feasibleClients)}")
         elif len(self.test_result_accumulator) == len(self.executors):
             pass
         else:
@@ -512,9 +512,7 @@ class Aggregator(object):
                         self.round_completion_handler()
 
                 elif event_msg == 'test' or event_msg == 'all_test':
-                    logging.info(f"here 1")
                     self.testing_completion_handler(results)
-                    logging.info(f"here 2")
 
                 elif event_msg == 'report_executor_info':
                     self.executor_info_handler(executorId, results)
