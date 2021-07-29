@@ -469,8 +469,10 @@ class Aggregator(object):
                     self.broadcast_msg(send_msg)
 
                 elif event_msg == 'test':
+                    logging.info(f"here 1")
                     if self.test_mode == "all":
                         for executorId in self.executors:
+                            logging.info(f"here 2 Exe {executorId}")
                             next_clientId = self.resource_manager.get_next_all_test_task()
                             if next_clientId is not None:
                                 self.server_event_queue[executorId].put(
