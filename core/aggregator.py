@@ -500,7 +500,7 @@ class Aggregator(object):
                         runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
                         self.server_event_queue[executorId].put(runtime_profile)
 
-                if event_msg == 'all_test_nowait':
+                elif event_msg == 'all_test_nowait':
                     next_clientId = self.resource_manager.get_next_task()
 
                     if next_clientId is not None:
