@@ -159,8 +159,4 @@ def run_select_by_category(request_list, data_distribution, client_info, budget,
     logging.info(f"LP solver took {finish_time - start_time:.2f} sec")
 
     # [TODO]
-<<<<<<< HEAD
     return result, test_duration, time.time()-global_start_time
-=======
-    return result, test_duration, time.time()-global_start_time
->>>>>>> 2af119c2efb3f007f2279a2425aa0b3adb1bc8d6
