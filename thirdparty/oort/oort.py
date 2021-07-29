@@ -333,11 +333,7 @@ class _training_selector(object):
         totalSc = max(1e-4, float(sum([scores[key] for key in tempPickedClients])))
         self.exploitClients = list(np2.random.choice(tempPickedClients, exploitLen, p=[scores[key]/totalSc for key in tempPickedClients], replace=False))
 
-<<<<<<< HEAD
         pickedClients = []
-=======
-        pickedClients = []  
->>>>>>> 2af119c2efb3f007f2279a2425aa0b3adb1bc8d6
 
         # exploration
         _unexplored = [x for x in list(self.unexplored) if int(x) in feasible_clients]
@@ -380,13 +376,8 @@ class _training_selector(object):
         feasible_rewards = [self.totalArms[x]['reward'] for x in list(self.totalArms.keys()) if int(x) not in self.blacklist]
 
         # we report mean instead of median
-<<<<<<< HEAD
         if len(feasible_rewards) > 0:
-=======
-        if len(feasible_rewards) > 0:   
->>>>>>> 2af119c2efb3f007f2279a2425aa0b3adb1bc8d6
             return sum(feasible_rewards)/float(len(feasible_rewards))
-
         return 0
 
     def get_client_reward(self, armId):
@@ -404,8 +395,4 @@ class _training_selector(object):
         _range = max(_max - _min, thres)
         _avg = sum(aList)/max(1e-4, float(len(aList)))
 
-<<<<<<< HEAD
         return float(_max), float(_min), float(_range), float(_avg), float(clip_value)
-=======
-        return float(_max), float(_min), float(_range), float(_avg), float(clip_value)
->>>>>>> 2af119c2efb3f007f2279a2425aa0b3adb1bc8d6
