@@ -469,12 +469,9 @@ class Aggregator(object):
                     self.broadcast_msg(send_msg)
 
                 elif event_msg == 'test':
-                    logging.info(f"here 1")
                     if self.test_mode == "all":
                         for executorId in self.executors:
-                            logging.info(f"here 2 Exe {executorId}")
                             next_clientId = self.resource_manager.get_next_all_test_task()
-                            logging.info(f"here 3 Exe {next_clientId}")
                             if next_clientId is not None:
                                 self.server_event_queue[executorId].put(
                                     {'event': 'all_test', 'clientId': next_clientId}
@@ -515,7 +512,9 @@ class Aggregator(object):
                         self.round_completion_handler()
 
                 elif event_msg == 'test' or event_msg == 'all_test':
+                    logging.info(f"here 1")
                     self.testing_completion_handler(results)
+                    logging.info(f"here 2")
 
                 elif event_msg == 'report_executor_info':
                     self.executor_info_handler(executorId, results)
