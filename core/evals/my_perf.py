@@ -51,15 +51,17 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.savefig(name, bbox_inches='tight')
 
 def run(task):
-    total_workers = 200
-    local_step_list = np.arange(2, 10, 2)
+    total_workers = 10
+    # local_step_list = np.arange(2, 10, 2)
+    local_step_list = [4]
     label_list = [str(i) for i in local_step_list]
 
     x_list_list = []
     y_list_list = []
     culmu_time_in_hrs_list = []
     for local_step in local_step_list:
-        log_file = f'{task}_logging_ls{local_step}_tw{total_workers}'
+        # log_file = f'{task}_logging_ls{local_step}_tw{total_workers}'
+        log_file = f'{task}_logging'
         with open(log_file, 'r') as file:
             lines = file.readlines()
 
@@ -89,10 +91,14 @@ def run(task):
         y_list_list.append(y_list)
         x_list_list.append(x_list)
 
+    # plot_line(y_list_list, x_list_list,
+    #           label_list, "Training Rounds", "Accuracy (%)", f"{task}_round_to_acc_tw{total_workers}")
+    # plot_line(y_list_list, culmu_time_in_hrs_list,
+    #         label_list, " Training Time (h)", "Accuracy (%)", f"{task}_time_to_acc_tw{total_workers}")
     plot_line(y_list_list, x_list_list,
-              label_list, "Training Rounds", "Accuracy (%)", f"{task}_round_to_acc_tw{total_workers}")
+              label_list, "Training Rounds", "Accuracy (%)", f"{task}_round_to_acc")
     plot_line(y_list_list, culmu_time_in_hrs_list,
-            label_list, " Training Time (h)", "Accuracy (%)", f"{task}_time_to_acc_tw{total_workers}")
+            label_list, " Training Time (h)", "Accuracy (%)", f"{task}_time_to_acc")
 
 
 run(sys.argv[1])
