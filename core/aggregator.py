@@ -474,6 +474,7 @@ class Aggregator(object):
                         for executorId in self.executors:
                             logging.info(f"here 2 Exe {executorId}")
                             next_clientId = self.resource_manager.get_next_all_test_task()
+                            logging.info(f"here 3 Exe {next_clientId}")
                             if next_clientId is not None:
                                 self.server_event_queue[executorId].put(
                                     {'event': 'all_test', 'clientId': next_clientId}
