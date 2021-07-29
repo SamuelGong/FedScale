@@ -31,6 +31,8 @@ class Executor(object):
         self.epoch = 0
         self.start_run_time = time.time()
 
+        # JZF
+        self.test_mode = args.test_mode
 
     def setup_env(self):
         logging.info(f"(EXECUTOR:{self.this_rank}) is setting up environ ...")
@@ -121,6 +123,11 @@ class Executor(object):
 
         return training_sets, testing_sets
 
+    def init_data_all_test(self):
+        all_test_dataset = init_dataset_all_test()
+        all_testing_sets = DataPartitioner(data=all_test_dataset, numOfClass=self.args.num_class, isTest=True)
+        all_testing_sets.partition_data_helper(num_clients=self.args.total_worker, data_map_file=self.args.data_map_file)
+        return all_testing_sets
 
     def run(self):
         self.setup_env()
