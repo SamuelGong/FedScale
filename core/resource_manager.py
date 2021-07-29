@@ -16,7 +16,7 @@ class ResourceManager(object):
         self.client_run_queue_idx = 0
 
     def register_all_test_tasks(self, clientsToRun):
-        self.client_all_queue = clientsToRun
+        self.client_all_test_queue = clientsToRun
         self.client_all_test_queue_idx = 0
 
     def get_next_task(self):
