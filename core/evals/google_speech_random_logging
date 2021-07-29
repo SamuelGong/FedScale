@@ -164,9 +164,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:19 INFO     [client.py:15] Start to train (CLIENT: 382) ...
 (07-29) 11:33:19 INFO     [client.py:15] Start to train (CLIENT: 344) ...
 (07-29) 11:33:19 INFO     [client.py:15] Start to train (CLIENT: 1466) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:20 INFO     [client.py:170] Training of (CLIENT: 1466) completes, {'clientId': 1466, 'moving_loss': 16.73698574472247, 'trained_size': 80, 'success': True, 'utility': 114.5504117140677}
 (07-29) 11:33:20 INFO     [client.py:170] Training of (CLIENT: 344) completes, {'clientId': 344, 'moving_loss': 18.234949113236418, 'trained_size': 80, 'success': True, 'utility': 119.56671821530168}
 (07-29) 11:33:20 INFO     [client.py:170] Training of (CLIENT: 1035) completes, {'clientId': 1035, 'moving_loss': 15.201702177232354, 'trained_size': 80, 'success': True, 'utility': 109.17020888021679}
@@ -188,15 +185,11 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:23 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:23 INFO     [client.py:15] Start to train (CLIENT: 184) ...
 (07-29) 11:33:24 INFO     [aggregator.py:469] Round 1: Receive (Event:TRAIN) from (Executor:3)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:24 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:24 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:24 INFO     [client.py:15] Start to train (CLIENT: 50) ...
 (07-29) 11:33:24 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:24 INFO     [client.py:15] Start to train (CLIENT: 141) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:24 INFO     [client.py:15] Start to train (CLIENT: 1822) ...
 (07-29) 11:33:25 INFO     [aggregator.py:469] Round 1: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:33:25 INFO     [client.py:170] Training of (CLIENT: 184) completes, {'clientId': 184, 'moving_loss': 25.053636586952543, 'trained_size': 80, 'success': True, 'utility': 400.428862791503}
@@ -215,11 +208,8 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:28 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:28 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:29 INFO     [client.py:15] Start to train (CLIENT: 418) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:29 INFO     [client.py:15] Start to train (CLIENT: 700) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:29 INFO     [client.py:170] Training of (CLIENT: 1367) completes, {'clientId': 1367, 'moving_loss': 15.404632189128511, 'trained_size': 80, 'success': True, 'utility': 113.821332231955}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:29 INFO     [aggregator.py:469] Round 1: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:33:29 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:30 INFO     [client.py:15] Start to train (CLIENT: 1603) ...
@@ -254,30 +244,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:40 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:33:40 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:33:40 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:41 INFO     [utils_model.py:358] Rank 1: Test set: Average loss: 11.6842, Top-1 Accuracy: 8.0/302 (0.0265), Top-5 Accuracy: 0.1358
 (07-29) 11:33:41 INFO     [executor.py:243] After aggregation epoch 2, CumulTime 48.5054, eval_time 1.034, test_loss 11.6842, test_accuracy 2.65%, test_5_accuracy 13.58% 
 
@@ -327,9 +293,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:44 INFO     [client.py:15] Start to train (CLIENT: 83) ...
 (07-29) 11:33:44 INFO     [aggregator.py:469] Round 2: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:33:45 INFO     [client.py:170] Training of (CLIENT: 2104) completes, {'clientId': 2104, 'moving_loss': 21.159789048077563, 'trained_size': 80, 'success': True, 'utility': 133.39933504119588}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:45 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:45 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:45 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
@@ -338,9 +301,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:45 INFO     [client.py:15] Start to train (CLIENT: 1424) ...
 (07-29) 11:33:45 INFO     [client.py:15] Start to train (CLIENT: 1877) ...
 (07-29) 11:33:45 INFO     [client.py:15] Start to train (CLIENT: 174) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:46 INFO     [aggregator.py:469] Round 2: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:33:46 INFO     [client.py:170] Training of (CLIENT: 83) completes, {'clientId': 83, 'moving_loss': 28.756279104333686, 'trained_size': 80, 'success': True, 'utility': 428.9990515930491}
 (07-29) 11:33:46 INFO     [aggregator.py:469] Round 2: Receive (Event:TRAIN) from (Executor:1)
@@ -365,8 +325,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:33:51 INFO     [client.py:15] Start to train (CLIENT: 478) ...
 (07-29) 11:33:51 INFO     [client.py:15] Start to train (CLIENT: 131) ...
 (07-29) 11:33:51 INFO     [client.py:170] Training of (CLIENT: 2112) completes, {'clientId': 2112, 'moving_loss': 15.888348279660494, 'trained_size': 80, 'success': True, 'utility': 115.59455395127608}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:33:51 INFO     [aggregator.py:469] Round 2: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:33:52 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:33:52 INFO     [client.py:15] Start to train (CLIENT: 1254) ...
@@ -403,34 +361,10 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:34:00 INFO     [executor.py:259] Executor 6: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:34:07 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:34:07 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:07 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:34:07 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
 (07-29) 11:34:07 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:34:07 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:08 INFO     [utils_model.py:358] Rank 4: Test set: Average loss: 9.7174, Top-1 Accuracy: 9.0/302 (0.0298), Top-5 Accuracy: 0.1589
 (07-29) 11:34:08 INFO     [executor.py:243] After aggregation epoch 3, CumulTime 65.6825, eval_time 1.0789, test_loss 9.7174, test_accuracy 2.98%, test_5_accuracy 15.89% 
 
@@ -486,8 +420,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:34:13 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:34:13 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:34:13 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:13 INFO     [aggregator.py:469] Round 3: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:34:13 INFO     [client.py:15] Start to train (CLIENT: 1213) ...
 (07-29) 11:34:13 INFO     [client.py:15] Start to train (CLIENT: 174) ...
@@ -517,8 +449,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:34:18 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:34:18 INFO     [client.py:15] Start to train (CLIENT: 12) ...
 (07-29) 11:34:18 INFO     [client.py:15] Start to train (CLIENT: 591) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:18 INFO     [aggregator.py:469] Round 3: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:34:19 INFO     [aggregator.py:469] Round 3: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:34:20 INFO     [aggregator.py:469] Round 3: Receive (Event:TRAIN) from (Executor:5)
@@ -551,42 +481,18 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:34:29 INFO     [executor.py:259] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:34:29 INFO     [executor.py:259] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:34:32 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:33 INFO     [utils_model.py:358] Rank 2: Test set: Average loss: 5.9333, Top-1 Accuracy: 10.0/302 (0.0331), Top-5 Accuracy: 0.1225
 (07-29) 11:34:33 INFO     [executor.py:243] After aggregation epoch 4, CumulTime 96.8781, eval_time 0.6618, test_loss 5.9333, test_accuracy 3.31%, test_5_accuracy 12.25% 
 
 (07-29) 11:34:33 INFO     [aggregator.py:469] Round 4: Receive (Event:TEST) from (Executor:2)
 (07-29) 11:34:33 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:34 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:34:34 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:34:34 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
 (07-29) 11:34:34 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:34 INFO     [utils_model.py:358] Rank 2: Test set: Average loss: 6.2603, Top-1 Accuracy: 10.0/302 (0.0331), Top-5 Accuracy: 0.1225
 (07-29) 11:34:34 INFO     [executor.py:243] After aggregation epoch 4, CumulTime 97.9733, eval_time 0.6791, test_loss 6.2603, test_accuracy 3.31%, test_5_accuracy 12.25% 
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:34 INFO     [aggregator.py:469] Round 4: Receive (Event:TEST) from (Executor:2)
 (07-29) 11:34:35 INFO     [utils_model.py:358] Rank 3: Test set: Average loss: 10.6577, Top-1 Accuracy: 6.0/302 (0.0199), Top-5 Accuracy: 0.149
 (07-29) 11:34:35 INFO     [executor.py:243] After aggregation epoch 4, CumulTime 95.7955, eval_time 0.8154, test_loss 10.6577, test_accuracy 1.99%, test_5_accuracy 14.90% 
@@ -622,9 +528,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:34:37 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:34:37 INFO     [client.py:15] Start to train (CLIENT: 266) ...
 (07-29) 11:34:37 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:37 INFO     [client.py:15] Start to train (CLIENT: 2048) ...
 (07-29) 11:34:37 INFO     [aggregator.py:469] Round 4: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:34:38 INFO     [aggregator.py:469] Round 4: Receive (Event:TRAIN) from (Executor:6)
@@ -704,30 +607,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:34:58 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:34:58 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:34:58 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:34:59 INFO     [utils_model.py:358] Rank 5: Test set: Average loss: 4.665, Top-1 Accuracy: 11.0/302 (0.0364), Top-5 Accuracy: 0.1225
 (07-29) 11:34:59 INFO     [executor.py:243] After aggregation epoch 5, CumulTime 114.162, eval_time 1.0668, test_loss 4.665, test_accuracy 3.64%, test_5_accuracy 12.25% 
 
@@ -765,8 +644,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:00 INFO     [client.py:15] Start to train (CLIENT: 1298) ...
 (07-29) 11:35:00 INFO     [client.py:15] Start to train (CLIENT: 1039) ...
 (07-29) 11:35:00 INFO     [client.py:15] Start to train (CLIENT: 1866) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:01 INFO     [client.py:170] Training of (CLIENT: 1144) completes, {'clientId': 1144, 'moving_loss': 20.708981556606563, 'trained_size': 80, 'success': True, 'utility': 131.97065389360665}
 (07-29) 11:35:01 INFO     [client.py:170] Training of (CLIENT: 1946) completes, {'clientId': 1946, 'moving_loss': 23.43030117563099, 'trained_size': 80, 'success': True, 'utility': 130.69311212544827}
 (07-29) 11:35:02 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
@@ -783,11 +660,8 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:03 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:03 INFO     [client.py:15] Start to train (CLIENT: 906) ...
 (07-29) 11:35:03 INFO     [client.py:170] Training of (CLIENT: 1060) completes, {'clientId': 1060, 'moving_loss': 21.888758546715607, 'trained_size': 80, 'success': True, 'utility': 135.67772823049413}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:04 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:04 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:04 INFO     [client.py:15] Start to train (CLIENT: 766) ...
 (07-29) 11:35:04 INFO     [client.py:15] Start to train (CLIENT: 1585) ...
 (07-29) 11:35:04 INFO     [aggregator.py:469] Round 5: Receive (Event:TRAIN) from (Executor:2)
@@ -813,9 +687,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:09 INFO     [aggregator.py:469] Round 5: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:35:09 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:09 INFO     [client.py:15] Start to train (CLIENT: 540) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:10 INFO     [aggregator.py:469] Round 5: Receive (Event:TRAIN) from (Executor:3)
 (07-29) 11:35:10 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:10 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
@@ -824,11 +695,7 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:10 INFO     [client.py:15] Start to train (CLIENT: 1032) ...
 (07-29) 11:35:10 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:10 INFO     [client.py:15] Start to train (CLIENT: 633) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:10 INFO     [client.py:15] Start to train (CLIENT: 2167) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:11 INFO     [aggregator.py:469] Round 5: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:35:12 INFO     [aggregator.py:469] Round 5: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:35:12 INFO     [aggregator.py:469] Round 5: Receive (Event:TRAIN) from (Executor:1)
@@ -858,33 +725,9 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:21 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:35:21 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:35:21 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:21 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:35:21 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:21 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:22 INFO     [utils_model.py:358] Rank 4: Test set: Average loss: 4.2718, Top-1 Accuracy: 15.0/302 (0.0497), Top-5 Accuracy: 0.1689
 (07-29) 11:35:22 INFO     [executor.py:243] After aggregation epoch 6, CumulTime 139.6593, eval_time 1.0331, test_loss 4.2718, test_accuracy 4.97%, test_5_accuracy 16.89% 
 
@@ -922,8 +765,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:23 INFO     [client.py:15] Start to train (CLIENT: 437) ...
 (07-29) 11:35:23 INFO     [client.py:15] Start to train (CLIENT: 775) ...
 (07-29) 11:35:23 INFO     [client.py:15] Start to train (CLIENT: 1732) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:23 INFO     [client.py:170] Training of (CLIENT: 437) completes, {'clientId': 437, 'moving_loss': 16.039765004873534, 'trained_size': 80, 'success': True, 'utility': 112.13909114943303}
 (07-29) 11:35:24 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:24 INFO     [client.py:15] Start to train (CLIENT: 2039) ...
@@ -963,19 +804,11 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:31 INFO     [client.py:15] Start to train (CLIENT: 619) ...
 (07-29) 11:35:31 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:31 INFO     [client.py:15] Start to train (CLIENT: 392) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:31 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:31 INFO     [client.py:15] Start to train (CLIENT: 1538) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:31 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:31 INFO     [client.py:15] Start to train (CLIENT: 1337) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:31 INFO     [client.py:15] Start to train (CLIENT: 1201) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:32 INFO     [aggregator.py:469] Round 6: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:35:33 INFO     [aggregator.py:469] Round 6: Receive (Event:TRAIN) from (Executor:3)
 (07-29) 11:35:33 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
@@ -1011,35 +844,11 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:41 INFO     [executor.py:259] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:35:41 INFO     [executor.py:259] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:35:44 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:45 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:35:45 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:35:45 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:35:45 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:35:45 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:45 INFO     [utils_model.py:358] Rank 2: Test set: Average loss: 4.4854, Top-1 Accuracy: 7.0/302 (0.0232), Top-5 Accuracy: 0.1424
 (07-29) 11:35:45 INFO     [executor.py:243] After aggregation epoch 7, CumulTime 168.8257, eval_time 1.2311, test_loss 4.4854, test_accuracy 2.32%, test_5_accuracy 14.24% 
 
@@ -1077,8 +886,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:46 INFO     [client.py:15] Start to train (CLIENT: 2007) ...
 (07-29) 11:35:46 INFO     [client.py:15] Start to train (CLIENT: 981) ...
 (07-29) 11:35:46 INFO     [client.py:15] Start to train (CLIENT: 1787) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:48 INFO     [client.py:170] Training of (CLIENT: 2007) completes, {'clientId': 2007, 'moving_loss': 21.503343938163965, 'trained_size': 80, 'success': True, 'utility': 125.20358513605562}
 (07-29) 11:35:48 INFO     [client.py:170] Training of (CLIENT: 1700) completes, {'clientId': 1700, 'moving_loss': 20.818278944170267, 'trained_size': 80, 'success': True, 'utility': 132.31845144214466}
 (07-29) 11:35:48 INFO     [client.py:170] Training of (CLIENT: 494) completes, {'clientId': 494, 'moving_loss': 19.79278153038919, 'trained_size': 80, 'success': True, 'utility': 120.1205133840749}
@@ -1092,9 +899,7 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:35:49 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:49 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:35:49 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:49 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:35:49 INFO     [client.py:15] Start to train (CLIENT: 267) ...
 (07-29) 11:35:49 INFO     [client.py:15] Start to train (CLIENT: 1479) ...
 (07-29) 11:35:49 INFO     [client.py:15] Start to train (CLIENT: 913) ...
@@ -1162,33 +967,9 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:36:15 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:36:15 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:36:15 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:15 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
 (07-29) 11:36:15 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:36:15 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:16 INFO     [utils_model.py:358] Rank 2: Test set: Average loss: 5.481, Top-1 Accuracy: 9.0/302 (0.0298), Top-5 Accuracy: 0.1656
 (07-29) 11:36:16 INFO     [executor.py:243] After aggregation epoch 8, CumulTime 199.7255, eval_time 0.8042, test_loss 5.481, test_accuracy 2.98%, test_5_accuracy 16.56% 
 
@@ -1226,10 +1007,6 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (07-29) 11:36:17 INFO     [client.py:15] Start to train (CLIENT: 874) ...
 (07-29) 11:36:17 INFO     [client.py:15] Start to train (CLIENT: 192) ...
 (07-29) 11:36:17 INFO     [client.py:15] Start to train (CLIENT: 113) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:18 INFO     [client.py:170] Training of (CLIENT: 1013) completes, {'clientId': 1013, 'moving_loss': 16.5145960538867, 'trained_size': 80, 'success': True, 'utility': 117.85064820067267}
 (07-29) 11:36:18 INFO     [client.py:170] Training of (CLIENT: 2119) completes, {'clientId': 2119, 'moving_loss': 17.489905572531093, 'trained_size': 80, 'success': True, 'utility': 108.73442953835284}
 (07-29) 11:36:18 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
@@ -1284,9 +1061,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:36:25 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:36:25 INFO     [client.py:15] Start to train (CLIENT: 1118) ...
 (07-29) 11:36:25 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:25 INFO     [client.py:15] Start to train (CLIENT: 1167) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:25 INFO     [client.py:15] Start to train (CLIENT: 1363) ...
 (07-29) 11:36:26 INFO     [aggregator.py:469] Round 8: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:36:26 INFO     [client.py:170] Training of (CLIENT: 1002) completes, {'clientId': 1002, 'moving_loss': 13.46295016310182, 'trained_size': 80, 'success': True, 'utility': 106.40648987335608}
@@ -1321,39 +1096,15 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:36:35 INFO     [executor.py:259] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:36:35 INFO     [executor.py:259] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:36:40 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:40 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:36:40 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:40 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:40 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:36:40 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:40 INFO     [utils_model.py:358] Rank 4: Test set: Average loss: 5.0057, Top-1 Accuracy: 15.0/302 (0.0497), Top-5 Accuracy: 0.2219
 (07-29) 11:36:40 INFO     [executor.py:243] After aggregation epoch 9, CumulTime 218.2614, eval_time 0.6823, test_loss 5.0057, test_accuracy 4.97%, test_5_accuracy 22.19% 
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:40 INFO     [aggregator.py:469] Round 9: Receive (Event:TEST) from (Executor:4)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:41 INFO     [utils_model.py:358] Rank 2: Test set: Average loss: 3.9263, Top-1 Accuracy: 13.0/302 (0.043), Top-5 Accuracy: 0.2152
 (07-29) 11:36:41 INFO     [executor.py:243] After aggregation epoch 9, CumulTime 224.702, eval_time 0.8601, test_loss 3.9263, test_accuracy 4.30%, test_5_accuracy 21.52% 
 
@@ -1391,9 +1142,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:36:43 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:36:43 INFO     [aggregator.py:469] Round 9: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:36:43 INFO     [client.py:15] Start to train (CLIENT: 870) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:43 INFO     [client.py:170] Training of (CLIENT: 1454) completes, {'clientId': 1454, 'moving_loss': 19.344981007726627, 'trained_size': 80, 'success': True, 'utility': 118.75391006039636}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:44 INFO     [client.py:170] Training of (CLIENT: 1828) completes, {'clientId': 1828, 'moving_loss': 16.183021876200826, 'trained_size': 80, 'success': True, 'utility': 116.6615677842746}
 (07-29) 11:36:44 INFO     [client.py:170] Training of (CLIENT: 239) completes, {'clientId': 239, 'moving_loss': 14.190578853465246, 'trained_size': 80, 'success': True, 'utility': 105.47707723063222}
 (07-29) 11:36:44 INFO     [client.py:170] Training of (CLIENT: 999) completes, {'clientId': 999, 'moving_loss': 13.143853616227375, 'trained_size': 80, 'success': True, 'utility': 105.13791367174461}
@@ -1411,8 +1160,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:36:45 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:36:45 INFO     [client.py:170] Training of (CLIENT: 870) completes, {'clientId': 870, 'moving_loss': 21.110665665664694, 'trained_size': 80, 'success': True, 'utility': 367.57075544751115}
 (07-29) 11:36:45 INFO     [client.py:15] Start to train (CLIENT: 85) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:46 INFO     [aggregator.py:469] Round 9: Receive (Event:TRAIN) from (Executor:3)
 (07-29) 11:36:46 INFO     [client.py:170] Training of (CLIENT: 1527) completes, {'clientId': 1527, 'moving_loss': 16.225610784140606, 'trained_size': 80, 'success': True, 'utility': 116.81497622078366}
 (07-29) 11:36:46 INFO     [client.py:170] Training of (CLIENT: 1918) completes, {'clientId': 1918, 'moving_loss': 16.239463355008144, 'trained_size': 80, 'success': True, 'utility': 116.864830815613}
@@ -1425,10 +1172,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:36:49 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:36:49 INFO     [client.py:15] Start to train (CLIENT: 716) ...
 (07-29) 11:36:49 INFO     [client.py:15] Start to train (CLIENT: 196) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:36:49 INFO     [aggregator.py:469] Round 9: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:36:50 INFO     [aggregator.py:469] Round 9: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:36:50 INFO     [client.py:170] Training of (CLIENT: 716) completes, {'clientId': 716, 'moving_loss': 17.319953483810604, 'trained_size': 80, 'success': True, 'utility': 332.93798566157614}
@@ -1479,30 +1222,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:05 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
 (07-29) 11:37:05 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:37:05 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:06 INFO     [utils_model.py:358] Rank 2: Test set: Average loss: 3.6246, Top-1 Accuracy: 17.0/302 (0.0563), Top-5 Accuracy: 0.1954
 (07-29) 11:37:06 INFO     [executor.py:243] After aggregation epoch 10, CumulTime 249.7595, eval_time 1.1009, test_loss 3.6246, test_accuracy 5.63%, test_5_accuracy 19.54% 
 
@@ -1540,9 +1259,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:07 INFO     [client.py:15] Start to train (CLIENT: 1024) ...
 (07-29) 11:37:07 INFO     [client.py:15] Start to train (CLIENT: 1719) ...
 (07-29) 11:37:07 INFO     [client.py:15] Start to train (CLIENT: 2067) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:08 INFO     [client.py:170] Training of (CLIENT: 2101) completes, {'clientId': 2101, 'moving_loss': 12.633576840051642, 'trained_size': 80, 'success': True, 'utility': 103.07685541615747}
 (07-29) 11:37:08 INFO     [client.py:170] Training of (CLIENT: 2067) completes, {'clientId': 2067, 'moving_loss': 13.174666258073966, 'trained_size': 80, 'success': True, 'utility': 105.26107696124055}
 (07-29) 11:37:08 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
@@ -1550,8 +1266,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:09 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:09 INFO     [aggregator.py:469] Round 10: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:37:09 INFO     [client.py:15] Start to train (CLIENT: 716) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:09 INFO     [client.py:170] Training of (CLIENT: 1312) completes, {'clientId': 1312, 'moving_loss': 12.196231715203783, 'trained_size': 80, 'success': True, 'utility': 101.27700070838583}
 (07-29) 11:37:09 INFO     [client.py:170] Training of (CLIENT: 1719) completes, {'clientId': 1719, 'moving_loss': 12.619926413273367, 'trained_size': 80, 'success': True, 'utility': 103.0211537188499}
 (07-29) 11:37:09 INFO     [aggregator.py:469] Round 10: Receive (Event:TRAIN) from (Executor:3)
@@ -1561,8 +1275,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:10 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:10 INFO     [client.py:170] Training of (CLIENT: 716) completes, {'clientId': 716, 'moving_loss': 17.078063672906072, 'trained_size': 80, 'success': True, 'utility': 330.60491149799765}
 (07-29) 11:37:10 INFO     [client.py:15] Start to train (CLIENT: 365) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:11 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:11 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:11 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
@@ -1571,16 +1283,9 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:11 INFO     [client.py:15] Start to train (CLIENT: 1574) ...
 (07-29) 11:37:11 INFO     [client.py:15] Start to train (CLIENT: 1531) ...
 (07-29) 11:37:11 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:11 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:11 INFO     [client.py:15] Start to train (CLIENT: 307) ...
 (07-29) 11:37:11 INFO     [client.py:15] Start to train (CLIENT: 741) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:12 INFO     [aggregator.py:469] Round 10: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:37:12 INFO     [client.py:170] Training of (CLIENT: 619) completes, {'clientId': 619, 'moving_loss': 17.57613298850037, 'trained_size': 80, 'success': True, 'utility': 335.3911911878461}
 (07-29) 11:37:12 INFO     [client.py:170] Training of (CLIENT: 1531) completes, {'clientId': 1531, 'moving_loss': 11.095524349779826, 'trained_size': 80, 'success': True, 'utility': 96.5988404597324}
@@ -1600,12 +1305,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:15 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:15 INFO     [client.py:15] Start to train (CLIENT: 119) ...
 (07-29) 11:37:16 INFO     [client.py:15] Start to train (CLIENT: 289) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:16 INFO     [aggregator.py:469] Round 10: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:37:17 INFO     [aggregator.py:469] Round 10: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:37:18 INFO     [aggregator.py:469] Round 10: Receive (Event:TRAIN) from (Executor:4)
@@ -1644,30 +1343,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:28 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:37:28 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:37:28 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:29 INFO     [utils_model.py:358] Rank 4: Test set: Average loss: 3.5965, Top-1 Accuracy: 25.0/302 (0.0828), Top-5 Accuracy: 0.2815
 (07-29) 11:37:29 INFO     [executor.py:243] After aggregation epoch 11, CumulTime 266.9157, eval_time 1.0236, test_loss 3.5965, test_accuracy 8.28%, test_5_accuracy 28.15% 
 
@@ -1705,9 +1380,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:30 INFO     [client.py:15] Start to train (CLIENT: 2007) ...
 (07-29) 11:37:30 INFO     [client.py:15] Start to train (CLIENT: 1882) ...
 (07-29) 11:37:30 INFO     [client.py:15] Start to train (CLIENT: 1076) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:31 INFO     [client.py:170] Training of (CLIENT: 2007) completes, {'clientId': 2007, 'moving_loss': 11.56874994470392, 'trained_size': 80, 'success': True, 'utility': 91.83473585571615}
 (07-29) 11:37:31 INFO     [client.py:170] Training of (CLIENT: 974) completes, {'clientId': 974, 'moving_loss': 14.120856840279284, 'trained_size': 80, 'success': True, 'utility': 108.97541283553313}
 (07-29) 11:37:31 INFO     [client.py:170] Training of (CLIENT: 1076) completes, {'clientId': 1076, 'moving_loss': 15.532482650435181, 'trained_size': 80, 'success': True, 'utility': 315.2901662957238}
@@ -1740,17 +1412,12 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:40 INFO     [client.py:15] Start to train (CLIENT: 749) ...
 (07-29) 11:37:40 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:40 INFO     [client.py:170] Training of (CLIENT: 1887) completes, {'clientId': 1887, 'moving_loss': 11.41372596936923, 'trained_size': 80, 'success': True, 'utility': 97.97419833935628}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:40 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:41 INFO     [client.py:15] Start to train (CLIENT: 1702) ...
 (07-29) 11:37:41 INFO     [client.py:15] Start to train (CLIENT: 1190) ...
 (07-29) 11:37:41 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:37:41 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:41 INFO     [client.py:15] Start to train (CLIENT: 64) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:42 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:37:42 INFO     [client.py:170] Training of (CLIENT: 749) completes, {'clientId': 749, 'moving_loss': 11.180040752864084, 'trained_size': 80, 'success': True, 'utility': 267.4925434817392}
 (07-29) 11:37:42 INFO     [client.py:170] Training of (CLIENT: 1702) completes, {'clientId': 1702, 'moving_loss': 10.156066078320125, 'trained_size': 80, 'success': True, 'utility': 92.41889185587124}
@@ -1768,14 +1435,12 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:45 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:37:45 INFO     [client.py:15] Start to train (CLIENT: 1757) ...
 (07-29) 11:37:45 INFO     [client.py:15] Start to train (CLIENT: 1015) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:45 INFO     [client.py:170] Training of (CLIENT: 909) completes, {'clientId': 909, 'moving_loss': 14.259081792970164, 'trained_size': 80, 'success': True, 'utility': 109.50747822814617}
 (07-29) 11:37:45 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:37:46 INFO     [client.py:170] Training of (CLIENT: 1757) completes, {'clientId': 1757, 'moving_loss': 14.739298372162022, 'trained_size': 80, 'success': True, 'utility': 111.33620224791332}
 (07-29) 11:37:46 INFO     [client.py:170] Training of (CLIENT: 445) completes, {'clientId': 445, 'moving_loss': 18.396774964963832, 'trained_size': 80, 'success': True, 'utility': 141.5418239844521}
 (07-29) 11:37:46 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:37:47 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:6)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:48 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:37:48 INFO     [client.py:170] Training of (CLIENT: 1015) completes, {'clientId': 1015, 'moving_loss': 14.893124811722227, 'trained_size': 80, 'success': True, 'utility': 246.98631384919742}
 (07-29) 11:37:49 INFO     [aggregator.py:469] Round 11: Receive (Event:TRAIN) from (Executor:1)
@@ -1794,35 +1459,11 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:52 INFO     [executor.py:259] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:37:52 INFO     [executor.py:259] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:37:56 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:56 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:37:56 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:37:56 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:37:56 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
 (07-29) 11:37:56 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:57 INFO     [utils_model.py:358] Rank 3: Test set: Average loss: 3.4806, Top-1 Accuracy: 20.0/302 (0.0662), Top-5 Accuracy: 0.2748
 (07-29) 11:37:57 INFO     [executor.py:243] After aggregation epoch 12, CumulTime 297.6879, eval_time 0.7432, test_loss 3.4806, test_accuracy 6.62%, test_5_accuracy 27.48% 
 
@@ -1860,9 +1501,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:37:58 INFO     [client.py:15] Start to train (CLIENT: 682) ...
 (07-29) 11:37:58 INFO     [client.py:15] Start to train (CLIENT: 1060) ...
 (07-29) 11:37:58 INFO     [client.py:15] Start to train (CLIENT: 152) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:37:59 INFO     [client.py:170] Training of (CLIENT: 703) completes, {'clientId': 703, 'moving_loss': 11.741925577981888, 'trained_size': 80, 'success': True, 'utility': 99.37283034654274}
 (07-29) 11:37:59 INFO     [client.py:170] Training of (CLIENT: 1060) completes, {'clientId': 1060, 'moving_loss': 8.129084838463603, 'trained_size': 80, 'success': True, 'utility': 82.68349502257323}
 (07-29) 11:37:59 INFO     [client.py:170] Training of (CLIENT: 1619) completes, {'clientId': 1619, 'moving_loss': 10.676831742914592, 'trained_size': 80, 'success': True, 'utility': 94.7587225314439}
@@ -1884,21 +1522,17 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:01 INFO     [client.py:15] Start to train (CLIENT: 1746) ...
 (07-29) 11:38:01 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:3)
 (07-29) 11:38:01 INFO     [client.py:15] Start to train (CLIENT: 1797) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:01 INFO     [client.py:170] Training of (CLIENT: 1496) completes, {'clientId': 1496, 'moving_loss': 12.325272841734332, 'trained_size': 80, 'success': True, 'utility': 101.81136704660523}
 (07-29) 11:38:02 INFO     [client.py:170] Training of (CLIENT: 1990) completes, {'clientId': 1990, 'moving_loss': 11.50595562655009, 'trained_size': 80, 'success': True, 'utility': 84.80107467829524}
 (07-29) 11:38:02 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:38:02 INFO     [client.py:170] Training of (CLIENT: 554) completes, {'clientId': 554, 'moving_loss': 10.299093190273581, 'trained_size': 80, 'success': True, 'utility': 93.067380821747}
 (07-29) 11:38:02 INFO     [client.py:170] Training of (CLIENT: 1797) completes, {'clientId': 1797, 'moving_loss': 14.713434699995952, 'trained_size': 80, 'success': True, 'utility': 99.73104760904332}
 (07-29) 11:38:02 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:1)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:03 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:38:04 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:38:04 INFO     [client.py:170] Training of (CLIENT: 1746) completes, {'clientId': 1746, 'moving_loss': 13.592911798233645, 'trained_size': 80, 'success': True, 'utility': 154.8479783919834}
 (07-29) 11:38:04 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:04 INFO     [client.py:15] Start to train (CLIENT: 103) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:05 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:38:05 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:05 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
@@ -1909,34 +1543,22 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:06 INFO     [client.py:15] Start to train (CLIENT: 749) ...
 (07-29) 11:38:06 INFO     [client.py:170] Training of (CLIENT: 1126) completes, {'clientId': 1126, 'moving_loss': 11.986653322515028, 'trained_size': 80, 'success': True, 'utility': 96.94089026232317}
 (07-29) 11:38:06 INFO     [client.py:170] Training of (CLIENT: 1887) completes, {'clientId': 1887, 'moving_loss': 11.19225758578313, 'trained_size': 80, 'success': True, 'utility': 97.01901169174839}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:07 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:38:07 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:07 INFO     [client.py:15] Start to train (CLIENT: 540) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:07 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:38:08 INFO     [client.py:170] Training of (CLIENT: 749) completes, {'clientId': 749, 'moving_loss': 12.208227219966563, 'trained_size': 80, 'success': True, 'utility': 279.5221891152579}
 (07-29) 11:38:08 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:38:08 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:08 INFO     [client.py:15] Start to train (CLIENT: 1015) ...
 (07-29) 11:38:09 INFO     [client.py:170] Training of (CLIENT: 540) completes, {'clientId': 540, 'moving_loss': 14.972164240879227, 'trained_size': 80, 'success': True, 'utility': 309.5510477152792}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:09 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:38:09 INFO     [client.py:170] Training of (CLIENT: 103) completes, {'clientId': 103, 'moving_loss': 16.661340130971816, 'trained_size': 80, 'success': True, 'utility': 326.54643902241475}
 (07-29) 11:38:09 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:09 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:09 INFO     [client.py:15] Start to train (CLIENT: 404) ...
 (07-29) 11:38:09 INFO     [client.py:15] Start to train (CLIENT: 44) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:10 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:3)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:11 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:38:11 INFO     [client.py:170] Training of (CLIENT: 1015) completes, {'clientId': 1015, 'moving_loss': 13.831845642251004, 'trained_size': 80, 'success': True, 'utility': 238.02361175030538}
 (07-29) 11:38:12 INFO     [aggregator.py:469] Round 12: Receive (Event:TRAIN) from (Executor:1)
@@ -1959,34 +1581,10 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:16 INFO     [executor.py:259] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:38:21 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:38:21 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:22 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:22 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:38:22 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:38:22 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:22 INFO     [utils_model.py:358] Rank 1: Test set: Average loss: 3.4379, Top-1 Accuracy: 26.0/302 (0.0861), Top-5 Accuracy: 0.3046
 (07-29) 11:38:22 INFO     [executor.py:243] After aggregation epoch 13, CumulTime 329.3193, eval_time 0.7272, test_loss 3.4379, test_accuracy 8.61%, test_5_accuracy 30.46% 
 
@@ -2035,8 +1633,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:26 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:26 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:38:26 INFO     [client.py:15] Start to train (CLIENT: 270) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:26 INFO     [client.py:170] Training of (CLIENT: 1709) completes, {'clientId': 1709, 'moving_loss': 14.81719051647617, 'trained_size': 80, 'success': True, 'utility': 88.53413908327056}
 (07-29) 11:38:26 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:26 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
@@ -2045,9 +1641,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:27 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:27 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:27 INFO     [client.py:15] Start to train (CLIENT: 703) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:27 INFO     [client.py:15] Start to train (CLIENT: 913) ...
 (07-29) 11:38:27 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:38:27 INFO     [client.py:170] Training of (CLIENT: 267) completes, {'clientId': 267, 'moving_loss': 8.589115431989189, 'trained_size': 80, 'success': True, 'utility': 84.99085879259549}
@@ -2066,17 +1659,11 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:31 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:31 INFO     [client.py:15] Start to train (CLIENT: 727) ...
 (07-29) 11:38:31 INFO     [client.py:15] Start to train (CLIENT: 392) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:32 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:38:32 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:32 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:32 INFO     [client.py:15] Start to train (CLIENT: 46) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:32 INFO     [client.py:15] Start to train (CLIENT: 523) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:33 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:38:33 INFO     [client.py:170] Training of (CLIENT: 392) completes, {'clientId': 392, 'moving_loss': 13.994054902642386, 'trained_size': 80, 'success': True, 'utility': 299.26902842912307}
 (07-29) 11:38:33 INFO     [client.py:170] Training of (CLIENT: 523) completes, {'clientId': 523, 'moving_loss': 12.783459760825206, 'trained_size': 80, 'success': True, 'utility': 103.68649699384197}
@@ -2087,15 +1674,11 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:34 INFO     [client.py:170] Training of (CLIENT: 46) completes, {'clientId': 46, 'moving_loss': 12.137322315169705, 'trained_size': 80, 'success': True, 'utility': 278.7092801057871}
 (07-29) 11:38:34 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:35 INFO     [client.py:15] Start to train (CLIENT: 123) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:35 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:38:35 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:36 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:36 INFO     [client.py:15] Start to train (CLIENT: 107) ...
 (07-29) 11:38:36 INFO     [client.py:15] Start to train (CLIENT: 901) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:36 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:38:37 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:38:38 INFO     [aggregator.py:469] Round 13: Receive (Event:TRAIN) from (Executor:3)
@@ -2119,34 +1702,10 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:44 INFO     [executor.py:259] Executor 6: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:38:49 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:38:49 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:49 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:38:49 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:49 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:38:49 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:50 INFO     [utils_model.py:358] Rank 3: Test set: Average loss: 3.4874, Top-1 Accuracy: 18.0/302 (0.0596), Top-5 Accuracy: 0.2947
 (07-29) 11:38:50 INFO     [executor.py:243] After aggregation epoch 14, CumulTime 351.3405, eval_time 1.0264, test_loss 3.4874, test_accuracy 5.96%, test_5_accuracy 29.47% 
 
@@ -2184,11 +1743,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:51 INFO     [client.py:15] Start to train (CLIENT: 152) ...
 (07-29) 11:38:51 INFO     [client.py:15] Start to train (CLIENT: 135) ...
 (07-29) 11:38:51 INFO     [client.py:15] Start to train (CLIENT: 233) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:52 INFO     [client.py:170] Training of (CLIENT: 152) completes, {'clientId': 152, 'moving_loss': 12.923884390925597, 'trained_size': 80, 'success': True, 'utility': 287.5984354997847}
 (07-29) 11:38:52 INFO     [client.py:170] Training of (CLIENT: 1705) completes, {'clientId': 1705, 'moving_loss': 10.265623936571611, 'trained_size': 80, 'success': True, 'utility': 92.91603591768606}
 (07-29) 11:38:53 INFO     [client.py:170] Training of (CLIENT: 1812) completes, {'clientId': 1812, 'moving_loss': 9.094750968444284, 'trained_size': 80, 'success': True, 'utility': 75.39376204486467}
@@ -2197,13 +1751,9 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:53 INFO     [client.py:15] Start to train (CLIENT: 287) ...
 (07-29) 11:38:53 INFO     [client.py:170] Training of (CLIENT: 1873) completes, {'clientId': 1873, 'moving_loss': 10.408122337376415, 'trained_size': 80, 'success': True, 'utility': 93.55870288612152}
 (07-29) 11:38:53 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:53 INFO     [client.py:15] Start to train (CLIENT: 870) ...
 (07-29) 11:38:53 INFO     [client.py:170] Training of (CLIENT: 135) completes, {'clientId': 135, 'moving_loss': 14.236091479188573, 'trained_size': 80, 'success': True, 'utility': 301.8459631447916}
 (07-29) 11:38:53 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:4)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:54 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:54 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:38:54 INFO     [client.py:170] Training of (CLIENT: 287) completes, {'clientId': 287, 'moving_loss': 13.696670974153783, 'trained_size': 80, 'success': True, 'utility': 296.0721098560015}
@@ -2213,12 +1763,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:55 INFO     [client.py:15] Start to train (CLIENT: 328) ...
 (07-29) 11:38:55 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:55 INFO     [client.py:15] Start to train (CLIENT: 743) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:55 INFO     [client.py:15] Start to train (CLIENT: 1715) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:38:55 INFO     [client.py:170] Training of (CLIENT: 1794) completes, {'clientId': 1794, 'moving_loss': 10.356024996119327, 'trained_size': 80, 'success': True, 'utility': 93.32425741325967}
 (07-29) 11:38:55 INFO     [client.py:170] Training of (CLIENT: 870) completes, {'clientId': 870, 'moving_loss': 13.15824888898653, 'trained_size': 80, 'success': True, 'utility': 290.1944053380661}
 (07-29) 11:38:56 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:2)
@@ -2235,26 +1780,17 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:38:59 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:38:59 INFO     [client.py:15] Start to train (CLIENT: 421) ...
 (07-29) 11:38:59 INFO     [client.py:15] Start to train (CLIENT: 1179) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:00 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:39:00 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:00 INFO     [client.py:170] Training of (CLIENT: 1847) completes, {'clientId': 1847, 'moving_loss': 9.128396164246059, 'trained_size': 80, 'success': True, 'utility': 87.61838376808223}
 (07-29) 11:39:00 INFO     [client.py:15] Start to train (CLIENT: 280) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:00 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:39:01 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:01 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:01 INFO     [client.py:15] Start to train (CLIENT: 1442) ...
 (07-29) 11:39:01 INFO     [client.py:15] Start to train (CLIENT: 857) ...
 (07-29) 11:39:01 INFO     [client.py:170] Training of (CLIENT: 421) completes, {'clientId': 421, 'moving_loss': 15.43904714629804, 'trained_size': 80, 'success': True, 'utility': 314.34042332526604}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:01 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:5)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:02 INFO     [aggregator.py:469] Round 14: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:39:02 INFO     [client.py:170] Training of (CLIENT: 280) completes, {'clientId': 280, 'moving_loss': 13.164242103388416, 'trained_size': 80, 'success': True, 'utility': 290.26048553271227}
 (07-29) 11:39:02 INFO     [client.py:170] Training of (CLIENT: 1179) completes, {'clientId': 1179, 'moving_loss': 11.860355594211393, 'trained_size': 80, 'success': True, 'utility': 258.29150241043374}
@@ -2286,35 +1822,11 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:10 INFO     [executor.py:259] Executor 6: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:39:10 INFO     [executor.py:259] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:39:16 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:16 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:16 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:39:16 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:39:16 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
 (07-29) 11:39:16 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:17 INFO     [utils_model.py:358] Rank 3: Test set: Average loss: 3.2187, Top-1 Accuracy: 33.0/302 (0.1093), Top-5 Accuracy: 0.3808
 (07-29) 11:39:17 INFO     [executor.py:243] After aggregation epoch 15, CumulTime 377.7976, eval_time 0.7713, test_loss 3.2187, test_accuracy 10.93%, test_5_accuracy 38.08% 
 
@@ -2352,7 +1864,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:18 INFO     [client.py:15] Start to train (CLIENT: 442) ...
 (07-29) 11:39:18 INFO     [client.py:15] Start to train (CLIENT: 1947) ...
 (07-29) 11:39:18 INFO     [client.py:15] Start to train (CLIENT: 169) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:19 INFO     [client.py:170] Training of (CLIENT: 956) completes, {'clientId': 956, 'moving_loss': 6.938206455682402, 'trained_size': 80, 'success': True, 'utility': 76.38737872992435}
 (07-29) 11:39:19 INFO     [client.py:170] Training of (CLIENT: 1882) completes, {'clientId': 1882, 'moving_loss': 7.597407071582711, 'trained_size': 80, 'success': True, 'utility': 77.17750413249216}
 (07-29) 11:39:19 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
@@ -2360,7 +1871,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:20 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:20 INFO     [client.py:15] Start to train (CLIENT: 1866) ...
 (07-29) 11:39:20 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:5)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:21 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:39:21 INFO     [client.py:170] Training of (CLIENT: 442) completes, {'clientId': 442, 'moving_loss': 10.116837415175723, 'trained_size': 80, 'success': True, 'utility': 206.74534596724888}
 (07-29) 11:39:21 INFO     [client.py:170] Training of (CLIENT: 1866) completes, {'clientId': 1866, 'moving_loss': 9.674876426657836, 'trained_size': 80, 'success': True, 'utility': 90.20294382568254}
@@ -2397,9 +1907,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:26 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:5)
 (07-29) 11:39:27 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:27 INFO     [client.py:15] Start to train (CLIENT: 644) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:27 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:39:28 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:39:28 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
@@ -2407,9 +1914,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:28 INFO     [client.py:15] Start to train (CLIENT: 377) ...
 (07-29) 11:39:28 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:28 INFO     [client.py:15] Start to train (CLIENT: 431) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:28 INFO     [client.py:15] Start to train (CLIENT: 1722) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:29 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:39:29 INFO     [client.py:170] Training of (CLIENT: 377) completes, {'clientId': 377, 'moving_loss': 7.815639566118653, 'trained_size': 80, 'success': True, 'utility': 75.48245652931877}
 (07-29) 11:39:30 INFO     [aggregator.py:469] Round 15: Receive (Event:TRAIN) from (Executor:1)
@@ -2438,19 +1943,11 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:37 INFO     [executor.py:259] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:39:37 INFO     [executor.py:259] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:39:41 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:42 INFO     [utils_model.py:358] Rank 1: Test set: Average loss: 3.2151, Top-1 Accuracy: 29.0/302 (0.096), Top-5 Accuracy: 0.3576
 (07-29) 11:39:42 INFO     [executor.py:243] After aggregation epoch 16, CumulTime 409.2133, eval_time 0.7007, test_loss 3.2151, test_accuracy 9.60%, test_5_accuracy 35.76% 
 
 (07-29) 11:39:42 INFO     [aggregator.py:469] Round 16: Receive (Event:TEST) from (Executor:1)
 (07-29) 11:39:42 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:43 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:39:43 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:39:43 INFO     [utils_model.py:358] Rank 1: Test set: Average loss: 3.1929, Top-1 Accuracy: 29.0/302 (0.096), Top-5 Accuracy: 0.3576
@@ -2458,23 +1955,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 
 (07-29) 11:39:43 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:39:43 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:43 INFO     [aggregator.py:469] Round 16: Receive (Event:TEST) from (Executor:1)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:44 INFO     [utils_model.py:358] Rank 3: Test set: Average loss: 3.3997, Top-1 Accuracy: 29.0/302 (0.096), Top-5 Accuracy: 0.3212
 (07-29) 11:39:44 INFO     [executor.py:243] After aggregation epoch 16, CumulTime 404.9312, eval_time 0.771, test_loss 3.3997, test_accuracy 9.60%, test_5_accuracy 32.12% 
 
@@ -2504,26 +1985,15 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:45 INFO     [client.py:15] Start to train (CLIENT: 763) ...
 (07-29) 11:39:45 INFO     [client.py:15] Start to train (CLIENT: 669) ...
 (07-29) 11:39:45 INFO     [client.py:15] Start to train (CLIENT: 233) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:46 INFO     [client.py:170] Training of (CLIENT: 981) completes, {'clientId': 981, 'moving_loss': 8.742234628080002, 'trained_size': 80, 'success': True, 'utility': 85.7450833705075}
 (07-29) 11:39:46 INFO     [client.py:170] Training of (CLIENT: 763) completes, {'clientId': 763, 'moving_loss': 9.548637014835828, 'trained_size': 80, 'success': True, 'utility': 89.61251993709881}
 (07-29) 11:39:46 INFO     [client.py:170] Training of (CLIENT: 233) completes, {'clientId': 233, 'moving_loss': 8.59945568781043, 'trained_size': 80, 'success': True, 'utility': 85.04200276009833}
 (07-29) 11:39:46 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:46 INFO     [client.py:15] Start to train (CLIENT: 270) ...
 (07-29) 11:39:47 INFO     [aggregator.py:469] Round 16: Receive (Event:TRAIN) from (Executor:2)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:47 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:47 INFO     [client.py:15] Start to train (CLIENT: 476) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:47 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:47 INFO     [client.py:15] Start to train (CLIENT: 483) ...
 (07-29) 11:39:48 INFO     [aggregator.py:469] Round 16: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:39:48 INFO     [aggregator.py:469] Round 16: Receive (Event:TRAIN) from (Executor:3)
@@ -2553,12 +2023,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:39:52 INFO     [client.py:15] Start to train (CLIENT: 68) ...
 (07-29) 11:39:52 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:39:52 INFO     [client.py:15] Start to train (CLIENT: 756) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:52 INFO     [aggregator.py:469] Round 16: Receive (Event:TRAIN) from (Executor:6)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:39:53 INFO     [client.py:170] Training of (CLIENT: 1924) completes, {'clientId': 1924, 'moving_loss': 8.406426360742012, 'trained_size': 80, 'success': True, 'utility': 84.0821299051352}
 (07-29) 11:39:53 INFO     [aggregator.py:469] Round 16: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:39:54 INFO     [client.py:170] Training of (CLIENT: 756) completes, {'clientId': 756, 'moving_loss': 13.147084181571737, 'trained_size': 80, 'success': True, 'utility': 105.15083355210186}
@@ -2599,10 +2064,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:04 INFO     [executor.py:259] Executor 6: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:40:04 INFO     [executor.py:259] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:40:07 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:07 INFO     [utils_model.py:358] Rank 5: Test set: Average loss: 3.521, Top-1 Accuracy: 34.0/302 (0.1126), Top-5 Accuracy: 0.3477
 (07-29) 11:40:07 INFO     [executor.py:243] After aggregation epoch 17, CumulTime 422.4464, eval_time 0.6619, test_loss 3.521, test_accuracy 11.26%, test_5_accuracy 34.77% 
 
@@ -2611,27 +2072,7 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:07 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:40:07 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:40:07 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:08 INFO     [aggregator.py:469] Round 17: Receive (Event:TEST) from (Executor:5)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:08 INFO     [utils_model.py:358] Rank 4: Test set: Average loss: 3.3408, Top-1 Accuracy: 35.0/302 (0.1159), Top-5 Accuracy: 0.3974
 (07-29) 11:40:08 INFO     [executor.py:243] After aggregation epoch 17, CumulTime 426.3083, eval_time 0.9262, test_loss 3.3408, test_accuracy 11.59%, test_5_accuracy 39.74% 
 
@@ -2665,8 +2106,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:09 INFO     [client.py:15] Start to train (CLIENT: 1835) ...
 (07-29) 11:40:09 INFO     [client.py:15] Start to train (CLIENT: 464) ...
 (07-29) 11:40:09 INFO     [client.py:15] Start to train (CLIENT: 1198) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:12 INFO     [client.py:170] Training of (CLIENT: 1835) completes, {'clientId': 1835, 'moving_loss': 13.375003875203706, 'trained_size': 80, 'success': True, 'utility': 76.80089002716593}
 (07-29) 11:40:12 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:12 INFO     [client.py:170] Training of (CLIENT: 617) completes, {'clientId': 617, 'moving_loss': 9.902925630539539, 'trained_size': 80, 'success': True, 'utility': 91.25985127800588}
@@ -2710,12 +2149,8 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:19 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:19 INFO     [client.py:15] Start to train (CLIENT: 1551) ...
 (07-29) 11:40:19 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:19 INFO     [client.py:15] Start to train (CLIENT: 350) ...
 (07-29) 11:40:20 INFO     [client.py:15] Start to train (CLIENT: 633) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:20 INFO     [aggregator.py:469] Round 17: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:40:20 INFO     [client.py:170] Training of (CLIENT: 350) completes, {'clientId': 350, 'moving_loss': 8.237661116601963, 'trained_size': 80, 'success': True, 'utility': 80.36371267814809}
 (07-29) 11:40:21 INFO     [aggregator.py:469] Round 17: Receive (Event:TRAIN) from (Executor:5)
@@ -2755,30 +2190,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:32 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
 (07-29) 11:40:32 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:40:32 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:33 INFO     [utils_model.py:358] Rank 1: Test set: Average loss: 3.4617, Top-1 Accuracy: 20.0/302 (0.0662), Top-5 Accuracy: 0.3377
 (07-29) 11:40:33 INFO     [executor.py:243] After aggregation epoch 18, CumulTime 460.1553, eval_time 1.0804, test_loss 3.4617, test_accuracy 6.62%, test_5_accuracy 33.77% 
 
@@ -2816,12 +2227,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:34 INFO     [client.py:15] Start to train (CLIENT: 645) ...
 (07-29) 11:40:34 INFO     [client.py:15] Start to train (CLIENT: 1373) ...
 (07-29) 11:40:34 INFO     [client.py:15] Start to train (CLIENT: 1207) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:35 INFO     [client.py:170] Training of (CLIENT: 464) completes, {'clientId': 464, 'moving_loss': 11.670880884057478, 'trained_size': 80, 'success': True, 'utility': 273.30136783040047}
 (07-29) 11:40:36 INFO     [client.py:170] Training of (CLIENT: 1373) completes, {'clientId': 1373, 'moving_loss': 11.6216557924486, 'trained_size': 80, 'success': True, 'utility': 245.45195788189088}
 (07-29) 11:40:36 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
@@ -2837,8 +2242,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:38 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:38 INFO     [client.py:170] Training of (CLIENT: 275) completes, {'clientId': 275, 'moving_loss': 9.912013876043327, 'trained_size': 80, 'success': True, 'utility': 85.00504758916135}
 (07-29) 11:40:38 INFO     [client.py:15] Start to train (CLIENT: 1607) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:38 INFO     [client.py:170] Training of (CLIENT: 1301) completes, {'clientId': 1301, 'moving_loss': 12.264603557853505, 'trained_size': 80, 'success': True, 'utility': 80.5479688266843}
 (07-29) 11:40:38 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:38 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
@@ -2864,8 +2267,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:43 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:43 INFO     [client.py:15] Start to train (CLIENT: 1437) ...
 (07-29) 11:40:43 INFO     [client.py:15] Start to train (CLIENT: 182) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:43 INFO     [aggregator.py:469] Round 18: Receive (Event:TRAIN) from (Executor:3)
 (07-29) 11:40:44 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:44 INFO     [client.py:15] Start to train (CLIENT: 1793) ...
@@ -2877,15 +2278,10 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:46 INFO     [client.py:170] Training of (CLIENT: 1437) completes, {'clientId': 1437, 'moving_loss': 10.42705432264194, 'trained_size': 80, 'success': True, 'utility': 90.41465914856552}
 (07-29) 11:40:46 INFO     [client.py:170] Training of (CLIENT: 919) completes, {'clientId': 919, 'moving_loss': 14.488545235192797, 'trained_size': 80, 'success': True, 'utility': 144.6425225154014}
 (07-29) 11:40:46 INFO     [client.py:170] Training of (CLIENT: 1793) completes, {'clientId': 1793, 'moving_loss': 7.285813617344172, 'trained_size': 80, 'success': True, 'utility': 75.57828971336829}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:46 INFO     [aggregator.py:469] Round 18: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:40:46 INFO     [client.py:170] Training of (CLIENT: 182) completes, {'clientId': 182, 'moving_loss': 14.523512746038808, 'trained_size': 80, 'success': True, 'utility': 304.87781417257696}
 (07-29) 11:40:46 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:40:46 INFO     [client.py:15] Start to train (CLIENT: 1159) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:47 INFO     [aggregator.py:469] Round 18: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:40:47 INFO     [client.py:170] Training of (CLIENT: 50) completes, {'clientId': 50, 'moving_loss': 12.22494519818307, 'trained_size': 80, 'success': True, 'utility': 279.7135128455035}
 (07-29) 11:40:47 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
@@ -2911,34 +2307,10 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:40:53 INFO     [executor.py:259] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
 (07-29) 11:40:59 INFO     [executor.py:259] Executor 3: Received (Event:TEST) from aggregator
 (07-29) 11:40:59 INFO     [executor.py:259] Executor 1: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:59 INFO     [executor.py:259] Executor 6: Received (Event:TEST) from aggregator
 (07-29) 11:40:59 INFO     [executor.py:259] Executor 2: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:40:59 INFO     [executor.py:259] Executor 4: Received (Event:TEST) from aggregator
 (07-29) 11:40:59 INFO     [executor.py:259] Executor 5: Received (Event:TEST) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:00 INFO     [utils_model.py:358] Rank 1: Test set: Average loss: 3.3735, Top-1 Accuracy: 39.0/302 (0.1291), Top-5 Accuracy: 0.4073
 (07-29) 11:41:00 INFO     [executor.py:243] After aggregation epoch 19, CumulTime 487.0682, eval_time 0.8308, test_loss 3.3735, test_accuracy 12.91%, test_5_accuracy 40.73% 
 
@@ -2976,17 +2348,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:41:01 INFO     [client.py:15] Start to train (CLIENT: 1024) ...
 (07-29) 11:41:01 INFO     [client.py:15] Start to train (CLIENT: 505) ...
 (07-29) 11:41:01 INFO     [client.py:15] Start to train (CLIENT: 1344) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:02 INFO     [client.py:170] Training of (CLIENT: 1024) completes, {'clientId': 1024, 'moving_loss': 11.426284826148049, 'trained_size': 80, 'success': True, 'utility': 270.4223047149542}
 (07-29) 11:41:03 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:03 INFO     [client.py:15] Start to train (CLIENT: 773) ...
@@ -2998,7 +2359,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:41:06 INFO     [client.py:15] Start to train (CLIENT: 1128) ...
 (07-29) 11:41:06 INFO     [client.py:170] Training of (CLIENT: 773) completes, {'clientId': 773, 'moving_loss': 9.9960996347618, 'trained_size': 80, 'success': True, 'utility': 91.688166045759}
 (07-29) 11:41:06 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:06 INFO     [client.py:170] Training of (CLIENT: 505) completes, {'clientId': 505, 'moving_loss': 10.382772960224399, 'trained_size': 80, 'success': True, 'utility': 257.7784842562237}
 (07-29) 11:41:06 INFO     [client.py:15] Start to train (CLIENT: 832) ...
 (07-29) 11:41:06 INFO     [client.py:170] Training of (CLIENT: 1344) completes, {'clientId': 1344, 'moving_loss': 10.5133438025087, 'trained_size': 80, 'success': True, 'utility': 259.3942951108518}
@@ -3010,18 +2370,13 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:41:07 INFO     [client.py:170] Training of (CLIENT: 832) completes, {'clientId': 832, 'moving_loss': 8.448459936986186, 'trained_size': 80, 'success': True, 'utility': 75.5722099544711}
 (07-29) 11:41:07 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:07 INFO     [client.py:15] Start to train (CLIENT: 1684) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:08 INFO     [client.py:15] Start to train (CLIENT: 1767) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:08 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:3)
 (07-29) 11:41:08 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:08 INFO     [client.py:170] Training of (CLIENT: 280) completes, {'clientId': 280, 'moving_loss': 13.414506437722663, 'trained_size': 80, 'success': True, 'utility': 293.00655487791573}
 (07-29) 11:41:08 INFO     [client.py:15] Start to train (CLIENT: 453) ...
 (07-29) 11:41:09 INFO     [client.py:170] Training of (CLIENT: 1684) completes, {'clientId': 1684, 'moving_loss': 10.389186195171263, 'trained_size': 80, 'success': True, 'utility': 93.47355556594084}
 (07-29) 11:41:09 INFO     [client.py:170] Training of (CLIENT: 1767) completes, {'clientId': 1767, 'moving_loss': 6.679166506357168, 'trained_size': 80, 'success': True, 'utility': 74.94784207598228}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:09 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:41:09 INFO     [client.py:170] Training of (CLIENT: 1128) completes, {'clientId': 1128, 'moving_loss': 9.5383958616095, 'trained_size': 80, 'success': True, 'utility': 210.0131959284519}
 (07-29) 11:41:10 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:6)
@@ -3029,9 +2384,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:41:11 INFO     [client.py:170] Training of (CLIENT: 453) completes, {'clientId': 453, 'moving_loss': 12.063567309551091, 'trained_size': 80, 'success': True, 'utility': 277.86117177671116}
 (07-29) 11:41:11 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:11 INFO     [client.py:15] Start to train (CLIENT: 466) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:11 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:1)
 (07-29) 11:41:12 INFO     [executor.py:259] Executor 1: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:12 INFO     [executor.py:259] Executor 6: Received (Event:TRAIN) from aggregator
@@ -3039,12 +2391,10 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:41:12 INFO     [executor.py:259] Executor 2: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:12 INFO     [client.py:15] Start to train (CLIENT: 1132) ...
 (07-29) 11:41:12 INFO     [client.py:15] Start to train (CLIENT: 1427) ...
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:12 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:2)
 (07-29) 11:41:13 INFO     [executor.py:259] Executor 3: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:13 INFO     [client.py:15] Start to train (CLIENT: 730) ...
 (07-29) 11:41:13 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:3)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:14 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:6)
 (07-29) 11:41:14 INFO     [client.py:170] Training of (CLIENT: 1132) completes, {'clientId': 1132, 'moving_loss': 11.407272241108858, 'trained_size': 80, 'success': True, 'utility': 256.68736716995784}
 (07-29) 11:41:14 INFO     [client.py:170] Training of (CLIENT: 1473) completes, {'clientId': 1473, 'moving_loss': 9.490039157989184, 'trained_size': 80, 'success': True, 'utility': 61.61181431507819}
@@ -3054,8 +2404,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 (07-29) 11:41:15 INFO     [executor.py:259] Executor 4: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:15 INFO     [client.py:15] Start to train (CLIENT: 690) ...
 (07-29) 11:41:15 INFO     [client.py:170] Training of (CLIENT: 730) completes, {'clientId': 730, 'moving_loss': 13.24112907130681, 'trained_size': 80, 'success': True, 'utility': 105.52625052075445}
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 (07-29) 11:41:16 INFO     [aggregator.py:469] Round 19: Receive (Event:TRAIN) from (Executor:4)
 (07-29) 11:41:16 INFO     [executor.py:259] Executor 5: Received (Event:TRAIN) from aggregator
 (07-29) 11:41:16 INFO     [client.py:15] Start to train (CLIENT: 1436) ...
