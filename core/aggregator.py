@@ -446,6 +446,7 @@ class Aggregator(object):
                     for executorId in self.executors:
                         next_clientId = self.resource_manager.get_next_task()
                         if next_clientId is not None:
+                            logging.info(f"Executor: {executorId} ClientId: {next_clientId}")
                             config = self.get_client_conf(next_clientId)
                             self.server_event_queue[executorId].put({'event': 'train', 'clientId':next_clientId, 'conf': config})
 
