@@ -162,6 +162,7 @@ parser.add_argument('--noise-max', default=0.5,
 parser.add_argument('--no-bidirectional', dest='bidirectional', action='store_false', default=True,
                     help='Turn off bi-directional RNNs, introduces lookahead convolution')
 
+parser.add_argument('--test_mode', type=str, default='default')
 args = parser.parse_args()
 
 
