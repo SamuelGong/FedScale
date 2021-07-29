@@ -134,6 +134,8 @@ class Executor(object):
         self.model = self.init_model()
         self.model = self.model.to(device=self.device)
         self.training_sets, self.testing_sets = self.init_data()
+        if self.test_mode == "all":
+            self.all_testing_sets = self.init_data_all_test()
         self.start_event()
         self.event_monitor()
 

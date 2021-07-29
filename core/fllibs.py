@@ -158,6 +158,25 @@ def init_model():
     return model
 
 
+def init_dataset_all_test():
+    if args.task == "detection":
+        print('DataSet must be {}!'.format(['speech']))
+        sys.exit(-1)
+    else:
+        if args.data_set == 'google_speech':
+
+            valid_feature_transform = transforms.Compose([ToMelSpectrogram(n_mels=32), ToTensor('mel_spectrogram', 'input')])
+            all_test_dataset = SPEECH(args.data_dir, dataset='train',
+                                      transform=transforms.Compose([LoadAudio(),
+                                                                    FixAudioLength(),
+                                                                    valid_feature_transform]))
+        else:
+            print('DataSet must be {}!'.format(['speech']))
+            sys.exit(-1)
+
+    return all_test_dataset
+
+
 def init_dataset():
 
     if args.task == "detection":
