@@ -210,23 +210,21 @@ class Client(object):
                     break_while_flag = True
                     break # break the for loop
 
-                if conf.personalized == "meta":
-                    try:
-                        correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
-                        for idx, param in enumerate(model.parameters()):
-                            param.data = local_model_copies[idx] - beta * grad_copies[idx] \
-                                         + conf.learning_rate * beta * correction[idx]
-                    except Exception as ex:
-                        error_type = ex
-                        break_while_flag = True
-                        break  # break the for loop
-
-                if completed_steps == conf.local_steps:
-                    break_while_flag = True
-                    break
-
             if break_while_flag:
                 break # still need to break the while
+
+            if conf.personalized == "meta":
+                try:
+                    correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
+                    for idx, param in enumerate(model.parameters()):
+                        param.data = local_model_copies[idx] - beta * grad_copies[idx] \
+                                     + conf.learning_rate * beta * correction[idx]
+                except Exception as ex:
+                    error_type = ex
+                    break
+
+            if completed_steps == conf.local_steps:
+                break
 
         model_param = [param.data.cpu().numpy() for param in model.parameters()]
         results = {'clientId':clientId, 'moving_loss': epoch_train_loss,
