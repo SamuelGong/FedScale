@@ -8,7 +8,7 @@ ps_ip: 127.0.0.1
 # Note that if we collocate ps and worker, then we need to decrease this number of gpus by 1
 # E.g., master node has 4 GPUs, then 1 for the ps, and worker should be set to: worker:3
 worker_ips: 
-    - 127.0.0.1:[0,0,6,0,0,0,0,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
+    - 127.0.0.1:[0,6,0,0,0,0,0,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
     #- 10.0.0.4:[5]
     #- 10.0.0.5:[5]
     #- 10.0.0.6:[5]
@@ -42,9 +42,9 @@ setup_commands:
 
 job_conf: 
     - log_path: $HOME/FedScale/core/evals # Path of log files
-    - job_name: google_speech_random                   # Generate logs under this folder: log_path/job_name/time_stamp
+    - job_name: google_speech_oort                   # Generate logs under this folder: log_path/job_name/time_stamp
     - task: speech
-    - total_worker: 50                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
+    - total_worker: 1                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: google_speech                     # Dataset: openImg, google_speech, stackoverflow
     - data_dir: $HOME/FedScale/dataset/data/google_speech    # Path of the dataset
     - data_map_file: $HOME/FedScale/dataset/data/google_speech/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
@@ -62,7 +62,7 @@ job_conf:
     - learning_rate: 0.05
     - batch_size: 20
     - test_bsz: 20
-    - sample_mode: random
+    - sample_mode: centralized
     - test_mode: default # "default" or "all"
 
 

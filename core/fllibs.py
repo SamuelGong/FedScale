@@ -177,7 +177,7 @@ def init_dataset_all_test():
     return all_test_dataset
 
 
-def init_dataset():
+def init_dataset(filter_less=None, filter_more=None):
 
     if args.task == "detection":
         if not os.path.exists(args.data_cache):
@@ -261,7 +261,8 @@ def init_dataset():
                                     transform=transforms.Compose([LoadAudio(),
                                             data_aug_transform,
                                             add_bg_noise,
-                                            train_feature_transform]))
+                                            train_feature_transform]),
+                                   filter_less, filter_more) # for "centralized" sample_mode
             valid_feature_transform = transforms.Compose([ToMelSpectrogram(n_mels=32), ToTensor('mel_spectrogram', 'input')])
             test_dataset = SPEECH(args.data_dir, dataset='test',
                                     transform=transforms.Compose([LoadAudio(),

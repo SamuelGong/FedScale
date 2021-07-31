@@ -68,6 +68,7 @@ class Aggregator(object):
         self.imdb = None           # object detection
 
         self.test_mode = self.args.test_mode
+        self.sample_mode = self.args.sample_mode
 
     def setup_env(self):
         self.setup_seed(seed=self.this_rank)
@@ -169,6 +170,21 @@ class Aggregator(object):
 
         if self.registered_executor_info == self.num_executors:
 
+            if self.sample_mode == "centralized":
+                total_size = 0
+                for _, size in enumerate(info['size']):
+                    if size >= self.client_manager.filter_less and size <= self.client_manager.filter_more:
+                        total_size += size
+                systemProfile = {'computation': 1.0, 'communication': 1.25e8} # PCIe 3 / 2
+                self.client_manager.registerClient(executorId, 0,
+                                                   size=total_size, speed=systemProfile)
+                self.client_manager.registerDuration(0, batch_size=self.args.batch_size,
+                                                     upload_epoch=self.args.local_steps,
+                                                     upload_size=self.model_update_size,
+                                                     download_size=self.model_update_size)
+
+            # even if in centralized mode we still need to record the feasibility of separate clients
+            # as needed in testing (we only use feasible clients to test)
             clientId = 1
 
             for index, _size in enumerate(info['size']):
@@ -261,7 +277,10 @@ class Aggregator(object):
 
 
     def select_participants(self, select_num_participants, overcommitment=1.3):
-        return sorted(self.client_manager.resampleClients(int(select_num_participants*overcommitment), cur_time=self.global_virtual_clock))
+        if self.sample_mode == "centralized":
+            return [0]
+        else:
+            return sorted(self.client_manager.resampleClients(int(select_num_participants*overcommitment), cur_time=self.global_virtual_clock))
 
 
     def client_completion_handler(self, results):
@@ -477,7 +496,9 @@ class Aggregator(object):
                     if self.test_mode == "all":
                         for executorId in self.executors:
                             next_clientId = self.resource_manager.get_next_all_test_task()
-                            if next_clientId is not None:
+
+                            # p.s. # client No. 0 will appear in centralized training
+                            if next_clientId is not None and not next_clientId == 0:
                                 self.server_event_queue[executorId].put(
                                     {'event': 'all_test', 'clientId': next_clientId}
                                 )
@@ -505,7 +526,8 @@ class Aggregator(object):
                 elif event_msg == 'all_test_nowait':
                     next_clientId = self.resource_manager.get_next_all_test_task()
 
-                    if next_clientId is not None:
+                    # p.s. # client No. 0 will appear in centralized training
+                    if next_clientId is not None and not next_clientId == 0:
                         runtime_profile = {'event': 'all_test', 'clientId': next_clientId}
                         self.server_event_queue[executorId].put(runtime_profile)
 
