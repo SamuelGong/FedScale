@@ -70,9 +70,13 @@ class Client(object):
         # TODO: One may hope to run fixed number of epochs, instead of iterations
         while completed_steps < conf.local_steps:
             try:
+                logging.info(f"{type(client_data)}")
                 for data_pair in client_data:
                     if conf.personalized == "meta":
                         loop_num = 2 # TODO
+                        local_model_copies = []
+                        for _, param in enumerate(model.parameters()):
+                            local_model_copies.append(param.data)
                     else:
                         loop_num = 1
 
@@ -153,8 +157,12 @@ class Client(object):
 
                         if conf.personalized == "meta" and loop_idx == loop_num - 1:
                             break
-                        logging.info(f"{loop_idx}")
                         optimizer.step()
+
+                    if conf.personalized == "meta":
+                        grad_copies = []
+                        for _, param in enumerate(model.parameters()):
+                            grad_copies.append(param.grad)
 
                     # ========= Weight handler ========================
                     if conf.gradient_policy == 'prox':
