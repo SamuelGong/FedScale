@@ -390,7 +390,11 @@ class Aggregator(object):
 
     def testing_completion_handler(self, results):
         self.test_result_accumulator.append(results)
-        logging.info(f"{len(self.test_result_accumulator)}/{len(self.client_manager.feasibleClients)}")
+        current = len(self.test_result_accumulator)
+        all = len(self.client_manager.feasibleClients)
+        ten_cent = all // 10
+        if current % ten_cent == 0:
+            logging.info(f"{current}/{all}")
 
         if self.test_mode == "all" and len(self.test_result_accumulator) == len(self.client_manager.feasibleClients):
             pass
