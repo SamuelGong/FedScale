@@ -3,6 +3,7 @@ import logging
 import math
 from utils.nlp import mask_tokens
 from torch.autograd import Variable
+import copy
 
 class Client(object):
     """Basic client component in Federated Learning"""
@@ -69,7 +70,9 @@ class Client(object):
 
         # TODO: One may hope to run fixed number of epochs, instead of iterations
         if conf.personalized == "meta":
-            loop_num = 2 # TODO
+            loop_num = 4 # calculate grad 4 times for each step
+            delta = 1e-3
+            beta = 0.01
         else:
             loop_num = 1
         break_while_flag = False
@@ -83,11 +86,16 @@ class Client(object):
 
             completed_steps += 1
             for loop_idx in range(loop_num):
-                try:
-                    data_pair = loader.next()
-                except StopIteration:
-                    loader = iter(client_data)
-                    data_pair = loader.next()
+                if loop_idx < 3:
+                    try:
+                        data_pair = loader.next()
+                    except StopIteration:
+                        loader = iter(client_data)
+                        data_pair = loader.next()
+                    if loop_idx == 2:
+                        data_pair_copy = copy.deepcopy(data_pair)
+                else:
+                    data_pair = data_pair_copy
 
                 try:
                     if conf.task == 'nlp':
@@ -163,14 +171,37 @@ class Client(object):
                     # ========= Define the backward loss ==============
                     optimizer.zero_grad()
                     loss.backward()
-                    if conf.personalized == "meta" and loop_idx == loop_num - 1:
-                        break
-                    optimizer.step()
+                    if conf.personalized == "meta" and loop_idx > 0:
+                        if loop_idx == 1:
+                            grad_copies = []
+                            for _, param in enumerate(model.parameters()):
+                                grad_copies.append(copy.deepcopy(param.grad))
+
+                            dummy_model1 = [(u + delta * v) for u, v in zip(local_model_copies, grad_copies)]
+                            for idx, param in enumerate(model.parameters()):
+                                param.data = dummy_model1[idx]
+                            optimizer.zero_grad()
+                        elif loop_idx == 2:
+                            dummy_grad1 = []
+                            for _, param in enumerate(model.parameters()):
+                                dummy_grad1.append(copy.deepcopy(param.grad))
+
+                            dummy_model2 = [(u - delta * v) for u, v in zip(local_model_copies, grad_copies)]
+                            for idx, param in enumerate(model.parameters()):
+                                param.data = dummy_model2[idx]
+                            optimizer.zero_grad()
+                        else:
+                            dummy_grad2 = []
+                            for _, param in enumerate(model.parameters()):
+                                dummy_grad2.append(copy.deepcopy(param.grad))
+                    else:
+                        optimizer.step()
 
                     # ========= Weight handler ========================
-                    if conf.gradient_policy == 'prox':
-                        for idx, param in enumerate(model.parameters()):
-                            param.data += conf.learning_rate * conf.proxy_mu * (param.data - global_model[idx])
+                    if not conf.personalized == "meta":  # currently "meta" is not compatible with "prox" in this impl
+                        if conf.gradient_policy == 'prox':
+                            for idx, param in enumerate(model.parameters()):
+                                param.data += conf.learning_rate * conf.proxy_mu * (param.data - global_model[idx])
 
                 except Exception as ex:
                     error_type = ex
@@ -179,15 +210,10 @@ class Client(object):
 
                 if conf.personalized == "meta":
                     try:
-                        data_pair = loader.next()
-                    except StopIteration:
-                        loader = iter(client_data)
-                        data_pair = loader.next()
-                    try:
-                        grad_copies = []
-                        for _, param in enumerate(model.parameters()):
-                            grad_copies.append(param.grad)
-                        pass
+                        correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
+                        for idx, param in enumerate(model.parameters()):
+                            param.data = local_model_copies[idx] - beta * grad_copies[idx] \
+                                         + conf.learning_rate * beta * correction[idx]
                     except Exception as ex:
                         error_type = ex
                         break_while_flag = True
