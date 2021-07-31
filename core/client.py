@@ -183,7 +183,7 @@ class Client(object):
 
                             dummy_model1 = [(u + delta * v) for u, v in zip(local_model_copies, grad_copies)]
                             for idx, param in enumerate(model.parameters()):
-                                param.data = dummy_model1[idx]
+                                param.data = dummy_model1[idx].to(device=device)
                             optimizer.zero_grad()
                         elif loop_idx == 2:
                             dummy_grad1 = []
@@ -192,7 +192,7 @@ class Client(object):
 
                             dummy_model2 = [(u - delta * v) for u, v in zip(local_model_copies, grad_copies)]
                             for idx, param in enumerate(model.parameters()):
-                                param.data = dummy_model2[idx]
+                                param.data = dummy_model2[idx].to(device=device)
                             optimizer.zero_grad()
                         else:
                             dummy_grad2 = []
