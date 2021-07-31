@@ -214,13 +214,18 @@ class Client(object):
             if break_while_flag:
                 break # still need to break the while
 
+            logging.info(f"Client: {clientId} Before")
             if conf.personalized == "meta":
                 try:
                     correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
                     for idx, param in enumerate(model.parameters()):
                         temp = local_model_copies[idx] - beta * grad_copies[idx] \
                                + conf.learning_rate * beta * correction[idx]
+                        if idx == 0:
+                            logging.info(f"Client: {clientId} Here {device}")
                         param.data = temp.to(device=device)
+                        if idx == 0:
+                            logging.info(f"Client: {clientId} There...")
                 except Exception as ex:
                     error_type = ex
                     break
