@@ -163,6 +163,7 @@ parser.add_argument('--no-bidirectional', dest='bidirectional', action='store_fa
                     help='Turn off bi-directional RNNs, introduces lookahead convolution')
 
 parser.add_argument('--test_mode', type=str, default='default')
+parser.add_argument('--personalized', type=str, default='none')
 args = parser.parse_args()
 
 
