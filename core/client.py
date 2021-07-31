@@ -159,19 +159,21 @@ class Client(object):
                         loss_list = loss.tolist()
                         loss = loss.mean()
 
-                    temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
+                    if (conf.personalized == "meta" and loop_idx == 1) or not conf.personalized == "meta":
+                        temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
-                    # only measure the loss of the first epoch
-                    if completed_steps < len(client_data):
-                        if epoch_train_loss == 1e-4:
-                            epoch_train_loss = temp_loss
-                        else:
-                            epoch_train_loss = (1. - conf.loss_decay) * epoch_train_loss + conf.loss_decay * temp_loss
+                        # only measure the loss of the first epoch
+                        if completed_steps < len(client_data):
+                            if epoch_train_loss == 1e-4:
+                                epoch_train_loss = temp_loss
+                            else:
+                                epoch_train_loss = (1. - conf.loss_decay) * epoch_train_loss + conf.loss_decay * temp_loss
 
                     # ========= Define the backward loss ==============
                     optimizer.zero_grad()
                     loss.backward()
                     if conf.personalized == "meta" and loop_idx > 0:
+                        logging.info(f"{loop_idx}")
                         if loop_idx == 1:
                             grad_copies = []
                             for _, param in enumerate(model.parameters()):
