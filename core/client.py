@@ -175,6 +175,7 @@ class Client(object):
 
                     # currently performed at CPU
                     if conf.personalized == "meta" and loop_idx > 0:
+                        logging.info(f"Client: {clientId} Before {loop_idx}")
                         if loop_idx == 1:
                             grad_copies = []
                             for _, param in enumerate(model.parameters()):
@@ -197,6 +198,7 @@ class Client(object):
                             dummy_grad2 = []
                             for _, param in enumerate(model.parameters()):
                                 dummy_grad2.append(copy.deepcopy(param.grad.cpu()))
+                        logging.info(f"Client: {clientId} After {loop_idx}")
                     else:
                         optimizer.step()
 
