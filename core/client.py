@@ -145,6 +145,8 @@ class Client(object):
                     # ========= Define the backward loss ==============
                     optimizer.zero_grad()
                     loss.backward()
+                    if conf.personalized == "meta":
+                        logging.info(f"{type(model.grad)}")
                     optimizer.step()
 
                     # ========= Weight handler ========================
