@@ -86,7 +86,6 @@ class Client(object):
 
             completed_steps += 1
             for loop_idx in range(loop_num):
-                logging.info(f"ClientId {clientId} {loop_idx}/{loop_num}")
                 if loop_idx < 3:
                     try:
                         data_pair = loader.next()
