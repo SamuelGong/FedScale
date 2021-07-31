@@ -86,6 +86,7 @@ class Client(object):
 
             completed_steps += 1
             for loop_idx in range(loop_num):
+                logging.info(f"AAA {loop_idx}")
                 if loop_idx < 3:
                     try:
                         data_pair = loader.next()
@@ -96,6 +97,7 @@ class Client(object):
                         data_pair_copy = copy.deepcopy(data_pair)
                 else:
                     data_pair = data_pair_copy
+                logging.info(f"BBB {loop_idx}")
 
                 try:
                     if conf.task == 'nlp':
@@ -173,7 +175,6 @@ class Client(object):
                     optimizer.zero_grad()
                     loss.backward()
                     if conf.personalized == "meta" and loop_idx > 0:
-                        logging.info(f"{loop_idx}")
                         if loop_idx == 1:
                             grad_copies = []
                             for _, param in enumerate(model.parameters()):
