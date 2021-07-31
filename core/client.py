@@ -146,10 +146,11 @@ class Client(object):
                     optimizer.zero_grad()
                     loss.backward()
                     if conf.personalized == "meta":
-                        logging.info(f"{type(model)}")
-                        logging.info(f"{type(model.parameters())}")
-                        logging.info(f"{type(model.parameters()[0])}")
-                        logging.info(f"{type(model.parameters()[0].grad)}")
+                        for idx, param in enumerate(model.parameters()):
+                            print(type(param))
+                            print(type(param.data))
+                            print(type(param.grad))
+                            break
                     optimizer.step()
 
                     # ========= Weight handler ========================
