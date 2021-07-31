@@ -262,7 +262,7 @@ def init_dataset(filter_less=None, filter_more=None):
                                             data_aug_transform,
                                             add_bg_noise,
                                             train_feature_transform]),
-                                   filter_less, filter_more) # for "centralized" sample_mode
+                                    filter_less=filter_less, filter_more=filter_more) # for "centralized" sample_mode
             valid_feature_transform = transforms.Compose([ToMelSpectrogram(n_mels=32), ToTensor('mel_spectrogram', 'input')])
             test_dataset = SPEECH(args.data_dir, dataset='test',
                                     transform=transforms.Compose([LoadAudio(),
