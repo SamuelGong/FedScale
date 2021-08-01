@@ -45,6 +45,9 @@ class clientManager(object):
         self.Clients[uniqueId] = Client(hostId, clientId, speed, user_trace)
 
         # remove clients
+        if clientId == 0:
+            return
+
         if size >= self.filter_less and size <= self.filter_more:
             self.feasibleClients.append(clientId)
             self.feasible_samples += size
