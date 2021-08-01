@@ -130,7 +130,7 @@ class Executor(object):
     def init_data_centralized_train(self):
         centralized_train_dataset, _ = init_dataset(self.filter_less, self.filter_more)
 
-        centralized_training_sets = DataPartitioner(data=train_dataset, numOfClass=self.args.num_class)
+        centralized_training_sets = DataPartitioner(data=centralized_train_dataset, numOfClass=self.args.num_class)
         centralized_training_sets.partition_data_helper(num_clients=1)
 
         return centralized_training_sets
