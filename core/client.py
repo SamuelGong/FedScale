@@ -1,6 +1,6 @@
 import torch
 import logging
-import math
+import math, numpy
 from utils.nlp import mask_tokens
 from torch.autograd import Variable
 import copy
@@ -80,13 +80,19 @@ class Client(object):
             loop_num = 1
         break_while_flag = False
 
+        loader = iter(client_data)
         if conf.sample_mode == "centralized":
-            true_num_steps = len(client_data)
+            if conf.personalized == "meta" and specified_loop_num is not None: # testing of "meta"
+                true_num_steps = 1
+                start_idx = numpy.random.randint(0, len(client_data))
+                for _ in range(start_idx):
+                    _ = loader.next()
+            else:
+                true_num_steps = len(client_data)
             # currently centralized learning goes with 1 epoch
 
-        loader = iter(client_data)
         while True:
-            if conf.personalized == "meta":
+            if conf.personalized == "meta" and specified_loop_num is None:
                 local_model_copies = []
                 for _, param in enumerate(model.parameters()):
                     local_model_copies.append(param.data.detach().clone())
@@ -166,7 +172,8 @@ class Client(object):
                         loss_list = loss.tolist()
                         loss = loss.mean()
 
-                    if (conf.personalized == "meta" and loop_idx == 1) or not conf.personalized == "meta":
+                    if (conf.personalized == "meta" and loop_idx == 1 and specified_loop_num is None) \
+                            or not conf.personalized == "meta":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
                         # only measure the loss of the first epoch
@@ -181,7 +188,7 @@ class Client(object):
                     loss.backward()
 
                     # currently performed at CPU
-                    if conf.personalized == "meta" and loop_idx > 0:
+                    if conf.personalized == "meta" and loop_idx > 0 and specified_loop_num is None:
                         if loop_idx == 1:
                             grad_copies = []
                             for _, param in enumerate(model.parameters()):
@@ -219,7 +226,7 @@ class Client(object):
             if break_while_flag:
                 break # still need to break the while
 
-            if conf.personalized == "meta":
+            if conf.personalized == "meta" and specified_loop_num is None:
                 try:
                     correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
                     for idx, param in enumerate(model.parameters()):
