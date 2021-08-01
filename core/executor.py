@@ -298,9 +298,9 @@ class Executor(object):
                     logging.info(f"A {param.data.cpu().numpy().squeeze()[:3]}")
 
             for idx, param in enumerate(self.model.parameters()):
+                param.data = Variable(torch.from_numpy(results[idx]))
                 if idx == 0:
                     logging.info(f"B {param.data.cpu().numpy().squeeze()[:3]}")
-                param.data = Variable(torch.from_numpy(results[idx]))
 
         device = self.device
         data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
