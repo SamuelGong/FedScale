@@ -421,7 +421,7 @@ class Aggregator(object):
         self.test_result_accumulator.append(results)
         current = len(self.test_result_accumulator)
         all = len(self.client_manager.feasibleClients)
-        ten_cent = all // 10
+        ten_cent = max(1, all // 10)
         if current % ten_cent == 0:
             logging.info(f"{current}/{all}")
 

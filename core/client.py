@@ -10,7 +10,7 @@ class Client(object):
     def __init__(self, conf):
         pass
 
-    def train(self, client_data, model, conf):
+    def train(self, client_data, model, conf, specified_loop_num=None):
 
         clientId = conf.clientId
         logging.info(f"Start to train (CLIENT: {clientId}) ...")
@@ -70,7 +70,10 @@ class Client(object):
 
         # TODO: One may hope to run fixed number of epochs, instead of iterations
         if conf.personalized == "meta":
-            loop_num = 4 # calculate grad 4 times for each step
+            if specified_loop_num is not None: # mainly for stepping in testing
+                loop_num = specified_loop_num
+            else:
+                loop_num = 4 # calculate grad 4 times for each step in training
             delta = 1e-3
             beta = 0.01
         else:
