@@ -226,6 +226,7 @@ class Client(object):
                     error_type = ex
                     break
 
+            torch.cuda.empty_cache()
             if conf.sample_mode == "centralized":
                 if completed_steps == true_num_steps:
                     break
