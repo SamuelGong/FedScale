@@ -11,8 +11,10 @@ class clientManager(object):
         self.Clients = {}
         self.clientOnHosts = {}
         self.mode = mode
+
         self.filter_less = args.filter_less
         self.filter_more = args.filter_more
+        self.sample_mode = args.sample_mode
 
         self.ucbSampler = None
 
@@ -35,7 +37,10 @@ class clientManager(object):
     def registerClient(self, hostId, clientId, size, speed, duration=1):
 
         uniqueId = self.getUniqueId(hostId, clientId)
-        user_trace = None if self.user_trace is None else self.user_trace[int(clientId)]
+        if self.user_trace is None or self.sample_mode == "centralized":
+            user_trace = None
+        else:
+            user_trace = self.user_trace[int(clientId)]
 
         self.Clients[uniqueId] = Client(hostId, clientId, speed, user_trace)
 
