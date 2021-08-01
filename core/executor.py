@@ -37,6 +37,7 @@ class Executor(object):
         self.filter_less = args.filter_less
         self.filter_more = args.filter_more
         self.batch_size = args.batch_size
+        self.personalized = args.personalized
 
     def setup_env(self):
         logging.info(f"(EXECUTOR:{self.this_rank}) is setting up environ ...")
@@ -274,9 +275,23 @@ class Executor(object):
 
         return testResults
 
-    def all_testing_handler(self, clientId):
+    def all_testing_handler(self, clientId, conf):
         """Test model"""
         evalStart = time.time()
+
+        if self.personalized == "meta": # one step forward
+            # load last global model
+            client_model = self.load_global_model()
+
+            conf.clientId, conf.device = clientId, self.device
+            conf.tokenizer = tokenizer
+
+            client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
+                                         collate_fn=self.collate_fn)
+            client = self.get_client_trainer(conf)
+            _ = client.train(client_data=client_data, model=client_model, conf=conf)
+            self.model = client_model
+
         device = self.device
         data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
                                      collate_fn=self.collate_fn)
@@ -331,9 +346,9 @@ class Executor(object):
                     self.push_msg_to_server(event_msg, test_res)
 
                 elif event_msg == "all_test":
-                    clientId = event_dict['clientId']
+                    clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
 
-                    all_test_res = self.all_testing_handler(clientId=clientId)
+                    all_test_res = self.all_testing_handler(clientId=clientId, client_conf)
                     self.push_msg_to_server('all_test_nowait', None)
                     self.push_msg_to_server_asyn(event_msg, all_test_res)
 

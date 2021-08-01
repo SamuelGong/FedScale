@@ -513,8 +513,9 @@ class Aggregator(object):
                             next_clientId = self.resource_manager.get_next_all_test_task()
 
                             if next_clientId is not None:
+                                config = self.get_client_conf(next_clientId)
                                 self.server_event_queue[executorId].put(
-                                    {'event': 'all_test', 'clientId': next_clientId}
+                                    {'event': 'all_test', 'clientId': next_clientId, 'conf': config}
                                 )
                     else:
                         self.broadcast_msg(send_msg)
@@ -544,7 +545,8 @@ class Aggregator(object):
                     next_clientId = self.resource_manager.get_next_all_test_task()
 
                     if next_clientId is not None:
-                        runtime_profile = {'event': 'all_test', 'clientId': next_clientId}
+                        config = self.get_client_conf(next_clientId)
+                        runtime_profile = {'event': 'all_test', 'clientId': next_clientId, 'conf': config}
                         self.server_event_queue[executorId].put(runtime_profile)
 
                 elif event_msg == 'train':
