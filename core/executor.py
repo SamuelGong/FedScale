@@ -295,12 +295,12 @@ class Executor(object):
 
             for idx, param in enumerate(client_model.parameters()):
                 if idx == 0:
-                    logging.info(f"A {param.data.cpu().numpy().squeeze()[:3]}")
+                    logging.info(f"A{clientId} {param.data.cpu().numpy().squeeze()[:3]}")
 
             for idx, param in enumerate(self.model.parameters()):
-                param.data = Variable(torch.from_numpy(results[idx]))
+                param.data = Variable(torch.from_numpy(results['update_weight'][idx]))
                 if idx == 0:
-                    logging.info(f"B {param.data.cpu().numpy().squeeze()[:3]}")
+                    logging.info(f"B{clientId} {param.data.cpu().numpy().squeeze()[:3]}")
 
         device = self.device
         data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
