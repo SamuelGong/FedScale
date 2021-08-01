@@ -505,8 +505,7 @@ class Aggregator(object):
                         for executorId in self.executors:
                             next_clientId = self.resource_manager.get_next_all_test_task()
 
-                            # p.s. # client No. 0 will appear in centralized training
-                            if next_clientId is not None and not next_clientId == 0:
+                            if next_clientId is not None:
                                 self.server_event_queue[executorId].put(
                                     {'event': 'all_test', 'clientId': next_clientId}
                                 )
@@ -537,8 +536,7 @@ class Aggregator(object):
                 elif event_msg == 'all_test_nowait':
                     next_clientId = self.resource_manager.get_next_all_test_task()
 
-                    # p.s. # client No. 0 will appear in centralized training
-                    if next_clientId is not None and not next_clientId == 0:
+                    if next_clientId is not None:
                         runtime_profile = {'event': 'all_test', 'clientId': next_clientId}
                         self.server_event_queue[executorId].put(runtime_profile)
 
