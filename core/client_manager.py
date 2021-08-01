@@ -15,6 +15,7 @@ class clientManager(object):
         self.filter_less = args.filter_less
         self.filter_more = args.filter_more
         self.sample_mode = args.sample_mode
+        self.personalized = args.personalized
 
         self.ucbSampler = None
 
@@ -76,10 +77,17 @@ class clientManager(object):
             self.ucbSampler.update_duration(clientId, exe_cost['computation'] + exe_cost['communication'])
 
     def getCompletionTime(self, clientId, batch_size, upload_epoch, upload_size, download_size):
-        return self.Clients[self.getUniqueId(0, clientId)].getCompletionTime(
-            batch_size=batch_size, upload_epoch=upload_epoch,
-            upload_size=upload_size, download_size=download_size
-        )
+        if self.personalized == "meta":
+            return self.Clients[self.getUniqueId(0, clientId)].getCompletionTime(
+                batch_size=batch_size, upload_epoch=upload_epoch,
+                upload_size=upload_size, download_size=download_size,
+                extra_factor=4.0 # in "meta" we do 4 SGD a step
+            )
+        else:
+            return self.Clients[self.getUniqueId(0, clientId)].getCompletionTime(
+                batch_size=batch_size, upload_epoch=upload_epoch,
+                upload_size=upload_size, download_size=download_size
+            )
 
     def registerSpeed(self, hostId, clientId, speed):
         uniqueId = self.getUniqueId(hostId, clientId)

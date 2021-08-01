@@ -69,6 +69,7 @@ class Aggregator(object):
 
         self.test_mode = self.args.test_mode
         self.sample_mode = self.args.sample_mode
+        self.global_num_batches = None
 
     def setup_env(self):
         self.setup_seed(seed=self.this_rank)
@@ -161,6 +162,8 @@ class Aggregator(object):
         return global_client_profile
 
     def executor_info_handler(self, executorId, info):
+        if self.sample_mode == "centralized" and executorId == 1:
+            self.global_num_batches = info['global_num_batches']
 
         self.registered_executor_info += 1
 
@@ -217,8 +220,12 @@ class Aggregator(object):
         for client_to_run in sampled_clients:
             client_cfg = self.client_conf.get(client_to_run, self.args)
 
+            if self.sample_mode == "centralized":
+                true_upload_epoch = self.global_num_batches
+            else:
+                true_upload_epoch = client_cfg.local_steps
             exe_cost = self.client_manager.getCompletionTime(client_to_run,
-                                    batch_size=client_cfg.batch_size, upload_epoch=client_cfg.local_steps,
+                                    batch_size=client_cfg.batch_size, upload_epoch=true_upload_epoch,
                                     upload_size=self.model_update_size, download_size=self.model_update_size)
 
             roundDuration = exe_cost['computation'] + exe_cost['communication']
@@ -552,7 +559,6 @@ class Aggregator(object):
 
                 elif event_msg == 'report_executor_info':
                     self.executor_info_handler(executorId, results)
-
                 else:
                     logging.error(f"Unknown message types: {event_msg}")
 
