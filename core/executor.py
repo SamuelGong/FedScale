@@ -348,7 +348,7 @@ class Executor(object):
                 elif event_msg == "all_test":
                     clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
 
-                    all_test_res = self.all_testing_handler(clientId=clientId, client_conf)
+                    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
                     self.push_msg_to_server('all_test_nowait', None)
                     self.push_msg_to_server_asyn(event_msg, all_test_res)
 
