@@ -111,10 +111,7 @@ class Executor(object):
         logging.info("Data partitioner starts ...")
 
         training_sets = DataPartitioner(data=train_dataset, numOfClass=self.args.num_class)
-        if self.sample_mode == "centralized":
-            training_sets.partition_data_helper(num_clients=self.args.total_worker)
-        else:
-            training_sets.partition_data_helper(num_clients=self.args.total_worker,
+        training_sets.partition_data_helper(num_clients=self.args.total_worker,
                                                 data_map_file=self.args.data_map_file)
 
         testing_sets = DataPartitioner(data=test_dataset, numOfClass=self.args.num_class, isTest=True)
@@ -130,6 +127,14 @@ class Executor(object):
 
         return training_sets, testing_sets
 
+    def init_data_centralized_train(self):
+        centralized_train_dataset, _ = init_dataset(self.filter_less, self.filter_more)
+
+        centralized_training_sets = DataPartitioner(data=train_dataset, numOfClass=self.args.num_class)
+        centralized_training_sets.partition_data_helper(num_clients=1)
+
+        return centralized_training_sets
+
     def init_data_all_test(self):
         all_test_dataset = init_dataset_all_test()
         all_testing_sets = DataPartitioner(data=all_test_dataset, numOfClass=self.args.num_class, isTest=True)
@@ -143,6 +148,8 @@ class Executor(object):
         self.training_sets, self.testing_sets = self.init_data()
         if self.test_mode == "all":
             self.all_testing_sets = self.init_data_all_test()
+        if self.sample_mode == "centralized":
+            self.centralized_training_sets = self.init_data_centralized_train()
         self.start_event()
         self.event_monitor()
 
@@ -231,7 +238,12 @@ class Executor(object):
         conf.clientId, conf.device = clientId, self.device
         conf.tokenizer = tokenizer
 
-        client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size, collate_fn=self.collate_fn)
+        if clientId == 0:
+            client_data = select_dataset(1, self.centralized_training_sets, batch_size=conf.batch_size,
+                                         collate_fn=self.collate_fn)
+        else:
+            client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
+                                         collate_fn=self.collate_fn)
 
         client = self.get_client_trainer(conf)
         train_res = client.train(client_data=client_data, model=client_model, conf=conf)
