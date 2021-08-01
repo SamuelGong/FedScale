@@ -478,11 +478,16 @@ class Aggregator(object):
                     self.broadcast_models()
 
                 elif event_msg == 'start_round':
-                    for executorId in self.executors:
-                        next_clientId = self.resource_manager.get_next_task()
-                        if next_clientId is not None:
-                            config = self.get_client_conf(next_clientId)
-                            self.server_event_queue[executorId].put({'event': 'train', 'clientId':next_clientId, 'conf': config})
+                    if self.sample_mode == "centralized":
+                        config = self.get_client_conf(0)
+                        self.server_event_queue[0].put(
+                            {'event': 'train', 'clientId': 0, 'conf': config})
+                    else:
+                        for executorId in self.executors:
+                            next_clientId = self.resource_manager.get_next_task()
+                            if next_clientId is not None:
+                                config = self.get_client_conf(next_clientId)
+                                self.server_event_queue[executorId].put({'event': 'train', 'clientId':next_clientId, 'conf': config})
 
                 elif event_msg == 'stop':
                     self.broadcast_msg(send_msg)
@@ -516,12 +521,15 @@ class Aggregator(object):
                 # collect training returns from the executor
                 if event_msg == 'train_nowait':
                     # pop a new client to run
-                    next_clientId = self.resource_manager.get_next_task()
+                    if self.sample_mode == "centralized":
+                        pass
+                    else:
+                        next_clientId = self.resource_manager.get_next_task()
 
-                    if next_clientId is not None:
-                        config = self.get_client_conf(next_clientId)
-                        runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
-                        self.server_event_queue[executorId].put(runtime_profile)
+                        if next_clientId is not None:
+                            config = self.get_client_conf(next_clientId)
+                            runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
+                            self.server_event_queue[executorId].put(runtime_profile)
 
                 elif event_msg == 'all_test_nowait':
                     next_clientId = self.resource_manager.get_next_all_test_task()
