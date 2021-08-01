@@ -282,35 +282,24 @@ class Executor(object):
 
         if self.personalized == "meta": # one step forward
             # load last global model
-            logging.info(f"{clientId} Wait for 1...")
-            time.sleep(5)
             client_model = self.load_global_model()
 
             conf.clientId, conf.device = clientId, self.device
             conf.tokenizer = tokenizer
-            logging.info(f"{clientId} Wait for 2...")
-            time.sleep(5)
             client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
             client = self.get_client_trainer(conf)
-            logging.info(f"{clientId} Wait for 3...")
-            time.sleep(5)
-            _ = client.train(client_data=client_data, model=client_model, conf=conf,
+
+            client.train(client_data=client_data, model=client_model, conf=conf,
                              specified_local_steps=1) # for "meta"
-            logging.info(f"{clientId} Wait for 4...")
-            time.sleep(5)
-            del self.model
-            gc.collect()
+
             # torch.cuda.empty_cache()
             self.model = client_model # client_model has already been updated implicitly
-            logging.info(f"{clientId} Wait for 5...")
-            time.sleep(5)
+
 
         device = self.device
         data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
                                      collate_fn=self.collate_fn)
-        logging.info(f"{clientId} Wait for 6...")
-        time.sleep(5)
         if self.task == 'voice':
             criterion = CTCLoss(reduction='mean').to(device=device)
         else:
@@ -318,8 +307,6 @@ class Executor(object):
 
         all_test_res = test_model(clientId, self.model, data_loader, device=device, criterion=criterion,
                               tokenizer=tokenizer)
-        logging.info(f"{clientId} Wait for 7...")
-        time.sleep(5)
         test_loss, acc, acc_5, testResults = all_test_res
         logging.info(
             "After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
@@ -327,8 +314,6 @@ class Executor(object):
                     test_loss, acc * 100., acc_5 * 100.))
 
         gc.collect()
-        logging.info(f"{clientId} Wait for 8...")
-        time.sleep(5)
         return testResults
 
     def event_monitor(self):
