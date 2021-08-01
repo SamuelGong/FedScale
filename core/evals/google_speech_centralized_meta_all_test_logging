@@ -1,1 +1,423 @@
-Killed by signal 2.
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:22 INFO     [aggregator.py:10] Job args Namespace(adam_epsilon=1e-08, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=2.4368231046931412, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/google_speech', data_map_file='/homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv', data_set='google_speech', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=5, eval_interval=1, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=127, filter_more=1000000000000000.0, finetune=False, gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='google_speech_centralized_meta_all_test', labels_path='labels.json', learners='1-2-3-4-5-6', learning_rate=0.05, line_by_line=False, local_steps=4, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=9557, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='resnet34', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=35, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='meta', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='56831', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='centralized', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, task='speech', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='all', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0802_003218', total_worker=1, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:25 INFO     [executor.py:44] (EXECUTOR:1) is setting up environ ...
+(08-02) 00:32:25 INFO     [executor.py:77] Start to connect to 127.0.0.1:9557 for control plane communication ...
+(08-02) 00:32:27 INFO     [aggregator.py:84] End up with cuda device (cuda:0)
+(08-02) 00:32:27 INFO     [aggregator.py:104] Start to initiate 127.0.0.1:9557 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:28 INFO     [executor.py:44] (EXECUTOR:2) is setting up environ ...
+(08-02) 00:32:28 INFO     [executor.py:77] Start to connect to 127.0.0.1:9557 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:31 INFO     [executor.py:44] (EXECUTOR:3) is setting up environ ...
+(08-02) 00:32:31 INFO     [executor.py:77] Start to connect to 127.0.0.1:9557 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:34 INFO     [executor.py:44] (EXECUTOR:4) is setting up environ ...
+(08-02) 00:32:34 INFO     [executor.py:77] Start to connect to 127.0.0.1:9557 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:37 INFO     [executor.py:44] (EXECUTOR:5) is setting up environ ...
+(08-02) 00:32:37 INFO     [executor.py:77] Start to connect to 127.0.0.1:9557 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-02) 00:32:40 INFO     [executor.py:44] (EXECUTOR:6) is setting up environ ...
+(08-02) 00:32:40 INFO     [executor.py:77] Start to connect to 127.0.0.1:9557 for control plane communication ...
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 5
+(08-02) 00:32:40 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 6
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 6: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [distributed_c10d.py:225] Rank 5: Completed store-based barrier for 7 nodes.
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:40 INFO     [fllibs.py:78] Initializing the model ...
+(08-02) 00:32:41 INFO     [aggregator.py:479] Start monitoring events ...
+(08-02) 00:32:46 INFO     [executor.py:114] Data partitioner starts ...
+(08-02) 00:32:46 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:46 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:46 INFO     [executor.py:114] Data partitioner starts ...
+(08-02) 00:32:46 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:46 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-02) 00:32:47 INFO     [executor.py:123] Data partitioner completes ...
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-02) 00:32:47 INFO     [executor.py:123] Data partitioner completes ...
+(08-02) 00:32:47 INFO     [executor.py:114] Data partitioner starts ...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [executor.py:114] Data partitioner starts ...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [executor.py:114] Data partitioner starts ...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-02) 00:32:47 INFO     [executor.py:123] Data partitioner completes ...
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-02) 00:32:47 INFO     [executor.py:123] Data partitioner completes ...
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-02) 00:32:47 INFO     [executor.py:123] Data partitioner completes ...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [executor.py:114] Data partitioner starts ...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 7382 samples...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-02) 00:32:47 INFO     [executor.py:123] Data partitioner completes ...
+(08-02) 00:32:47 INFO     [executor.py:329] Start monitoring events ...
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 7382 samples...
+(08-02) 00:32:47 INFO     [aggregator.py:529] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:2)
+(08-02) 00:32:47 INFO     [executor.py:329] Start monitoring events ...
+(08-02) 00:32:47 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-02) 00:32:47 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-02) 00:32:47 INFO     [aggregator.py:529] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:6)
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 7382 samples...
+(08-02) 00:32:47 INFO     [executor.py:329] Start monitoring events ...
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 7382 samples...
+(08-02) 00:32:47 INFO     [divide_data.py:94] Randomly partitioning data, 7382 samples...
+(08-02) 00:32:47 INFO     [aggregator.py:529] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:1)
+(08-02) 00:32:47 INFO     [executor.py:329] Start monitoring events ...
+(08-02) 00:32:47 INFO     [executor.py:329] Start monitoring events ...
+(08-02) 00:32:47 INFO     [aggregator.py:529] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:3)
+(08-02) 00:32:48 INFO     [divide_data.py:94] Randomly partitioning data, 7382 samples...
+(08-02) 00:32:48 INFO     [aggregator.py:529] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:5)
+(08-02) 00:32:48 INFO     [executor.py:329] Start monitoring events ...
+(08-02) 00:32:48 INFO     [aggregator.py:529] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:4)
+(08-02) 00:32:48 INFO     [aggregator.py:207] Info of all feasible clients {'total_feasible_clients': 5, 'total_num_samples': 649}
+(08-02) 00:32:48 INFO     [aggregator.py:385] Wall clock: 0 s, Epoch: 1, Planned participants: 0, Succeed participants: 0, Training loss: 0.0
+(08-02) 00:32:48 INFO     [aggregator.py:391] Selected participants to run: [0]:
+{0: {'computation': 88.56, 'communication': 0.0106685765}}
+(08-02) 00:32:48 INFO     [executor.py:336] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-02) 00:32:48 INFO     [executor.py:336] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-02) 00:32:48 INFO     [executor.py:336] Executor 6: Received (Event:UPDATE_MODEL) from aggregator
+(08-02) 00:32:48 INFO     [executor.py:336] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-02) 00:32:48 INFO     [executor.py:336] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-02) 00:32:48 INFO     [executor.py:336] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-02) 00:32:49 INFO     [executor.py:336] Executor 4: Received (Event:ALL_TEST) from aggregator
+(08-02) 00:32:49 INFO     [executor.py:336] Executor 2: Received (Event:ALL_TEST) from aggregator
+(08-02) 00:32:49 INFO     [executor.py:336] Executor 6: Received (Event:ALL_TEST) from aggregator
+(08-02) 00:32:49 INFO     [executor.py:336] Executor 1: Received (Event:ALL_TEST) from aggregator
+(08-02) 00:32:49 INFO     [executor.py:336] Executor 5: Received (Event:ALL_TEST) from aggregator
+(08-02) 00:32:49 INFO     [client.py:16] Start to train (CLIENT: 3) ...
+(08-02) 00:32:49 INFO     [client.py:16] Start to train (CLIENT: 7) ...
+(08-02) 00:32:49 INFO     [client.py:16] Start to train (CLIENT: 28) ...
+(08-02) 00:32:49 INFO     [client.py:16] Start to train (CLIENT: 83) ...
+(08-02) 00:32:49 INFO     [client.py:16] Start to train (CLIENT: 90) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-02) 00:32:50 INFO     [client.py:258] Training of (CLIENT: 28) completes, {'clientId': 28, 'moving_loss': 0.0001, 'trained_size': 20, 'success': True, 'utility': 0.8}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-02) 00:32:50 INFO     [client.py:258] Training of (CLIENT: 7) completes, {'clientId': 7, 'moving_loss': 0.0001, 'trained_size': 20, 'success': True, 'utility': 0.8}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-02) 00:32:50 INFO     [client.py:258] Training of (CLIENT: 3) completes, {'clientId': 3, 'moving_loss': 0.0001, 'trained_size': 20, 'success': True, 'utility': 0.8}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-02) 00:32:50 INFO     [client.py:258] Training of (CLIENT: 83) completes, {'clientId': 83, 'moving_loss': 0.0001, 'trained_size': 20, 'success': True, 'utility': 0.8}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-02) 00:32:50 INFO     [client.py:258] Training of (CLIENT: 90) completes, {'clientId': 90, 'moving_loss': 0.0001, 'trained_size': 20, 'success': True, 'utility': 0.8}
+(08-02) 00:32:50 INFO     [executor.py:298] A [[[-1.85142100e-01 -1.01749033e-01 -1.01762511e-01 -1.40341997e-01
+   -9.16011781e-02 -1.30978107e-01 -1.33540064e-01]
+  [-4.36793789e-02 -8.94366130e-02 -5.55047467e-02 -7.74060264e-02
+   -3.05329636e-02 -9.25334841e-02 -8.70750472e-02]
+  [-3.53550762e-02 -1.00019947e-01 -9.94452536e-02 -4.11602706e-02
+   -6.20119758e-02 -5.55925332e-02 -9.95160937e-02]
+  [-8.31095204e-02 -7.88295269e-02 -1.76496860e-02 -4.58562151e-02
+   -1.64879300e-02  5.64018590e-03 -3.28177772e-02]
+  [-1.53596148e-01 -2.00086653e-01 -1.21420659e-01 -6.70934543e-02
+    7.10638333e-03  9.75812972e-03 -4.16973345e-02]
+  [-1.12254024e-01 -1.55182257e-01 -4.05034013e-02 -1.31439008e-02
+   -2.59497445e-02  1.09217465e-02 -3.58818620e-02]
+  [-3.18199396e-02 -9.53497924e-03  4.38029179e-03  1.49871819e-02
+    5.30984206e-03 -7.11084902e-02 -6.45127438e-04]]
+
+ [[-1.55287134e-02 -2.71908361e-02 -9.79319885e-02 -4.06092852e-02
+   -4.97395964e-03 -8.28295294e-03  4.48875241e-02]
+  [ 6.48226216e-02  1.22464737e-02  1.14985639e-02  8.44365135e-02
+    1.05913498e-01  6.86746314e-02  9.41418409e-02]
+  [ 1.89767464e-03  5.67809269e-02  5.61254099e-02  1.20661244e-01
+    7.39582330e-02  4.34097759e-02  1.15517996e-01]
+  [ 4.78042364e-02 -3.06324810e-02 -3.53189372e-02  4.12279554e-02
+   -2.03086040e-03 -1.89832430e-02 -1.58068128e-02]
+  [ 2.59820428e-02  1.34689938e-02  2.29091588e-02 -1.18200132e-03
+    4.28025797e-03  9.93624888e-03  2.87716761e-02]
+  [ 1.05443867e-02  5.66700324e-02  4.32344079e-02  5.92841171e-02
+    1.40033001e-02  1.09654730e-02  4.59258929e-02]
+  [ 4.67176475e-02  6.01680279e-02  8.83777589e-02  3.14495787e-02
+    6.54872879e-02  1.03050277e-01  1.15182333e-01]]
+
+ [[ 5.93300089e-02  1.35790721e-01  7.15144575e-02  1.21458337e-01
+    5.84256724e-02 -8.69139191e-03 -3.34775890e-03]
+  [ 1.06847696e-01  8.51399451e-02  1.03042610e-01  1.35366261e-01
+    1.24893107e-01  3.98622788e-02  1.30262677e-04]
+  [ 8.74528214e-02  1.06974855e-01  5.24555892e-02  1.15126602e-01
+    6.64463639e-02 -4.31195088e-02 -3.98130827e-02]
+  [ 3.60726565e-02  9.80202332e-02  2.60720607e-02  8.30825046e-02
+    1.12773977e-01 -7.79947490e-02 -4.46201256e-03]
+  [ 3.04403994e-02  7.31626898e-02  5.49932644e-02  7.04052225e-02
+   -2.03819275e-02 -5.14828824e-02  6.21966040e-03]
+  [-6.48186775e-03  3.84643488e-02  6.85741976e-02  5.25956266e-02
+    5.65001816e-02 -4.02466767e-02 -1.35014988e-02]
+  [ 2.64964905e-02  2.70921718e-02  4.11130078e-02  5.03025092e-02
+    5.29751666e-02 -1.62014812e-02 -1.76901557e-02]]]
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 383, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 157, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 361, in event_monitor
+    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 301, in all_testing_handler
+    param.data = Variable(torch.from_numpy(results[idx]))
+KeyError: 0
+(08-02) 00:32:50 INFO     [executor.py:298] A [[[-0.02605748 -0.02950467 -0.06768528 -0.0609404   0.05360176
+   -0.01398805 -0.04255665]
+  [ 0.07424601 -0.00387586  0.01411839  0.06282954  0.15883517
+    0.04239207  0.04418106]
+  [ 0.06184989 -0.03532546 -0.06268686  0.04707667  0.07678444
+    0.07734519  0.04943618]
+  [ 0.10622413  0.06222774  0.07492639  0.02317137  0.08015615
+    0.072941    0.01538474]
+  [ 0.14625004  0.05901816  0.11011743  0.10991827  0.1761188
+    0.14002727  0.08795501]
+  [ 0.14766577  0.07046728  0.12172921  0.08995998  0.06883782
+    0.11595467  0.07931288]
+  [ 0.171699    0.1210724   0.08499797  0.045942    0.05722032
+   -0.01300536  0.06997041]]
+
+ [[ 0.01255696  0.02846813 -0.03922245 -0.09535783 -0.04845172
+   -0.05829192 -0.08607832]
+  [ 0.08145303  0.06653809  0.04843815  0.00723635  0.04855781
+    0.02702936 -0.01411408]
+  [-0.05431172  0.03630282  0.03386742 -0.00448439 -0.0420523
+   -0.05181922 -0.03273715]
+  [ 0.02819188 -0.00466327 -0.02037851 -0.06213753 -0.07948252
+   -0.07994307 -0.13228172]
+  [-0.03811944 -0.00556626  0.01199391 -0.11400357 -0.09813095
+   -0.0945365  -0.13081364]
+  [-0.05212189  0.0077953  -0.01170175 -0.12023079 -0.15937938
+   -0.1609729  -0.16106787]
+  [-0.04707969 -0.0300935  -0.00872207 -0.20064427 -0.15544681
+   -0.12819523 -0.14707007]]
+
+ [[-0.00092914  0.09732448  0.08866513  0.15256532  0.13195944
+    0.01922148  0.04295113]
+  [ 0.02392745 -0.0302699   0.02831366  0.07722183  0.1212818
+   -0.02830835 -0.03777019]
+  [-0.01166849 -0.0153607  -0.03027303  0.09085774  0.12134714
+   -0.0559727  -0.04308642]
+  [-0.0127995   0.01404945 -0.03542239  0.02204615  0.12880912
+   -0.10331203 -0.00655937]
+  [ 0.03449687  0.04694132  0.03501769  0.02867213  0.01156496
+   -0.07037325  0.00967654]
+  [ 0.02600686  0.06742144  0.08963861  0.02125739  0.09916119
+   -0.02589015  0.04088795]
+  [ 0.08321068  0.08688777  0.07996546  0.01448246  0.09342213
+   -0.02465271  0.01287408]]]
+(08-02) 00:32:50 INFO     [executor.py:298] A [[[-0.02486446  0.08731189  0.11303716  0.05538709  0.10735646
+    0.12614402  0.15164725]
+  [ 0.0780291   0.11406662  0.16217926  0.13702805  0.19704786
+    0.1637818   0.20487158]
+  [ 0.0824315   0.095782    0.090786    0.14551507  0.12645327
+    0.18301308  0.16404645]
+  [ 0.03133419  0.10261635  0.11963659  0.06963906  0.06070622
+    0.09426802  0.05014386]
+  [ 0.0626433   0.05664291  0.09417272  0.08189622  0.09506257
+    0.08624094  0.00980755]
+  [-0.11539181 -0.11734449 -0.03443068 -0.05787206 -0.11650565
+   -0.04810616 -0.12155569]
+  [-0.09680081 -0.0736751  -0.08829647 -0.10973126 -0.10525168
+   -0.11994319 -0.06072215]]
+
+ [[ 0.09250027  0.05204468 -0.00332044  0.00594681  0.0532662
+    0.04814924  0.09504583]
+  [ 0.11100607  0.03428955  0.03640832  0.06544871  0.08974615
+    0.03566589  0.03677065]
+  [ 0.0124664   0.0475012   0.06116384  0.09947432  0.05821215
+    0.01475529  0.05272728]
+  [ 0.03798571 -0.04404991 -0.02977835  0.0342554   0.00704515
+   -0.02810132 -0.05526821]
+  [ 0.00692957 -0.01475847  0.01917825 -0.02334488 -0.00049346
+   -0.01301831 -0.0204971 ]
+  [-0.03550462 -0.01661533 -0.00984662 -0.01603959 -0.06523392
+   -0.06977639 -0.04866328]
+  [-0.00933425 -0.04693747 -0.00511892 -0.07961807 -0.02792858
+    0.00974166  0.02023067]]
+
+ [[ 0.09639183  0.12691513  0.03558445  0.01174998 -0.00220377
+   -0.01201685  0.00515636]
+  [ 0.144783    0.08537547  0.06890102  0.02682168  0.05751093
+    0.02940374  0.00359709]
+  [ 0.11549293  0.10157435  0.02944354  0.04323594  0.0586664
+    0.00588356  0.01818238]
+  [ 0.07882452  0.08921702 -0.00147949 -0.05489268  0.03102697
+   -0.09470932 -0.01799633]
+  [ 0.10143824  0.1037552   0.05864962 -0.04133881 -0.07257362
+   -0.04071817  0.00762015]
+  [ 0.06873582  0.11975636  0.12161063 -0.02920145  0.03058169
+   -0.0103678  -0.00861119]
+  [ 0.10608155  0.10889749  0.0925273  -0.03971999  0.01064654
+   -0.0061803  -0.01304973]]]
+(08-02) 00:32:50 INFO     [executor.py:298] A [[[-0.1361895  -0.17010963 -0.11900969 -0.12903105 -0.05407422
+   -0.0309414   0.03874272]
+  [-0.06536718 -0.16253087 -0.09464179 -0.10667388 -0.03156602
+   -0.02096346  0.09317641]
+  [-0.0478402  -0.16104576 -0.08579402 -0.05104875 -0.0680609
+    0.03059984  0.0759811 ]
+  [-0.09854823 -0.10236167  0.01155761 -0.08874708 -0.05450907
+    0.04086895  0.04792286]
+  [-0.10303506 -0.16097315 -0.02419653 -0.03057942  0.02478897
+    0.05743188  0.03579574]
+  [-0.27403343 -0.33947253 -0.1142014  -0.12502515 -0.16029058
+   -0.09151459 -0.11655499]
+  [-0.22813652 -0.26175493 -0.17732812 -0.18742047 -0.16013846
+   -0.17549613 -0.04562277]]
+
+ [[ 0.0819073   0.01158855 -0.0640785  -0.01870225  0.02563505
+    0.02533207  0.07883881]
+  [ 0.11154136  0.01320595 -0.01238179  0.03451187  0.05708967
+    0.02272096  0.06263557]
+  [ 0.02288375  0.02465858 -0.00206183  0.03406352 -0.02022043
+   -0.03825494  0.06785879]
+  [ 0.09103341 -0.01487569 -0.03478616  0.01900092 -0.01643374
+   -0.03794103 -0.00238247]
+  [ 0.05761201  0.00942165  0.01059647 -0.02329328  0.00617445
+    0.00923376  0.04741543]
+  [ 0.03668798  0.03113558  0.00184717 -0.00130437 -0.03079372
+   -0.02385842  0.04584618]
+  [ 0.06791338  0.02188706  0.0282523  -0.06540477 -0.03036467
+    0.02185918  0.09222793]]
+
+ [[-0.12817046 -0.07787669 -0.12179247 -0.06654784 -0.05548506
+    0.0103016   0.03774232]
+  [-0.11737208 -0.16718884 -0.12010954 -0.08273391 -0.01927308
+    0.0448154   0.03841937]
+  [-0.14454238 -0.17030828 -0.19079731 -0.08909004 -0.04854445
+   -0.01623794  0.03505125]
+  [-0.17844854 -0.1591304  -0.18054348 -0.10121116  0.01335418
+   -0.00373816  0.11198701]
+  [-0.14403033 -0.13739793 -0.09614868 -0.07412121 -0.08939613
+    0.04500074  0.14659938]
+  [-0.18748815 -0.14318393 -0.06082635 -0.09383493 -0.01796866
+    0.04611382  0.10133251]
+  [-0.1487653  -0.13676669 -0.08401576 -0.08122858 -0.00911446
+    0.06481849  0.08294185]]]
+(08-02) 00:32:50 INFO     [executor.py:298] A [[[-6.58078399e-03  9.39051285e-02  1.24730421e-02 -1.26925364e-01
+   -5.73016964e-02 -4.99425493e-02 -4.69868779e-02]
+  [-2.85001658e-02 -9.90118459e-03 -5.40621355e-02 -1.36891872e-01
+   -7.39002824e-02 -1.06188685e-01 -6.47540838e-02]
+  [-7.52878049e-03 -2.26898100e-02 -7.08532855e-02 -5.40911108e-02
+   -9.00344849e-02 -4.61359359e-02 -1.70835927e-02]
+  [ 1.31652087e-01  1.62079707e-01  1.13357231e-01  2.80857496e-02
+    1.49135441e-02  2.39112414e-02  4.05770801e-02]
+  [ 1.82487771e-01  1.32504344e-01  1.10209458e-01  9.87996385e-02
+    1.05326280e-01  5.52993789e-02  1.78724080e-02]
+  [ 2.67713189e-01  2.22001493e-01  2.43959099e-01  2.10994273e-01
+    1.36585519e-01  1.95473209e-01  1.86112851e-01]
+  [ 3.36805165e-01  3.12608749e-01  2.41463587e-01  2.04991668e-01
+    1.81676075e-01  1.25758305e-01  2.19593868e-01]]
+
+ [[ 3.97104584e-02  3.72157730e-02 -3.00587974e-02 -3.19152810e-02
+    2.03697383e-02  2.17377339e-02  7.24040940e-02]
+  [ 5.40010929e-02  8.69632512e-03 -5.57600812e-04  9.32722539e-03
+    5.74819930e-02  2.63978317e-02  3.68915349e-02]
+  [-2.73182020e-02  3.96832898e-02  3.08287684e-02  2.59564910e-02
+   -9.29363910e-03 -3.21023464e-02  2.23148093e-02]
+  [ 8.39622915e-02  2.71098427e-02  2.23604664e-02  6.69696480e-02
+    4.20827158e-02  3.00998241e-02  9.48474091e-03]
+  [ 5.65020554e-02  4.48265038e-02  5.51479496e-02  3.35589546e-04
+    3.55973803e-02  4.68972176e-02  3.17124650e-02]
+  [ 1.60497986e-02  5.21464273e-02  2.73825936e-02  9.97635163e-03
+   -2.93954704e-02 -2.83833258e-02 -1.57191902e-02]
+  [ 4.52588759e-02  3.67376767e-02  5.20698242e-02 -4.94301952e-02
+   -1.68174040e-02  3.31873298e-02  3.73135358e-02]]
+
+ [[-4.87409532e-02 -1.29850628e-02 -3.67714390e-02  4.28292602e-02
+   -4.18248549e-02 -7.00902566e-02 -3.84499170e-02]
+  [ 1.92586798e-02 -4.17812355e-02 -1.00593828e-02  4.57017720e-02
+    2.88627129e-02 -4.28012200e-03 -1.73294246e-02]
+  [ 1.30609227e-02 -1.18161691e-03 -4.52832803e-02  5.40659688e-02
+    5.64093748e-03 -3.93931605e-02 -1.55593688e-02]
+  [-6.47567660e-02 -7.18378797e-02 -1.30387560e-01 -3.07336170e-02
+   -4.53125611e-02 -8.85243192e-02  6.89064898e-03]
+  [-4.48659733e-02 -7.88476765e-02 -8.88159126e-02 -4.02302109e-02
+   -1.75436482e-01 -7.09054619e-02  9.73850396e-03]
+  [-2.42348630e-02  1.78036336e-02  3.63488644e-02  4.37996164e-02
+    7.80636072e-03 -8.23047536e-04  4.27877679e-02]
+  [ 1.80909932e-02  1.15647912e-02 -1.64248869e-02  1.62075013e-02
+   -7.13157328e-03  2.09080353e-02  3.42383310e-02]]]
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 383, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 157, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 361, in event_monitor
+    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 301, in all_testing_handler
+    param.data = Variable(torch.from_numpy(results[idx]))
+KeyError: 0
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 383, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 157, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 361, in event_monitor
+    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 301, in all_testing_handler
+    param.data = Variable(torch.from_numpy(results[idx]))
+KeyError: 0
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 383, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 157, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 361, in event_monitor
+    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 301, in all_testing_handler
+    param.data = Variable(torch.from_numpy(results[idx]))
+KeyError: 0
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 383, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 157, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 361, in event_monitor
+    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 301, in all_testing_handler
+    param.data = Variable(torch.from_numpy(results[idx]))
+KeyError: 0
