@@ -289,7 +289,8 @@ class Executor(object):
             client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
             client = self.get_client_trainer(conf)
-            _ = client.train(client_data=client_data, model=client_model, conf=conf)
+            _ = client.train(client_data=client_data, model=client_model, conf=conf,
+                             specified_loop_num=1) # for "meta"
             self.model = client_model
 
         device = self.device
