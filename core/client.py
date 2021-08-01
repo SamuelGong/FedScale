@@ -249,6 +249,9 @@ class Client(object):
                 if completed_steps == conf.local_steps:
                     break
 
+        if specified_local_steps is not None: # is testing in "meta"
+            return
+
         model_param = [param.data.cpu().numpy() for param in model.parameters()]
         results = {'clientId':clientId, 'moving_loss': epoch_train_loss,
                   'trained_size': completed_steps*conf.batch_size, 'success': completed_steps > 0}
