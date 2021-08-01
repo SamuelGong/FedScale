@@ -298,7 +298,7 @@ class Executor(object):
                     logging.info(f"A {param.data.cpu().numpy().squeeze()[:3]}")
 
             for idx, param in enumerate(self.model.parameters()):
-                param.data = Variable(torch.from_numpy(results[idx]))
+                param.data = Variable(torch.from_numpy(results['update_weight'][idx]))
                 if idx == 0:
                     logging.info(f"B {param.data.cpu().numpy().squeeze()[:3]}")
 
