@@ -86,7 +86,7 @@ class Client(object):
             if conf.personalized == "meta":
                 local_model_copies = []
                 for _, param in enumerate(model.parameters()):
-                    local_model_copies.append(param.data.cpu())
+                    local_model_copies.append(param.data.detach().clone())
 
             completed_steps += 1
             for loop_idx in range(loop_num):
@@ -182,25 +182,23 @@ class Client(object):
                         if loop_idx == 1:
                             grad_copies = []
                             for _, param in enumerate(model.parameters()):
-                                grad_copies.append(copy.deepcopy(param.grad.cpu()))
+                                grad_copies.append(param.grad.clone())
 
                             dummy_model1 = [(u + delta * v) for u, v in zip(local_model_copies, grad_copies)]
                             for idx, param in enumerate(model.parameters()):
-                                param.data = dummy_model1[idx].to(device=device)
-                            optimizer.zero_grad()
+                                param.data = dummy_model1[idx]
                         elif loop_idx == 2:
                             dummy_grad1 = []
                             for _, param in enumerate(model.parameters()):
-                                dummy_grad1.append(copy.deepcopy(param.grad.cpu()))
+                                dummy_grad1.append(param.grad.clone())
 
                             dummy_model2 = [(u - delta * v) for u, v in zip(local_model_copies, grad_copies)]
                             for idx, param in enumerate(model.parameters()):
-                                param.data = dummy_model2[idx].to(device=device)
-                            optimizer.zero_grad()
+                                param.data = dummy_model2[idx]
                         else:
                             dummy_grad2 = []
                             for _, param in enumerate(model.parameters()):
-                                dummy_grad2.append(copy.deepcopy(param.grad.cpu()))
+                                dummy_grad2.append(param.grad.clone())
                     else:
                         optimizer.step()
 
@@ -222,9 +220,8 @@ class Client(object):
                 try:
                     correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
                     for idx, param in enumerate(model.parameters()):
-                        temp = local_model_copies[idx] - beta * grad_copies[idx] \
+                        param.data = local_model_copies[idx] - beta * grad_copies[idx] \
                                + conf.learning_rate * beta * correction[idx]
-                        param.data = temp.to(device=device)
                 except Exception as ex:
                     error_type = ex
                     break
