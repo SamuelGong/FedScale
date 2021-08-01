@@ -237,7 +237,6 @@ class Client(object):
                     del dummy_grad2
                     del grad_copies
                     del local_model_copies
-                    del loader
                     torch.cuda.empty_cache()
                 except Exception as ex:
                     error_type = ex
