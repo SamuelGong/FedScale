@@ -294,6 +294,7 @@ class Executor(object):
                              specified_local_steps=1) # for "meta"
 
             del self.model
+            gc.collect()
             # torch.cuda.empty_cache()
             self.model = client_model # client_model has already been updated implicitly
 
