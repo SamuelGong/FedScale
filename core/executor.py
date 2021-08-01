@@ -3,6 +3,7 @@ from fl_client_libs import *
 from argparse import Namespace
 import gc
 from client import Client
+from torch.autograd import Variable
 
 
 class Executor(object):
@@ -289,9 +290,10 @@ class Executor(object):
             client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
             client = self.get_client_trainer(conf)
-            _ = client.train(client_data=client_data, model=client_model, conf=conf,
-                             specified_loop_num=1) # for "meta"
-            self.model = client_model
+            results = client.train(client_data=client_data, model=client_model, conf=conf,
+                             specified_local_steps=1) # for "meta"
+            for idx, param in enumerate(self.model.parameters()):
+                param.data = Variable(torch.from_numpy(results[i]))
 
         device = self.device
         data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,

@@ -10,7 +10,7 @@ class Client(object):
     def __init__(self, conf):
         pass
 
-    def train(self, client_data, model, conf, specified_loop_num=None):
+    def train(self, client_data, model, conf, specified_local_steps=None):
 
         clientId = conf.clientId
         logging.info(f"Start to train (CLIENT: {clientId}) ...")
@@ -70,8 +70,8 @@ class Client(object):
 
         # TODO: One may hope to run fixed number of epochs, instead of iterations
         if conf.personalized == "meta":
-            if specified_loop_num is not None: # mainly for stepping in testing
-                loop_num = specified_loop_num
+            if specified_local_steps is not None: # mainly for stepping in testing
+                loop_num = 1
             else:
                 loop_num = 4 # calculate grad 4 times for each step in training
             delta = 1e-3
@@ -82,8 +82,8 @@ class Client(object):
 
         loader = iter(client_data)
         if conf.sample_mode == "centralized":
-            if conf.personalized == "meta" and specified_loop_num is not None: # testing of "meta"
-                true_num_steps = 1
+            if conf.personalized == "meta" and specified_local_steps is not None: # testing of "meta"
+                true_num_steps = specified_local_steps
                 start_idx = numpy.random.randint(0, len(client_data))
                 for _ in range(start_idx):
                     _ = loader.next()
@@ -92,7 +92,7 @@ class Client(object):
             # currently centralized learning goes with 1 epoch
 
         while True:
-            if conf.personalized == "meta" and specified_loop_num is None:
+            if conf.personalized == "meta" and specified_local_steps is None:
                 local_model_copies = []
                 for _, param in enumerate(model.parameters()):
                     local_model_copies.append(param.data.detach().clone())
@@ -172,7 +172,7 @@ class Client(object):
                         loss_list = loss.tolist()
                         loss = loss.mean()
 
-                    if (conf.personalized == "meta" and loop_idx == 1 and specified_loop_num is None) \
+                    if (conf.personalized == "meta" and loop_idx == 1 and specified_local_steps is None) \
                             or not conf.personalized == "meta":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
@@ -188,7 +188,7 @@ class Client(object):
                     loss.backward()
 
                     # currently performed at CPU
-                    if conf.personalized == "meta" and loop_idx > 0 and specified_loop_num is None:
+                    if conf.personalized == "meta" and loop_idx > 0 and specified_local_steps is None:
                         if loop_idx == 1:
                             grad_copies = []
                             for _, param in enumerate(model.parameters()):
@@ -226,7 +226,7 @@ class Client(object):
             if break_while_flag:
                 break # still need to break the while
 
-            if conf.personalized == "meta" and specified_loop_num is None:
+            if conf.personalized == "meta" and specified_local_steps is None:
                 try:
                     correction = [(u - v) / (2 * delta) for u, v in zip(dummy_grad1, dummy_grad2)]
                     for idx, param in enumerate(model.parameters()):
