@@ -171,14 +171,17 @@ class Aggregator(object):
         if self.registered_executor_info == self.num_executors:
 
             if self.sample_mode == "centralized":
+                clientId = 0
                 total_size = 0
                 for _, size in enumerate(info['size']):
                     if size >= self.client_manager.filter_less and size <= self.client_manager.filter_more:
                         total_size += size
+
+                # simulate a cloud machine
                 systemProfile = {'computation': 1.0, 'communication': 1.25e8} # PCIe 3 / 2
-                self.client_manager.registerClient(executorId, 0,
+                self.client_manager.registerClient(executorId, clientId,
                                                    size=total_size, speed=systemProfile)
-                self.client_manager.registerDuration(0, batch_size=self.args.batch_size,
+                self.client_manager.registerDuration(clientId, batch_size=self.args.batch_size,
                                                      upload_epoch=self.args.local_steps,
                                                      upload_size=self.model_update_size,
                                                      download_size=self.model_update_size)
@@ -480,7 +483,7 @@ class Aggregator(object):
                 elif event_msg == 'start_round':
                     if self.sample_mode == "centralized":
                         config = self.get_client_conf(0)
-                        self.server_event_queue[0].put(
+                        self.server_event_queue[1].put( # note that executors start numbering from 1
                             {'event': 'train', 'clientId': 0, 'conf': config})
                     else:
                         for executorId in self.executors:
