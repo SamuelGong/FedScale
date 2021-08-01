@@ -34,6 +34,8 @@ class Executor(object):
         # JZF
         self.test_mode = args.test_mode
         self.sample_mode = args.sample_mode
+        self.filter_less = args.filter_less
+        self.filter_more = args.filter_more
 
     def setup_env(self):
         logging.info(f"(EXECUTOR:{self.this_rank}) is setting up environ ...")
