@@ -222,11 +222,16 @@ class Client(object):
                     for idx, param in enumerate(model.parameters()):
                         param.data = local_model_copies[idx] - beta * grad_copies[idx] \
                                + conf.learning_rate * beta * correction[idx]
+
+                    del dummy_grad1
+                    del dummy_grad2
+                    del grad_copies
+                    del local_model_copies
+                    torch.cuda.empty_cache()
                 except Exception as ex:
                     error_type = ex
                     break
 
-            torch.cuda.empty_cache()
             if conf.sample_mode == "centralized":
                 if completed_steps == true_num_steps:
                     break
