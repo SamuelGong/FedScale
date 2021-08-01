@@ -293,8 +293,6 @@ class Executor(object):
             _ = client.train(client_data=client_data, model=client_model, conf=conf,
                              specified_local_steps=1) # for "meta"
 
-            del self.model
-            torch.cuda.empty_cache()
             self.model = client_model # client_model has already been updated implicitly
 
         device = self.device
