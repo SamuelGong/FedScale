@@ -36,6 +36,7 @@ class Executor(object):
         self.sample_mode = args.sample_mode
         self.filter_less = args.filter_less
         self.filter_more = args.filter_more
+        self.batch_size = args.batch_size
 
     def setup_env(self):
         logging.info(f"(EXECUTOR:{self.this_rank}) is setting up environ ...")
@@ -238,7 +239,7 @@ class Executor(object):
         conf.clientId, conf.device = clientId, self.device
         conf.tokenizer = tokenizer
 
-        if clientId == 0:
+        if clientId == 0: # related to centralized training
             client_data = select_dataset(1, self.centralized_training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
         else:
@@ -312,6 +313,10 @@ class Executor(object):
 
                 if event_msg == 'report_executor_info':
                     executor_info = self.report_executor_info_handler()
+                    if self.sample_mode == "centralized" and self.this_rank == 1: # related to centralized training
+                        client_data = select_dataset(1, self.centralized_training_sets, batch_size=self.batch_size,
+                                         collate_fn=self.collate_fn)
+                        executor_info['global_num_batches'] = len(client_data)
                     self.push_msg_to_server(event_msg, executor_info)
 
                 elif event_msg == 'update_model':

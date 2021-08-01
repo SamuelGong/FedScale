@@ -77,6 +77,10 @@ class Client(object):
             loop_num = 1
         break_while_flag = False
 
+        if conf.sample_mode == "centralized":
+            true_num_steps = len(client_data)
+            # currently centralized learning goes with 1 epoch
+
         loader = iter(client_data)
         while True:
             if conf.personalized == "meta":
@@ -225,8 +229,12 @@ class Client(object):
                     error_type = ex
                     break
 
-            if completed_steps == conf.local_steps:
-                break
+            if conf.sample_mode == "centralized":
+                if completed_steps == true_num_steps:
+                    break
+            else:
+                if completed_steps == conf.local_steps:
+                    break
 
         model_param = [param.data.cpu().numpy() for param in model.parameters()]
         results = {'clientId':clientId, 'moving_loss': epoch_train_loss,
