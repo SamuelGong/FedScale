@@ -156,12 +156,11 @@ class Executor(object):
 
     def start_event(self):
         executor_info = self.report_executor_info_handler()
+        if self.sample_mode == "centralized" and self.this_rank == 1:  # related to centralized training
+            client_data = select_dataset(1, self.centralized_training_sets, batch_size=self.batch_size,
+                                         collate_fn=self.collate_fn)
+            executor_info['global_num_batches'] = len(client_data)
         self.push_msg_to_server('report_executor_info', executor_info)
-
-    def start_event(self):
-        executor_info = self.report_executor_info_handler()
-        self.push_msg_to_server('report_executor_info', executor_info)
-
 
     def push_msg_to_server(self, event, results):
         self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
@@ -313,10 +312,6 @@ class Executor(object):
 
                 if event_msg == 'report_executor_info':
                     executor_info = self.report_executor_info_handler()
-                    if self.sample_mode == "centralized" and self.this_rank == 1: # related to centralized training
-                        client_data = select_dataset(1, self.centralized_training_sets, batch_size=self.batch_size,
-                                         collate_fn=self.collate_fn)
-                        executor_info['global_num_batches'] = len(client_data)
                     self.push_msg_to_server(event_msg, executor_info)
 
                 elif event_msg == 'update_model':
