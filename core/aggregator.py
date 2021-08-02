@@ -301,7 +301,8 @@ class Aggregator(object):
         # Format:
         #       -results = {'clientId':clientId, 'update_weight': model_param, 'moving_loss': epoch_train_loss,
         #       'trained_size': count, 'wall_duration': time_cost, 'success': is_success 'utility': utility}
-        self.client_training_results.append(results)
+        if self.args.gradient_policy == 'qfedavg':
+            self.client_training_results.append(results)
 
         # Feed metrics to client sampler
         self.stats_util_accumulator.append(results['utility'])
