@@ -3,7 +3,6 @@
 from fl_aggregator_libs import *
 from random import Random
 from resource_manager import ResourceManager
-import gc
 
 class Aggregator(object):
     """This centralized aggregator collects training/testing feedbacks from executors"""
@@ -325,9 +324,6 @@ class Aggregator(object):
         else:
             for idx, param in enumerate(self.model.parameters()):
                 param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device)*importance
-
-        del results
-        gc.collect()
 
 
     def save_last_param(self):
