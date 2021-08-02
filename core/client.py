@@ -4,6 +4,7 @@ import math, numpy
 from utils.nlp import mask_tokens
 from torch.autograd import Variable
 import copy
+import gc
 
 class Client(object):
     """Basic client component in Federated Learning"""
@@ -181,7 +182,8 @@ class Client(object):
                             if epoch_train_loss == 1e-4:
                                 epoch_train_loss = temp_loss
                             else:
-                                epoch_train_loss = (1. - conf.loss_decay) * epoch_train_loss + conf.loss_decay * temp_loss
+                                epoch_train_loss = (1. - conf.loss_decay) * epoch_train_loss \
+                                                   + conf.loss_decay * temp_loss
 
                     # ========= Define the backward loss ==============
                     optimizer.zero_grad()
@@ -233,11 +235,6 @@ class Client(object):
                         param.data = local_model_copies[idx] - beta * grad_copies[idx] \
                                + conf.learning_rate * beta * correction[idx]
 
-                    del dummy_grad1
-                    del dummy_grad2
-                    del grad_copies
-                    del local_model_copies
-                    torch.cuda.empty_cache()
                 except Exception as ex:
                     error_type = ex
                     break
@@ -264,6 +261,15 @@ class Client(object):
 
         results['update_weight'] = model_param
         results['wall_duration'] = 0
+
+        if conf.personalized == "meta" and specified_local_steps is None:
+            del dummy_grad1
+            del dummy_grad2
+            del grad_copies
+            del local_model_copies
+            del client_data
+            gc.collect()
+            torch.cuda.empty_cache()
 
         return results
 
