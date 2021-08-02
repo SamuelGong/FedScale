@@ -164,6 +164,7 @@ parser.add_argument('--no-bidirectional', dest='bidirectional', action='store_fa
 
 parser.add_argument('--test_mode', type=str, default='default')
 parser.add_argument('--personalized', type=str, default='none')
+parser.add_argument('--aggregator_device', type=int, default=0)
 args = parser.parse_args()
 
 
