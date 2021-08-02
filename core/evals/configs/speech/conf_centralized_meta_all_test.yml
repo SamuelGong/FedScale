@@ -8,7 +8,7 @@ ps_ip: 127.0.0.1
 # Note that if we collocate ps and worker, then we need to decrease this number of gpus by 1
 # E.g., master node has 4 GPUs, then 1 for the ps, and worker should be set to: worker:3
 worker_ips: 
-    - 127.0.0.1:[0,0,0,0,3,0,0,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
+    - 127.0.0.1:[0,0,0,0,4,0,0,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
     #- 10.0.0.4:[5]
     #- 10.0.0.5:[5]
     #- 10.0.0.6:[5]
@@ -59,7 +59,7 @@ job_conf:
     - yogi_eta: 3e-3 
     - yogi_tau: 1e-8
     - local_steps: 4
-    - learning_rate: 0.05
+    - learning_rate: 0.01
     - batch_size: 20
     - test_bsz: 20
     - sample_mode: centralized
