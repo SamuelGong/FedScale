@@ -46,7 +46,7 @@ class Executor(object):
         self.setup_seed(seed=self.this_rank)
 
         # set up device
-        if self.args.use_cuda
+        if self.args.use_cuda:
             if self.device == None:
                 for i in range(torch.cuda.device_count()):
                     try:
