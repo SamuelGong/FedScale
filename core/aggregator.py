@@ -77,6 +77,8 @@ class Aggregator(object):
         # set up device
         if self.args.use_cuda and self.device == None:
             for i in range(torch.cuda.device_count()):
+                if i < self.args.aggregator_device: # skip some gpus
+                    continue
                 try:
                     self.device = torch.device('cuda:'+str(i))
                     torch.cuda.set_device(i)
