@@ -42,8 +42,8 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.yticks(fontsize=_fontsize)
     plt.xticks(fontsize=_fontsize)
 
-    plt.xlim(0, 15)
-    plt.ylim(0, 100)
+    plt.xlim(0)
+    # plt.ylim(10)
 
     ax.set_ylabel(y_label, fontsize=_fontsize)
     ax.set_xlabel(label, fontsize=_fontsize)
@@ -51,23 +51,17 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.savefig(name, bbox_inches='tight')
 
 def run(task):
-    task_prefix = "google_speech"
-    personalized = "meta" # "meta" or "none"
-    task_dict = {
-        f"centralized_{personalized}_all_test": "centralized",
-        f"random_{personalized}_all_test": "random",
-        f"oort_{personalized}_all_test": "oort",
-        # f"greedy_{personalized}_all_test": "greedy"
-    }
-    label_list = []
+    total_workers = 10
+    # local_step_list = np.arange(2, 10, 2)
+    local_step_list = [4]
+    label_list = [str(i) for i in local_step_list]
 
     x_list_list = []
     y_list_list = []
     culmu_time_in_hrs_list = []
-
-    for k, v in task_dict.items():
-        label_list.append(v)
-        log_file = f'{task_prefix}_{k}_logging'
+    for local_step in local_step_list:
+        # log_file = f'{task}_logging_ls{local_step}_tw{total_workers}'
+        log_file = f'{task}_logging'
         with open(log_file, 'r') as file:
             lines = file.readlines()
 
@@ -102,9 +96,9 @@ def run(task):
     # plot_line(y_list_list, culmu_time_in_hrs_list,
     #         label_list, " Training Time (h)", "Accuracy (%)", f"{task}_time_to_acc_tw{total_workers}")
     plot_line(y_list_list, x_list_list,
-              label_list, "Training Rounds", "Accuracy (%)", f"{task_prefix}_{personalized}_round_to_acc")
+              label_list, "Training Rounds", "Accuracy (%)", f"{task}_round_to_acc")
     plot_line(y_list_list, culmu_time_in_hrs_list,
-            label_list, " Training Time (h)", "Accuracy (%)", f"{task_prefix}_{personalized}_time_to_acc")
+            label_list, " Training Time (h)", "Accuracy (%)", f"{task}_time_to_acc")
 
 
 run(sys.argv[1])
