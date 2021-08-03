@@ -173,7 +173,10 @@ class Client(object):
                         loss_list = loss.tolist()
                         loss = loss.mean()
 
-                    if (conf.personalized == "meta" and loop_idx == 1 and specified_local_steps is None) \
+                    if (conf.personalized == "meta" and conf.adaptation_mode == 0
+                            and loop_idx == 1 and specified_local_steps is None) \
+                            or (conf.personalized == "meta" and conf.adaptation_mode == 1
+                            and loop_idx == 0 and specified_local_steps is None) \
                             or not conf.personalized == "meta":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
