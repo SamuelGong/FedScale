@@ -19,7 +19,7 @@ done
 
 cd $LogDir/$model
 
-for file in *;do
+for folder in *;do
   if [[ ! " ${useful[@]} " =~ " $folder " ]]; then
     echo $folder
   fi
