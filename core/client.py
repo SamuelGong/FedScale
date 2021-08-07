@@ -79,7 +79,7 @@ class Client(object):
             beta = 0.01
         elif conf.personalized == "ditto":
             lam = 3e-1
-            loop_num = 1
+            loop_num = 2
         else:
             loop_num = 1
         break_while_flag = False
@@ -112,6 +112,16 @@ class Client(object):
                             data_pair = loader.next()
                         if loop_idx == 2:
                             data_pair_copy = copy.deepcopy(data_pair)
+                    else:
+                        data_pair = data_pair_copy
+                elif conf.personalized == "ditto":
+                    if loop_idx == 0:
+                        try:
+                            data_pair = loader.next()
+                        except StopIteration:
+                            loader = iter(client_data)
+                            data_pair = loader.next()
+                        data_pair_copy = copy.deepcopy(data_pair)
                     else:
                         data_pair = data_pair_copy
                 else:
@@ -147,35 +157,23 @@ class Client(object):
 
                     target = Variable(target).to(device=device)
 
-                    if conf.personalized == "ditto": # need to additionally train a local model
-                        data_c = data.clone()
-                        target_c = target.clone()
-                        output_c = client_model(data_c)
-                        loss_c = criterion(output_c, target_c)
-                        client_model.zero_grad()
-                        loss_c.backward()
-
-                        cnt = 0
-                        for param_c, param in zip(client_model.parameters(), model.parameters()):
-                            if cnt == 0:
-                                logging.info(f"{type(param_c)} {type(param_c.data)} {type(param_c.grad)}")
-                            cnt += 1
-                            eff_grad = param_c.grad.clone() + lam * (param_c.data.detach().clone() -
-                                                                     param.data.detach().clone())
-                            param_c.data -= conf.learning_rate * eff_grad
+                    if conf.personalized == "ditto" and loop_idx == 0:
+                        true_model = client_model
+                    else:
+                        true_model = model
 
                     if conf.task == 'nlp':
-                        outputs = model(data, labels=target)
+                        outputs = true_model(data, labels=target)
                         loss = outputs[0]
                     elif conf.task == 'voice':
-                        outputs, output_sizes = model(data, input_sizes)
+                        outputs, output_sizes = true_model(data, input_sizes)
                         outputs = outputs.transpose(0, 1).float()  # TxNxH
                         loss = criterion(outputs, target, output_sizes, target_sizes)
                     elif conf.task == "detection":
                         rois, cls_prob, bbox_pred, \
                         rpn_loss_cls, rpn_loss_box, \
                         RCNN_loss_cls, RCNN_loss_bbox, \
-                        rois_label = model(im_data, im_info, gt_boxes, num_boxes)
+                        rois_label = true_model(im_data, im_info, gt_boxes, num_boxes)
 
                         loss = rpn_loss_cls + rpn_loss_box \
                                 + RCNN_loss_cls + RCNN_loss_bbox
@@ -187,7 +185,7 @@ class Client(object):
                         print("\t\t\trpn_cls: %.4f, rpn_box: %.4f, rcnn_cls: %.4f, rcnn_box %.4f" \
                         % (loss_rpn_cls, loss_rpn_box, loss_rcnn_cls, loss_rcnn_box))
                     else:
-                        output = model(data)
+                        output = true_model(data)
                         loss = criterion(output, target)
 
                     # ======== collect training feedback for other decision components [e.g., kuiper selector] ======
@@ -204,7 +202,8 @@ class Client(object):
                             and loop_idx == 1 and specified_local_steps is None) \
                             or (conf.personalized == "meta" and conf.adaptation_mode == 1
                             and loop_idx == 0 and specified_local_steps is None) \
-                            or not conf.personalized == "meta":
+                            or (conf.personalized == "ditto" and loop_idx == 1) \
+                            or conf.personalized == "none":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
                         # only measure the loss of the first epoch
@@ -216,7 +215,8 @@ class Client(object):
                                                    + conf.loss_decay * temp_loss
 
                     # ========= Define the backward loss ==============
-                    optimizer.zero_grad()
+                    # optimizer.zero_grad()
+                    true_model.zero_grad()
                     loss.backward()
 
                     if conf.personalized == "meta" and loop_idx > 0 and specified_local_steps is None:
@@ -240,6 +240,11 @@ class Client(object):
                             dummy_grad2 = []
                             for _, param in enumerate(model.parameters()):
                                 dummy_grad2.append(param.grad.clone())
+                    elif conf.personalized == "ditto" and loop_idx == 0:
+                        for param_c, param in zip(client_model.parameters(), model.parameters()):
+                            eff_grad = param_c.grad.clone() + lam * (param_c.data.detach().clone() -
+                                                                     param.data.detach().clone())
+                            param_c.data -= conf.learning_rate * eff_grad
                     else:
                         optimizer.step()
 
