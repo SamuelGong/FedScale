@@ -258,6 +258,7 @@ class Executor(object):
                 with open(client_model_path, 'rb') as f:
                     client_model = pickle.load(f)
             else:
+                logging.info(f"Create local model for client {clientId}")
                 client_model = init_model()
 
             train_res = client.train(client_data=client_data, model=client_model, conf=conf,
