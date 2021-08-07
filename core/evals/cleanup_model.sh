@@ -3,7 +3,7 @@
 cd .
 for file in *;do
   if [[ "$file" == *"logging"* ]];then
-    A=$(grep -o 'time_stamp=[^ ,]\+' $file)
-    echo $A
+    pair=$(sed -r "s/.*time_stamp=(\S+).*/\1/" $file)
+    echo $pair
   fi
 done
