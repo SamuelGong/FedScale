@@ -151,7 +151,9 @@ class Client(object):
                         data_c = data.clone()
                         target_c = target.clone()
                         output_c = client_model(data_c)
-                        _ = criterion(output_c, target_c)
+                        loss_c = criterion(output_c, target_c)
+                        client_model.zero_grad()
+                        loss_c.backward()
 
                         cnt = 0
                         for param_c, param in zip(client_model.parameters(), model.parameters()):
@@ -161,7 +163,6 @@ class Client(object):
                             eff_grad = param_c.grad.clone() + lam * (param_c.data.detach().clone() -
                                                                      param.data.detach().clone())
                             param_c.data -= conf.learning_rate * eff_grad
-                        client_model.zero_grad()
 
                     if conf.task == 'nlp':
                         outputs = model(data, labels=target)
