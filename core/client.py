@@ -79,6 +79,7 @@ class Client(object):
             beta = 0.01
         elif conf.personalized == "ditto":
             lam = 3e-1
+            loop_num = 1
         else:
             loop_num = 1
         break_while_flag = False
