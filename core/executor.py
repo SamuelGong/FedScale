@@ -262,7 +262,12 @@ class Executor(object):
                 local_model = init_model()
 
             local_model = local_model.to(device=self.device)
-            logging.info(f"require_grad {client_model.requires_grad} {local_model.requires_grad}")
+
+            layer = next(client_model.parameters())
+            logging.info(f"[global] require_grad {layer.requires_grad}")
+            layer = next(local_model.parameters())
+            logging.info(f"[local] require_grad {layer.requires_grad}")
+
             train_res = client.train(client_data=client_data, model=client_model, conf=conf,
                                      client_model=local_model)
             with open(local_model_path, 'wb') as f:
