@@ -319,6 +319,11 @@ class Executor(object):
 
             # torch.cuda.empty_cache()
             self.model = client_model # client_model has already been updated implicitly
+        elif self.personalized == "ditto":
+            local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+            if os.path.exists(local_model_path):
+                with open(local_model_path, 'rb') as f:
+                    local_model = pickle.load(f)
 
 
         device = self.device
