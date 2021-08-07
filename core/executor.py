@@ -323,8 +323,9 @@ class Executor(object):
             local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
             if os.path.exists(local_model_path):
                 with open(local_model_path, 'rb') as f:
-                    local_model = pickle.load(f)
-
+                    self.model = pickle.load(f)
+            else:
+                pass
 
         device = self.device
         data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
