@@ -252,7 +252,24 @@ class Executor(object):
                                          collate_fn=self.collate_fn)
 
         client = self.get_client_trainer(conf)
-        train_res = client.train(client_data=client_data, model=client_model, conf=conf)
+        if conf.personalized == "ditto":
+            client_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+            if os.path.exists(client_model_path):
+                with open(client_model_path, 'rb') as f:
+                    client_model = pickle.load(f)
+            else:
+                client_model = init_model()
+
+            train_res = client.train(client_data=client_data, model=client_model, conf=conf,
+                                     client_model=client_model)
+            with open(client_model_path, 'wb') as f:
+                pickle.dump(client_model, f)
+
+            del client_model
+            gc.collect()
+            torch.cuda.empty_cache()
+        else:
+            train_res = client.train(client_data=client_data, model=client_model, conf=conf)
 
         # we need to get runtime variance for BN
         self.model = client_model

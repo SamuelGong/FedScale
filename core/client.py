@@ -11,7 +11,7 @@ class Client(object):
     def __init__(self, conf):
         pass
 
-    def train(self, client_data, model, conf, specified_local_steps=None):
+    def train(self, client_data, model, conf, specified_local_steps=None, client_model=None):
 
         clientId = conf.clientId
         logging.info(f"Start to train (CLIENT: {clientId}) ...")
@@ -77,6 +77,8 @@ class Client(object):
                 loop_num = 4 # calculate grad 4 times for each step in training
             delta = 1e-3
             beta = 0.01
+        elif conf.personalized == "ditto":
+            lam = 3e-1
         else:
             loop_num = 1
         break_while_flag = False
@@ -100,16 +102,23 @@ class Client(object):
 
             completed_steps += 1
             for loop_idx in range(loop_num):
-                if loop_idx < 3:
+                if conf.personalized == "meta":
+                    if loop_idx < 3:
+                        try:
+                            data_pair = loader.next()
+                        except StopIteration:
+                            loader = iter(client_data)
+                            data_pair = loader.next()
+                        if loop_idx == 2:
+                            data_pair_copy = copy.deepcopy(data_pair)
+                    else:
+                        data_pair = data_pair_copy
+                else:
                     try:
                         data_pair = loader.next()
                     except StopIteration:
                         loader = iter(client_data)
                         data_pair = loader.next()
-                    if loop_idx == 2:
-                        data_pair_copy = copy.deepcopy(data_pair)
-                else:
-                    data_pair = data_pair_copy
 
                 try:
                     if conf.task == 'nlp':
@@ -136,6 +145,18 @@ class Client(object):
                         data = Variable(data).to(device=device)
 
                     target = Variable(target).to(device=device)
+
+                    if conf.personalized == "ditto": # need to additionally train a local model
+                        data_c = data.clone()
+                        target_c = target.clone()
+                        output_c = client_model(data_c)
+                        _ = criterion(output_c, target_c)
+
+                        for param_c, param in zip(client_model.parameters(), model.parameters()):
+                            eff_grad = param_c.grad.clone() + lam * (param_c.data.detach().clone() -
+                                                                     param.data.detach().clone())
+                            param_c.data -= conf.learning_rate * eff_grad
+                        client_model.zero_grad()
 
                     if conf.task == 'nlp':
                         outputs = model(data, labels=target)
@@ -192,7 +213,6 @@ class Client(object):
                     optimizer.zero_grad()
                     loss.backward()
 
-                    # currently performed at CPU
                     if conf.personalized == "meta" and loop_idx > 0 and specified_local_steps is None:
                         if loop_idx == 1:
                             grad_copies = []

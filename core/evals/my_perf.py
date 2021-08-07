@@ -58,7 +58,7 @@ def run(task):
         f"random_{personalized}_all_test": "random",
         f"oort_{personalized}_all_test": "oort",
         # f"oort_adapted_{personalized}_all_test": "oort_adpated",
-        f"greedy_{personalized}_all_test": "greedy"
+        # f"greedy_{personalized}_all_test": "greedy"
     }
     label_list = []
 
