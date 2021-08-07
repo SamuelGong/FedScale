@@ -3,7 +3,8 @@
 cd .
 for file in *;do
   if [[ "$file" == *"logging"* ]];then
-    pair=$(sed -r "s/.*time_stamp=(\S+).*/\1/" $file)
-    echo $pair
+    pair=$(grep -o 'time_stamp=[^ ,]\+' $file)
+    folder=$(echo $pair | sed "s/.*time_stamp='\(.*\)'.*/\1/g")
+    echo $folder
   fi
 done
