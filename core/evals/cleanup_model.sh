@@ -21,7 +21,7 @@ cd $LogDir/$model
 
 for folder in *;do
   if [[ ! " ${useful[@]} " =~ " $folder " ]]; then
-    echo $folder
+    rm -rf $folder
   fi
 done
 
