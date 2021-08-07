@@ -253,20 +253,20 @@ class Executor(object):
 
         client = self.get_client_trainer(conf)
         if conf.personalized == "ditto":
-            client_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
-            if os.path.exists(client_model_path):
-                with open(client_model_path, 'rb') as f:
-                    client_model = pickle.load(f)
+            local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+            if os.path.exists(local_model_path):
+                with open(local_model_path, 'rb') as f:
+                    local_model = pickle.load(f)
             else:
                 logging.info(f"Create local model for client {clientId}")
-                client_model = init_model()
+                local_model = init_model()
 
             train_res = client.train(client_data=client_data, model=client_model, conf=conf,
-                                     client_model=client_model)
-            with open(client_model_path, 'wb') as f:
-                pickle.dump(client_model, f)
+                                     client_model=local_model)
+            with open(local_model_path, 'wb') as f:
+                pickle.dump(local_model, f)
 
-            del client_model
+            del local_model
             gc.collect()
             torch.cuda.empty_cache()
         else:
