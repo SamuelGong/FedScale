@@ -17,17 +17,11 @@ for file in *;do
   fi
 done
 
-for folder in ${useful[@]}; do
-  echo $folder
-done
-
 cd $LogDir/$model
 
 for file in *;do
-  if [[ "$folder" == *"logging"* ]];then
-    if [[ ! " ${useful[@]} " =~ " $folder " ]]; then
-      echo $folder
-    fi
+  if [[ ! " ${useful[@]} " =~ " $folder " ]]; then
+    echo $folder
   fi
 done
 
