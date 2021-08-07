@@ -152,8 +152,6 @@ class Client(object):
                         target_c = target.clone()
                         output_c = client_model(data_c)
                         _ = criterion(output_c, target_c)
-                        logging.info(f"{type(data)} {type(data_c)}")
-                        logging.info(f"{type(target)} {type(target_c)}")
 
                         cnt = 0
                         for param_c, param in zip(client_model.parameters(), model.parameters()):
