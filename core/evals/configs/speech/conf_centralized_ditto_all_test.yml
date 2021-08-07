@@ -59,7 +59,7 @@ job_conf:
     - yogi_eta: 3e-3 
     - yogi_tau: 1e-8
     - local_steps: 4
-    - learning_rate: 5e-5
+    - learning_rate: 1e-4
     - batch_size: 20
     - test_bsz: 20
     - sample_mode: centralized
