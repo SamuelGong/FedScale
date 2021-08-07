@@ -261,6 +261,7 @@ class Executor(object):
                 logging.info(f"Create local model for client {clientId}")
                 local_model = init_model()
 
+            local_model = local_model.to(device=self.device)
             train_res = client.train(client_data=client_data, model=client_model, conf=conf,
                                      client_model=local_model)
             with open(local_model_path, 'wb') as f:
