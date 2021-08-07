@@ -153,7 +153,11 @@ class Client(object):
                         output_c = client_model(data_c)
                         _ = criterion(output_c, target_c)
 
+                        cnt = 0
                         for param_c, param in zip(client_model.parameters(), model.parameters()):
+                            if cnt == 0:
+                                print(type(param_c), type(param_c.data), type(param_c.grad))
+                            cnt += 1
                             eff_grad = param_c.grad.clone() + lam * (param_c.data.detach().clone() -
                                                                      param.data.detach().clone())
                             param_c.data -= conf.learning_rate * eff_grad
