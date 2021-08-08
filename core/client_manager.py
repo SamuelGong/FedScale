@@ -83,6 +83,12 @@ class clientManager(object):
                 upload_size=upload_size, download_size=download_size,
                 extra_factor=4.0 # in "meta" we do 4 SGD a step
             )
+        elif self.personalized == "ditto":
+            return self.Clients[self.getUniqueId(0, clientId)].getCompletionTime(
+                batch_size=batch_size, upload_epoch=upload_epoch,
+                upload_size=upload_size, download_size=download_size,
+                extra_factor=2.0 # in "meta" we do 4 SGD a step
+            )
         else:
             return self.Clients[self.getUniqueId(0, clientId)].getCompletionTime(
                 batch_size=batch_size, upload_epoch=upload_epoch,
