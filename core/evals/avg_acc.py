@@ -19,7 +19,7 @@ def run(task):
                     result_dict[client_id] = [iter_idx]
             iter_idx += 1
 
-    # for k in sorted(result_dict.keys()):
-    #     print(f"{k}: {result_dict[k]}")
+    for k in sorted(result_dict.keys()):
+        print(f"{k}: {result_dict[k]}")
 
 run(sys.argv[1])
