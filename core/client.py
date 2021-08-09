@@ -96,6 +96,8 @@ class Client(object):
             # currently centralized learning goes with 1 epoch
 
         while True:
+            l2_norm_square = 0.0  # for running adapted oort atop "ditto"
+
             if conf.personalized == "meta" and specified_local_steps is None:
                 local_model_copies = []
                 for _, param in enumerate(model.parameters()):
@@ -206,6 +208,9 @@ class Client(object):
                             or conf.personalized == "none":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
+                        if conf.personalized == "ditto":
+                            temp_loss += 0.5 * lam * l2_norm_square
+
                         # only measure the loss of the first epoch
                         if completed_steps < len(client_data):
                             if epoch_train_loss == 1e-4:
@@ -242,9 +247,15 @@ class Client(object):
                                 dummy_grad2.append(param.grad.clone())
                     elif conf.personalized == "ditto" and loop_idx == 0:
                         for param_c, param in zip(client_model.parameters(), model.parameters()):
-                            eff_grad = param_c.grad.clone() + lam * (param_c.data.detach().clone() -
-                                                                     param.data.detach().clone())
+                            param_c_dataclone = param_c.data.detach().clone()
+                            param_dataclone = param.data.detach().clone()
+                            difference = param_c_dataclone - param_dataclone
+                            eff_grad = param_c.grad.clone() + lam * difference
                             param_c.data -= conf.learning_rate * eff_grad
+
+                            if conf.adaptation_mode == 1:
+                                l2_norm_square += torch.square(difference).sum()
+
                     else:
                         optimizer.step()
 

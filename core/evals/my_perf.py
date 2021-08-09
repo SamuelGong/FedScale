@@ -52,9 +52,9 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
 
 def run(task):
     task_prefix = "google_speech"
-    personalized = "none" # "meta" or "none"
+    personalized = "ditto" # "meta" or "none"
     task_dict = {
-        f"centralized_{personalized}_all_test": "centralized",
+        # f"centralized_{personalized}_all_test": "centralized",
         f"random_{personalized}_all_test": "random",
         f"oort_{personalized}_all_test": "oort",
         # f"oort_adapted_{personalized}_all_test": "oort_adpated",
