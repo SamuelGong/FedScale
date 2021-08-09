@@ -209,9 +209,7 @@ class Client(object):
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
                         if conf.personalized == "ditto":
-                            logging.info(f"{clientId} before {completed_steps} {loop_idx} {temp_loss}")
                             temp_loss += 0.5 * lam * l2_norm_square
-                            logging.info(f"{clientId} after {completed_steps} {loop_idx} {temp_loss}")
 
                         # only measure the loss of the first epoch
                         if completed_steps < len(client_data):
@@ -256,7 +254,7 @@ class Client(object):
                             param_c.data -= conf.learning_rate * eff_grad
 
                             if conf.adaptation_mode == 1:
-                                l2_norm_square += torch.square(difference).sum()
+                                l2_norm_square += sum(numpy.square(difference.cpu().numpy))
 
                     else:
                         optimizer.step()
