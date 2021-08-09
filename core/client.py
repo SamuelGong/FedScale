@@ -254,8 +254,8 @@ class Client(object):
                             param_c.data -= conf.learning_rate * eff_grad
 
                             if conf.adaptation_mode == 1:
-                                logging.info(f"{clientId} here {completed_steps} {loop_idx}")
                                 l2_norm_square += torch.square(difference).sum()
+                                logging.info(f"{clientId} here {completed_steps} {loop_idx}")
 
                     else:
                         optimizer.step()
