@@ -55,8 +55,8 @@ def run(task_prefix):
     task_dict = {
         # f"centralized_{personalized}_all_test": "centralized",
         f"random_{personalized}_all_test": "random",
-        f"oort_{personalized}_all_test": "oort",
-        # f"oort_adapted_{personalized}_all_test": "oort_adpated",
+        # f"oort_{personalized}_all_test": "oort",
+        f"oort_adapted_{personalized}_all_test": "oort_adpated",
         # f"greedy_{personalized}_all_test": "greedy"
     }
     label_list = []
