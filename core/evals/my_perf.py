@@ -42,7 +42,7 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.yticks(fontsize=_fontsize)
     plt.xticks(fontsize=_fontsize)
 
-    # plt.xlim(0, 15)
+    plt.xlim(0, 16)
     plt.ylim(0, 100)
 
     ax.set_ylabel(y_label, fontsize=_fontsize)
@@ -50,9 +50,8 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.plot()
     plt.savefig(name, bbox_inches='tight')
 
-def run(task):
-    task_prefix = "google_speech"
-    personalized = "ditto" # "meta" or "none"
+def run(task_prefix):
+    personalized = "ditto" # "meta" or "none" or "ditto"
     task_dict = {
         # f"centralized_{personalized}_all_test": "centralized",
         f"random_{personalized}_all_test": "random",
