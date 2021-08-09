@@ -254,6 +254,9 @@ class Client(object):
                             param_c.data -= conf.learning_rate * eff_grad
 
                             if conf.adaptation_mode == 1:
+                                # seems that cannot use torch.square() here, though slowdown will be introduced
+                                # otherwise you will have "RuntimeError: Cannot re-initialize CUDA in forked subprocess.
+                                # To use CUDA with multiprocessing, you must use the 'spawn' start method"
                                 l2_norm_square += sum(numpy.square(difference.cpu().numpy().flatten()))
 
                     else:
