@@ -200,25 +200,6 @@ class Client(object):
                         loss_list = loss.tolist()
                         loss = loss.mean()
 
-                    if (conf.personalized == "meta" and conf.adaptation_mode == 0
-                            and loop_idx == 1 and specified_local_steps is None) \
-                            or (conf.personalized == "meta" and conf.adaptation_mode == 1
-                            and loop_idx == 0 and specified_local_steps is None) \
-                            or (conf.personalized == "ditto" and loop_idx == 1) \
-                            or conf.personalized == "none":
-                        temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
-
-                        if conf.personalized == "ditto":
-                            temp_loss += 0.5 * lam * l2_norm_square
-
-                        # only measure the loss of the first epoch
-                        if completed_steps < len(client_data):
-                            if epoch_train_loss == 1e-4:
-                                epoch_train_loss = temp_loss
-                            else:
-                                epoch_train_loss = (1. - conf.loss_decay) * epoch_train_loss \
-                                                   + conf.loss_decay * temp_loss
-
                     # ========= Define the backward loss ==============
                     # optimizer.zero_grad()
                     true_model.zero_grad()
@@ -253,11 +234,36 @@ class Client(object):
                             eff_grad = param_c.grad.clone() + lam * difference
                             param_c.data -= conf.learning_rate * eff_grad
 
-                            if conf.adaptation_mode == 1:
+                            if conf.adaptation_mode == 0:
+                                # seems that cannot use torch.square() here, though slowdown will be introduced
+                                # otherwise you will have "RuntimeError: Cannot re-initialize CUDA in forked subprocess.
+                                # To use CUDA with multiprocessing, you must use the 'spawn' start method"
                                 l2_norm_square += sum(numpy.square(difference.cpu().numpy().flatten()))
 
                     else:
                         optimizer.step()
+
+                    if (conf.personalized == "meta" and conf.adaptation_mode == 0
+                            and loop_idx == 1 and specified_local_steps is None) \
+                            or (conf.personalized == "meta" and conf.adaptation_mode == 1
+                            and loop_idx == 0 and specified_local_steps is None) \
+                            or (conf.personalized == "ditto" and conf.adaptation_mode == 0
+                                and loop_idx == 0) \
+                            or (conf.personalized == "ditto" and conf.adaptation_mode == 1
+                                and loop_idx == 1) \
+                            or conf.personalized == "none":
+                        temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
+
+                        if conf.personalized == "ditto" and conf.adaptation_mode == 0:
+                            temp_loss += 0.5 * lam * l2_norm_square
+
+                        # only measure the loss of the first epoch
+                        if completed_steps < len(client_data):
+                            if epoch_train_loss == 1e-4:
+                                epoch_train_loss = temp_loss
+                            else:
+                                epoch_train_loss = (1. - conf.loss_decay) * epoch_train_loss \
+                                                   + conf.loss_decay * temp_loss
 
                     # ========= Weight handler ========================
                     if not conf.personalized == "meta":  # currently "meta" is not compatible with "prox" in this impl
