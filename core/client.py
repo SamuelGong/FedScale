@@ -254,10 +254,7 @@ class Client(object):
                             param_c.data -= conf.learning_rate * eff_grad
 
                             if conf.adaptation_mode == 1:
-                                temp = difference.cpu().numpy()
-                                logging.info(f"{clientId} {completed_steps} {temp.shape}")
-                                logging.info(f"{clientId} {completed_steps} {temp.squeeze().shape}")
-                                l2_norm_square += sum(numpy.square(difference.cpu().numpy().squeeze()))
+                                l2_norm_square += sum(numpy.square(difference.cpu().numpy().flatten()))
 
                     else:
                         optimizer.step()
