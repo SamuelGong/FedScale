@@ -343,7 +343,9 @@ class Executor(object):
             .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
                     test_loss, acc * 100., acc_5 * 100.))
 
+        del data_loader
         gc.collect()
+        torch.cuda.empty_cache()
         return testResults
 
     def event_monitor(self):
