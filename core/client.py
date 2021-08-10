@@ -318,9 +318,14 @@ class Client(object):
             del dummy_grad2
             del grad_copies
             del local_model_copies
-            del client_data
-            gc.collect()
-            torch.cuda.empty_cache()
+        elif conf.personalized == "ditto":
+            del param_c_dataclone
+            del param_dataclone
+            del difference
+            del eff_grad
+        del client_data
+        gc.collect()
+        torch.cuda.empty_cache()
 
         return results
 
