@@ -20,6 +20,6 @@ def run(task):
             iter_idx += 1
 
     for k in sorted(result_dict.keys()):
-        print(f"{k}: {result_dict[k]}")
+        print(f"{k}: {result_dict[k]} {len(result_dict[k])}")
 
 run(sys.argv[1])
