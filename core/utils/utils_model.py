@@ -233,8 +233,10 @@ def test_model(rank, model, test_data, device='cpu', criterion=nn.NLLLoss(), tok
                 output_dir = args.test_output_dir + "/learner/" + str(args.this_rank)
                 _, mean_ap = imdb.evaluate_detections(all_boxes, output_dir, args.this_rank)
                 return 0, mean_ap, mean_ap, {'top_1':mean_ap, 'top_5':mean_ap, 'test_loss': 0, 'test_len':num_images}
-
+        cnt = 0
         for data, target in test_data:
+            logging.info(f"{cnt}/{len(test_data)}")
+            cnt += 1
             if args.task == 'nlp':
 
                 data, target = mask_tokens(data, tokenizer, args, device=device)# if args.mlm else (data, data)
@@ -323,15 +325,11 @@ def test_model(rank, model, test_data, device='cpu', criterion=nn.NLLLoss(), tok
                 loss = criterion(outputs, target, output_sizes, target_sizes)
                 test_loss += loss.data.item()
             else:
-                logging.info(f"?")
                 data, target = Variable(data).to(device=device), Variable(target).to(device=device)
-                logging.info(f"??")
                 output = model(data)
                 loss = criterion(output, target)
-                logging.info(f"???")
                 test_loss += loss.data.item()  # Variable.data
                 acc = accuracy(output, target, topk=(1, 5))
-                logging.info(f"????")
                 correct += acc[0].item()
                 top_5 += acc[1].item()
 

@@ -46,7 +46,7 @@ setup_commands:
 job_conf: 
     - log_path: $HOME/FedScale/core/evals # Path of log files
     - job_name: openimage_random_none                   # Generate logs under this folder: log_path/job_name/time_stamp
-    - total_worker: 50                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
+    - total_worker: 5                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: openImg                     # Dataset: openImg, google_speech, stackoverflow
     - data_dir: $HOME/FedScale/dataset/data/open_images    # Path of the dataset
     - data_map_file: $HOME/FedScale/dataset/data/open_images/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
