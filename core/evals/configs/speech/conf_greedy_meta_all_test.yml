@@ -65,5 +65,4 @@ job_conf:
     - sample_mode: random
     - test_mode: all # "default" or "all"
     - personalized: meta # "none" or "meta"
-    - aggregator_device: 1
 

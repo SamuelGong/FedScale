@@ -66,4 +66,3 @@ job_conf:
     - adaptation_mode: 1
     - test_mode: all # "default" or "all"
     - personalized: meta # "none" or "meta"
-    - aggregator_device: 1
