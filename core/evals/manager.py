@@ -89,11 +89,11 @@ def process_cmd(yaml_file):
                 time.sleep(3)
 
     # dump the address of running workers
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    job_name = os.path.join(current_path, job_name)
-    with open(job_name, 'wb') as fout:
-        job_meta = {'user':submit_user, 'vms': running_vms}
-        pickle.dump(job_meta, fout)
+    # current_path = os.path.dirname(os.path.abspath(__file__))
+    # job_name = os.path.join(current_path, job_name)
+    # with open(job_name, 'wb') as fout:
+    #     job_meta = {'user':submit_user, 'vms': running_vms}
+    #     pickle.dump(job_meta, fout)
 
     print(f"Submitted job, please check your logs ({log_path}) for status")
 
