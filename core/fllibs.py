@@ -170,8 +170,12 @@ def init_dataset_all_test():
                                       transform=transforms.Compose([LoadAudio(),
                                                                     FixAudioLength(),
                                                                     valid_feature_transform]))
+        elif args.data_set == 'openImg':
+            from utils.openimage import OpenImage
+            _, all_test_transform = get_data_transform('openImg')
+            all_test_dataset = OpenImage(args.data_dir, dataset='train', transform=all_test_transform)
         else:
-            print('DataSet must be {}!'.format(['speech']))
+            print('DataSet must be {}!'.format(['speech', 'openImg']))
             sys.exit(-1)
 
     return all_test_dataset
