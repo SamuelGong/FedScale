@@ -51,13 +51,13 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.savefig(name, bbox_inches='tight')
 
 def run(task_prefix):
-    personalized = "ditto" # "meta" or "none" or "ditto"
+    personalized = "none" # "meta" or "none" or "ditto"
     task_dict = {
         f"centralized_{personalized}_all_test": "centralized",
         f"random_{personalized}_all_test": "random",
         f"random_homo_{personalized}_all_test": "random_homo",
         f"oort_{personalized}_all_test": "oort",
-        f"oort_adapted_{personalized}_all_test": "oort_adpated",
+        # f"oort_adapted_{personalized}_all_test": "oort_adpated",
         f"oort_larger_{personalized}_all_test": "oort_larger",
         f"oort_homo_{personalized}_all_test": "oort_homo",
         # f"greedy_{personalized}_all_test": "greedy"
