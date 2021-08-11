@@ -323,14 +323,15 @@ def test_model(rank, model, test_data, device='cpu', criterion=nn.NLLLoss(), tok
                 loss = criterion(outputs, target, output_sizes, target_sizes)
                 test_loss += loss.data.item()
             else:
+                logging.info(f"?")
                 data, target = Variable(data).to(device=device), Variable(target).to(device=device)
-
+                logging.info(f"??")
                 output = model(data)
                 loss = criterion(output, target)
-
+                logging.info(f"???")
                 test_loss += loss.data.item()  # Variable.data
                 acc = accuracy(output, target, topk=(1, 5))
-
+                logging.info(f"????")
                 correct += acc[0].item()
                 top_5 += acc[1].item()
 
