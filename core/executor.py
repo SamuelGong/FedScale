@@ -284,7 +284,7 @@ class Executor(object):
         evalStart = time.time()
         device = self.device
         data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz, isTest=True, collate_fn=self.collate_fn)
-        logging.info(f"??")
+
         if self.task == 'voice':
             criterion = CTCLoss(reduction='mean').to(device=device)
         else:
@@ -376,7 +376,6 @@ class Executor(object):
                     self.push_msg_to_server_asyn(event_msg, train_res)
 
                 elif event_msg == 'test':
-                    logging.info(f"?")
                     test_res = self.testing_handler(args=self.args)
                     self.push_msg_to_server(event_msg, test_res)
 
