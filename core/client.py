@@ -194,8 +194,8 @@ class Client(object):
 
                     if conf.personalized == "ditto" and loop_idx == 0:
                         loss += 0.5 * lam * sum(((x - y) ** 2).sum() for x, y
-                                                in zip(client_model.state_dict().values(),
-                                                       model.state_dict().values()))
+                                                in zip(client_model.parameters(),
+                                                       model.parameters()))
 
                     # ======== collect training feedback for other decision components [e.g., kuiper selector] ======
                     if conf.task == 'nlp':
