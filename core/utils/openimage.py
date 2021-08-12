@@ -48,7 +48,7 @@ class OpenImage():
         self.root = root
         self.transform = transform
         self.target_transform = target_transform
-        self.data_file = dataset # 'train', 'test', 'validation'
+        self.data_file = dataset # 'train', 'test', 'val'
 
         if not self._check_exists():
             raise RuntimeError('Dataset not found.' +
