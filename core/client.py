@@ -230,10 +230,10 @@ class Client(object):
                                 dummy_grad2.append(param.grad.clone())
                     elif conf.personalized == "ditto" and loop_idx == 0:
                         for param_c, param in zip(client_model.parameters(), model.parameters()):
-                            param_c_dataclone = param_c.data.detach().clone()
-                            param_dataclone = param.data.detach().clone()
-                            difference = param_c_dataclone - param_dataclone
-                            eff_grad = param_c.grad.clone() + lam * difference
+                            param_c_data = param_c.data.detach()
+                            param_data = param.data.detach()
+                            difference = param_c_data - param_data
+                            eff_grad = param_c.grad + lam * difference
                             param_c.data -= conf.learning_rate * eff_grad
 
                             if conf.adaptation_mode == 0:
@@ -321,8 +321,6 @@ class Client(object):
             del grad_copies
             del local_model_copies
         elif conf.personalized == "ditto":
-            del param_c_dataclone
-            del param_dataclone
             del difference
             del eff_grad
         del client_data
