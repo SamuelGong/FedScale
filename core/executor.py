@@ -113,7 +113,7 @@ class Executor(object):
 
     def init_data(self):
         """Return the training and testing dataset"""
-        train_dataset, test_dataset = init_dataset(self.dataset_size, self.filter_less, self.filter_more)
+        train_dataset, test_dataset = init_dataset(self.dataset_size)
 
         # load data partitioner (entire_train_data)
         logging.info("Data partitioner starts ...")
@@ -136,7 +136,10 @@ class Executor(object):
         return training_sets, testing_sets
 
     def init_data_centralized_train(self):
-        centralized_train_dataset, _ = init_dataset(self.dataset_size, self.filter_less, self.filter_more)
+        if self.test_mode == "all": # use consider feasible clients
+            centralized_train_dataset, _ = init_dataset(self.dataset_size, self.filter_less, self.filter_more)
+        else:
+            centralized_train_dataset, _ = init_dataset(self.dataset_size)
 
         centralized_training_sets = DataPartitioner(data=centralized_train_dataset, numOfClass=self.args.num_class)
         centralized_training_sets.partition_data_helper(num_clients=1)
