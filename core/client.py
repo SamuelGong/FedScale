@@ -104,8 +104,6 @@ class Client(object):
 
             completed_steps += 1
             for loop_idx in range(loop_num):
-                if conf.sample_mode == "centralized":
-                    logging.info(f"{clientId} {completed_steps}/{true_num_steps} {loop_idx}/{loop_num}")
                 if conf.personalized == "meta":
                     if loop_idx < 3:
                         try:
