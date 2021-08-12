@@ -166,9 +166,8 @@ parser.add_argument('--test_mode', type=str, default='default')
 parser.add_argument('--personalized', type=str, default='none')
 parser.add_argument('--aggregator_device', type=int, default=0)
 parser.add_argument('--adaptation_mode', type=int, default=0)
+parser.add_argument('--dataset_size', type=str, default='default')
 args = parser.parse_args()
-
-
 
 datasetCategories = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47,
                     'openImg': 596, 'google_speech': 35, 'femnist': 62, 'yelp': 5

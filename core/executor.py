@@ -39,6 +39,7 @@ class Executor(object):
         self.filter_more = args.filter_more
         self.batch_size = args.batch_size
         self.personalized = args.personalized
+        self.dataset_size = args.dataset_size
 
     def setup_env(self):
         logging.info(f"(EXECUTOR:{self.this_rank}) is setting up environ ...")
@@ -112,7 +113,7 @@ class Executor(object):
 
     def init_data(self):
         """Return the training and testing dataset"""
-        train_dataset, test_dataset = init_dataset(self.filter_less, self.filter_more)
+        train_dataset, test_dataset = init_dataset(self.dataset_size, self.filter_less, self.filter_more)
 
         # load data partitioner (entire_train_data)
         logging.info("Data partitioner starts ...")
@@ -135,7 +136,7 @@ class Executor(object):
         return training_sets, testing_sets
 
     def init_data_centralized_train(self):
-        centralized_train_dataset, _ = init_dataset(self.filter_less, self.filter_more)
+        centralized_train_dataset, _ = init_dataset(self.dataset_size, self.filter_less, self.filter_more)
 
         centralized_training_sets = DataPartitioner(data=centralized_train_dataset, numOfClass=self.args.num_class)
         centralized_training_sets.partition_data_helper(num_clients=1)
