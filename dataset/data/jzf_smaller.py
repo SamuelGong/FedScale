@@ -45,7 +45,11 @@ def run(dataset):
             shutil.rmtree(smaller_data_path)
         os.makedirs(smaller_data_path)
 
+        per_cent = max(1, v // 100)
         for idx, l in enumerate(new_ls[1:]):
+            if idx % per_cent == 0:
+                print(f"{k}: {idx}/{v}")
+
             file = l.split(",")[1]
             os.system(f"cp {os.path.join(original_data_path, file)} {smaller_data_path}")
 
