@@ -1,5 +1,6 @@
 import sys, os
 import numpy as np
+import shutil
 
 mapping_folder = "client_data_mapping"
 postfix = "_smaller"
@@ -39,6 +40,9 @@ def run(dataset):
 
         original_data_path = os.path.join(dataset, k)
         smaller_data_path = os.path.join(dataset, k + postfix)
+
+        if os.path.exists(smaller_data_path):
+            shutil.rmtree(smaller_data_path)
         os.makedirs(smaller_data_path)
 
         for idx, l in enumerate(ls):
