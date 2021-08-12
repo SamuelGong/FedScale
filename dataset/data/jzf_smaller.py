@@ -1,4 +1,5 @@
 import sys, os
+import numpy as np
 
 mapping_folder = "client_data_mapping"
 postfix = "_smaller"
@@ -18,10 +19,22 @@ d = {
 }
 
 def run(dataset):
-    for k, v in d[dataset].keys():
-        original_csv_path = os.path.join(dataset, mapping_folder, k+".csv")
+    np.random.seed(seed=233)
+    for k, v in d[dataset].items():
+        original_csv_path = os.path.join(dataset, mapping_folder,
+                                         k + ".csv")
+        smaller_csv_path = os.path.join(dataset, mapping_folder,
+                                        k + postfix + ".csv")
+
         with open(original_csv_path, 'r') as f:
             ls = f.readlines()
-        print(k, len(ls), v)
+
+        new_ls = []
+        choice = sorted(np.random.choice(len(ls), v, replace=False))
+        for i in choice:
+            new_ls.append(ls[i])
+
+        with open(smaller_csv_path, 'w') as f:
+            f.writelines(new_ls)
 
 run(sys.argv[1])
