@@ -96,7 +96,6 @@ class Client(object):
             # currently centralized learning goes with 1 epoch
 
         while True:
-            l2_norm_square = 0.0  # for running adapted oort atop "ditto"
 
             if conf.personalized == "meta" and specified_local_steps is None:
                 local_model_copies = []
@@ -233,19 +232,6 @@ class Client(object):
                             dummy_grad2 = []
                             for _, param in enumerate(model.parameters()):
                                 dummy_grad2.append(param.grad.clone())
-                    # elif conf.personalized == "ditto" and loop_idx == 0:
-                    #     for param_c, param in zip(client_model.parameters(), model.parameters()):
-                    #         param_c_data = param_c.data.detach()
-                    #         param_data = param.data.detach()
-                    #         difference = param_c_data - param_data
-                    #         eff_grad = param_c.grad + lam * difference
-                    #         param_c.data -= conf.learning_rate * eff_grad
-                    #
-                    #         if conf.adaptation_mode == 0:
-                    #             # seems that cannot use torch.square() here, though slowdown will be introduced
-                    #             # otherwise you will have "RuntimeError: Cannot re-initialize CUDA in forked subprocess.
-                    #             # To use CUDA with multiprocessing, you must use the 'spawn' start method"
-                    #             l2_norm_square += sum(numpy.square(difference.cpu().numpy().flatten()))
 
                     else:
                         optimizer.step()
@@ -260,9 +246,6 @@ class Client(object):
                                 and loop_idx == 1) \
                             or conf.personalized == "none":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
-
-                        if conf.personalized == "ditto" and conf.adaptation_mode == 0:
-                            temp_loss += 0.5 * lam * l2_norm_square
 
                         # only measure the loss of the first epoch
                         if completed_steps < len(client_data):
