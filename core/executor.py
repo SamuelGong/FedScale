@@ -138,7 +138,7 @@ class Executor(object):
     def init_data_centralized_train(self):
         if self.test_mode == "all": # use consider feasible clients
             centralized_train_dataset, _ = init_dataset(self.dataset_size, self.filter_less, self.filter_more)
-        else:
+        else: # usually used in non-FL scenarios
             centralized_train_dataset, _ = init_dataset(self.dataset_size)
 
         centralized_training_sets = DataPartitioner(data=centralized_train_dataset, numOfClass=self.args.num_class)
