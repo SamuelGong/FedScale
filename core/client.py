@@ -193,9 +193,9 @@ class Client(object):
                         loss = criterion(output, target)
 
                     if conf.personalized == "ditto" and loop_idx == 0:
-                        a = client_model - model
-                        logging.info("here")
-                        # loss += 0.5 * lam * sum(((x - y) ** 2).sum() for x, y in zip(client_model))
+                        loss += 0.5 * lam * sum(((x - y) ** 2).sum() for x, y
+                                                in zip(client_model.state_dict().values(),
+                                                       model.state_dict().values()))
 
                     # ======== collect training feedback for other decision components [e.g., kuiper selector] ======
                     if conf.task == 'nlp':
