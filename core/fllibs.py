@@ -245,7 +245,8 @@ def init_dataset(dataset_size="default", filter_less=None, filter_more=None):
             from utils.openimage import OpenImage
 
             train_transform, test_transform = get_data_transform('openImg')
-            train_dataset = OpenImage(args.data_dir, dataset=train_str, transform=train_transform)
+            train_dataset = OpenImage(args.data_dir, dataset=train_str, transform=train_transform,
+                                      filter_less=filter_less, filter_more=filter_more)
             test_dataset = OpenImage(args.data_dir, dataset=val_str, transform=test_transform)
 
         elif args.data_set == 'blog':
