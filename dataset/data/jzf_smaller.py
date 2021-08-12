@@ -37,4 +37,12 @@ def run(dataset):
         with open(smaller_csv_path, 'w') as f:
             f.writelines(new_ls)
 
+        original_data_path = os.path.join(dataset, k)
+        smaller_data_path = os.path.join(dataset, k + postfix)
+        os.makedirs(smaller_data_path)
+
+        for idx, l in enumerate(ls):
+            if idx == 0:
+                print(l.split(",")[1])
+
 run(sys.argv[1])
