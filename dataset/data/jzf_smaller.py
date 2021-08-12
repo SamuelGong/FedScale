@@ -29,10 +29,10 @@ def run(dataset):
         with open(original_csv_path, 'r') as f:
             ls = f.readlines()
 
-        new_ls = []
-        choice = sorted(np.random.choice(len(ls), v, replace=False))
+        new_ls = [ls[0]] # the first line is header
+        choice = sorted(np.random.choice(len(ls) - 1, v, replace=False))
         for i in choice:
-            new_ls.append(ls[i])
+            new_ls.append(ls[i + 1])
 
         with open(smaller_csv_path, 'w') as f:
             f.writelines(new_ls)
@@ -42,7 +42,7 @@ def run(dataset):
         os.makedirs(smaller_data_path)
 
         for idx, l in enumerate(ls):
-            if idx == 0:
+            if idx == 1:
                 print(l.split(",")[1])
 
 run(sys.argv[1])
