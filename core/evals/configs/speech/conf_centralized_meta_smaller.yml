@@ -42,7 +42,7 @@ setup_commands:
 
 job_conf: 
     - log_path: $HOME/FedScale/core/evals # Path of log files
-    - job_name: google_speech_centralized_meta                  # Generate logs under this folder: log_path/job_name/time_stamp
+    - job_name: google_speech_centralized_meta_smaller                  # Generate logs under this folder: log_path/job_name/time_stamp
     - task: speech
     - total_worker: 1                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: google_speech                     # Dataset: openImg, google_speech, stackoverflow
