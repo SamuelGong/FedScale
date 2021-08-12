@@ -306,9 +306,6 @@ class Client(object):
             del dummy_grad2
             del grad_copies
             del local_model_copies
-        elif conf.personalized == "ditto":
-            del difference
-            del eff_grad
         del client_data
         gc.collect()
         torch.cuda.empty_cache()
