@@ -45,8 +45,8 @@ def run(dataset):
             shutil.rmtree(smaller_data_path)
         os.makedirs(smaller_data_path)
 
-        for idx, l in enumerate(ls):
-            if idx == 1:
-                print(l.split(",")[1])
+        for idx, l in enumerate(new_ls[1:]):
+            file = l.split(",")[1]
+            os.system(f"cp {os.path.join(original_data_path, file)} {smaller_data_path}")
 
 run(sys.argv[1])
