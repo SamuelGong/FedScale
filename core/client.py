@@ -229,7 +229,11 @@ class Client(object):
                             for _, param in enumerate(model.parameters()):
                                 dummy_grad2.append(param.grad.clone())
                     elif conf.personalized == "ditto" and loop_idx == 0:
+                        cnt = 0
                         for param_c, param in zip(client_model.parameters(), model.parameters()):
+                            if conf.sample_mode == "centralized":
+                                logging.info(f"\t{cnt}")
+                                cnt += 1
                             param_c_data = param_c.data.detach()
                             param_data = param.data.detach()
                             difference = param_c_data - param_data
