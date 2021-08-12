@@ -155,8 +155,14 @@ class TextDataset(Dataset):
     def __getitem__(self, item):
         return torch.tensor(self.examples[item], dtype=torch.long)
 
-def load_and_cache_examples(args, tokenizer, evaluate=False):
-    file_path = os.path.join(args.data_dir, 'test') if evaluate else os.path.join(args.data_dir, 'train')
+def load_and_cache_examples(args, tokenizer, evaluate=False, dataset_size="default"):
+    if dataset_size == "smaller":
+        train_str = "train_smaller"
+        test_str = "test_smaller"
+    else:
+        train_str = "train"
+        test_str = "test"
+    file_path = os.path.join(args.data_dir, test_str) if evaluate else os.path.join(args.data_dir, train_str)
 
     return TextDataset(tokenizer, args, file_path=file_path, block_size=args.block_size)
 

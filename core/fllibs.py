@@ -181,7 +181,16 @@ def init_dataset_all_test():
     return all_test_dataset
 
 
-def init_dataset(filter_less=None, filter_more=None):
+def init_dataset(dataset_size="default", filter_less=None, filter_more=None):
+
+    if dataset_size == "smaller":
+        train_str = "train_smaller"
+        val_str = "val_smaller"
+        test_str = "test_smaller"
+    else:
+        train_str = "train"
+        val_str = "val"
+        test_str = "test"
 
     if args.task == "detection":
         if not os.path.exists(args.data_cache):
@@ -218,8 +227,8 @@ def init_dataset(filter_less=None, filter_more=None):
 
         elif args.data_set == "imagenet":
             train_transform, test_transform = get_data_transform('imagenet')
-            train_dataset = datasets.ImageNet(args.data_dir, split='train', download=False, transform=train_transform)
-            test_dataset = datasets.ImageNet(args.data_dir, split='val', download=False, transform=test_transform)
+            train_dataset = datasets.ImageNet(args.data_dir, split=train_str, download=False, transform=train_transform)
+            test_dataset = datasets.ImageNet(args.data_dir, split=val_str, download=False, transform=test_transform)
 
         elif args.data_set == 'emnist':
             test_dataset = datasets.EMNIST(args.data_dir, split='balanced', train=False, download=True, transform=transforms.ToTensor())
@@ -236,8 +245,8 @@ def init_dataset(filter_less=None, filter_more=None):
             from utils.openimage import OpenImage
 
             train_transform, test_transform = get_data_transform('openImg')
-            train_dataset = OpenImage(args.data_dir, dataset='train', transform=train_transform)
-            test_dataset = OpenImage(args.data_dir, dataset='test', transform=test_transform)
+            train_dataset = OpenImage(args.data_dir, dataset=train_str, transform=train_transform)
+            test_dataset = OpenImage(args.data_dir, dataset=test_str, transform=test_transform)
 
         elif args.data_set == 'blog':
             train_dataset = load_and_cache_examples(args, tokenizer, evaluate=False)
@@ -261,14 +270,14 @@ def init_dataset(filter_less=None, filter_more=None):
             bg_dataset = BackgroundNoiseDataset(os.path.join(args.data_dir, bkg), data_aug_transform)
             add_bg_noise = AddBackgroundNoiseOnSTFT(bg_dataset)
             train_feature_transform = transforms.Compose([ToMelSpectrogramFromSTFT(n_mels=32), DeleteSTFT(), ToTensor('mel_spectrogram', 'input')])
-            train_dataset = SPEECH(args.data_dir, dataset= 'train',
+            train_dataset = SPEECH(args.data_dir, dataset=train_str,
                                     transform=transforms.Compose([LoadAudio(),
                                             data_aug_transform,
                                             add_bg_noise,
                                             train_feature_transform]),
                                     filter_less=filter_less, filter_more=filter_more) # for "centralized" sample_mode
             valid_feature_transform = transforms.Compose([ToMelSpectrogram(n_mels=32), ToTensor('mel_spectrogram', 'input')])
-            test_dataset = SPEECH(args.data_dir, dataset='test',
+            test_dataset = SPEECH(args.data_dir, dataset=test_str,
                                     transform=transforms.Compose([LoadAudio(),
                                             FixAudioLength(),
                                             valid_feature_transform]))
