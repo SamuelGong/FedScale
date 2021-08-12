@@ -192,6 +192,11 @@ class Client(object):
                         output = true_model(data)
                         loss = criterion(output, target)
 
+                    if conf.personalized == "ditto" and loop_idx == 0:
+                        a = client_model - model
+                        logging.info("here")
+                        # loss += 0.5 * lam * sum(((x - y) ** 2).sum() for x, y in zip(client_model))
+
                     # ======== collect training feedback for other decision components [e.g., kuiper selector] ======
                     if conf.task == 'nlp':
                         loss_list = [loss.item()] #[loss.mean().data.item()]
@@ -228,23 +233,19 @@ class Client(object):
                             dummy_grad2 = []
                             for _, param in enumerate(model.parameters()):
                                 dummy_grad2.append(param.grad.clone())
-                    elif conf.personalized == "ditto" and loop_idx == 0:
-                        cnt = 0
-                        for param_c, param in zip(client_model.parameters(), model.parameters()):
-                            if conf.sample_mode == "centralized":
-                                logging.info(f"\t{cnt}")
-                                cnt += 1
-                            param_c_data = param_c.data.detach()
-                            param_data = param.data.detach()
-                            difference = param_c_data - param_data
-                            eff_grad = param_c.grad + lam * difference
-                            param_c.data -= conf.learning_rate * eff_grad
-
-                            if conf.adaptation_mode == 0:
-                                # seems that cannot use torch.square() here, though slowdown will be introduced
-                                # otherwise you will have "RuntimeError: Cannot re-initialize CUDA in forked subprocess.
-                                # To use CUDA with multiprocessing, you must use the 'spawn' start method"
-                                l2_norm_square += sum(numpy.square(difference.cpu().numpy().flatten()))
+                    # elif conf.personalized == "ditto" and loop_idx == 0:
+                    #     for param_c, param in zip(client_model.parameters(), model.parameters()):
+                    #         param_c_data = param_c.data.detach()
+                    #         param_data = param.data.detach()
+                    #         difference = param_c_data - param_data
+                    #         eff_grad = param_c.grad + lam * difference
+                    #         param_c.data -= conf.learning_rate * eff_grad
+                    #
+                    #         if conf.adaptation_mode == 0:
+                    #             # seems that cannot use torch.square() here, though slowdown will be introduced
+                    #             # otherwise you will have "RuntimeError: Cannot re-initialize CUDA in forked subprocess.
+                    #             # To use CUDA with multiprocessing, you must use the 'spawn' start method"
+                    #             l2_norm_square += sum(numpy.square(difference.cpu().numpy().flatten()))
 
                     else:
                         optimizer.step()
