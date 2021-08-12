@@ -122,10 +122,14 @@ class SPEECH():
         classMapping, client_data_dict = self.load_meta_data(
             os.path.join(self.processed_folder, 'client_data_mapping', self.data_file+'.csv'))
 
-        if filter_less and filter_more:
+        if filter_less or filter_more:
             valid_data_set = set()
             for _, client_data in client_data_dict.items():
-                if len(client_data) >= filter_less and len(client_data) <= filter_more:
+                if filter_less and filter_more and filter_less <= len(client_data) <= filter_more:
+                    _ = [valid_data_set.add(i) for i in client_data]
+                elif filter_less and filter_less <= len(client_data):
+                    _ = [valid_data_set.add(i) for i in client_data]
+                elif filter_more and len(client_data) <= filter_more:
                     _ = [valid_data_set.add(i) for i in client_data]
 
         for imgFile in list(classMapping.keys()):
