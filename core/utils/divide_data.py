@@ -137,6 +137,10 @@ def select_dataset(rank, partition, batch_size, isTest=False, collate_fn=None, m
         partition = partition.my_use(rank - 1, isTest)
     else:
         partition = partition.use(rank - 1, isTest)
+
+    # due to the existence of drop last, when using "all_test"
+    # make sure that filter_less - int(filter_less * all_test_ratio)
+    # is still no less than batch_size
     dropLast = False if isTest else True
     num_loaders = min(int(len(partition)/args.batch_size/2), args.num_loaders)
     # if num_loaders == 0:
