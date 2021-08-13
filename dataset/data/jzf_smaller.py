@@ -24,8 +24,14 @@ def run(dataset):
     if dataset == "reddit":
         for k, v in d[dataset].items():
             original_data_path = os.path.join(dataset, k)
-            dirs = os.listdir(original_data_path)
-            print(len(dirs))
+            files = os.listdir(original_data_path)
+
+            true_file_cnt = 0
+            for f in files:
+                if "cache" in f:
+                    continue
+                true_file_cnt += 1
+            print(true_file_cnt)
     else:
         for k, v in d[dataset].items():
             original_csv_path = os.path.join(dataset, mapping_folder,
