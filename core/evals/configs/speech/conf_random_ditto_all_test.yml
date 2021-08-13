@@ -52,14 +52,14 @@ job_conf:
     - device_avail_file: $HOME/FedScale/dataset/data/device_info/client_behave_trace
     - model: resnet34                            # Models: e.g., shufflenet_v2_x2_0, mobilenet_v2, resnet34, albert-base-v2
     - gradient_policy: fed-avg                 # {"fed-yogi", "fed-prox", "fed-avg"}, "fed-avg" by default
-    - eval_interval: 10                     # How many rounds to run a testing on the testing set
-    - epochs: 101                          # Number of rounds to run this training. We use 1000 in our paper, while it may converge w/ ~400 rounds
+    - eval_interval: 20                     # How many rounds to run a testing on the testing set
+    - epochs: 501                          # Number of rounds to run this training. We use 1000 in our paper, while it may converge w/ ~400 rounds
     - filter_less: 21                       # Remove clients w/ less than 21 samples
     - num_loaders: 4
     - yogi_eta: 3e-3 
     - yogi_tau: 1e-8
     - local_steps: 4
-    - learning_rate: 5e-4
+    - learning_rate: 5e-3
     - batch_size: 20
     - test_bsz: 20
     - sample_mode: random
