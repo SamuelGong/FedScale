@@ -59,7 +59,7 @@ class SPEECH():
 
 
         self.path = os.path.join(self.processed_folder, self.data_file)
-        # load data and targets
+        # load data and targets (data_file_name and numeric label)
         self.data, self.targets = self.load_file(self.path, filter_less, filter_more)
 
         self.data_dir =  os.path.join(self.root, self.data_file)
@@ -133,7 +133,7 @@ class SPEECH():
                     _ = [valid_data_set.add(i) for i in client_data]
 
         for imgFile in list(classMapping.keys()):
-            if filter_less and filter_more:
+            if filter_less or filter_more:
                 if imgFile not in valid_data_set:
                     continue
             rawData.append(imgFile)

@@ -252,7 +252,11 @@ class Executor(object):
             client_data = select_dataset(1, self.centralized_training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
         else:
-            client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
+            if self.test_mode == "all":
+                client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
+                                             collate_fn=self.collate_fn, my_use=True)
+            else:
+                client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
 
         client = self.get_client_trainer(conf)
@@ -283,73 +287,76 @@ class Executor(object):
         return train_res
 
 
-    def testing_handler(self, args):
+    def testing_handler(self, args, clientId=None, conf=None):
         """Test model"""
         evalStart = time.time()
         device = self.device
-        data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz, isTest=True, collate_fn=self.collate_fn)
-
         if self.task == 'voice':
             criterion = CTCLoss(reduction='mean').to(device=device)
         else:
             criterion = torch.nn.CrossEntropyLoss().to(device=device)
 
-        test_res = test_model(self.this_rank, self.model, data_loader, device=device, criterion=criterion, tokenizer=tokenizer)
+        data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
+                                     isTest=True, collate_fn=self.collate_fn)
+        test_res = test_model(self.this_rank, self.model, data_loader, device=device,
+                              criterion=criterion, tokenizer=tokenizer)
 
         test_loss, acc, acc_5, testResults = test_res
-        logging.info("After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
-                    .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
-
-        gc.collect()
-
-        return testResults
-
-    def all_testing_handler(self, clientId, conf):
-        """Test model"""
-        evalStart = time.time()
-
-        if self.personalized == "meta": # one step forward
-            # load last global model
-            client_model = self.load_global_model()
-
-            conf.clientId, conf.device = clientId, self.device
-            conf.tokenizer = tokenizer
-            client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
-                                         collate_fn=self.collate_fn)
-            client = self.get_client_trainer(conf)
-
-            client.train(client_data=client_data, model=client_model, conf=conf,
-                             specified_local_steps=1) # for "meta"
-
-            # torch.cuda.empty_cache()
-            self.model = client_model # client_model has already been updated implicitly
-        elif self.personalized == "ditto":
-            local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
-            if os.path.exists(local_model_path):
-                with open(local_model_path, 'rb') as f:
-                    self.model = pickle.load(f)
-            else:
-                pass
-
-        device = self.device
-        data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
-                                     collate_fn=self.collate_fn)
-        if self.task == 'voice':
-            criterion = CTCLoss(reduction='mean').to(device=device)
-        else:
-            criterion = torch.nn.CrossEntropyLoss().to(device=device)
-
-        all_test_res = test_model(clientId, self.model, data_loader, device=device, criterion=criterion,
-                              tokenizer=tokenizer)
-        test_loss, acc, acc_5, testResults = all_test_res
-        logging.info(
-            "After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
-            .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
-                    test_loss, acc * 100., acc_5 * 100.))
-
+        logging.info("After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, "
+                     "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
+                    .format(self.epoch, round(time.time() - self.start_run_time, 4),
+                            round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
         del data_loader
         gc.collect()
         torch.cuda.empty_cache()
+
+        if self.test_mode == "all":  # should have clientId and conf prepared
+            if self.personalized == "meta":  # one step forward
+                # load last global model
+                client_model = self.load_global_model()
+
+                conf.clientId, conf.device = clientId, self.device
+                conf.tokenizer = tokenizer
+                client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
+                                             collate_fn=self.collate_fn, my_use=True)
+                client = self.get_client_trainer(conf)
+
+                client.train(client_data=client_data, model=client_model, conf=conf,
+                             specified_local_steps=1)  # for "meta"
+
+                # torch.cuda.empty_cache()
+                self.model = client_model  # client_model has already been updated implicitly
+            elif self.personalized == "ditto":
+                local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+                if os.path.exists(local_model_path):
+                    with open(local_model_path, 'rb') as f:
+                        self.model = pickle.load(f)
+                else:
+                    pass
+
+            data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
+                                         collate_fn=self.collate_fn, my_use=True)
+            local_test_res = test_model(clientId, self.model, data_loader, device=device, criterion=criterion,
+                                      tokenizer=tokenizer)
+
+            local_test_loss, local_acc, local_acc_5, local_testResults = local_test_res
+            logging.info(
+                "(Local) After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, "
+                "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
+                    .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
+                            local_test_loss, local_acc * 100., local_acc_5 * 100.))
+
+            del data_loader
+            gc.collect()
+            torch.cuda.empty_cache()
+
+            testResults.update({
+                'local_top_1': local_testResults['top_1'],
+                'local_top_5': local_testResults['top_5'],
+                'local_test_loss': local_testResults['test_loss'],
+                'local_test_len': local_testResults['test_len'],
+            })
+
         return testResults
 
     def event_monitor(self):
@@ -380,15 +387,15 @@ class Executor(object):
                     self.push_msg_to_server_asyn(event_msg, train_res)
 
                 elif event_msg == 'test':
-                    test_res = self.testing_handler(args=self.args)
-                    self.push_msg_to_server(event_msg, test_res)
+                    if self.test_mode == "all":
+                        clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
+                        test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf)
+                    else:
+                        test_res = self.testing_handler(args=self.args)
 
-                elif event_msg == "all_test":
-                    clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
-
-                    all_test_res = self.all_testing_handler(clientId=clientId, conf=client_conf)
-                    self.push_msg_to_server('all_test_nowait', None)
-                    self.push_msg_to_server_asyn(event_msg, all_test_res)
+                    # self.push_msg_to_server(event_msg, test_res)
+                    self.push_msg_to_server('test_nowait', None)
+                    self.push_msg_to_server_asyn(event_msg, test_res)
 
                 elif event_msg == 'stop':
                     self.stop()
