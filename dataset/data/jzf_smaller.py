@@ -32,19 +32,21 @@ def run(dataset):
 
             files = os.listdir(original_data_path)
             true_files = []
+
             for f in files:
                 if "cache" in f:
                     continue
                 true_files.append(f)
 
-            choice = sorted(np.random.choice(len(true_files), v, replace=False))
-            per_cent = max(1, v // 100)
+            # because otherwise it is too slow
+            prob = v / len(true_files)
             added_cnt = 0
             for idx, f in enumerate(true_files):
                 if added_cnt % per_cent == 0:
                     print(f"{k}: {added_cnt}/{v}")
 
-                if idx in choice:
+                rand = np.random.random(1)
+                if rand <= prob:
                     os.system(f"cp {os.path.join(original_data_path, f)} {smaller_data_path}")
                     added_cnt += 1
     else:
