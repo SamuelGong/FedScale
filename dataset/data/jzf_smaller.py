@@ -40,6 +40,7 @@ def run(dataset):
 
             # because otherwise it is too slow
             prob = v / len(true_files)
+            per_cent = max(1, v // 100)
             added_cnt = 0
             for idx, f in enumerate(true_files):
                 if added_cnt % per_cent == 0:
