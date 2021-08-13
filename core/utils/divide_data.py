@@ -110,15 +110,31 @@ class DataPartitioner(object):
 
         return Partition(self.data, resultIndex)
 
+    def my_use(self, partition, istest):
+        resultIndex = self.partitions[partition]
+
+        test_length = max(1, int(len(resultIndex) * self.args.arg.all_test_ratio))
+        train_length = len(resultIndex) - test_length
+        if istest:
+            resultIndex = resultIndex[train_length:]
+        else:
+            resultIndex = resultIndex[:train_length]
+
+        self.rng.shuffle(resultIndex)
+
+        return Partition(self.data, resultIndex)
 
     def getSize(self):
         # return the size of samples
         return {'size': [len(partition) for partition in self.partitions]}
 
 
-def select_dataset(rank, partition, batch_size, isTest=False, collate_fn=None):
+def select_dataset(rank, partition, batch_size, isTest=False, collate_fn=None, my_use=False):
     """Load data given client Id"""
-    partition = partition.use(rank - 1, isTest)
+    if my_use:
+        partition = partition.my_use(rank - 1, isTest)
+    else:
+        partition = partition.use(rank - 1, isTest)
     dropLast = False if isTest else True
     num_loaders = min(int(len(partition)/args.batch_size/2), args.num_loaders)
     # if num_loaders == 0:

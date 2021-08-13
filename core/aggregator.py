@@ -53,11 +53,21 @@ class Aggregator(object):
         self.loss_accumulator = []
         self.client_training_results = []
 
+        # === JZF ===
+        self.test_mode = self.args.test_mode
+        self.sample_mode = self.args.sample_mode
+        self.global_num_batches = None
+
         # number of registered executors
         self.registered_executor_info = 0
         self.test_result_accumulator = []
         self.testing_history = {'data_set': args.data_set, 'model': args.model, 'sample_mode': args.sample_mode,
                         'gradient_policy': args.gradient_policy, 'task': args.task, 'perf': collections.OrderedDict()}
+
+        if self.test_mode == "all":
+            self.local_testing_history = {'data_set': args.data_set, 'model': args.model, 'sample_mode': args.sample_mode,
+                                    'gradient_policy': args.gradient_policy, 'task': args.task,
+                                    'perf': collections.OrderedDict()}
 
         self.gradient_controller = None
         if self.args.gradient_policy == 'yogi':
@@ -66,10 +76,6 @@ class Aggregator(object):
 
         # ======== Task specific ============
         self.imdb = None           # object detection
-
-        self.test_mode = self.args.test_mode
-        self.sample_mode = self.args.sample_mode
-        self.global_num_batches = None
 
     def setup_env(self):
         self.setup_seed(seed=self.this_rank)
@@ -422,11 +428,13 @@ class Aggregator(object):
 
     def testing_completion_handler(self, results):
         self.test_result_accumulator.append(results)
-        current = len(self.test_result_accumulator)
-        all = len(self.client_manager.feasibleClients)
-        ten_cent = max(1, all // 10)
-        if current % ten_cent == 0:
-            logging.info(f"{current}/{all}")
+
+        if self.test_mode == "all":
+            current = len(self.test_result_accumulator)
+            all = len(self.client_manager.feasibleClients)
+            ten_cent = max(1, all // 10)
+            if current % ten_cent == 0:
+                logging.info(f"Testing progress: {current}/{all} clients ({current // ten_cent * 10}%)")
 
         if self.test_mode == "all" and len(self.test_result_accumulator) == len(self.client_manager.feasibleClients):
             pass
@@ -469,6 +477,29 @@ class Aggregator(object):
                 self.testing_history['perf'][self.epoch]['top_5'], self.testing_history['perf'][self.epoch]['loss'],
                 self.testing_history['perf'][self.epoch]['test_len']))
 
+        if self.test_mode == "all":
+            if self.args.task == "detection":
+                self.testing_history['perf'][self.epoch].update({
+                    'local_top_1': round(accumulator['local_top_1'] * 100.0 / len(self.test_result_accumulator), 4),
+                    'local_top_5': round(accumulator['local_top_5'] * 100.0 / len(self.test_result_accumulator), 4),
+                    'local_loss': accumulator['local_test_loss'],
+                    'local_test_len': accumulator['local_test_len']
+                })
+            else:
+                self.testing_history['perf'][self.epoch].update({
+                    'local_top_1': round(accumulator['local_top_1'] / accumulator['local_test_len'] * 100.0, 4),
+                    'local_top_5': round(accumulator['local_top_5'] / accumulator['local_test_len'] * 100.0, 4),
+                    'local_loss': accumulator['local_test_loss'] / accumulator['local_test_len'],
+                    'local_test_len': accumulator['local_test_len']
+                })
+
+            logging.info(
+                "FL Local Testing in epoch: {}, virtual_clock: {}, top_1: {} %, "
+                "top_5: {} %, test loss: {:.4f}, test len: {}"
+                .format(self.epoch, self.global_virtual_clock, self.testing_history['perf'][self.epoch]['local_top_1'],
+                        self.testing_history['perf'][self.epoch]['local_top_5'],
+                        self.testing_history['perf'][self.epoch]['local_loss'],
+                        self.testing_history['perf'][self.epoch]['local_test_len']))
 
         self.event_queue.append('start_round')
 
@@ -518,7 +549,7 @@ class Aggregator(object):
                             if next_clientId is not None:
                                 config = self.get_client_conf(next_clientId)
                                 self.server_event_queue[executorId].put(
-                                    {'event': 'all_test', 'clientId': next_clientId, 'conf': config}
+                                    {'event': 'test', 'clientId': next_clientId, 'conf': config}
                                 )
                     else:
                         self.broadcast_msg(send_msg)
@@ -528,7 +559,7 @@ class Aggregator(object):
                 event_dict = self.client_event_queue.get()
                 event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
 
-                if event_msg != 'train_nowait' and event_msg != 'all_test_nowait':
+                if event_msg != 'train_nowait' and event_msg != 'test_nowait':
                     logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
 
                 # collect training returns from the executor
@@ -544,13 +575,15 @@ class Aggregator(object):
                             runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
                             self.server_event_queue[executorId].put(runtime_profile)
 
-                elif event_msg == 'all_test_nowait':
-                    next_clientId = self.resource_manager.get_next_all_test_task()
-
-                    if next_clientId is not None:
-                        config = self.get_client_conf(next_clientId)
-                        runtime_profile = {'event': 'all_test', 'clientId': next_clientId, 'conf': config}
-                        self.server_event_queue[executorId].put(runtime_profile)
+                elif event_msg == 'test_nowait':
+                    if self.test_mode == "all":
+                        next_clientId = self.resource_manager.get_next_all_test_task()
+                        if next_clientId is not None:
+                            config = self.get_client_conf(next_clientId)
+                            runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config}
+                            self.server_event_queue[executorId].put(runtime_profile)
+                    else:
+                        pass
 
                 elif event_msg == 'train':
                     # push training results
@@ -559,7 +592,7 @@ class Aggregator(object):
                     if len(self.stats_util_accumulator) == self.tasks_round:
                         self.round_completion_handler()
 
-                elif event_msg == 'test' or event_msg == 'all_test':
+                elif event_msg == 'test':
                     self.testing_completion_handler(results)
 
                 elif event_msg == 'report_executor_info':
