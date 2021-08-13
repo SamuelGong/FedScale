@@ -1,0 +1,412 @@
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-11) 21:45:58 INFO     [aggregator.py:10] Job args Namespace(adam_epsilon=1e-08, adaptation_mode=0, aggregator_device=0, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=2.4368231046931412, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/google_speech', data_map_file='/homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv', data_set='google_speech', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=101, eval_interval=10, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=21, filter_more=1000000000000000.0, finetune=False, gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='google_speech_centralized_meta', labels_path='labels.json', learners='1-2-3-4-5', learning_rate=5e-05, line_by_line=False, local_steps=4, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=32842, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='resnet34', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=35, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='meta', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='21685', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='centralized', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, task='speech', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='default', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0811_214555', total_worker=1, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-11) 21:46:01 INFO     [executor.py:44] (EXECUTOR:1) is setting up environ ...
+(08-11) 21:46:01 INFO     [executor.py:81] Start to connect to 127.0.0.1:32842 for control plane communication ...
+(08-11) 21:46:03 INFO     [aggregator.py:86] End up with cuda device (cuda:0)
+(08-11) 21:46:03 INFO     [aggregator.py:106] Start to initiate 127.0.0.1:32842 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-11) 21:46:04 INFO     [executor.py:44] (EXECUTOR:2) is setting up environ ...
+(08-11) 21:46:04 INFO     [executor.py:81] Start to connect to 127.0.0.1:32842 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-11) 21:46:07 INFO     [executor.py:44] (EXECUTOR:3) is setting up environ ...
+(08-11) 21:46:07 INFO     [executor.py:81] Start to connect to 127.0.0.1:32842 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-11) 21:46:10 INFO     [executor.py:44] (EXECUTOR:4) is setting up environ ...
+(08-11) 21:46:10 INFO     [executor.py:81] Start to connect to 127.0.0.1:32842 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-11) 21:46:13 INFO     [executor.py:44] (EXECUTOR:5) is setting up environ ...
+(08-11) 21:46:13 INFO     [executor.py:81] Start to connect to 127.0.0.1:32842 for control plane communication ...
+(08-11) 21:46:14 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
+(08-11) 21:46:14 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(08-11) 21:46:14 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(08-11) 21:46:14 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
+(08-11) 21:46:14 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 5
+(08-11) 21:46:14 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
+(08-11) 21:46:14 INFO     [distributed_c10d.py:225] Rank 5: Completed store-based barrier for 6 nodes.
+(08-11) 21:46:14 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 6 nodes.
+(08-11) 21:46:14 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 6 nodes.
+(08-11) 21:46:14 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 6 nodes.
+(08-11) 21:46:14 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 6 nodes.
+(08-11) 21:46:14 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 6 nodes.
+(08-11) 21:46:14 INFO     [fllibs.py:78] Initializing the model ...
+(08-11) 21:46:14 INFO     [fllibs.py:78] Initializing the model ...
+(08-11) 21:46:14 INFO     [fllibs.py:78] Initializing the model ...
+(08-11) 21:46:14 INFO     [fllibs.py:78] Initializing the model ...
+(08-11) 21:46:14 INFO     [fllibs.py:78] Initializing the model ...
+(08-11) 21:46:14 INFO     [fllibs.py:78] Initializing the model ...
+(08-11) 21:46:15 INFO     [aggregator.py:482] Start monitoring events ...
+(08-11) 21:46:19 INFO     [executor.py:118] Data partitioner starts ...
+(08-11) 21:46:19 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-11) 21:46:19 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-11) 21:46:19 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-11) 21:46:19 INFO     [executor.py:127] Data partitioner completes ...
+(08-11) 21:46:19 INFO     [executor.py:118] Data partitioner starts ...
+(08-11) 21:46:19 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-11) 21:46:19 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-11) 21:46:19 INFO     [executor.py:118] Data partitioner starts ...
+(08-11) 21:46:19 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-11) 21:46:19 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-11) 21:46:19 INFO     [executor.py:118] Data partitioner starts ...
+(08-11) 21:46:19 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-11) 21:46:19 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-11) 21:46:19 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-11) 21:46:19 INFO     [executor.py:127] Data partitioner completes ...
+(08-11) 21:46:19 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-11) 21:46:19 INFO     [executor.py:127] Data partitioner completes ...
+(08-11) 21:46:19 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-11) 21:46:19 INFO     [divide_data.py:94] Randomly partitioning data, 101370 samples...
+(08-11) 21:46:19 INFO     [executor.py:127] Data partitioner completes ...
+(08-11) 21:46:19 INFO     [executor.py:118] Data partitioner starts ...
+(08-11) 21:46:19 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-11) 21:46:19 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-11) 21:46:20 INFO     [executor.py:353] Start monitoring events ...
+(08-11) 21:46:20 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-11) 21:46:20 INFO     [executor.py:127] Data partitioner completes ...
+(08-11) 21:46:20 INFO     [divide_data.py:94] Randomly partitioning data, 101370 samples...
+(08-11) 21:46:20 INFO     [aggregator.py:532] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:3)
+(08-11) 21:46:20 INFO     [divide_data.py:94] Randomly partitioning data, 101370 samples...
+(08-11) 21:46:20 INFO     [divide_data.py:94] Randomly partitioning data, 101370 samples...
+(08-11) 21:46:20 INFO     [executor.py:353] Start monitoring events ...
+(08-11) 21:46:20 INFO     [executor.py:353] Start monitoring events ...
+(08-11) 21:46:20 INFO     [aggregator.py:532] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:4)
+(08-11) 21:46:20 INFO     [divide_data.py:94] Randomly partitioning data, 101370 samples...
+(08-11) 21:46:20 INFO     [executor.py:353] Start monitoring events ...
+(08-11) 21:46:20 INFO     [aggregator.py:532] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:1)
+(08-11) 21:46:20 INFO     [executor.py:353] Start monitoring events ...
+(08-11) 21:46:20 INFO     [aggregator.py:532] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:2)
+(08-11) 21:46:20 INFO     [aggregator.py:532] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:5)
+(08-11) 21:46:20 INFO     [aggregator.py:209] Info of all feasible clients {'total_feasible_clients': 2040, 'total_num_samples': 100034}
+(08-11) 21:46:20 INFO     [aggregator.py:388] Wall clock: 0 s, Epoch: 1, Planned participants: 0, Succeed participants: 0, Training loss: 0.0
+(08-11) 21:46:20 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 21:46:20 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 21:46:20 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 21:46:20 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 21:46:20 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 21:46:20 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 21:46:21 INFO     [executor.py:360] Executor 4: Received (Event:TRAIN) from aggregator
+(08-11) 21:46:22 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-11) 22:00:55 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 3.463051049535971, 'trained_size': 101360, 'success': True, 'utility': 148.87419762010546}
+(08-11) 22:00:56 INFO     [aggregator.py:532] Round 1: Receive (Event:TRAIN) from (Executor:4)
+(08-11) 22:00:56 INFO     [aggregator.py:388] Wall clock: 1216 s, Epoch: 2, Planned participants: 1, Succeed participants: 1, Training loss: 3.463051049535971
+(08-11) 22:00:56 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 22:00:56 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:00:56 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:00:56 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:00:56 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:00:56 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:01:08 INFO     [executor.py:360] Executor 3: Received (Event:TRAIN) from aggregator
+(08-11) 22:01:09 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-11) 22:22:21 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.3567371112854625, 'trained_size': 101360, 'success': True, 'utility': 122.81334419446024}
+(08-11) 22:22:23 INFO     [aggregator.py:532] Round 2: Receive (Event:TRAIN) from (Executor:3)
+(08-11) 22:22:23 INFO     [aggregator.py:388] Wall clock: 2433 s, Epoch: 3, Planned participants: 1, Succeed participants: 1, Training loss: 2.9098940804107167
+(08-11) 22:22:23 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 22:22:23 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:22:23 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:22:23 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:22:23 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:22:23 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:22:28 INFO     [executor.py:360] Executor 2: Received (Event:TRAIN) from aggregator
+(08-11) 22:22:28 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-11) 22:36:25 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.370249909339562, 'trained_size': 101360, 'success': True, 'utility': 123.16492771797172}
+(08-11) 22:36:26 INFO     [aggregator.py:532] Round 3: Receive (Event:TRAIN) from (Executor:2)
+(08-11) 22:36:26 INFO     [aggregator.py:388] Wall clock: 3649 s, Epoch: 4, Planned participants: 1, Succeed participants: 1, Training loss: 2.7300126900536648
+(08-11) 22:36:26 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 22:36:27 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:36:27 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:36:27 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:36:27 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:36:27 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:37:22 INFO     [executor.py:360] Executor 3: Received (Event:TRAIN) from aggregator
+(08-11) 22:37:22 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-11) 22:50:03 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.6003612925898816, 'trained_size': 101360, 'success': True, 'utility': 129.0050862275408}
+(08-11) 22:50:04 INFO     [aggregator.py:532] Round 4: Receive (Event:TRAIN) from (Executor:3)
+(08-11) 22:50:05 INFO     [aggregator.py:388] Wall clock: 4865 s, Epoch: 5, Planned participants: 1, Succeed participants: 1, Training loss: 2.697599840687719
+(08-11) 22:50:05 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 22:50:05 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:50:05 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:50:05 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:50:05 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:50:05 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 22:51:07 INFO     [executor.py:360] Executor 5: Received (Event:TRAIN) from aggregator
+(08-11) 22:51:08 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-11) 23:04:33 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.9770468519440876, 'trained_size': 101360, 'success': True, 'utility': 112.48599847288622}
+(08-11) 23:04:34 INFO     [aggregator.py:532] Round 5: Receive (Event:TRAIN) from (Executor:5)
+(08-11) 23:04:34 INFO     [aggregator.py:388] Wall clock: 6082 s, Epoch: 6, Planned participants: 1, Succeed participants: 1, Training loss: 2.553489242938993
+(08-11) 23:04:34 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 23:04:35 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:04:35 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:04:35 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:04:35 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:04:35 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:05:00 INFO     [executor.py:360] Executor 3: Received (Event:TRAIN) from aggregator
+(08-11) 23:05:01 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-11) 23:24:44 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.2574879456698778, 'trained_size': 101360, 'success': True, 'utility': 120.19951269571445}
+(08-11) 23:24:45 INFO     [aggregator.py:532] Round 6: Receive (Event:TRAIN) from (Executor:3)
+(08-11) 23:24:45 INFO     [aggregator.py:388] Wall clock: 7298 s, Epoch: 7, Planned participants: 1, Succeed participants: 1, Training loss: 2.5041556933941402
+(08-11) 23:24:45 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 23:24:45 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:24:45 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:24:45 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:24:45 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:24:45 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:25:25 INFO     [executor.py:360] Executor 2: Received (Event:TRAIN) from aggregator
+(08-11) 23:25:25 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-11) 23:38:11 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.0769216415954643, 'trained_size': 101360, 'success': True, 'utility': 115.29223090135334}
+(08-11) 23:38:13 INFO     [aggregator.py:532] Round 7: Receive (Event:TRAIN) from (Executor:2)
+(08-11) 23:38:13 INFO     [aggregator.py:388] Wall clock: 8514 s, Epoch: 8, Planned participants: 1, Succeed participants: 1, Training loss: 2.4431222574229006
+(08-11) 23:38:13 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 23:38:13 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:38:13 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:38:13 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:38:13 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:38:13 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:39:18 INFO     [executor.py:360] Executor 2: Received (Event:TRAIN) from aggregator
+(08-11) 23:39:19 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-11) 23:51:53 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.2569681438532017, 'trained_size': 101360, 'success': True, 'utility': 89.69167252683212}
+(08-11) 23:51:54 INFO     [aggregator.py:532] Round 8: Receive (Event:TRAIN) from (Executor:2)
+(08-11) 23:51:54 INFO     [aggregator.py:388] Wall clock: 9731 s, Epoch: 9, Planned participants: 1, Succeed participants: 1, Training loss: 2.294852993226688
+(08-11) 23:51:54 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-11) 23:51:54 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:51:54 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:51:54 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:51:54 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:51:54 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-11) 23:52:59 INFO     [executor.py:360] Executor 3: Received (Event:TRAIN) from aggregator
+(08-11) 23:53:00 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 00:05:20 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.1787225627484506, 'trained_size': 101360, 'success': True, 'utility': 86.85519213950357}
+(08-12) 00:05:21 INFO     [aggregator.py:532] Round 9: Receive (Event:TRAIN) from (Executor:3)
+(08-12) 00:05:21 INFO     [aggregator.py:388] Wall clock: 10947 s, Epoch: 10, Planned participants: 1, Succeed participants: 1, Training loss: 2.1708385009513282
+(08-12) 00:05:21 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 00:05:21 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:05:21 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:05:21 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:05:21 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:05:21 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:05:51 INFO     [executor.py:360] Executor 5: Received (Event:TEST) from aggregator
+(08-12) 00:05:51 INFO     [executor.py:360] Executor 4: Received (Event:TEST) from aggregator
+(08-12) 00:05:51 INFO     [executor.py:360] Executor 3: Received (Event:TEST) from aggregator
+(08-12) 00:05:51 INFO     [executor.py:360] Executor 1: Received (Event:TEST) from aggregator
+(08-12) 00:05:51 INFO     [executor.py:360] Executor 2: Received (Event:TEST) from aggregator
+(08-12) 00:05:52 INFO     [utils_model.py:354] Rank 3: Test set: Average loss: 1.1637, Top-1 Accuracy: 247.0/363 (0.6804), Top-5 Accuracy: 0.8705
+(08-12) 00:05:52 INFO     [executor.py:297] After aggregation epoch 10, CumulTime 8384.5856, eval_time 0.7041, test_loss 1.1637, test_accuracy 68.04%, test_5_accuracy 87.05% 
+
+(08-12) 00:05:52 INFO     [aggregator.py:532] Round 10: Receive (Event:TEST) from (Executor:3)
+(08-12) 00:06:00 INFO     [utils_model.py:354] Rank 4: Test set: Average loss: 27.027, Top-1 Accuracy: 36.0/363 (0.0992), Top-5 Accuracy: 0.3719
+(08-12) 00:06:00 INFO     [executor.py:297] After aggregation epoch 10, CumulTime 8389.9066, eval_time 8.8931, test_loss 27.027, test_accuracy 9.92%, test_5_accuracy 37.19% 
+
+(08-12) 00:06:00 INFO     [aggregator.py:532] Round 10: Receive (Event:TEST) from (Executor:4)
+(08-12) 00:06:00 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.2701, Top-1 Accuracy: 229.0/363 (0.6309), Top-5 Accuracy: 0.865
+(08-12) 00:06:00 INFO     [executor.py:297] After aggregation epoch 10, CumulTime 8396.2767, eval_time 8.8777, test_loss 1.2701, test_accuracy 63.09%, test_5_accuracy 86.50% 
+
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-12) 00:06:00 INFO     [utils_model.py:354] Rank 1: Test set: Average loss: 2289.1635, Top-1 Accuracy: 8.0/363 (0.022), Top-5 Accuracy: 0.0937
+(08-12) 00:06:00 INFO     [executor.py:297] After aggregation epoch 10, CumulTime 8399.3255, eval_time 8.9768, test_loss 2289.1635, test_accuracy 2.20%, test_5_accuracy 9.37% 
+
+(08-12) 00:06:00 INFO     [aggregator.py:532] Round 10: Receive (Event:TEST) from (Executor:2)
+(08-12) 00:06:00 INFO     [aggregator.py:532] Round 10: Receive (Event:TEST) from (Executor:1)
+(08-12) 00:06:01 INFO     [utils_model.py:354] Rank 5: Test set: Average loss: 1.5142, Top-1 Accuracy: 218.0/363 (0.6006), Top-5 Accuracy: 0.843
+(08-12) 00:06:01 INFO     [executor.py:297] After aggregation epoch 10, CumulTime 8387.5103, eval_time 9.4948, test_loss 1.5142, test_accuracy 60.06%, test_5_accuracy 84.30% 
+
+(08-12) 00:06:01 INFO     [aggregator.py:532] Round 10: Receive (Event:TEST) from (Executor:5)
+(08-12) 00:06:01 INFO     [aggregator.py:470] FL Testing in epoch: 10, virtual_clock: 10946.9760171885, top_1: 40.6612 %, top_5: 60.8815 %, test loss: 464.0277, test len: 1815
+(08-12) 00:06:01 INFO     [executor.py:360] Executor 4: Received (Event:TRAIN) from aggregator
+(08-12) 00:06:01 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 00:32:24 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.5535762905983228, 'trained_size': 101360, 'success': True, 'utility': 99.71403241183893}
+(08-12) 00:32:25 INFO     [aggregator.py:532] Round 10: Receive (Event:TRAIN) from (Executor:4)
+(08-12) 00:32:25 INFO     [aggregator.py:388] Wall clock: 12163 s, Epoch: 11, Planned participants: 1, Succeed participants: 1, Training loss: 2.109112279916028
+(08-12) 00:32:25 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 00:32:25 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:32:25 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:32:25 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:32:25 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:32:25 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:32:27 INFO     [executor.py:360] Executor 5: Received (Event:TRAIN) from aggregator
+(08-12) 00:32:28 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 00:44:59 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 0.6700711011570085, 'trained_size': 101360, 'success': True, 'utility': 65.48629663834147}
+(08-12) 00:45:00 INFO     [aggregator.py:532] Round 11: Receive (Event:TRAIN) from (Executor:5)
+(08-12) 00:45:00 INFO     [aggregator.py:388] Wall clock: 13380 s, Epoch: 12, Planned participants: 1, Succeed participants: 1, Training loss: 1.978290354574299
+(08-12) 00:45:00 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 00:45:00 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:45:00 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:45:00 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:45:00 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:45:00 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:45:49 INFO     [executor.py:360] Executor 5: Received (Event:TRAIN) from aggregator
+(08-12) 00:45:49 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 00:58:23 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.056401034221299, 'trained_size': 101360, 'success': True, 'utility': 114.721256177817}
+(08-12) 00:58:24 INFO     [aggregator.py:532] Round 12: Receive (Event:TRAIN) from (Executor:5)
+(08-12) 00:58:24 INFO     [aggregator.py:388] Wall clock: 14596 s, Epoch: 13, Planned participants: 1, Succeed participants: 1, Training loss: 1.9847995778782155
+(08-12) 00:58:24 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 00:58:25 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:58:25 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:58:25 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:58:25 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:58:25 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 00:58:27 INFO     [executor.py:360] Executor 3: Received (Event:TRAIN) from aggregator
+(08-12) 00:58:27 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 01:14:05 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.3561559921055528, 'trained_size': 101360, 'success': True, 'utility': 93.16328863600478}
+(08-12) 01:14:06 INFO     [aggregator.py:532] Round 13: Receive (Event:TRAIN) from (Executor:3)
+(08-12) 01:14:06 INFO     [aggregator.py:388] Wall clock: 15812 s, Epoch: 14, Planned participants: 1, Succeed participants: 1, Training loss: 1.9364423789726262
+(08-12) 01:14:06 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 01:14:06 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:14:06 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:14:06 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:14:06 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:14:06 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:14:09 INFO     [executor.py:360] Executor 1: Received (Event:TRAIN) from aggregator
+(08-12) 01:14:09 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 01:36:00 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.7605020617164326, 'trained_size': 101360, 'success': True, 'utility': 132.9180694826146}
+(08-12) 01:36:01 INFO     [aggregator.py:532] Round 14: Receive (Event:TRAIN) from (Executor:1)
+(08-12) 01:36:01 INFO     [aggregator.py:388] Wall clock: 17029 s, Epoch: 15, Planned participants: 1, Succeed participants: 1, Training loss: 1.995303784882898
+(08-12) 01:36:01 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 01:36:01 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:36:01 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:36:01 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:36:01 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:36:01 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:36:04 INFO     [executor.py:360] Executor 3: Received (Event:TRAIN) from aggregator
+(08-12) 01:36:04 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 01:48:24 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.7360555729493035, 'trained_size': 101360, 'success': True, 'utility': 105.40756930541346}
+(08-12) 01:48:25 INFO     [aggregator.py:532] Round 15: Receive (Event:TRAIN) from (Executor:3)
+(08-12) 01:48:25 INFO     [aggregator.py:388] Wall clock: 18245 s, Epoch: 16, Planned participants: 1, Succeed participants: 1, Training loss: 1.9780205707539917
+(08-12) 01:48:25 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 01:48:25 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:48:25 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:48:25 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:48:25 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:48:25 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 01:49:20 INFO     [executor.py:360] Executor 5: Received (Event:TRAIN) from aggregator
+(08-12) 01:49:20 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 02:01:57 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.0175951053620986, 'trained_size': 101360, 'success': True, 'utility': 80.7007352774275}
+(08-12) 02:01:58 INFO     [aggregator.py:532] Round 16: Receive (Event:TRAIN) from (Executor:5)
+(08-12) 02:01:58 INFO     [aggregator.py:388] Wall clock: 19461 s, Epoch: 17, Planned participants: 1, Succeed participants: 1, Training loss: 1.9179939791669984
+(08-12) 02:01:58 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 02:01:58 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:01:58 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:01:58 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:01:58 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:01:58 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:02:01 INFO     [executor.py:360] Executor 2: Received (Event:TRAIN) from aggregator
+(08-12) 02:02:01 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 02:27:04 INFO     [client.py:309] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.0784805278851568, 'trained_size': 101360, 'success': True, 'utility': 83.07993366911774}
+(08-12) 02:27:05 INFO     [aggregator.py:532] Round 17: Receive (Event:TRAIN) from (Executor:2)
+(08-12) 02:27:05 INFO     [aggregator.py:388] Wall clock: 20678 s, Epoch: 18, Planned participants: 1, Succeed participants: 1, Training loss: 1.868610834973949
+(08-12) 02:27:05 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 02:27:06 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:06 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:06 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:06 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:06 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:08 INFO     [executor.py:360] Executor 1: Received (Event:TRAIN) from aggregator
+(08-12) 02:27:09 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 02:27:10 INFO     [client.py:311] Training of (CLIENT: 0) failed as CUDA out of memory. Tried to allocate 20.00 MiB (GPU 2; 10.76 GiB total capacity; 1.03 GiB already allocated; 23.44 MiB free; 1.11 GiB reserved in total by PyTorch)
+(08-12) 02:27:11 INFO     [aggregator.py:532] Round 18: Receive (Event:TRAIN) from (Executor:1)
+(08-12) 02:27:11 INFO     [aggregator.py:388] Wall clock: 21894 s, Epoch: 19, Planned participants: 1, Succeed participants: 1, Training loss: 1.7735356820988237
+(08-12) 02:27:11 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 02:27:11 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:11 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:11 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:11 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:11 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:14 INFO     [executor.py:360] Executor 5: Received (Event:TRAIN) from aggregator
+(08-12) 02:27:14 INFO     [client.py:17] Start to train (CLIENT: 0) ...
+(08-12) 02:27:15 INFO     [client.py:311] Training of (CLIENT: 0) failed as CUDA out of memory. Tried to allocate 20.00 MiB (GPU 2; 10.76 GiB total capacity; 1.03 GiB already allocated; 15.44 MiB free; 1.11 GiB reserved in total by PyTorch)
+(08-12) 02:27:16 INFO     [aggregator.py:532] Round 19: Receive (Event:TRAIN) from (Executor:5)
+(08-12) 02:27:16 INFO     [aggregator.py:388] Wall clock: 23110 s, Epoch: 20, Planned participants: 1, Succeed participants: 1, Training loss: 1.7557794016316748
+(08-12) 02:27:16 INFO     [aggregator.py:394] Selected participants to run: [0]:
+{0: {'computation': 1216.32, 'communication': 0.0106685765}}
+(08-12) 02:27:16 INFO     [executor.py:360] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:16 INFO     [executor.py:360] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:16 INFO     [executor.py:360] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:16 INFO     [executor.py:360] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:16 INFO     [executor.py:360] Executor 5: Received (Event:UPDATE_MODEL) from aggregator
+(08-12) 02:27:26 INFO     [executor.py:360] Executor 4: Received (Event:TEST) from aggregator
+(08-12) 02:27:26 INFO     [executor.py:360] Executor 2: Received (Event:TEST) from aggregator
+(08-12) 02:27:26 INFO     [executor.py:360] Executor 1: Received (Event:TEST) from aggregator
+(08-12) 02:27:26 INFO     [executor.py:360] Executor 5: Received (Event:TEST) from aggregator
+(08-12) 02:27:26 INFO     [executor.py:360] Executor 3: Received (Event:TEST) from aggregator
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 407, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 161, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 379, in event_monitor
+    test_res = self.testing_handler(args=self.args)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 293, in testing_handler
+    test_res = test_model(self.this_rank, self.model, data_loader, device=device, criterion=criterion, tokenizer=tokenizer)
+  File "/data/samuel/FedScale/core/utils/utils_model.py", line 236, in test_model
+    for data, target in test_data:
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 359, in __iter__
+    return self._get_iterator()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 305, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 918, in __init__
+    w.start()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/process.py", line 105, in start
+    self._popen = self._Popen(self)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/context.py", line 223, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+OSError: [Errno 12] Cannot allocate memory
+(08-12) 02:27:45 INFO     [utils_model.py:354] Rank 5: Test set: Average loss: 1.1262, Top-1 Accuracy: 245.0/363 (0.6749), Top-5 Accuracy: 0.9008
+(08-12) 02:27:45 INFO     [executor.py:297] After aggregation epoch 20, CumulTime 16891.756, eval_time 18.8669, test_loss 1.1262, test_accuracy 67.49%, test_5_accuracy 90.08% 
+
+(08-12) 02:27:45 INFO     [utils_model.py:354] Rank 4: Test set: Average loss: 1.4616, Top-1 Accuracy: 237.0/363 (0.6529), Top-5 Accuracy: 0.8567
+(08-12) 02:27:45 INFO     [executor.py:297] After aggregation epoch 20, CumulTime 16894.7789, eval_time 19.2566, test_loss 1.4616, test_accuracy 65.29%, test_5_accuracy 85.67% 
+
+(08-12) 02:27:45 INFO     [utils_model.py:354] Rank 1: Test set: Average loss: 1.1645, Top-1 Accuracy: 252.0/363 (0.6942), Top-5 Accuracy: 0.8705
+(08-12) 02:27:45 INFO     [executor.py:297] After aggregation epoch 20, CumulTime 16903.9505, eval_time 18.9594, test_loss 1.1645, test_accuracy 69.42%, test_5_accuracy 87.05% 
+
+(08-12) 02:27:45 INFO     [aggregator.py:532] Round 20: Receive (Event:TEST) from (Executor:4)
+(08-12) 02:27:45 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 0.9962, Top-1 Accuracy: 265.0/363 (0.73), Top-5 Accuracy: 0.9091
+(08-12) 02:27:45 INFO     [executor.py:297] After aggregation epoch 20, CumulTime 16901.1385, eval_time 19.461, test_loss 0.9962, test_accuracy 73.00%, test_5_accuracy 90.91% 
+
+(08-12) 02:27:45 INFO     [aggregator.py:532] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-12) 02:28:05 INFO     [aggregator.py:532] Round 20: Receive (Event:TEST) from (Executor:5)
+(08-12) 02:28:05 INFO     [aggregator.py:532] Round 20: Receive (Event:TEST) from (Executor:1)
