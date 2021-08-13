@@ -36,6 +36,17 @@ class Client(object):
                         params += [{'params':[value],'lr':lr, 'weight_decay': cfg.TRAIN.WEIGHT_DECAY}]
             optimizer = torch.optim.SGD(params, momentum=cfg.TRAIN.MOMENTUM)
 
+            if conf.personalized in ["ditto"]:
+                params_2 = []
+                for key, value in dict(client_model.named_parameters()).items():
+                    if value.requires_grad:
+                        if 'bias' in key:
+                            params_2 += [{'params': [value], 'lr': lr * (cfg.TRAIN.DOUBLE_BIAS + 1), \
+                                        'weight_decay': cfg.TRAIN.BIAS_DECAY and cfg.TRAIN.WEIGHT_DECAY or 0}]
+                        else:
+                            params_2 += [{'params': [value], 'lr': lr, 'weight_decay': cfg.TRAIN.WEIGHT_DECAY}]
+                optimizer_2 = torch.optim.SGD(params_2, momentum=cfg.TRAIN.MOMENTUM)
+
         elif conf.task == 'nlp':
             no_decay = ["bias", "LayerNorm.weight"]
             optimizer_grouped_parameters = [
@@ -49,8 +60,24 @@ class Client(object):
                 },
             ]
             optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=conf.learning_rate)
+
+            if conf.personalized in ["ditto"]:
+                optimizer_2_grouped_parameters = [
+                    {
+                        "params": [p for n, p in client_model.named_parameters() if not any(nd in n for nd in no_decay)],
+                        "weight_decay": conf.weight_decay,
+                    },
+                    {
+                        "params": [p for n, p in client_model.named_parameters() if any(nd in n for nd in no_decay)],
+                        "weight_decay": 0.0,
+                    },
+                ]
+                optimizer_2 = torch.optim.AdamW(optimizer_2_grouped_parameters, lr=conf.learning_rate)
         else:
             optimizer = torch.optim.SGD(model.parameters(), lr=conf.learning_rate, momentum=0.9, weight_decay=5e-4)
+            if conf.personalized in ["ditto"]:
+                optimizer_2 = torch.optim.SGD(client_model.parameters(), lr=conf.learning_rate, momentum=0.9, weight_decay=5e-4)
+
 
         if conf.task == 'voice':
             from torch_baidu_ctc import CTCLoss
@@ -78,7 +105,7 @@ class Client(object):
             delta = 1e-3
             beta = 0.01
         elif conf.personalized == "ditto":
-            lam = 1
+            lam = 3e-1
             loop_num = 2
         else:
             loop_num = 1
@@ -232,7 +259,10 @@ class Client(object):
                                 dummy_grad2.append(param.grad.clone())
 
                     else:
-                        optimizer.step()
+                        if conf.personalized == "ditto" and loop_idx == 0:
+                            optimizer_2.step()
+                        else:
+                            optimizer.step()
 
                     if (conf.personalized == "meta" and conf.adaptation_mode == 0
                             and loop_idx == 1 and specified_local_steps is None) \
