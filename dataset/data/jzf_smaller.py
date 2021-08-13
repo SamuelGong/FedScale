@@ -22,9 +22,10 @@ d = {
 def run(dataset):
     np.random.seed(seed=233)
     if dataset == "reddit":
-        original_data_path = os.path.join(dataset, k)
-        dirs = os.listdir(original_data_path)
-        print(len(dirs))
+        for k, v in d[dataset].items():
+            original_data_path = os.path.join(dataset, k)
+            dirs = os.listdir(original_data_path)
+            print(len(dirs))
     else:
         for k, v in d[dataset].items():
             original_csv_path = os.path.join(dataset, mapping_folder,
