@@ -38,13 +38,15 @@ def run(dataset):
                 true_files.append(f)
 
             choice = sorted(np.random.choice(len(true_files), v, replace=False))
-            per_cent = max(1, len(true_files) // 100)
+            per_cent = max(1, v // 100)
+            added_cnt = 0
             for idx, f in enumerate(true_files):
-                if idx % per_cent == 0:
-                    print(f"{k}: {idx}/{v}")
+                if added_cnt % per_cent == 0:
+                    print(f"{k}: {added_cnt}/{v}")
 
                 if idx in choice:
                     os.system(f"cp {os.path.join(original_data_path, f)} {smaller_data_path}")
+                    added_cnt += 1
     else:
         for k, v in d[dataset].items():
             original_csv_path = os.path.join(dataset, mapping_folder,
