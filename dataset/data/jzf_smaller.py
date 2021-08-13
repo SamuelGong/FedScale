@@ -24,14 +24,27 @@ def run(dataset):
     if dataset == "reddit":
         for k, v in d[dataset].items():
             original_data_path = os.path.join(dataset, k)
-            files = os.listdir(original_data_path)
+            smaller_data_path = os.path.join(dataset, k + postfix)
 
-            true_file_cnt = 0
+            if os.path.exists(smaller_data_path):
+                shutil.rmtree(smaller_data_path)
+            os.makedirs(smaller_data_path)
+
+            files = os.listdir(original_data_path)
+            true_files = []
             for f in files:
                 if "cache" in f:
                     continue
-                true_file_cnt += 1
-            print(true_file_cnt)
+                true_files.append(f)
+
+            choice = sorted(np.random.choice(len(true_files), v, replace=False))
+            per_cent = max(1, len(true_files) // 100)
+            for idx, f in enumerate(true_files):
+                if idx % per_cent == 0:
+                    print(f"{k}: {idx}/{v}")
+
+                if idx in choice:
+                    os.system(f"cp {os.path.join(original_data_path, f)} {smaller_data_path}")
     else:
         for k, v in d[dataset].items():
             original_csv_path = os.path.join(dataset, mapping_folder,
