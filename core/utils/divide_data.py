@@ -120,7 +120,7 @@ class DataPartitioner(object):
         else:
             resultIndex = resultIndex[:train_length]
 
-        logging.info(f"BBB {partition} {train_length} {test_length} {len(resultIndex)} {resultIndex}")
+        logging.info(f"BBB {partition} {train_length} {test_length} {len(resultIndex)}")
 
         self.rng.shuffle(resultIndex)
 
