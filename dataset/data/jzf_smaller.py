@@ -42,9 +42,12 @@ def run(dataset):
             prob = v / len(true_files)
             per_cent = max(1, v // 100)
             added_cnt = 0
+            printed_set = set()
             for idx, f in enumerate(true_files):
                 if added_cnt % per_cent == 0:
-                    print(f"{k}: {added_cnt}/{v}")
+                    if added_cnt not in printed_set:
+                        print(f"{k}: {added_cnt}/{v}")
+                        printed_set.add(added_cnt)
 
                 rand = np.random.random(1)
                 if rand <= prob:
