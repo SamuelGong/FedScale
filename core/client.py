@@ -136,6 +136,7 @@ class Client(object):
                         try:
                             data_pair = loader.next()
                         except StopIteration:
+                            logging.info(f"AAA {clientId} {completed_steps} {loop_idx} {len(client_data)}")
                             loader = iter(client_data)
                             data_pair = loader.next()
                         if loop_idx == 2:
