@@ -5,6 +5,7 @@ from utils.nlp import mask_tokens
 from torch.autograd import Variable
 import copy
 import gc
+import time
 
 class Client(object):
     """Basic client component in Federated Learning"""
@@ -133,12 +134,14 @@ class Client(object):
             for loop_idx in range(loop_num):
                 if conf.personalized == "meta":
                     if loop_idx < 3:
-                        try:
-                            data_pair = loader.next()
-                        except StopIteration:
-                            logging.info(f"AAA {clientId} {completed_steps} {loop_idx} {len(client_data.dataset)}")
-                            loader = iter(client_data)
-                            data_pair = loader.next()
+                        while True:
+                            try:
+                                data_pair = loader.next()
+                                break
+                            except StopIteration:
+                                logging.info(f"AAA {clientId} {completed_steps} {loop_idx} {len(client_data.dataset)}")
+                                time.sleep(0.1)
+                                loader = iter(client_data)
                         if loop_idx == 2:
                             data_pair_copy = copy.deepcopy(data_pair)
                     else:
