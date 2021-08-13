@@ -115,7 +115,7 @@ class DataPartitioner(object):
 
         test_length = max(1, int(len(resultIndex) * self.args.all_test_ratio))
         train_length = len(resultIndex) - test_length
-        logging.info(f"BBB {train_length} {test_length} {len(resultIndex)}")
+        logging.info(f"BBB {partition} {train_length} {test_length} {len(resultIndex)}")
         if istest:
             resultIndex = resultIndex[train_length:]
         else:
