@@ -113,7 +113,7 @@ class DataPartitioner(object):
     def my_use(self, partition, istest):
         resultIndex = self.partitions[partition]
 
-        test_length = max(1, int(len(resultIndex) * self.args.arg.all_test_ratio))
+        test_length = max(1, int(len(resultIndex) * self.args.all_test_ratio))
         train_length = len(resultIndex) - test_length
         if istest:
             resultIndex = resultIndex[train_length:]
