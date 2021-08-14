@@ -1,0 +1,174 @@
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-14) 13:38:43 INFO     [aggregator.py:10] Job args Namespace(adam_epsilon=1e-08, adaptation_mode=0, aggregator_device=0, all_test_ratio=0.3, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=2.4368231046931412, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/google_speech', data_map_file='/homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv', data_set='google_speech', dataset_size='default', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=501, eval_interval=20, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=28, filter_more=1000000000000000.0, finetune=False, gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='google_speech_async_none_all_test', labels_path='labels.json', learners='1-2-3-4', learning_rate=0.05, line_by_line=False, local_steps=4, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=25622, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='resnet34', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=35, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='none', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='48300', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='random', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, sync_mode='async', task='speech', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='all', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0814_133840', total_worker=50, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-14) 13:38:47 INFO     [executor.py:45] (EXECUTOR:1) is setting up environ ...
+(08-14) 13:38:47 INFO     [executor.py:82] Start to connect to 127.0.0.1:25622 for control plane communication ...
+(08-14) 13:38:49 INFO     [aggregator.py:93] End up with cuda device (cuda:0)
+(08-14) 13:38:49 INFO     [aggregator.py:113] Start to initiate 127.0.0.1:25622 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-14) 13:38:49 INFO     [executor.py:45] (EXECUTOR:2) is setting up environ ...
+(08-14) 13:38:50 INFO     [executor.py:82] Start to connect to 127.0.0.1:25622 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-14) 13:38:52 INFO     [executor.py:45] (EXECUTOR:3) is setting up environ ...
+(08-14) 13:38:52 INFO     [executor.py:82] Start to connect to 127.0.0.1:25622 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-14) 13:38:55 INFO     [executor.py:45] (EXECUTOR:4) is setting up environ ...
+(08-14) 13:38:55 INFO     [executor.py:82] Start to connect to 127.0.0.1:25622 for control plane communication ...
+(08-14) 13:38:56 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
+(08-14) 13:38:56 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
+(08-14) 13:38:56 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
+(08-14) 13:38:56 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(08-14) 13:38:56 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(08-14) 13:38:56 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 5 nodes.
+(08-14) 13:38:56 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 5 nodes.
+(08-14) 13:38:56 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 5 nodes.
+(08-14) 13:38:56 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 5 nodes.
+(08-14) 13:38:56 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 5 nodes.
+(08-14) 13:38:56 INFO     [fllibs.py:78] Initializing the model ...
+(08-14) 13:38:56 INFO     [fllibs.py:78] Initializing the model ...
+(08-14) 13:38:56 INFO     [fllibs.py:78] Initializing the model ...
+(08-14) 13:38:56 INFO     [fllibs.py:78] Initializing the model ...
+(08-14) 13:38:56 INFO     [fllibs.py:78] Initializing the model ...
+(08-14) 13:38:57 INFO     [aggregator.py:514] Start monitoring events ...
+(08-14) 13:39:02 INFO     [executor.py:119] Data partitioner starts ...
+(08-14) 13:39:02 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:02 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:02 INFO     [executor.py:119] Data partitioner starts ...
+(08-14) 13:39:02 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:02 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:02 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-14) 13:39:02 INFO     [executor.py:128] Data partitioner completes ...
+(08-14) 13:39:02 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-14) 13:39:02 INFO     [executor.py:128] Data partitioner completes ...
+(08-14) 13:39:02 INFO     [executor.py:119] Data partitioner starts ...
+(08-14) 13:39:02 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:02 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:02 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:02 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:03 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:03 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:03 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-14) 13:39:03 INFO     [executor.py:128] Data partitioner completes ...
+Traceback (most recent call last):
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 749, in _callmethod
+    conn = self._tls.connection
+AttributeError: 'ForkAwareLocal' object has no attribute 'connection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 418, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 164, in run
+    self.start_event()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 173, in start_event
+    self.push_msg_to_server('report_executor_info', executor_info)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 176, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 753, in _callmethod
+    self._connect()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 740, in _connect
+    conn = self._Client(self._token.address, authkey=self._authkey)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 487, in Client
+    c = SocketClient(address)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 614, in SocketClient
+    s.connect(address)
+ConnectionRefusedError: [Errno 111] Connection refused
+Traceback (most recent call last):
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 749, in _callmethod
+    conn = self._tls.connection
+AttributeError: 'ForkAwareLocal' object has no attribute 'connection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 418, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 164, in run
+    self.start_event()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 173, in start_event
+    self.push_msg_to_server('report_executor_info', executor_info)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 176, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 753, in _callmethod
+    self._connect()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 740, in _connect
+    conn = self._Client(self._token.address, authkey=self._authkey)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 487, in Client
+    c = SocketClient(address)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 614, in SocketClient
+    s.connect(address)
+ConnectionRefusedError: [Errno 111] Connection refused
+(08-14) 13:39:03 INFO     [executor.py:119] Data partitioner starts ...
+(08-14) 13:39:03 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:03 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:03 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:03 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-14) 13:39:03 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-14) 13:39:03 INFO     [executor.py:128] Data partitioner completes ...
+Traceback (most recent call last):
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 749, in _callmethod
+    conn = self._tls.connection
+AttributeError: 'ForkAwareLocal' object has no attribute 'connection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 418, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 164, in run
+    self.start_event()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 173, in start_event
+    self.push_msg_to_server('report_executor_info', executor_info)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 176, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 753, in _callmethod
+    self._connect()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 740, in _connect
+    conn = self._Client(self._token.address, authkey=self._authkey)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 487, in Client
+    c = SocketClient(address)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 614, in SocketClient
+    s.connect(address)
+ConnectionRefusedError: [Errno 111] Connection refused
+(08-14) 13:39:03 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-14) 13:39:03 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+Traceback (most recent call last):
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 749, in _callmethod
+    conn = self._tls.connection
+AttributeError: 'ForkAwareLocal' object has no attribute 'connection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 418, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 164, in run
+    self.start_event()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 173, in start_event
+    self.push_msg_to_server('report_executor_info', executor_info)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 176, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 753, in _callmethod
+    self._connect()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 740, in _connect
+    conn = self._Client(self._token.address, authkey=self._authkey)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 487, in Client
+    c = SocketClient(address)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 614, in SocketClient
+    s.connect(address)
+ConnectionRefusedError: [Errno 111] Connection refused
