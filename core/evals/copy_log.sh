@@ -6,7 +6,7 @@ models=()
 job_names=()
 
 prune(){
-  $file=$1
+  file=$1
   grep -v "Receive" $file > copy_tmp && mv copy_tmp $file
   grep -v "Start to train" $file > copy_tmp && mv copy_tmp $file
 }
@@ -34,7 +34,7 @@ do
   job_name="${job_names[$i]}"
   dest=${DestDir}/${job_name}
   echo $dest
-  exit
+
   cd $LogDir/${models[$i]}/${time_stamps[$i]}
   mkdir -p $dest/aggregator
   cd aggregator
