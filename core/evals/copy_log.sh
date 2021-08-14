@@ -1,6 +1,6 @@
 CurrentDir=$(pwd)
 LogDir=~/models
-DestDir=$CurrentDir/mylog
+DestDir=$CurrentDir/history
 time_stamps=()
 models=()
 job_names=()
