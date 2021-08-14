@@ -64,7 +64,7 @@ def process_cmd(yaml_file):
         print(f"File {job_name} exists! You must delete it first before you can proceed ...")
         exit(-1)
 
-    ls = [f"job_name={job_name}\n",
+    ls = [f"job_name={job_name.split('/')[-1]}\n",
           f"model={job_conf['model']}\n",
           f"time_stamp={time_stamp}"]
     with open(f"{job_name}_info", 'w') as fout:
