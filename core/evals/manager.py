@@ -65,7 +65,7 @@ def process_cmd(yaml_file):
         exit(-1)
 
     ls = [job_conf['model'] + '\n', time_stamp]
-    with open(job_name, 'w') as fout:
+    with open(f"{job_name}_info", 'w') as fout:
         fout.writelines(ls)
 
     total_gpu_processes =  sum([sum(x) for x in total_gpus])
