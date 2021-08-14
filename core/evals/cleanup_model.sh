@@ -1,5 +1,5 @@
 #!/bin/bash
-
+exit
 CurrentDir=$(pwd)
 LogDir=~/models
 useful=()
