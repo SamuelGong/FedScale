@@ -6,6 +6,12 @@ time_stamps=()
 models=()
 job_names=()
 
+prune(){
+  $file=$1
+  grep -v "Receive" $file > copy_tmp && mv copy_tmp $file
+  grep -v "Start to train" $file > copy_tmp && mv copy_tmp $file
+}
+
 for file in *;do
   if [[ "$file" == *"info"* ]];then
     p=$(grep -o 'time_stamp=[^ ,]\+' $file)
@@ -33,13 +39,15 @@ do
   mkdir -p $dest/aggregator
   cd aggregator
   cp log $dest/aggregator
+  prune $dest/aggregator/log
 
   mkdir -p $dest/executor
   cd ../executor
 
-  for file in *;do
-    if [[ "$file" == *"log"* ]];then
-      cp $file $dest/executor
+  for f in *;do
+    if [[ "$f" == *"log"* ]];then
+      cp $f $dest/executor
+      prune $dest/executor/$f
     fi
   done
 done
