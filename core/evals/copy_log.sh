@@ -1,6 +1,6 @@
 CurrentDir=$(pwd)
 LogDir=~/models
-DestDir=$CurrentDir/log
+DestDir=$CurrentDir/my_log
 time_stamps=()
 models=()
 job_names=()
@@ -20,7 +20,7 @@ for file in *;do
     model=$(echo $q | sed "s/.*model=\(.*\).*/\1/g")
 
     r=$(grep -o 'job_name=[^ ,]\+' $file)
-    job_name=$(echo $q | sed "s/.*job_name=\(.*\).*/\1/g")
+    job_name=$(echo $r | sed "s/.*job_name=\(.*\).*/\1/g")
 
     time_stamps[${#time_stamps[@]}]=$time_stamp
     models[${#models[@]}]=$model
@@ -34,22 +34,22 @@ do
   job_name="${job_names[$i]}"
   dest=${DestDir}/${job_name}
   echo $dest
-  echo $LogDir/${models[$i]}/${time_stamps[$i]}
-#  cd $LogDir/${models[$i]}/${time_stamps[$i]}
-#  mkdir -p $dest/aggregator
-#  cd aggregator
-#  cp log $dest/aggregator
-#  prune $dest/aggregator/log
-#
-#  mkdir -p $dest/executor
-#  cd ../executor
-#
-#  for f in *;do
-#    if [[ "$f" == *"log"* ]];then
-#      cp $f $dest/executor
-#      prune $dest/executor/$f
-#    fi
-#  done
+
+  cd $LogDir/${models[$i]}/${time_stamps[$i]}
+  mkdir -p $dest/aggregator
+  cd aggregator
+  cp log $dest/aggregator
+  prune $dest/aggregator/log
+
+  mkdir -p $dest/executor
+  cd ../executor
+
+  for f in *;do
+    if [[ "$f" == *"log"* ]];then
+      cp $f $dest/executor
+      prune $dest/executor/$f
+    fi
+  done
 done
 
 cd $CurrentDir
