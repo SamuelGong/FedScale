@@ -54,8 +54,19 @@ def process_cmd(yaml_file):
         conf_script = conf_script + f' --{conf_name}={job_conf[conf_name]}'
         if conf_name == "job_name":
             job_name = job_conf[conf_name]
-        if conf_name == "log_path":
-            log_path = os.path.join(job_conf[conf_name], 'log', job_name, time_stamp)
+        # if conf_name == "log_path":
+        #     log_path = os.path.join(job_conf[conf_name], 'log', job_name, time_stamp)
+
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    job_name = os.path.join(current_path, job_name)
+
+    if os.path.exists(job_name):
+        print(f"File {job_name} exists! You must delete it first before you can proceed ...")
+        exit(-1)
+
+    ls = [job_conf['model'] + '\n', time_stamp]
+    with open(job_name, 'w') as fout:
+        fout.writelines(ls)
 
     total_gpu_processes =  sum([sum(x) for x in total_gpus])
     learner_conf = '-'.join([str(_) for _ in list(range(1, total_gpu_processes+1))])
@@ -95,7 +106,8 @@ def process_cmd(yaml_file):
     #     job_meta = {'user':submit_user, 'vms': running_vms}
     #     pickle.dump(job_meta, fout)
 
-    print(f"Submitted job, please check your logs ({log_path}) for status")
+    # print(f"Submitted job, please check your logs ({log_path}) for status")
+    print(f"Submitted job, please check your logs {job_name}_logging for status")
 
 def terminate(job_name):
 
