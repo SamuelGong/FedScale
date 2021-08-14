@@ -1,2 +1,3 @@
-resnet34
-0814_021856
+job_name=google_speech_random_ditto_all_test
+model=resnet34
+time_stamp=0814_021856
