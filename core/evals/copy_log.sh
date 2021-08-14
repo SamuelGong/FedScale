@@ -34,7 +34,7 @@ do
   job_name="${job_names[$i]}"
   dest=${DestDir}/${job_name}
   echo $dest
-
+  exit
   cd $LogDir/${models[$i]}/${time_stamps[$i]}
   mkdir -p $dest/aggregator
   cd aggregator
