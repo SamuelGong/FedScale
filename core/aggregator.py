@@ -57,6 +57,7 @@ class Aggregator(object):
         self.test_mode = self.args.test_mode
         self.sample_mode = self.args.sample_mode
         self.global_num_batches = None
+        self.sync_mode = self.args.sync_mode
 
         # number of registered executors
         self.registered_executor_info = 0
@@ -512,96 +513,99 @@ class Aggregator(object):
     def event_monitor(self):
         logging.info("Start monitoring events ...")
 
-        while True:
-            if len(self.event_queue) != 0:
-                event_msg = self.event_queue.popleft()
-                send_msg = {'event': event_msg}
+        if self.sync_mode == "async":
+            pass
+        else:
+            while True:
+                if len(self.event_queue) != 0:
+                    event_msg = self.event_queue.popleft()
+                    send_msg = {'event': event_msg}
 
-                if event_msg == 'update_model':
-                    self.broadcast_msg(send_msg)
-                    self.broadcast_models()
+                    if event_msg == 'update_model':
+                        self.broadcast_msg(send_msg)
+                        self.broadcast_models()
 
-                elif event_msg == 'start_round':
-                    if self.sample_mode == "centralized":
-                        config = self.get_client_conf(0)
-                        self.server_event_queue[1].put( # note that executors start numbering from 1
-                            {'event': 'train', 'clientId': 0, 'conf': config})
-                    else:
-                        for executorId in self.executors:
-                            next_clientId = self.resource_manager.get_next_task()
-                            if next_clientId is not None:
-                                config = self.get_client_conf(next_clientId)
-                                self.server_event_queue[executorId].put({'event': 'train', 'clientId':next_clientId, 'conf': config})
+                    elif event_msg == 'start_round':
+                        if self.sample_mode == "centralized":
+                            config = self.get_client_conf(0)
+                            self.server_event_queue[1].put( # note that executors start numbering from 1
+                                {'event': 'train', 'clientId': 0, 'conf': config})
+                        else:
+                            for executorId in self.executors:
+                                next_clientId = self.resource_manager.get_next_task()
+                                if next_clientId is not None:
+                                    config = self.get_client_conf(next_clientId)
+                                    self.server_event_queue[executorId].put({'event': 'train', 'clientId':next_clientId, 'conf': config})
 
-                elif event_msg == 'stop':
-                    self.broadcast_msg(send_msg)
-                    self.stop()
-                    break
+                    elif event_msg == 'stop':
+                        self.broadcast_msg(send_msg)
+                        self.stop()
+                        break
 
-                elif event_msg == 'report_executor_info':
-                    self.broadcast_msg(send_msg)
-
-                elif event_msg == 'test':
-                    if self.test_mode == "all":
-                        for executorId in self.executors:
-                            next_clientId = self.resource_manager.get_next_all_test_task()
-
-                            if next_clientId is not None:
-                                config = self.get_client_conf(next_clientId)
-                                self.server_event_queue[executorId].put(
-                                    {'event': 'test', 'clientId': next_clientId, 'conf': config}
-                                )
-                    else:
+                    elif event_msg == 'report_executor_info':
                         self.broadcast_msg(send_msg)
 
-            elif not self.client_event_queue.empty():
+                    elif event_msg == 'test':
+                        if self.test_mode == "all":
+                            for executorId in self.executors:
+                                next_clientId = self.resource_manager.get_next_all_test_task()
 
-                event_dict = self.client_event_queue.get()
-                event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
+                                if next_clientId is not None:
+                                    config = self.get_client_conf(next_clientId)
+                                    self.server_event_queue[executorId].put(
+                                        {'event': 'test', 'clientId': next_clientId, 'conf': config}
+                                    )
+                        else:
+                            self.broadcast_msg(send_msg)
 
-                if event_msg != 'train_nowait' and event_msg != 'test_nowait':
-                    logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
+                elif not self.client_event_queue.empty():
 
-                # collect training returns from the executor
-                if event_msg == 'train_nowait':
-                    # pop a new client to run
-                    if self.sample_mode == "centralized":
-                        pass
+                    event_dict = self.client_event_queue.get()
+                    event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
+
+                    if event_msg != 'train_nowait' and event_msg != 'test_nowait':
+                        logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
+
+                    # collect training returns from the executor
+                    if event_msg == 'train_nowait':
+                        # pop a new client to run
+                        if self.sample_mode == "centralized":
+                            pass
+                        else:
+                            next_clientId = self.resource_manager.get_next_task()
+
+                            if next_clientId is not None:
+                                config = self.get_client_conf(next_clientId)
+                                runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
+                                self.server_event_queue[executorId].put(runtime_profile)
+
+                    elif event_msg == 'test_nowait':
+                        if self.test_mode == "all":
+                            next_clientId = self.resource_manager.get_next_all_test_task()
+                            if next_clientId is not None:
+                                config = self.get_client_conf(next_clientId)
+                                runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config}
+                                self.server_event_queue[executorId].put(runtime_profile)
+                        else:
+                            pass
+
+                    elif event_msg == 'train':
+                        # push training results
+                        self.client_completion_handler(results)
+
+                        if len(self.stats_util_accumulator) == self.tasks_round:
+                            self.round_completion_handler()
+
+                    elif event_msg == 'test':
+                        self.testing_completion_handler(results)
+
+                    elif event_msg == 'report_executor_info':
+                        self.executor_info_handler(executorId, results)
                     else:
-                        next_clientId = self.resource_manager.get_next_task()
+                        logging.error(f"Unknown message types: {event_msg}")
 
-                        if next_clientId is not None:
-                            config = self.get_client_conf(next_clientId)
-                            runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
-                            self.server_event_queue[executorId].put(runtime_profile)
-
-                elif event_msg == 'test_nowait':
-                    if self.test_mode == "all":
-                        next_clientId = self.resource_manager.get_next_all_test_task()
-                        if next_clientId is not None:
-                            config = self.get_client_conf(next_clientId)
-                            runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config}
-                            self.server_event_queue[executorId].put(runtime_profile)
-                    else:
-                        pass
-
-                elif event_msg == 'train':
-                    # push training results
-                    self.client_completion_handler(results)
-
-                    if len(self.stats_util_accumulator) == self.tasks_round:
-                        self.round_completion_handler()
-
-                elif event_msg == 'test':
-                    self.testing_completion_handler(results)
-
-                elif event_msg == 'report_executor_info':
-                    self.executor_info_handler(executorId, results)
-                else:
-                    logging.error(f"Unknown message types: {event_msg}")
-
-            # execute every 100 ms
-            time.sleep(0.1)
+                # execute every 100 ms
+                time.sleep(0.1)
 
 
     def stop(self):

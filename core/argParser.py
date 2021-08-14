@@ -168,6 +168,7 @@ parser.add_argument('--aggregator_device', type=int, default=0)
 parser.add_argument('--adaptation_mode', type=int, default=0)
 parser.add_argument('--dataset_size', type=str, default='default')
 parser.add_argument('--all_test_ratio', type=float, default=0.3)
+parser.add_argument('--sync_mode', type=str, default="sync")
 args = parser.parse_args()
 
 datasetCategories = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47,
