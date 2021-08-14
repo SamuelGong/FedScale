@@ -33,22 +33,23 @@ for (( i=0; i<${arraylength}; i++ ));
 do
   job_name="${job_names[$i]}"
   dest=${DestDir}/${job_name}
-
-  cd $LogDir/${models[$i]}/${time_stamps[$i]}
-  mkdir -p $dest/aggregator
-  cd aggregator
-  cp log $dest/aggregator
-  prune $dest/aggregator/log
-
-  mkdir -p $dest/executor
-  cd ../executor
-
-  for f in *;do
-    if [[ "$f" == *"log"* ]];then
-      cp $f $dest/executor
-      prune $dest/executor/$f
-    fi
-  done
+  echo $dest
+  echo $LogDir/${models[$i]}/${time_stamps[$i]}
+#  cd $LogDir/${models[$i]}/${time_stamps[$i]}
+#  mkdir -p $dest/aggregator
+#  cd aggregator
+#  cp log $dest/aggregator
+#  prune $dest/aggregator/log
+#
+#  mkdir -p $dest/executor
+#  cd ../executor
+#
+#  for f in *;do
+#    if [[ "$f" == *"log"* ]];then
+#      cp $f $dest/executor
+#      prune $dest/executor/$f
+#    fi
+#  done
 done
 
 cd $CurrentDir
