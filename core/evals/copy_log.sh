@@ -9,6 +9,7 @@ prune(){
   file=$1
   grep -v "Receive" $file > copy_tmp && mv copy_tmp $file
   grep -v "Start to train" $file > copy_tmp && mv copy_tmp $file
+  grep -v "Initializing" $file > copy_tmp && mv copy_tmp $file
 }
 
 for file in *;do
