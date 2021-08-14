@@ -1,6 +1,6 @@
 CurrentDir=$(pwd)
 LogDir=~/models
-DestDir=$CurrentDir/my_log
+DestDir=$CurrentDir/mylog
 time_stamps=()
 models=()
 job_names=()
@@ -33,7 +33,6 @@ for (( i=0; i<${arraylength}; i++ ));
 do
   job_name="${job_names[$i]}"
   dest=${DestDir}/${job_name}
-  echo $dest
 
   cd $LogDir/${models[$i]}/${time_stamps[$i]}
   mkdir -p $dest/aggregator
@@ -50,6 +49,8 @@ do
       prune $dest/executor/$f
     fi
   done
+
+  echo "finish ${dest}"
 done
 
 cd $CurrentDir
