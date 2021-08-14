@@ -38,8 +38,8 @@ do
   cd $LogDir/${models[$i]}/${time_stamps[$i]}
   mkdir -p $dest/aggregator
   cd aggregator
-  cp log $dest/aggregator
-  prune $dest/aggregator/log
+  cp log $dest/aggregator/log_1
+  prune $dest/aggregator/log_1
 
   mkdir -p $dest/executor
   cd ../executor
