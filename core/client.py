@@ -105,8 +105,7 @@ class Client(object):
             delta = 1e-3
             beta = 0.01
         elif conf.personalized == "ditto":
-            # lam = 3e-1
-            lam = 1.0
+            lam = 3e-1
             loop_num = 2
         else:
             loop_num = 1
