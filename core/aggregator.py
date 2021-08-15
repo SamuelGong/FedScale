@@ -514,7 +514,26 @@ class Aggregator(object):
         logging.info("Start monitoring events ...")
 
         if self.sync_mode == "async":
-            pass
+            while True:
+                if len(self.event_queue) != 0:
+                    event_msg = self.event_queue.popleft()
+                    send_msg = {'event': event_msg}
+
+                    pass
+                elif not self.client_event_queue.empty():
+                    event_dict = self.client_event_queue.get()
+                    event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
+
+                    if event_msg != 'train_nowait' and event_msg != 'test_nowait':
+                        logging.info(
+                            f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
+                    elif event_msg == 'report_executor_info':
+                        self.executor_info_handler(executorId, results)
+                    else:
+                        logging.error(f"Unknown message types: {event_msg}")
+
+                # execute every 100 ms
+                time.sleep(0.1)
         else:
             while True:
                 if len(self.event_queue) != 0:
