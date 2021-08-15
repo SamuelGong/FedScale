@@ -169,6 +169,9 @@ parser.add_argument('--adaptation_mode', type=int, default=0)
 parser.add_argument('--dataset_size', type=str, default='default')
 parser.add_argument('--all_test_ratio', type=float, default=0.3)
 parser.add_argument('--sync_mode', type=str, default="sync")
+parser.add_argument('--async_end_time', type=int, default=0)
+parser.add_argument('--async_eval_interval', type=int, default=14400)
+
 args = parser.parse_args()
 
 datasetCategories = {'Mnist': 10, 'cifar10': 10, "imagenet": 1000, 'emnist': 47,
