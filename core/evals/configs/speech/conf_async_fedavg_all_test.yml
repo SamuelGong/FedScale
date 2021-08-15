@@ -62,7 +62,9 @@ job_conf:
     - learning_rate: 5e-2
     - batch_size: 20
     - test_bsz: 20
-    - sync_mode: async
     - test_mode: all # "default" or "all"
+    - sync_mode: async
+    - async_end_time: 345600 # 345600s = 4 days
+    - async_eval_interval: 14400 # 14400s = 4 hours
 
 

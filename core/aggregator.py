@@ -216,7 +216,10 @@ class Aggregator(object):
             logging.info("Info of all feasible clients {}".format(self.client_manager.getDataInfo()))
 
             # start to sample clients
-            self.round_completion_handler()
+            if self.sync_mode == "async":
+                self.async_step_completion_hander()
+            else:
+                self.round_completion_handler()
 
 
     def tictak_client_tasks(self, sampled_clients, num_clients_to_collect):
@@ -299,7 +302,8 @@ class Aggregator(object):
         if self.sample_mode == "centralized":
             return [0]
         else:
-            return sorted(self.client_manager.resampleClients(int(select_num_participants*overcommitment), cur_time=self.global_virtual_clock))
+            return sorted(self.client_manager.resampleClients(int(select_num_participants*overcommitment),
+                                                              cur_time=self.global_virtual_clock))
 
 
     def client_completion_handler(self, results):
@@ -371,6 +375,20 @@ class Aggregator(object):
                 # update global model
                 for idx, param in enumerate(self.model.parameters()):
                     param.data = last_model[idx] - Deltas[idx]/(hs+1e-10)
+
+    def async_step_completion_hander(self):
+        self.sampled_participants = self.select_participants(select_num_participants=100000000,
+                                                             overcommitment=1.0)
+
+        if self.global_virtual_clock >= self.args.async_end_time:
+            self.event_queue.append('stop')
+        elif self.global_virtual_clock % self.args.async_eval_interval == 0:
+            self.event_queue.append('async_update_model')
+            self.event_queue.append('test')
+        else:
+            self.event_queue.append('async_update_model')
+            self.event_queue.append('async_start_step')
+
 
     def round_completion_handler(self):
         self.global_virtual_clock += self.round_duration
@@ -519,15 +537,19 @@ class Aggregator(object):
                     event_msg = self.event_queue.popleft()
                     send_msg = {'event': event_msg}
 
+                    # if event_msg == 'one':
+                    #     pass
+                    # elif event_msg == 'two':
                     pass
+
+
                 elif not self.client_event_queue.empty():
                     event_dict = self.client_event_queue.get()
                     event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
 
-                    if event_msg != 'train_nowait' and event_msg != 'test_nowait':
-                        logging.info(
-                            f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
-                    elif event_msg == 'report_executor_info':
+                    logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
+
+                    if event_msg == 'report_executor_info':
                         self.executor_info_handler(executorId, results)
                     else:
                         logging.error(f"Unknown message types: {event_msg}")

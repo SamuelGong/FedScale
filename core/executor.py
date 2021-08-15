@@ -260,27 +260,30 @@ class Executor(object):
                                          collate_fn=self.collate_fn)
 
         client = self.get_client_trainer(conf)
-        if conf.personalized == "ditto":
-            local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
-            if os.path.exists(local_model_path):
-                with open(local_model_path, 'rb') as f:
-                    local_model = pickle.load(f)
+        try:
+            if conf.personalized == "ditto":
+                local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+                if os.path.exists(local_model_path):
+                    with open(local_model_path, 'rb') as f:
+                        local_model = pickle.load(f)
+                else:
+                    # logging.info(f"Create local model for client {clientId}")
+                    local_model = init_model()
+
+                local_model = local_model.to(device=self.device)
+
+                train_res = client.train(client_data=client_data, model=client_model, conf=conf,
+                                         client_model=local_model)
+                with open(local_model_path, 'wb') as f:
+                    pickle.dump(local_model, f)
+
+                del local_model
+                gc.collect()
+                torch.cuda.empty_cache()
             else:
-                logging.info(f"Create local model for client {clientId}")
-                local_model = init_model()
-
-            local_model = local_model.to(device=self.device)
-
-            train_res = client.train(client_data=client_data, model=client_model, conf=conf,
-                                     client_model=local_model)
-            with open(local_model_path, 'wb') as f:
-                pickle.dump(local_model, f)
-
-            del local_model
-            gc.collect()
-            torch.cuda.empty_cache()
-        else:
-            train_res = client.train(client_data=client_data, model=client_model, conf=conf)
+                train_res = client.train(client_data=client_data, model=client_model, conf=conf)
+        except Exception as e:
+            logging.info(f"Client {clientId}'s training failed as {e}")
 
         # we need to get runtime variance for BN
         self.model = client_model
