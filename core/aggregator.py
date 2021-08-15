@@ -218,7 +218,7 @@ class Aggregator(object):
 
             # start to sample clients
             if self.sync_mode == "async":
-                self.async_step_completion_hander()
+                self.async_step_completion_handler()
             else:
                 self.round_completion_handler()
 
@@ -391,10 +391,16 @@ class Aggregator(object):
             for idx, param in enumerate(self.model.parameters()):
                 param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
 
+    def async_step_starting_handler(self):
 
-    def async_step_completion_hander(self):
-        self.sampled_participants = self.select_participants(select_num_participants=100000000,
-                                                             overcommitment=1.0)
+        # update the set of clients which will finish in this time step
+
+        pass
+
+    def async_step_completion_handler(self):
+
+        # update the information on clients that should start at this time step
+        self.sampled_participants = self.select_participants(select_num_participants=100000000)
 
         if self.global_virtual_clock >= self.args.async_end_time:
             self.event_queue.append('stop')
@@ -403,9 +409,6 @@ class Aggregator(object):
                 self.event_queue.append('update_model')
             self.event_queue.append('test')
         else:
-            if self.global_virtual_clock == 0 or\
-                    (self.global_model_has_changed and len(self.sampled_participants) > 0):
-                self.event_queue.append('update_model')
             self.event_queue.append('async_start_step')
 
 
@@ -573,7 +576,7 @@ class Aggregator(object):
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
                         if len(self.loss_accumulator) == self.tasks_round:
-                            self.async_step_completion_hander()
+                            self.async_step_completion_handler()
                     else:
                         logging.error(f"Unknown message types: {event_msg}")
 
