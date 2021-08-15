@@ -336,6 +336,7 @@ class Executor(object):
                         self.model = pickle.load(f)
                 else:
                     self.model = init_model()
+                    self.model = self.model.to(device=device)
                     with open(local_model_path, 'wb') as f:
                         pickle.dump(self.model, f)
 
