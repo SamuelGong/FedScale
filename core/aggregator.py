@@ -58,6 +58,7 @@ class Aggregator(object):
         self.sample_mode = self.args.sample_mode
         self.global_num_batches = None
         self.sync_mode = self.args.sync_mode
+        self.global_model_has_changed = False
 
         # number of registered executors
         self.registered_executor_info = 0
@@ -376,6 +377,21 @@ class Aggregator(object):
                 for idx, param in enumerate(self.model.parameters()):
                     param.data = last_model[idx] - Deltas[idx]/(hs+1e-10)
 
+    def async_client_completion_handler(self, results):
+        self.loss_accumulator.append(results['moving_loss'])
+
+        device = self.device
+        importance = 1. / self.tasks_round
+        if len(self.model_in_update) == 0:
+            self.model_in_update = [True]
+
+            for idx, param in enumerate(self.model.parameters()):
+                param.data = torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
+        else:
+            for idx, param in enumerate(self.model.parameters()):
+                param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
+
+
     def async_step_completion_hander(self):
         self.sampled_participants = self.select_participants(select_num_participants=100000000,
                                                              overcommitment=1.0)
@@ -383,10 +399,13 @@ class Aggregator(object):
         if self.global_virtual_clock >= self.args.async_end_time:
             self.event_queue.append('stop')
         elif self.global_virtual_clock % self.args.async_eval_interval == 0:
-            self.event_queue.append('async_update_model')
+            if self.global_model_has_changed:
+                self.event_queue.append('update_model')
             self.event_queue.append('test')
         else:
-            self.event_queue.append('async_update_model')
+            if self.global_virtual_clock == 0 or\
+                    (self.global_model_has_changed and len(self.sampled_participants) > 0):
+                self.event_queue.append('update_model')
             self.event_queue.append('async_start_step')
 
 
@@ -551,6 +570,10 @@ class Aggregator(object):
 
                     if event_msg == 'report_executor_info':
                         self.executor_info_handler(executorId, results)
+                    elif event_msg == 'train':
+                        self.async_client_completion_handler(results)
+                        if len(self.loss_accumulator) == self.tasks_round:
+                            self.async_step_completion_hander()
                     else:
                         logging.error(f"Unknown message types: {event_msg}")
 
