@@ -335,7 +335,9 @@ class Executor(object):
                     with open(local_model_path, 'rb') as f:
                         self.model = pickle.load(f)
                 else:
-                    self.model = self.load_global_model()
+                    self.model = init_model()
+                    with open(local_model_path, 'wb') as f:
+                        pickle.dump(self.model, f)
 
             data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
                                          collate_fn=self.collate_fn, my_use=True)
