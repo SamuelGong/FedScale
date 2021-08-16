@@ -450,22 +450,14 @@ class Aggregator(object):
         # move on
         self.global_virtual_clock += self.async_sec_per_step
         self.async_step += 1
-        logging.info(f"here 0")
 
         if self.global_virtual_clock >= self.async_end_time:
-            logging.info(f"here 1.0")
             self.event_queue.append('stop')
-            logging.info(f"here 1.1")
         else:
-            logging.info(f"here 2.0")
             if self.async_step == 1:
-                logging.info(f"here 2.1.1")
+                self.broadcast_msg("update_model")
                 self.broadcast_models()
-                logging.info(f"here 2.1.2")
-            else:
-                logging.info(f"here 2.2.1")
             self.event_queue.append('start_round')
-            logging.info(f"here 3")
 
     def round_completion_handler(self):
         self.global_virtual_clock += self.round_duration
@@ -666,6 +658,7 @@ class Aggregator(object):
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
                         if len(self.loss_accumulator) == self.tasks_round:
+                            self.broadcast_msg("update_model")
                             self.broadcast_models()
                             self.async_controller.refresh_record(self.global_virtual_clock)
                             self.async_controller.refresh_next_task_list()
