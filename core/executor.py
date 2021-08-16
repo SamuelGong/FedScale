@@ -294,6 +294,33 @@ class Executor(object):
         """Test model"""
         evalStart = time.time()
         device = self.device
+
+        if self.personalized == "meta":  # one step forward
+            # load last global model
+            client_model = self.load_global_model()
+
+            conf.clientId, conf.device = clientId, device
+            conf.tokenizer = tokenizer
+            client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
+                                         collate_fn=self.collate_fn, my_use=True)
+            client = self.get_client_trainer(conf)
+
+            client.train(client_data=client_data, model=client_model, conf=conf,
+                         specified_local_steps=1)  # for "meta"
+
+            # torch.cuda.empty_cache()
+            self.model = client_model  # client_model has already been updated implicitly
+        elif self.personalized == "ditto":
+            local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+            if os.path.exists(local_model_path):
+                with open(local_model_path, 'rb') as f:
+                    self.model = pickle.load(f)
+            else:
+                self.model = init_model()
+                self.model = self.model.to(device=device)
+                with open(local_model_path, 'wb') as f:
+                    pickle.dump(self.model, f)
+
         if self.task == 'voice':
             criterion = CTCLoss(reduction='mean').to(device=device)
         else:
@@ -314,32 +341,6 @@ class Executor(object):
         torch.cuda.empty_cache()
 
         if self.test_mode == "all":  # should have clientId and conf prepared
-            if self.personalized == "meta":  # one step forward
-                # load last global model
-                client_model = self.load_global_model()
-
-                conf.clientId, conf.device = clientId, self.device
-                conf.tokenizer = tokenizer
-                client_data = select_dataset(clientId, self.training_sets, batch_size=conf.batch_size,
-                                             collate_fn=self.collate_fn, my_use=True)
-                client = self.get_client_trainer(conf)
-
-                client.train(client_data=client_data, model=client_model, conf=conf,
-                             specified_local_steps=1)  # for "meta"
-
-                # torch.cuda.empty_cache()
-                self.model = client_model  # client_model has already been updated implicitly
-            elif self.personalized == "ditto":
-                local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
-                if os.path.exists(local_model_path):
-                    with open(local_model_path, 'rb') as f:
-                        self.model = pickle.load(f)
-                else:
-                    self.model = init_model()
-                    self.model = self.model.to(device=device)
-                    with open(local_model_path, 'wb') as f:
-                        pickle.dump(self.model, f)
-
             data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
                                          collate_fn=self.collate_fn, my_use=True)
             local_test_res = test_model(clientId, self.model, data_loader, device=device, criterion=criterion,
@@ -352,19 +353,18 @@ class Executor(object):
                     .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
                             local_test_loss, local_acc * 100., local_acc_5 * 100.))
 
-            del data_loader
-            tmp_model = self.model
-            del tmp_model  # should not directly do "del self.model"
-            gc.collect()
-            torch.cuda.empty_cache()
-
             testResults.update({
                 'local_top_1': local_testResults['top_1'],
                 'local_top_5': local_testResults['top_5'],
                 'local_test_loss': local_testResults['test_loss'],
                 'local_test_len': local_testResults['test_len'],
             })
+            del data_loader
 
+        if self.personalized in ["meta", "ditto"]:
+            self.model = None # should not directly do "del self.model"
+        gc.collect()
+        torch.cuda.empty_cache()
         return testResults
 
     def event_monitor(self):
