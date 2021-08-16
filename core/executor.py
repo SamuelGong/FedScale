@@ -353,6 +353,7 @@ class Executor(object):
                             local_test_loss, local_acc * 100., local_acc_5 * 100.))
 
             del data_loader
+            del self.model
             gc.collect()
             torch.cuda.empty_cache()
 
