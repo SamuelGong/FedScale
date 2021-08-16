@@ -649,7 +649,12 @@ class Aggregator(object):
                     event_dict = self.client_event_queue.get()
                     event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
 
-                    logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()}) from (Executor:{executorId})")
+                    if self.sync_mode in ["async"]:
+                        logging.info(f"Step {self.async_step}: Receive (Event:{event_msg.upper()})"
+                                     f" from (Executor:{executorId})")
+                    else:
+                        logging.info(f"Round {self.epoch}: Receive (Event:{event_msg.upper()})"
+                                     f" from (Executor:{executorId})")
 
                     if event_msg == 'report_executor_info':
                         self.executor_info_handler(executorId, results)
