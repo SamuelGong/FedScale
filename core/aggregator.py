@@ -420,7 +420,7 @@ class Aggregator(object):
 
             roundDuration = exe_cost['computation'] + exe_cost['communication']
             # if the client is not active by the time of collection, we consider it is lost in this round
-            end_time = round(roundDuration + self.global_virtual_clock)
+            end_time = round(roundDuration + self.global_virtual_clock) # better have end_time to be int
             active = True
             # actually sync mode should also do such a fine-grained check
             # but the sanity of async is just more sensitive to it
@@ -429,7 +429,6 @@ class Aggregator(object):
                     if not self.client_manager.isClientActive(client_to_run, i):
                         active = False
                         break
-
             if active:
                 final_participated_clients.append(client_to_run)
                 self.async_controller.register_end_time(client_to_run, end_time)
@@ -460,7 +459,6 @@ class Aggregator(object):
             if self.async_step == 1:
                 self.broadcast_models()
             self.event_queue.append('start_round')
-
 
     def round_completion_handler(self):
         self.global_virtual_clock += self.round_duration

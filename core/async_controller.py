@@ -35,11 +35,16 @@ class AsyncController(object):
         self.next_task_list = []
         self.next_task_list_idx = 0
 
-    def list_tasks(self, global_virtual_clock):
-        pass
+    def list_tasks(self, cur_time):
+        if self.next_task_list is None:
+            self.next_task_list = []
+            for k, v in self.client_end_time_map.items():
+                if v <= cur_time:
+                    self.next_task_list.append(k)
+
+        return self.next_task_list
 
     def select_participant(self, available_clients, cur_time):
-
         clients_not_busy = []
         for client in available_clients:
             busy = False
@@ -63,9 +68,11 @@ class AsyncController(object):
         return sorted(picked_clients)
 
     def register_end_time(self, client, end_time):
+        # better have end_time to be int
         self.client_end_time_map[client] = end_time
 
     def register_fake_end_time(self, client, fake_end_time):
+        # better have fake_end_time to be int
         self.client_fake_end_time_map[client] = fake_end_time
 
     def refresh_record(self, cur_time):
