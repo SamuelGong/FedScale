@@ -44,7 +44,7 @@ class AsyncController(object):
 
         return self.next_task_list
 
-    def select_participant(self, available_clients, cur_time):
+    def select_participants(self, available_clients, cur_time):
         clients_not_busy = []
         for client in available_clients:
             busy = False
