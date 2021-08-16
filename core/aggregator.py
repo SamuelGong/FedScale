@@ -455,10 +455,13 @@ class Aggregator(object):
 
         if self.global_virtual_clock >= self.async_end_time:
             self.event_queue.append('stop')
+            logging.info(f"here 1")
         else:
             if self.async_step == 1:
                 self.broadcast_models()
+                logging.info(f"here 2")
             self.event_queue.append('start_round')
+            logging.info(f"here 3")
 
     def round_completion_handler(self):
         self.global_virtual_clock += self.round_duration
@@ -614,8 +617,10 @@ class Aggregator(object):
                         tasks = self.async_controller.list_tasks(self.global_virtual_clock)
                         self.tasks_round = len(tasks)
                         if self.tasks_round == 0:
+                            logging.info(f"here 4")
                             self.event_queue.append('test')
                         else:
+                            logging.info(f"here 5")
                             logging.info(f"[Async] {self.tasks_round} clients to end "
                                          f"at step {self.async_step}/{self.async_total_num_steps} "
                                          f"wall clock {round(self.global_virtual_clock)} s: {tasks}")
