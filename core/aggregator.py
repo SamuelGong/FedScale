@@ -450,8 +450,6 @@ class Aggregator(object):
         # move on
         self.global_virtual_clock += self.async_sec_per_step
         self.async_step += 1
-        self.async_controller.refresh_record(self.global_virtual_clock)
-        self.async_controller.refresh_next_task_list()
 
         if self.global_virtual_clock >= self.async_end_time:
             self.event_queue.append('stop')
@@ -663,6 +661,8 @@ class Aggregator(object):
                         self.async_client_completion_handler(results)
                         if len(self.loss_accumulator) == self.tasks_round:
                             self.broadcast_models()
+                            self.async_controller.refresh_record(self.global_virtual_clock)
+                            self.async_controller.refresh_next_task_list()
                             self.event_queue.append("test")
                     elif event_msg == 'test':
                         self.testing_completion_handler(results)
