@@ -11,7 +11,8 @@ class Client(object):
     def __init__(self, conf):
         pass
 
-    def train(self, client_data, model, conf, specified_local_steps=None, client_model=None):
+    def train(self, client_data, model, conf,
+              specified_local_steps=None, client_model=None):
 
         clientId = conf.clientId
         logging.info(f"Start to train (CLIENT: {clientId}) ...")
