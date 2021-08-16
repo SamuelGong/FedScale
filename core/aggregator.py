@@ -3,6 +3,7 @@
 from fl_aggregator_libs import *
 from random import Random
 from resource_manager import ResourceManager
+from async_controller import AsyncController
 
 class Aggregator(object):
     """This centralized aggregator collects training/testing feedbacks from executors"""
@@ -59,6 +60,13 @@ class Aggregator(object):
         self.global_num_batches = None
         self.sync_mode = self.args.sync_mode
         self.global_model_has_changed = False
+        if self.sync_mode in ["async"]:
+            self.async_controller = AsyncController(args)
+            self.available_participants = []
+            self.async_sec_per_step = args.async_sec_per_step
+            self.async_step = -1 # then will start from 0
+            self.async_eval_interval = args.async_eval_interval
+            self.async_end_time = self.args.async_end_time
 
         # number of registered executors
         self.registered_executor_info = 0
@@ -391,25 +399,19 @@ class Aggregator(object):
             for idx, param in enumerate(self.model.parameters()):
                 param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
 
-    def async_step_starting_handler(self):
-
-        # update the set of clients which will finish in this time step
-
-        pass
-
     def async_step_completion_handler(self):
 
         # update the information on clients that should start at this time step
-        self.sampled_participants = self.select_participants(select_num_participants=100000000)
+        self.available_participants = self.select_participants(select_num_participants=100000000)
+        self.sampled_participants = self.async_controller.select_participants(self.available_participants)
+        self.async_controller.update_future(self.sampled_participants, self.global_virtual_clock)
 
-        if self.global_virtual_clock >= self.args.async_end_time:
+        self.global_virtual_clock += self.async_sec_per_step
+        self.async_step += 1
+        if self.global_virtual_clock >= self.async_end_time:
             self.event_queue.append('stop')
-        elif self.global_virtual_clock % self.args.async_eval_interval == 0:
-            if self.global_model_has_changed:
-                self.event_queue.append('update_model')
-            self.event_queue.append('test')
         else:
-            self.event_queue.append('async_start_step')
+            self.event_queue.append('start_round')
 
 
     def round_completion_handler(self):
@@ -559,11 +561,29 @@ class Aggregator(object):
                     event_msg = self.event_queue.popleft()
                     send_msg = {'event': event_msg}
 
-                    # if event_msg == 'one':
-                    #     pass
-                    # elif event_msg == 'two':
-                    pass
+                    if event_msg == 'start_round':
+                        tasks = self.async_controller.list_tasks(self.global_virtual_clock)
+                        self.tasks_round = len(tasks)
+                        if self.tasks_round == 0:
+                            self.event_queue.append('test')
+                        else:
+                            logging.info(f"Having {self.tasks_round} clients to train"
+                                         f" in {self.async_step}: {tasks}")
 
+                        for executorId in self.executors:
+                            next_clientId = self.async_controller.get_next_task()
+                            if next_clientId is not None:
+                                config = self.get_client_conf(next_clientId)
+                                self.server_event_queue[executorId].put(
+                                    {'event': 'train', 'clientId': next_clientId, 'conf': config})
+                    elif event_msg == 'stop':
+                        self.broadcast_msg(send_msg)
+                        self.stop()
+                        break
+                    elif event_msg == 'test':
+                        if self.global_virtual_clock % self.async_eval_interval == 0:
+                            pass # do something about test
+                        self.async_step_completion_handler()
 
                 elif not self.client_event_queue.empty():
                     event_dict = self.client_event_queue.get()
@@ -576,7 +596,13 @@ class Aggregator(object):
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
                         if len(self.loss_accumulator) == self.tasks_round:
-                            self.async_step_completion_handler()
+                            self.event_queue.append("test")
+                    elif event_msg == 'train_nowait':
+                        next_clientId = self.async_controller.get_next_task()
+                        if next_clientId is not None:
+                            config = self.get_client_conf(next_clientId)
+                            runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
+                            self.server_event_queue[executorId].put(runtime_profile)
                     else:
                         logging.error(f"Unknown message types: {event_msg}")
 
