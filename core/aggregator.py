@@ -455,7 +455,7 @@ class Aggregator(object):
             self.event_queue.append('stop')
         else:
             if self.async_step == 1:
-                self.broadcast_msg("update_model")
+                self.broadcast_msg({'event': 'update_model'})
                 self.broadcast_models()
             self.event_queue.append('start_round')
 
@@ -613,10 +613,8 @@ class Aggregator(object):
                         tasks = self.async_controller.list_tasks(self.global_virtual_clock)
                         self.tasks_round = len(tasks)
                         if self.tasks_round == 0:
-                            logging.info(f"here 4")
                             self.event_queue.append('test')
                         else:
-                            logging.info(f"here 5")
                             logging.info(f"[Async] {self.tasks_round} clients to end "
                                          f"at step {self.async_step}/{self.async_total_num_steps} "
                                          f"wall clock {round(self.global_virtual_clock)} s: {tasks}")
@@ -658,7 +656,7 @@ class Aggregator(object):
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
                         if len(self.loss_accumulator) == self.tasks_round:
-                            self.broadcast_msg("update_model")
+                            self.broadcast_msg({'event': 'update_model'})
                             self.broadcast_models()
                             self.async_controller.refresh_record(self.global_virtual_clock)
                             self.async_controller.refresh_next_task_list()
@@ -669,7 +667,7 @@ class Aggregator(object):
                         next_clientId = self.async_controller.get_next_task()
                         if next_clientId is not None:
                             config = self.get_client_conf(next_clientId)
-                            runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
+                            runtime_profile = {'event': 'train', 'clientId': next_clientId, 'conf': config}
                             self.server_event_queue[executorId].put(runtime_profile)
                     elif event_msg == 'test_nowait':
                         if self.test_mode == "all":
