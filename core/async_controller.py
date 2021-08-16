@@ -32,7 +32,7 @@ class AsyncController(object):
             return None
 
     def refresh_next_task_list(self):
-        self.next_task_list = []
+        self.next_task_list = None
         self.next_task_list_idx = 0
 
     def list_tasks(self, cur_time):
