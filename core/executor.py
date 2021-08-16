@@ -286,7 +286,7 @@ class Executor(object):
             logging.info(f"Client {clientId}'s training failed as {e}")
 
         # we need to get runtime variance for BN
-        self.model = client_model
+        # self.model = client_model
         return train_res
 
 
@@ -353,7 +353,8 @@ class Executor(object):
                             local_test_loss, local_acc * 100., local_acc_5 * 100.))
 
             del data_loader
-            del self.model
+            tmp_model = self.model
+            del tmp_model  # should not directly do "del self.model"
             gc.collect()
             torch.cuda.empty_cache()
 
