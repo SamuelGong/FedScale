@@ -79,16 +79,23 @@ class AsyncController(object):
         # because we must have processed them before
         # I mean, through get_next_task in outer caller's training_handler()
 
+        logging.info(f"AAA")
+        logging.info(f"Current time {cur_time}")
         del_key = []
         for k, v in self.client_end_time_map.items():
+            logging.info(f"BBB {k} {v}")
             if v <= cur_time:
+                logging.info(f"CCC {v}")
                 del_key.append(k)
         for k in del_key:
             del self.client_end_time_map[k]
-
+        logging.info(f"DDD")
         del_key = []
         for k, v in self.client_fake_end_time_map.items():
+            logging.info(f"EEE {k} {v}")
             if v <= cur_time:
+                logging.info(f"FFF {v}")
                 del_key.append(k)
         for k in del_key:
             del self.client_fake_end_time_map[k]
+        logging.info(f"GGG")
