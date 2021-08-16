@@ -267,19 +267,15 @@ class Executor(object):
                     with open(local_model_path, 'rb') as f:
                         local_model = pickle.load(f)
                 else:
-                    # logging.info(f"Create local model for client {clientId}")
                     local_model = init_model()
 
                 local_model = local_model.to(device=self.device)
-
                 train_res = client.train(client_data=client_data, model=client_model, conf=conf,
                                          client_model=local_model)
+
                 with open(local_model_path, 'wb') as f:
                     pickle.dump(local_model, f)
-
                 del local_model
-                gc.collect()
-                torch.cuda.empty_cache()
             else:
                 train_res = client.train(client_data=client_data, model=client_model, conf=conf)
         except Exception as e:
@@ -287,6 +283,8 @@ class Executor(object):
 
         # we need to get runtime variance for BN
         # self.model = client_model
+        gc.collect()
+        torch.cuda.empty_cache()
         return train_res
 
 
@@ -307,19 +305,19 @@ class Executor(object):
 
             client.train(client_data=client_data, model=client_model, conf=conf,
                          specified_local_steps=1)  # for "meta"
-
-            # torch.cuda.empty_cache()
-            self.model = client_model  # client_model has already been updated implicitly
+            # client_model has already been updated implicitly
         elif self.personalized == "ditto":
             local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
             if os.path.exists(local_model_path):
                 with open(local_model_path, 'rb') as f:
-                    self.model = pickle.load(f)
+                    client_model = pickle.load(f)
             else:
-                self.model = init_model()
-                self.model = self.model.to(device=device)
+                client_model = init_model()
+                client_model = client_model.to(device=device)
                 with open(local_model_path, 'wb') as f:
-                    pickle.dump(self.model, f)
+                    pickle.dump(client_model, f)
+        else:
+            client_model = self.model
 
         if self.task == 'voice':
             criterion = CTCLoss(reduction='mean').to(device=device)
@@ -328,7 +326,7 @@ class Executor(object):
 
         data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
                                      isTest=True, collate_fn=self.collate_fn)
-        test_res = test_model(self.this_rank, self.model, data_loader, device=device,
+        test_res = test_model(self.this_rank, client_model, data_loader, device=device,
                               criterion=criterion, tokenizer=tokenizer)
 
         test_loss, acc, acc_5, testResults = test_res
@@ -336,14 +334,11 @@ class Executor(object):
                      "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
                     .format(self.epoch, round(time.time() - self.start_run_time, 4),
                             round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
-        del data_loader
-        gc.collect()
-        torch.cuda.empty_cache()
 
         if self.test_mode == "all":  # should have clientId and conf prepared
             data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
                                          collate_fn=self.collate_fn, my_use=True)
-            local_test_res = test_model(clientId, self.model, data_loader, device=device, criterion=criterion,
+            local_test_res = test_model(clientId, client_model, data_loader, device=device, criterion=criterion,
                                       tokenizer=tokenizer)
 
             local_test_loss, local_acc, local_acc_5, local_testResults = local_test_res
@@ -359,10 +354,9 @@ class Executor(object):
                 'local_test_loss': local_testResults['test_loss'],
                 'local_test_len': local_testResults['test_len'],
             })
-            del data_loader
 
-        if self.personalized in ["meta", "ditto"]:
-            self.model = None # should not directly do "del self.model"
+        del data_loader
+        del client_model
         gc.collect()
         torch.cuda.empty_cache()
         return testResults
