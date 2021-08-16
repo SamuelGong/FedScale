@@ -62,11 +62,12 @@ class Aggregator(object):
         self.global_model_has_changed = False
         if self.sync_mode in ["async"]:
             self.async_controller = AsyncController(args)
-            self.available_participants = []
             self.async_sec_per_step = args.async_sec_per_step
-            self.async_step = -1 # then will start from 0
+            self.async_step = 0 # then will start from 0
             self.async_eval_interval = args.async_eval_interval
             self.async_end_time = self.args.async_end_time
+            self.async_need_broadcast_model = False
+            self.async_total_num_steps = self.async_end_time // self.async_sec_per_step
 
         # number of registered executors
         self.registered_executor_info = 0
@@ -386,6 +387,9 @@ class Aggregator(object):
                     param.data = last_model[idx] - Deltas[idx]/(hs+1e-10)
 
     def async_client_completion_handler(self, results):
+        if not self.async_need_broadcast_model:
+            self.async_need_broadcast_model = True
+
         self.loss_accumulator.append(results['moving_loss'])
 
         device = self.device
@@ -402,15 +406,59 @@ class Aggregator(object):
     def async_step_completion_handler(self):
 
         # update the information on clients that should start at this time step
-        self.available_participants = self.select_participants(select_num_participants=100000000)
-        self.sampled_participants = self.async_controller.select_participants(self.available_participants)
-        self.async_controller.update_future(self.sampled_participants, self.global_virtual_clock)
+        available_participants = self.select_participants(select_num_participants=100000000)
+        async_sampled_clients = self.async_controller.select_participants(available_participants,
+                                                                          self.global_virtual_clock)
 
+        final_participated_clients = []
+        lost_clients = []
+        for client_to_run in async_sampled_clients:
+            client_cfg = self.client_conf.get(client_to_run, self.args)
+            exe_cost = self.client_manager.getCompletionTime(client_to_run,
+                                    batch_size=client_cfg.batch_size, upload_epoch=client_cfg.local_steps,
+                                    upload_size=self.model_update_size, download_size=self.model_update_size)
+
+            roundDuration = exe_cost['computation'] + exe_cost['communication']
+            # if the client is not active by the time of collection, we consider it is lost in this round
+            end_time = round(roundDuration + self.global_virtual_clock)
+            active = True
+            # actually sync mode should also do such a fine-grained check
+            # but the sanity of async is just more sensitive to it
+            if end_time > self.global_virtual_clock:
+                for i in range(round(self.global_virtual_clock), end_time + 1):
+                    if not self.client_manager.isClientActive(client_to_run, i):
+                        active = False
+                        break
+
+            if active:
+                final_participated_clients.append(client_to_run)
+                self.async_controller.register_end_time(client_to_run, end_time)
+            else:
+                lost_clients.append(client_to_run)
+                # the clients go here are in two possible situations
+                # 1. not online at the moment at all
+                # 2. online, but just doing some training task
+                # that it will abort afterwards in the future
+                # in this case, it is still not gonna to be used
+                self.async_controller.register_fake_end_time(client_to_run, end_time)
+
+        logging.info(f"[Async] {len(final_participated_clients)} clients to start "
+                     f"at step {self.async_step}/{self.async_total_num_steps} "
+                     f"wall clock {round(self.global_virtual_clock)} s: {final_participated_clients}")
+        logging.info(f"[Async] while {len(lost_clients)}/{len(async_sampled_clients)} sampled clients "
+                     f"dropped or busy: {lost_clients}")
+
+        # move on
         self.global_virtual_clock += self.async_sec_per_step
         self.async_step += 1
+        self.async_controller.refresh_record(self.global_virtual_clock)
+        self.async_controller.refresh_next_task_list()
+
         if self.global_virtual_clock >= self.async_end_time:
             self.event_queue.append('stop')
         else:
+            if self.async_step == 1:
+                self.broadcast_models()
             self.event_queue.append('start_round')
 
 
@@ -544,7 +592,10 @@ class Aggregator(object):
                         self.testing_history['perf'][self.epoch]['local_loss'],
                         self.testing_history['perf'][self.epoch]['local_test_len']))
 
-        self.event_queue.append('start_round')
+        if self.sync_mode in ["async"]:
+            self.async_step_completion_handler()
+        else:
+            self.event_queue.append('start_round')
 
     def get_client_conf(self, clientId):
         # learning rate scheduler
@@ -567,8 +618,9 @@ class Aggregator(object):
                         if self.tasks_round == 0:
                             self.event_queue.append('test')
                         else:
-                            logging.info(f"Having {self.tasks_round} clients to train"
-                                         f" in {self.async_step}: {tasks}")
+                            logging.info(f"[Async] {self.tasks_round} clients to end "
+                                         f"at step {self.async_step}/{self.async_total_num_steps} "
+                                         f"wall clock {round(self.global_virtual_clock)} s: {tasks}")
 
                         for executorId in self.executors:
                             next_clientId = self.async_controller.get_next_task()
@@ -582,8 +634,19 @@ class Aggregator(object):
                         break
                     elif event_msg == 'test':
                         if self.global_virtual_clock % self.async_eval_interval == 0:
-                            pass # do something about test
-                        self.async_step_completion_handler()
+                            if self.test_mode == "all":
+                                for executorId in self.executors:
+                                    next_clientId = self.resource_manager.get_next_all_test_task()
+
+                                    if next_clientId is not None:
+                                        config = self.get_client_conf(next_clientId)
+                                        self.server_event_queue[executorId].put(
+                                            {'event': 'test', 'clientId': next_clientId, 'conf': config}
+                                        )
+                            else:
+                                self.broadcast_msg(send_msg)
+                        else:
+                            self.async_step_completion_handler()
 
                 elif not self.client_event_queue.empty():
                     event_dict = self.client_event_queue.get()
@@ -596,13 +659,25 @@ class Aggregator(object):
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
                         if len(self.loss_accumulator) == self.tasks_round:
+                            self.broadcast_models()
                             self.event_queue.append("test")
+                    elif event_msg == 'test':
+                        self.testing_completion_handler(results)
                     elif event_msg == 'train_nowait':
                         next_clientId = self.async_controller.get_next_task()
                         if next_clientId is not None:
                             config = self.get_client_conf(next_clientId)
                             runtime_profile = {'event': 'train', 'clientId':next_clientId, 'conf': config}
                             self.server_event_queue[executorId].put(runtime_profile)
+                    elif event_msg == 'test_nowait':
+                        if self.test_mode == "all":
+                            next_clientId = self.resource_manager.get_next_all_test_task()
+                            if next_clientId is not None:
+                                config = self.get_client_conf(next_clientId)
+                                runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config}
+                                self.server_event_queue[executorId].put(runtime_profile)
+                        else:
+                            pass
                     else:
                         logging.error(f"Unknown message types: {event_msg}")
 
