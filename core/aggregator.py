@@ -620,7 +620,7 @@ class Aggregator(object):
                                          f"wall clock {round(self.global_virtual_clock)} s: {tasks}")
 
                         for executorId in self.executors:
-                            next_clientId = self.async_controller.get_next_task()
+                            next_clientId = self.async_controller.get_next_task(self.global_virtual_clock)
                             if next_clientId is not None:
                                 config = self.get_client_conf(next_clientId)
                                 self.server_event_queue[executorId].put(
@@ -664,7 +664,7 @@ class Aggregator(object):
                     elif event_msg == 'test':
                         self.testing_completion_handler(results)
                     elif event_msg == 'train_nowait':
-                        next_clientId = self.async_controller.get_next_task()
+                        next_clientId = self.async_controller.get_next_task(self.global_virtual_clock)
                         if next_clientId is not None:
                             config = self.get_client_conf(next_clientId)
                             runtime_profile = {'event': 'train', 'clientId': next_clientId, 'conf': config}
