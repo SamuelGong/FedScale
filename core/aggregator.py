@@ -660,6 +660,7 @@ class Aggregator(object):
                         self.executor_info_handler(executorId, results)
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
+                        logging.info(f"[Async] {len(self.loss_accumulator)}/{self.tasks_round}")
                         if len(self.loss_accumulator) == self.tasks_round:
                             self.broadcast_msg({'event': 'update_model'})
                             self.broadcast_models()
