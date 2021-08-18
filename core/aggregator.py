@@ -405,6 +405,7 @@ class Aggregator(object):
                 param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
 
     def async_step_completion_handler(self):
+        self.resource_manager.register_all_test_tasks(self.client_manager.feasibleClients)
 
         # update the information on clients that should start at this time step
         available_participants = self.select_participants(select_num_participants=100000000)
