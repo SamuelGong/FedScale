@@ -673,19 +673,7 @@ class Aggregator(object):
                             self.stats_util_accumulator = []
                             self.model_in_update = []
                             self.save_last_param()
-
-                            # testing logic
-                            if self.test_mode == "all":
-                                for executorId in self.executors:
-                                    next_clientId = self.resource_manager.get_next_all_test_task()
-
-                                    if next_clientId is not None:
-                                        config = self.get_client_conf(next_clientId)
-                                        self.server_event_queue[executorId].put(
-                                            {'event': 'test', 'clientId': next_clientId, 'conf': config}
-                                        )
-                            else:
-                                self.broadcast_msg({'event': 'test'})
+                            self.event_queue.append("test")
                     elif event_msg == 'test':
                         self.testing_completion_handler(results)
                     elif event_msg == 'train_nowait':
