@@ -592,6 +592,7 @@ class Aggregator(object):
                         self.testing_history['perf'][self.epoch]['local_test_len']))
 
         if self.sync_mode in ["async"]:
+            self.test_result_accumulator = []
             self.async_step_completion_handler()
         else:
             self.event_queue.append('start_round')
