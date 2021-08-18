@@ -671,6 +671,8 @@ class Aggregator(object):
                             self.async_controller.refresh_record(self.global_virtual_clock)
                             self.async_controller.refresh_next_task_list()
                             self.stats_util_accumulator = []
+                            self.model_in_update = []
+                            self.save_last_param()
                             self.event_queue.append("test")
                     elif event_msg == 'test':
                         self.testing_completion_handler(results)
