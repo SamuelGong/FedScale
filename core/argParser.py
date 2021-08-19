@@ -173,6 +173,7 @@ parser.add_argument('--async_end_time', type=int, default=0)
 parser.add_argument('--async_eval_interval', type=int, default=14400)
 parser.add_argument('--async_num_issues_max', type=int, default=100)
 parser.add_argument('--async_sec_per_step', type=int, default=240)
+parser.add_argument('--async_update_ratio', type=int, default=0.1)
 
 args = parser.parse_args()
 
