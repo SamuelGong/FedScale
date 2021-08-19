@@ -65,9 +65,10 @@ class Aggregator(object):
             self.async_sec_per_step = args.async_sec_per_step
             self.async_step = 0 # then will start from 0
             self.async_eval_interval = args.async_eval_interval
-            self.async_end_time = self.args.async_end_time
+            self.async_end_time = args.async_end_time
             self.async_need_broadcast_model = False
             self.async_total_num_steps = self.async_end_time // self.async_sec_per_step
+            self.async_update_ratio = args.async_update_ratio
 
         # number of registered executors
         self.registered_executor_info = 0
