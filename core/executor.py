@@ -40,6 +40,10 @@ class Executor(object):
         self.batch_size = args.batch_size
         self.personalized = args.personalized
         self.dataset_size = args.dataset_size
+        self.sync_mode = args.sync_mode
+        if self.sync_mode in ["async"]:
+            self.client_cb_idx_mapping = dict()
+            self.current_cb_idx = 0
 
     def setup_env(self):
         logging.info(f"(EXECUTOR:{self.this_rank}) is setting up environ ...")
@@ -175,15 +179,12 @@ class Executor(object):
     def push_msg_to_server(self, event, results):
         self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
 
-
     def push_msg_to_server_asyn(self, event, results):
         self.client_event_queue.put_nowait({'return': results, 'event': event, 'executorId': self.this_rank})
-
 
     def report_executor_info_handler(self):
         """Return the statistics of training dataset"""
         return self.training_sets.getSize()
-
 
     def update_model_handler(self):
         self.epoch += 1
@@ -214,6 +215,33 @@ class Executor(object):
         with open(self.temp_model_path, 'wb') as model_out:
             pickle.dump(self.model, model_out)
 
+    def update_async_model_handler(self, clientIds):
+        for clientId in clientIds:
+            self.client_cb_idx_mapping[clientId] = self.current_cb_idx
+
+        # self.model = self.model.to(device='cpu')
+
+        # waiting_list = []
+        """Update the model copy on this executor"""
+        for param in self.model.parameters():
+            temp_tensor = torch.zeros_like(param.data, device='cpu')
+            dist.recv(tensor=temp_tensor, src=0)
+            #req = dist.irecv(tensor=param.data, src=0)
+            param.data = temp_tensor.to(device=self.device)
+        #     waiting_list.append(req)
+
+        # for req in waiting_list:
+        #     req.wait()
+
+        # self.model = self.model.to(device=self.device)
+
+        # Dump latest model to disk
+        model_path = os.path.join(logDir, 'model_async_global' +
+                                  str(self.current_cb_idx) + '.pth.tar')
+        with open(model_path, 'wb') as model_out:
+            pickle.dump(self.model, model_out)
+
+        self.current_cb_idx += 1
 
     def load_global_model(self):
         # load last global model
@@ -221,6 +249,14 @@ class Executor(object):
             model = pickle.load(model_in)
         return model
 
+    def load_async_global_model(self, clientId):
+        # load last global model
+        # it differs across clients
+        cb_idx = self.client_cb_idx_mapping[clientId]
+        model_path = os.path.join(logDir, 'model_async_global' + str(cb_idx) + '.pth.tar')
+        with open(model_path, 'rb') as model_in:
+            model = pickle.load(model_in)
+        return model
 
     def override_conf(self, config):
         default_conf = vars(self.args).copy()
@@ -230,7 +266,6 @@ class Executor(object):
 
         return Namespace(**default_conf)
 
-
     def get_client_trainer(self, conf):
         """Developer can redefine to this function to customize the training:
            API:
@@ -238,12 +273,14 @@ class Executor(object):
         """
         return Client(conf)
 
-
     def training_handler(self, clientId, conf):
         """Train model given client ids"""
 
         # load last global model
-        client_model = self.load_global_model()
+        if self.sync_mode in ["async"]:
+            client_model = self.load_async_global_model(clientId)
+        else:
+            client_model = self.load_global_model()
 
         conf.clientId, conf.device = clientId, self.device
         conf.tokenizer = tokenizer
@@ -286,7 +323,6 @@ class Executor(object):
         gc.collect()
         torch.cuda.empty_cache()
         return train_res
-
 
     def testing_handler(self, args, clientId=None, conf=None):
         """Test model"""
@@ -376,8 +412,12 @@ class Executor(object):
                     executor_info = self.report_executor_info_handler()
                     self.push_msg_to_server(event_msg, executor_info)
 
-                elif event_msg == 'update_model':
+                elif event_msg == 'update_model':  # if async, then it is for testing
                     self.update_model_handler()
+
+                elif event_msg == 'update_async_model':  # it is for async training
+                    client_ids = event_dict['clientIds']
+                    self.update_async_model_handler(client_ids)
 
                 # initiate each training round
                 elif event_msg == 'train':
@@ -407,7 +447,6 @@ class Executor(object):
                     logging.error("Unknown message types!")
 
                 time.sleep(0.3)
-
 
     def stop(self):
         logging.info(f"Terminating (Executor {self.this_rank}) ...")

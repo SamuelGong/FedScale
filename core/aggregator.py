@@ -454,6 +454,12 @@ class Aggregator(object):
         logging.info(f"[Async] while {len(lost_clients)}/{len(async_sampled_clients)} sampled clients "
                      f"dropped or busy: {lost_clients}")
 
+        self.broadcast_msg({
+            'event': 'update_async_model',
+            'clientIds': final_participated_clients
+        })  # clients should use the appropriate version of global model
+        self.broadcast_models()
+
         # move on
         self.global_virtual_clock += self.async_sec_per_step
         self.async_step += 1
@@ -461,9 +467,9 @@ class Aggregator(object):
         if self.global_virtual_clock >= self.async_end_time:
             self.event_queue.append('stop')
         else:
-            if self.async_step == 1:
-                self.broadcast_msg({'event': 'update_model'})
-                self.broadcast_models()
+            # if self.async_step == 1:
+            #     self.broadcast_msg({'event': 'update_model'})
+            #     self.broadcast_models()
             self.event_queue.append('start_round')
 
     def round_completion_handler(self):
@@ -639,6 +645,8 @@ class Aggregator(object):
                         break
                     elif event_msg == 'test':
                         if self.global_virtual_clock % self.async_eval_interval == 0:
+                            self.broadcast_msg({'event': 'update_model'})  # all use the latest global model
+                            self.broadcast_models()
                             if self.test_mode == "all":
                                 for executorId in self.executors:
                                     next_clientId = self.resource_manager.get_next_all_test_task()
@@ -673,8 +681,6 @@ class Aggregator(object):
                             avg_loss = sum(self.loss_accumulator) / max(1, len(self.loss_accumulator))
                             logging.info(f"[Async] All {self.tasks_round} clients at {self.global_virtual_clock} s end; "
                                          f"moving loss all the way around: {avg_loss}")
-                            self.broadcast_msg({'event': 'update_model'})
-                            self.broadcast_models()
                             self.async_controller.refresh_record(self.global_virtual_clock)
                             self.async_controller.refresh_next_task_list()
                             self.stats_util_accumulator = []
