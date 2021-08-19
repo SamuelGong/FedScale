@@ -400,10 +400,14 @@ class Aggregator(object):
             self.model_in_update = [True]
 
             for idx, param in enumerate(self.model.parameters()):
-                param.data = torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
+                remaining_ratio = 1 - self.async_update_ratio
+                param.data *= remaining_ratio
+                param.data = self.async_update_ratio *\
+                             torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
         else:
             for idx, param in enumerate(self.model.parameters()):
-                param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
+                param.data += self.async_update_ratio *\
+                              torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
 
     def async_step_completion_handler(self):
         self.resource_manager.register_all_test_tasks(self.client_manager.feasibleClients)
