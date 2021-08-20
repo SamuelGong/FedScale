@@ -33,8 +33,7 @@ for model in "${models[@]}";do
 
   for folder in *;do
     if [[ ! " ${time_stamp[@]} " =~ " $folder " ]]; then
-#      rm -rf $folder
-      echo $folder
+      rm -rf $folder
     fi
   done
 done
