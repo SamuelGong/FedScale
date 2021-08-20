@@ -129,6 +129,7 @@ def run(task_prefix):
                     y_list_2 = [t]
                 else:
                     difference = t - y_list_2[-1]
+                    print(t, y_list_2[-1], difference)
                     print(y_list_2)
                     y_list_2.append(difference)
 
