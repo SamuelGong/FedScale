@@ -52,18 +52,23 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     plt.savefig(name, bbox_inches='tight')
 
 def run(task_prefix):
-    personalized = "ditto" # "meta" or "none" or "ditto"
+    personalized = "none" # "meta" or "none" or "ditto"
     task_dict = {
         f"random_{personalized}_all_test": "random",
         f"oort_{personalized}_all_test": "oort"
     }
     label_list = []
+    duration_label_list = []
 
     x_list_list = []
     y_list_list = []
+    x_list_list_2 = []
+    y_list_list_2 = []
     culmu_time_in_hrs_list = []
 
     for k, v in task_dict.items():
+        if v not in ["async"]:
+            duration_label_list.append(v)
         label_list.append(f"{v}_g")
         label_list.append(f"{v}_l")
         log_file = os.path.join(
@@ -75,6 +80,7 @@ def run(task_prefix):
 
         focus = []
         focus_local = []
+        focus_duration = []
         test_flag = 0
         culmu_time_in_hrs = []
         for idx, line in enumerate(lines):
@@ -88,6 +94,8 @@ def run(task_prefix):
                 test_flag = 1
             elif 'FL Local Testing' in line:
                 focus_local.append(line)
+            elif 'Wall clock time' in line:
+                focus_duration.append(line)
         culmu_time_in_hrs_list.append(culmu_time_in_hrs)
         culmu_time_in_hrs_list.append(culmu_time_in_hrs)
 
@@ -111,11 +119,33 @@ def run(task_prefix):
         y_list_list.append(y_local_list)
         x_list_list.append(x_local_list)
 
+        if v not in ["async"]:
+            x_list_2 = []
+            y_list_2 = []
+            epoch = 1
+            for f in focus_duration:
+                t = int(f[f.find("Wall clock time") + 17:].split(',')[0])
+                if epoch == 1:
+                    y_list_2 = [t]
+                else:
+                    difference = t - y_list_2[-1]
+                    print(y_list_2)
+                    y_list_2.append(difference)
+
+                x_list_2.append(epoch)
+                epoch += 1
+            y_list_list_2.append(y_list_2)
+            x_list_list_2.append(x_list_2)
+
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_round_to_acc")
     plot_line(y_list_list, x_list_list,
               label_list, "Training Rounds", "Accuracy (%)", save_path)
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_time_to_acc")
     plot_line(y_list_list, culmu_time_in_hrs_list,
             label_list, " Training Time (h)", "Accuracy (%)", save_path)
+
+    save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_round_duration")
+    plot_line(y_list_list_2, x_list_list_2,
+              duration_label_list, "Training Rounds", "Duration (s)", save_path)
 
 run(sys.argv[1])
