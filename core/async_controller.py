@@ -36,7 +36,7 @@ class AsyncController(object):
         self.next_task_list_idx = 0
 
     def list_tasks(self, cur_time):
-        logging.info(f"{self.client_end_time_map}")
+        logging.info(f"LIST_TASK {self.client_end_time_map}")
         if self.next_task_list is None:
             self.next_task_list = []
             for k, v in self.client_end_time_map.items():
