@@ -416,6 +416,8 @@ class Aggregator(object):
 
     def async_step_completion_handler(self):
         self.resource_manager.register_all_test_tasks(self.client_manager.feasibleClients)
+        self.async_controller.refresh_record(self.global_virtual_clock)
+        self.async_controller.refresh_next_task_list()
 
         # update the information on clients that should start at this time step
         available_participants = self.select_participants(select_num_participants=100000000)
@@ -687,8 +689,6 @@ class Aggregator(object):
                             avg_loss = sum(self.loss_accumulator) / max(1, len(self.loss_accumulator))
                             logging.info(f"[Async] All {self.tasks_round} clients at {self.global_virtual_clock} s end; "
                                          f"moving loss all the way around: {avg_loss}")
-                            self.async_controller.refresh_record(self.global_virtual_clock)
-                            self.async_controller.refresh_next_task_list()
                             self.stats_util_accumulator = []
                             self.model_in_update = []
                             self.save_last_param()
