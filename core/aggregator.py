@@ -403,7 +403,7 @@ class Aggregator(object):
                 remaining_ratio = 1 - self.async_update_ratio
                 if idx == 0:
                     logging.info(f"{importance} {self.async_update_ratio} {remaining_ratio}")
-                    logging.info(f"Before: {param.data.numpy().flatten()[:10]}")
+                    logging.info(f"Before: {param.data.cpu().numpy().flatten()[:10]}")
                 param.data *= remaining_ratio
                 param.data = self.async_update_ratio *\
                              torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
