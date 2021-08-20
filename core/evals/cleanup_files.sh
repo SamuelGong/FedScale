@@ -32,7 +32,7 @@ for model in "${models[@]}";do
   cd $LogDir/$model
 
   for folder in *;do
-    if [[ ! " ${time_stamp[@]} " =~ " $folder " ]]; then
+    if [[ ! " ${time_stamps[@]} " =~ " $folder " ]]; then
       rm -rf $folder
     fi
   done
