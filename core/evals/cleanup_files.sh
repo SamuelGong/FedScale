@@ -27,6 +27,7 @@ for file in *;do
   fi
 done
 
+# Step 1: remove folders in ~/models
 for model in "${models[@]}";do
   cd $LogDir/$model
 
@@ -39,3 +40,10 @@ for model in "${models[@]}";do
 done
 
 cd $CurrentDir
+
+# Step 2: remove temporary log files at current folder
+exit  # only uncomment it when needed
+for file in *;do
+  if [[ "$file" == *"logging"* ]];then
+    rm $file
+done
