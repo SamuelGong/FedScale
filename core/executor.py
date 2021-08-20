@@ -362,6 +362,7 @@ class Executor(object):
 
         data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
                                      isTest=True, collate_fn=self.collate_fn)
+
         test_res = test_model(self.this_rank, client_model, data_loader, device=device,
                               criterion=criterion, tokenizer=tokenizer)
 

@@ -401,9 +401,14 @@ class Aggregator(object):
 
             for idx, param in enumerate(self.model.parameters()):
                 remaining_ratio = 1 - self.async_update_ratio
+                if idx == 0:
+                    logging.info(f"{importance} {self.async_update_ratio} {remaining_ratio}")
+                    logging.info(f"Before: {param.data.numpy().flatten()[:10]}")
                 param.data *= remaining_ratio
                 param.data = self.async_update_ratio *\
                              torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
+                if idx == 0:
+                    logging.info(f"After: {param.data.numpy().flatten()[:10]}")
         else:
             for idx, param in enumerate(self.model.parameters()):
                 param.data += self.async_update_ratio *\
@@ -454,11 +459,12 @@ class Aggregator(object):
         logging.info(f"[Async] while {len(lost_clients)}/{len(async_sampled_clients)} sampled clients "
                      f"dropped or busy: {lost_clients}")
 
-        self.broadcast_msg({
-            'event': 'update_async_model',
-            'clientIds': final_participated_clients
-        })  # clients should use the appropriate version of global model
-        self.broadcast_models()
+        if len(final_participated_clients) > 0:
+            self.broadcast_msg({
+                'event': 'update_async_model',
+                'clientIds': final_participated_clients
+            })  # clients should use the appropriate version of global model
+            self.broadcast_models()
 
         # move on
         self.global_virtual_clock += self.async_sec_per_step
