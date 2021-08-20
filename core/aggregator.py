@@ -408,7 +408,7 @@ class Aggregator(object):
                 param.data = self.async_update_ratio *\
                              torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
                 if idx == 0:
-                    logging.info(f"After: {param.data.numpy().flatten()[:10]}")
+                    logging.info(f"After: {param.data.cpu().numpy().flatten()[:10]}")
         else:
             for idx, param in enumerate(self.model.parameters()):
                 param.data += self.async_update_ratio *\
