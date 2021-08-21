@@ -54,7 +54,7 @@ job_conf:
     - gradient_policy: fed-avg                 # {"fed-yogi", "fed-prox", "fed-avg"}, "fed-avg" by default
     - eval_interval: 1                     # How many rounds to run a testing on the testing set
     - epochs: 50                          # Number of rounds to run this training. We use 1000 in our paper, while it may converge w/ ~400 rounds
-    - filter_less: 316                       # Remove clients w/ less than 21 samples
+    - filter_less: 127                       # Remove clients w/ less than 21 samples
     - num_loaders: 4
     - yogi_eta: 3e-3 
     - yogi_tau: 1e-8
