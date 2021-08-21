@@ -385,7 +385,9 @@ class Executor(object):
             }
 
         if self.test_mode == "all":  # should have clientId and conf prepared
-            data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
+            # data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
+            #                              collate_fn=self.collate_fn, my_use=True)
+            data_loader = select_dataset(clientId, self.training_sets, batch_size=args.test_bsz, isTest=True,
                                          collate_fn=self.collate_fn, my_use=True)
 
             for idx, param in enumerate(client_model.parameters()):
