@@ -324,7 +324,7 @@ class Executor(object):
         torch.cuda.empty_cache()
         return train_res
 
-    def testing_handler(self, args, clientId=None, conf=None):
+    def testing_handler(self, args, clientId=None, conf=None, necessary=True):
         """Test model"""
         evalStart = time.time()
         device = self.device
@@ -360,21 +360,29 @@ class Executor(object):
         else:
             criterion = torch.nn.CrossEntropyLoss().to(device=device)
 
-        data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
-                                     isTest=True, collate_fn=self.collate_fn)
+        if necessary:
+            data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
+                                         isTest=True, collate_fn=self.collate_fn)
 
-        for idx, param in enumerate(client_model.parameters()):
-            if idx == 0:
-                logging.info(f"Before (Test): {param.data.cpu().numpy().flatten()[:10]}")
+            for idx, param in enumerate(client_model.parameters()):
+                if idx == 0:
+                    logging.info(f"Before (Test): {param.data.cpu().numpy().flatten()[:10]}")
 
-        test_res = test_model(self.this_rank, client_model, data_loader, device=device,
-                              criterion=criterion, tokenizer=tokenizer)
+            test_res = test_model(self.this_rank, client_model, data_loader, device=device,
+                                  criterion=criterion, tokenizer=tokenizer)
 
-        test_loss, acc, acc_5, testResults = test_res
-        logging.info("After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, "
-                     "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
-                    .format(self.epoch, round(time.time() - self.start_run_time, 4),
-                            round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
+            test_loss, acc, acc_5, testResults = test_res
+            logging.info("After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, "
+                         "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
+                        .format(self.epoch, round(time.time() - self.start_run_time, 4),
+                                round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
+        else:
+            testResults = {
+                'top_1': 0,
+                'top_5': 0,
+                'test_loss': 0,
+                'test_len': 0
+            }
 
         if self.test_mode == "all":  # should have clientId and conf prepared
             data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
@@ -441,7 +449,11 @@ class Executor(object):
                 elif event_msg == 'test':
                     if self.test_mode == "all":
                         clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
-                        test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf)
+                        if 'necessary' in event_dict and event_dict['necessary'] is False:
+                            test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
+                                                            necessary=False)
+                        else:
+                            test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf)
                     else:
                         test_res = self.testing_handler(args=self.args)
 
