@@ -237,6 +237,10 @@ class Client(object):
                     true_model.zero_grad()
                     loss.backward()
 
+                    for idx, para in enumerate(true_model.parameters()):
+                        if idx == 0:
+                            logging.info(f"\tWhy? Before: {param.data.cpu().numpy().flatten()[:10]}")
+
                     if conf.personalized == "meta" and loop_idx > 0 and specified_local_steps is None:
                         if loop_idx == 1:
                             grad_copies = []
@@ -265,6 +269,10 @@ class Client(object):
                         else:
                             optimizer.step()
 
+                    for idx, para in enumerate(true_model.parameters()):
+                        if idx == 0:
+                            logging.info(f"\tWhy? After: {param.data.cpu().numpy().flatten()[:10]}")
+
                     if (conf.personalized == "meta" and conf.adaptation_mode == 0
                             and loop_idx == 1 and specified_local_steps is None) \
                             or (conf.personalized == "meta" and conf.adaptation_mode == 1
@@ -275,6 +283,8 @@ class Client(object):
                                 and loop_idx == 1) \
                             or conf.personalized == "none":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
+
+                        logging.info(f"\tWhy? Client {clientId} Loop {loop_idx} Loss {temp_loss}")
 
                         # only measure the loss of the first epoch
                         if completed_steps < len(client_data):
