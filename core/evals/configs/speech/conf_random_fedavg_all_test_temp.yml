@@ -63,6 +63,6 @@ job_conf:
     - batch_size: 20
     - test_bsz: 20
     - sample_mode: random
-    - test_mode: default # "default" or "all"
+    - test_mode: all # "default" or "all"
 
 
