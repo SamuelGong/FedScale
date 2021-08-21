@@ -121,7 +121,7 @@ class DataPartitioner(object):
         else:
             resultIndex = resultIndex[:train_length]
 
-        self.rng.shuffle(resultIndex)
+        # self.rng.shuffle(resultIndex)
 
         return Partition(self.data, resultIndex)
 
