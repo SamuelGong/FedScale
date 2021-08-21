@@ -237,7 +237,7 @@ def test_model(rank, model, test_data, device='cpu', criterion=nn.NLLLoss(), tok
         cnt = 0
         for data, target in test_data:
             if cnt == 0:
-                logging.info(f"{type(data)}")
+                logging.info(f"First Test {type(data.numpy().flatten()[:10])}")
             cnt += 1
             if args.task == 'nlp':
 
