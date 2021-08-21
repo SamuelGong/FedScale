@@ -113,7 +113,7 @@ class Client(object):
         break_while_flag = False
 
         loader = iter(client_data)
-        logging.info(f"train_len: {len(client_data)}")
+        logging.info(f"train_len: {len(client_data.dataset)}")
         if conf.sample_mode == "centralized":
             if conf.personalized == "meta" and specified_local_steps is not None: # testing of "meta"
                 true_num_steps = specified_local_steps
