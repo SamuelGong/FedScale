@@ -75,7 +75,7 @@ class Client(object):
                 ]
                 optimizer_2 = torch.optim.AdamW(optimizer_2_grouped_parameters, lr=conf.learning_rate)
         else:
-            optimizer = torch.optim.SGD(model.parameters(), lr=conf.learning_rate, momentum=0, weight_decay=5e-4)
+            optimizer = torch.optim.SGD(model.parameters(), lr=conf.learning_rate, momentum=0, weight_decay=0)
             if conf.personalized in ["ditto"]:
                 optimizer_2 = torch.optim.SGD(client_model.parameters(), lr=conf.learning_rate, momentum=0.9, weight_decay=5e-4)
 
