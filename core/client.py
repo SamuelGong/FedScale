@@ -113,6 +113,7 @@ class Client(object):
         break_while_flag = False
 
         loader = iter(client_data)
+        logging.info(f"train_len: {len(client_data)}")
         if conf.sample_mode == "centralized":
             if conf.personalized == "meta" and specified_local_steps is not None: # testing of "meta"
                 true_num_steps = specified_local_steps
@@ -122,7 +123,7 @@ class Client(object):
             else:
                 true_num_steps = len(client_data)
             # currently centralized learning goes with 1 epoch
-        cnt = 0
+
         while True:
 
             if conf.personalized == "meta" and specified_local_steps is None:
@@ -173,10 +174,6 @@ class Client(object):
                         data = temp_data[0:4]
                     else:
                         (data, target) = data_pair
-
-                    if cnt == 0:
-                        logging.info(f"First Train {data.numpy().flatten()[:10]}")
-                    cnt += 1
 
                     if conf.task == "detection":
                         im_data.resize_(data[0].size()).copy_(data[0])
