@@ -122,7 +122,7 @@ class DataPartitioner(object):
             resultIndex = resultIndex[:train_length]
 
         # self.rng.shuffle(resultIndex)
-
+        logging.info(f"{resultIndex}")
         return Partition(self.data, resultIndex)
 
     def getSize(self):
