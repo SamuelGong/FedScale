@@ -320,7 +320,9 @@ class Executor(object):
 
         # we need to get runtime variance for BN
 
-        logging.info(f"{self.model.__dict__}")
+        for idx, module in enumerate(self.model.modules()):
+            if idx == 0:
+                logging.info(f"{type(module)}")
         exit(0)
         self.model = client_model
 
