@@ -319,33 +319,7 @@ class Executor(object):
             logging.info(f"Client {clientId}'s training failed as {e}")
 
         # we need to get runtime variance for BN
-
-        for idx, module in enumerate(self.model.modules()):
-            if idx == 0:
-                logging.info(f"{idx} {type(module)}")
-                logging.info(f"{type(module.bn1)}")
-                logging.info(f"{type(module.bn1.running_mean)}")
-                logging.info(f"{type(module.bn1.running_var)}")
-                logging.info(f"{module.bn1.running_mean}")
-                logging.info(f"{module.bn1.running_var}")
-            else:
-                logging.info(f"{idx} {type(module)}")
-
         self.model = client_model
-        logging.info(f"><><><><><><><")
-        for idx, module in enumerate(self.model.modules()):
-            if idx == 0:
-                logging.info(f"{idx} {type(module)}")
-                logging.info(f"{type(module.bn1)}")
-                logging.info(f"{type(module.bn1.running_mean)}")
-                logging.info(f"{type(module.bn1.running_var)}")
-                logging.info(f"{module.bn1.running_mean}")
-                logging.info(f"{module.bn1.running_var}")
-            else:
-                logging.info(f"{idx} {type(module)}")
-        logging.info(f"{self.model.bn1.running_mean}")
-        logging.info(f"{self.model.bn1.running_var}")
-        exit(0)
         gc.collect()
         torch.cuda.empty_cache()
         return train_res
