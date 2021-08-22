@@ -8455,3 +8455,210 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 
 (08-22) 20:35:04 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
 (08-22) 20:35:05 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:11 INFO     [utils_model.py:355] Rank 579: Test set: Average loss: 26.452, Top-1 Accuracy: 2.0/9 (0.2222), Top-5 Accuracy: 0.3333
+(08-22) 20:35:11 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7613.218, eval_time 10.3819, test_loss 26.452, test_accuracy 22.22%, test_5_accuracy 33.33% 
+
+(08-22) 20:35:12 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:12 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:12 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:13 INFO     [utils_model.py:355] Rank 580: Test set: Average loss: 122.0183, Top-1 Accuracy: 2.0/33 (0.0606), Top-5 Accuracy: 0.1818
+(08-22) 20:35:13 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7614.7711, eval_time 11.8488, test_loss 122.0183, test_accuracy 6.06%, test_5_accuracy 18.18% 
+
+(08-22) 20:35:13 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:13 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:13 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:19 INFO     [utils_model.py:355] Rank 582: Test set: Average loss: 52.8405, Top-1 Accuracy: 0.0/8 (0.0), Top-5 Accuracy: 0.125
+(08-22) 20:35:19 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7620.9399, eval_time 7.3459, test_loss 52.8405, test_accuracy 0.00%, test_5_accuracy 12.50% 
+
+(08-22) 20:35:19 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:20 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:20 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:20 INFO     [utils_model.py:355] Rank 584: Test set: Average loss: 43.7817, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:20 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7621.6238, eval_time 6.4294, test_loss 43.7817, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:20 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:20 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:20 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:21 INFO     [utils_model.py:355] Rank 585: Test set: Average loss: 105.5863, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:21 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7623.0432, eval_time 1.7259, test_loss 105.5863, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:22 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:22 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:22 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:23 INFO     [utils_model.py:355] Rank 581: Test set: Average loss: 17.7018, Top-1 Accuracy: 0.0/35 (0.0), Top-5 Accuracy: 0.1714
+(08-22) 20:35:23 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7624.8691, eval_time 18.4914, test_loss 17.7018, test_accuracy 0.00%, test_5_accuracy 17.14% 
+
+(08-22) 20:35:23 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:24 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:24 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:24 INFO     [utils_model.py:355] Rank 587: Test set: Average loss: 62.6193, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:24 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7625.3573, eval_time 3.3409, test_loss 62.6193, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:24 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:24 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:24 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:24 INFO     [utils_model.py:355] Rank 588: Test set: Average loss: 132.8965, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:24 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7626.1152, eval_time 2.669, test_loss 132.8965, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:25 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:25 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:25 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:26 INFO     [utils_model.py:355] Rank 591: Test set: Average loss: 40.9012, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:26 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7627.8082, eval_time 1.3032, test_loss 40.9012, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:26 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:26 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:27 INFO     [utils_model.py:355] Rank 590: Test set: Average loss: 117.0217, Top-1 Accuracy: 2.0/30 (0.0667), Top-5 Accuracy: 0.1667
+(08-22) 20:35:27 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7628.2616, eval_time 2.5315, test_loss 117.0217, test_accuracy 6.67%, test_5_accuracy 16.67% 
+
+(08-22) 20:35:27 INFO     [utils_model.py:355] Rank 589: Test set: Average loss: 53.886, Top-1 Accuracy: 1.0/38 (0.0263), Top-5 Accuracy: 0.0789
+(08-22) 20:35:27 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7628.2798, eval_time 2.9967, test_loss 53.886, test_accuracy 2.63%, test_5_accuracy 7.89% 
+
+(08-22) 20:35:27 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:27 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:27 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:27 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:27 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:27 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:28 INFO     [utils_model.py:355] Rank 593: Test set: Average loss: 27.1922, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.2222
+(08-22) 20:35:28 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7629.3879, eval_time 0.7562, test_loss 27.1922, test_accuracy 0.00%, test_5_accuracy 22.22% 
+
+(08-22) 20:35:28 INFO     [utils_model.py:355] Rank 592: Test set: Average loss: 38.8446, Top-1 Accuracy: 1.0/29 (0.0345), Top-5 Accuracy: 0.1034
+(08-22) 20:35:28 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7629.5586, eval_time 1.3855, test_loss 38.8446, test_accuracy 3.45%, test_5_accuracy 10.34% 
+
+(08-22) 20:35:28 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:28 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:28 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:28 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:28 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:28 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:29 INFO     [utils_model.py:355] Rank 595: Test set: Average loss: 41.319, Top-1 Accuracy: 1.0/30 (0.0333), Top-5 Accuracy: 0.2333
+(08-22) 20:35:29 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7631.0797, eval_time 2.4345, test_loss 41.319, test_accuracy 3.33%, test_5_accuracy 23.33% 
+
+(08-22) 20:35:29 INFO     [utils_model.py:355] Rank 597: Test set: Average loss: 24.742, Top-1 Accuracy: 2.0/9 (0.2222), Top-5 Accuracy: 0.3333
+(08-22) 20:35:29 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7631.1555, eval_time 1.2178, test_loss 24.742, test_accuracy 22.22%, test_5_accuracy 33.33% 
+
+(08-22) 20:35:29 INFO     [utils_model.py:355] Rank 596: Test set: Average loss: 71.4606, Top-1 Accuracy: 0.0/8 (0.0), Top-5 Accuracy: 0.125
+(08-22) 20:35:29 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7631.2056, eval_time 1.4389, test_loss 71.4606, test_accuracy 0.00%, test_5_accuracy 12.50% 
+
+(08-22) 20:35:30 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:30 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:30 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:30 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:30 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:30 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:30 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:30 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:31 INFO     [utils_model.py:355] Rank 599: Test set: Average loss: 55.6167, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:31 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7632.664, eval_time 1.0402, test_loss 55.6167, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:31 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:31 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:31 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:32 INFO     [utils_model.py:355] Rank 598: Test set: Average loss: 69.9504, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:32 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7633.4935, eval_time 1.8858, test_loss 69.9504, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:32 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:32 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:33 INFO     [utils_model.py:355] Rank 601: Test set: Average loss: 50.625, Top-1 Accuracy: 0.0/8 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:33 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7634.4582, eval_time 1.4283, test_loss 50.625, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:33 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:33 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:33 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:34 INFO     [utils_model.py:355] Rank 600: Test set: Average loss: 29.8328, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:34 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7636.1098, eval_time 4.3912, test_loss 29.8328, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:35 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:35 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:35 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:35 INFO     [utils_model.py:355] Rank 602: Test set: Average loss: 62.7606, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:35 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7636.7536, eval_time 2.8563, test_loss 62.7606, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:35 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:35 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:38 INFO     [utils_model.py:355] Rank 605: Test set: Average loss: 89.5124, Top-1 Accuracy: 0.0/8 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:38 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7639.5065, eval_time 2.9988, test_loss 89.5124, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:38 INFO     [utils_model.py:355] Rank 604: Test set: Average loss: 59.3207, Top-1 Accuracy: 1.0/30 (0.0333), Top-5 Accuracy: 0.0333
+(08-22) 20:35:38 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7639.6264, eval_time 4.7903, test_loss 59.3207, test_accuracy 3.33%, test_5_accuracy 3.33% 
+
+(08-22) 20:35:38 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:38 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:38 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:38 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:38 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:40 INFO     [utils_model.py:355] Rank 607: Test set: Average loss: 32.7889, Top-1 Accuracy: 0.0/8 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:40 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7641.4692, eval_time 4.3348, test_loss 32.7889, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:40 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:40 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:41 INFO     [utils_model.py:355] Rank 608: Test set: Average loss: 65.1759, Top-1 Accuracy: 1.0/9 (0.1111), Top-5 Accuracy: 0.4444
+(08-22) 20:35:41 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7642.4132, eval_time 2.5318, test_loss 65.1759, test_accuracy 11.11%, test_5_accuracy 44.44% 
+
+(08-22) 20:35:41 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:41 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:42 INFO     [utils_model.py:355] Rank 611: Test set: Average loss: 140.1898, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.2222
+(08-22) 20:35:42 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7643.9712, eval_time 2.1374, test_loss 140.1898, test_accuracy 0.00%, test_5_accuracy 22.22% 
+
+(08-22) 20:35:42 INFO     [utils_model.py:355] Rank 610: Test set: Average loss: 59.7719, Top-1 Accuracy: 0.0/35 (0.0), Top-5 Accuracy: 0.0857
+(08-22) 20:35:42 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7644.102, eval_time 4.0997, test_loss 59.7719, test_accuracy 0.00%, test_5_accuracy 8.57% 
+
+(08-22) 20:35:42 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:43 INFO     [utils_model.py:355] Rank 612: Test set: Average loss: 75.4548, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.3333
+(08-22) 20:35:43 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7644.3438, eval_time 1.5586, test_loss 75.4548, test_accuracy 0.00%, test_5_accuracy 33.33% 
+
+(08-22) 20:35:43 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:43 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:43 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:43 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:43 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:43 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:44 INFO     [utils_model.py:355] Rank 614: Test set: Average loss: 83.0905, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:44 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7645.7378, eval_time 1.2381, test_loss 83.0905, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:44 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:44 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:45 INFO     [utils_model.py:355] Rank 613: Test set: Average loss: 22.2428, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:45 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7646.5506, eval_time 2.2047, test_loss 22.2428, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:45 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:45 INFO     [aggregator.py:542] Testing progress: 561/1870 clients (30%)
+(08-22) 20:35:45 INFO     [utils_model.py:355] Rank 615: Test set: Average loss: 50.0223, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:45 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7646.8291, eval_time 2.1039, test_loss 50.0223, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:45 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:45 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:45 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:45 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:45 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:46 INFO     [utils_model.py:355] Rank 617: Test set: Average loss: 33.2335, Top-1 Accuracy: 1.0/9 (0.1111), Top-5 Accuracy: 0.1111
+(08-22) 20:35:46 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7648.1735, eval_time 1.2327, test_loss 33.2335, test_accuracy 11.11%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:47 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)
+(08-22) 20:35:47 INFO     [executor.py:419] Executor 3: Received (Event:TEST) from aggregator
+(08-22) 20:35:47 INFO     [utils_model.py:355] Rank 616: Test set: Average loss: 49.5971, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.0
+(08-22) 20:35:47 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7648.6098, eval_time 2.4872, test_loss 49.5971, test_accuracy 0.00%, test_5_accuracy 0.00% 
+
+(08-22) 20:35:47 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:47 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:47 INFO     [utils_model.py:355] Rank 618: Test set: Average loss: 41.1959, Top-1 Accuracy: 0.0/9 (0.0), Top-5 Accuracy: 0.1111
+(08-22) 20:35:47 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7649.2188, eval_time 2.0205, test_loss 41.1959, test_accuracy 0.00%, test_5_accuracy 11.11% 
+
+(08-22) 20:35:48 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:48 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:48 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 20:35:50 INFO     [utils_model.py:355] Rank 622: Test set: Average loss: 29.8384, Top-1 Accuracy: 0.0/8 (0.0), Top-5 Accuracy: 0.125
+(08-22) 20:35:50 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7651.3182, eval_time 1.722, test_loss 29.8384, test_accuracy 0.00%, test_5_accuracy 12.50% 
+
+(08-22) 20:35:50 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:2)
+(08-22) 20:35:50 INFO     [executor.py:419] Executor 2: Received (Event:TEST) from aggregator
+(08-22) 20:35:50 INFO     [utils_model.py:355] Rank 620: Test set: Average loss: 37.8972, Top-1 Accuracy: 0.0/28 (0.0), Top-5 Accuracy: 0.1786
+(08-22) 20:35:50 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7652.1225, eval_time 3.1047, test_loss 37.8972, test_accuracy 0.00%, test_5_accuracy 17.86% 
+
+(08-22) 20:35:51 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:1)
+(08-22) 20:35:51 INFO     [executor.py:419] Executor 1: Received (Event:TEST) from aggregator
+(08-22) 20:35:51 INFO     [utils_model.py:355] Rank 619: Test set: Average loss: 53.6411, Top-1 Accuracy: 1.0/36 (0.0278), Top-5 Accuracy: 0.1667
+(08-22) 20:35:51 INFO     [executor.py:395] (Local) After aggregation epoch 20, CumulTime 7653.0045, eval_time 4.4548, test_loss 53.6411, test_accuracy 2.78%, test_5_accuracy 16.67% 
+
+(08-22) 20:35:51 INFO     [aggregator.py:764] Round 20: Receive (Event:TEST) from (Executor:3)

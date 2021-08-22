@@ -19867,3 +19867,68 @@ Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.
 (08-22) 20:35:07 INFO     [client.py:328] Training of (CLIENT: 2042) completes, {'clientId': 2042, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
 (08-22) 20:35:08 INFO     [executor.py:419] Executor 3: Received (Event:TRAIN) from aggregator
 (08-22) 20:35:08 INFO     [client.py:18] Start to train (CLIENT: 680) ...
+(08-22) 20:35:09 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:3)
+(08-22) 20:35:17 INFO     [client.py:328] Training of (CLIENT: 416) completes, {'clientId': 416, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:18 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:18 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:1)
+(08-22) 20:35:18 INFO     [client.py:18] Start to train (CLIENT: 1302) ...
+(08-22) 20:35:20 INFO     [client.py:328] Training of (CLIENT: 1499) completes, {'clientId': 1499, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:21 INFO     [executor.py:419] Executor 2: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:21 INFO     [client.py:18] Start to train (CLIENT: 1506) ...
+(08-22) 20:35:21 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:2)
+(08-22) 20:35:22 INFO     [client.py:328] Training of (CLIENT: 680) completes, {'clientId': 680, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:23 INFO     [executor.py:419] Executor 3: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:23 INFO     [client.py:18] Start to train (CLIENT: 31) ...
+(08-22) 20:35:23 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(08-22) 20:35:24 INFO     [client.py:328] Training of (CLIENT: 1302) completes, {'clientId': 1302, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:25 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:25 INFO     [client.py:18] Start to train (CLIENT: 1540) ...
+(08-22) 20:35:25 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(08-22) 20:35:29 INFO     [client.py:328] Training of (CLIENT: 1506) completes, {'clientId': 1506, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:29 INFO     [client.py:328] Training of (CLIENT: 1540) completes, {'clientId': 1540, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:29 INFO     [executor.py:419] Executor 2: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:30 INFO     [client.py:18] Start to train (CLIENT: 404) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(08-22) 20:35:30 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(08-22) 20:35:30 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:30 INFO     [client.py:18] Start to train (CLIENT: 1044) ...
+(08-22) 20:35:31 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(08-22) 20:35:32 INFO     [client.py:328] Training of (CLIENT: 31) completes, {'clientId': 31, 'moving_loss': 17.065352144248653, 'trained_size': 80, 'success': True, 'utility': 260.2544575228692}
+(08-22) 20:35:33 INFO     [executor.py:419] Executor 3: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:33 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:3)
+(08-22) 20:35:33 INFO     [client.py:18] Start to train (CLIENT: 1713) ...
+(08-22) 20:35:35 INFO     [client.py:328] Training of (CLIENT: 1044) completes, {'clientId': 1044, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:36 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:36 INFO     [client.py:18] Start to train (CLIENT: 706) ...
+(08-22) 20:35:36 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(08-22) 20:35:40 INFO     [client.py:328] Training of (CLIENT: 404) completes, {'clientId': 404, 'moving_loss': 13.495600179154236, 'trained_size': 80, 'success': True, 'utility': 293.89086604824433}
+(08-22) 20:35:41 INFO     [executor.py:419] Executor 2: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:41 INFO     [client.py:328] Training of (CLIENT: 1713) completes, {'clientId': 1713, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:42 INFO     [client.py:18] Start to train (CLIENT: 306) ...
+(08-22) 20:35:42 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:2)
+(08-22) 20:35:42 INFO     [executor.py:419] Executor 3: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:43 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:3)
+(08-22) 20:35:43 INFO     [client.py:18] Start to train (CLIENT: 696) ...
+(08-22) 20:35:43 INFO     [client.py:328] Training of (CLIENT: 706) completes, {'clientId': 706, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:44 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:45 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:1)
+(08-22) 20:35:45 INFO     [client.py:18] Start to train (CLIENT: 375) ...
+(08-22) 20:35:46 INFO     [client.py:328] Training of (CLIENT: 306) completes, {'clientId': 306, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:47 INFO     [executor.py:419] Executor 2: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:47 INFO     [client.py:18] Start to train (CLIENT: 1119) ...
+(08-22) 20:35:47 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:2)
+(08-22) 20:35:48 INFO     [client.py:328] Training of (CLIENT: 696) completes, {'clientId': 696, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:49 INFO     [executor.py:419] Executor 3: Received (Event:TRAIN) from aggregator
+(08-22) 20:35:49 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:3)
+(08-22) 20:35:49 INFO     [client.py:18] Start to train (CLIENT: 980) ...
+(08-22) 20:35:50 INFO     [client.py:328] Training of (CLIENT: 375) completes, {'clientId': 375, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 20:35:51 INFO     [aggregator.py:764] Round 28: Receive (Event:TRAIN) from (Executor:1)
