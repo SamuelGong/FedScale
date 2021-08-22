@@ -13,7 +13,9 @@ def load_yaml_conf(yaml_file):
     return data
 
 def process_cmd(yaml_file):
-    label = subprocess.check_output(["git", "describe"]).strip()
+    process = subprocess.Popen(['git', 'rev-parse', 'HEAD'], shell=False, stdout=subprocess.PIPE)
+    git_head_hash = process.communicate()[0].strip()
+    print(git_head_hash)
     exit(0)
 
     yaml_conf = load_yaml_conf(yaml_file)
