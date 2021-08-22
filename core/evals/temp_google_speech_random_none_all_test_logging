@@ -1,0 +1,1280 @@
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-22) 16:52:05 INFO     [aggregator.py:11] Job args Namespace(adam_epsilon=1e-08, adaptation_mode=0, aggregator_device=0, all_test_ratio=0.3, async_end_time=0, async_eval_interval=14400, async_num_issues_max=100, async_sec_per_step=240, async_update_ratio=0.1, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=2.4368231046931412, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/google_speech', data_map_file='/homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv', data_set='google_speech', dataset_size='default', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=51, eval_interval=10, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=28, filter_more=1000000000000000.0, finetune=False, git_head_hash='f19f9e48c9815a90b81aef9b1749f89e6a8ae402', gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='temp_google_speech_random_none_all_test', labels_path='labels.json', learners='1-2-3-4', learning_rate=0.05, line_by_line=False, local_steps=4, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=59900, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='resnet34', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=35, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='none', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='24612', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='random', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, sync_mode='sync', task='speech', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='all', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0822_165202', total_worker=50, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-22) 16:52:08 INFO     [executor.py:49] (EXECUTOR:1) is setting up environ ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-22) 16:52:11 INFO     [executor.py:49] (EXECUTOR:2) is setting up environ ...
+(08-22) 16:52:12 INFO     [executor.py:86] Start to connect to 127.0.0.1:59900 for control plane communication ...
+(08-22) 16:52:12 INFO     [executor.py:86] Start to connect to 127.0.0.1:59900 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-22) 16:52:14 INFO     [executor.py:49] (EXECUTOR:3) is setting up environ ...
+(08-22) 16:52:14 INFO     [executor.py:86] Start to connect to 127.0.0.1:59900 for control plane communication ...
+(08-22) 16:52:16 INFO     [aggregator.py:104] End up with cuda device (cuda:0)
+(08-22) 16:52:16 INFO     [aggregator.py:124] Start to initiate 127.0.0.1:59900 for control plane communication ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
+Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
+  from numba.decorators import jit as optional_jit
+(08-22) 16:52:17 INFO     [executor.py:49] (EXECUTOR:4) is setting up environ ...
+(08-22) 16:52:17 INFO     [executor.py:86] Start to connect to 127.0.0.1:59900 for control plane communication ...
+(08-22) 16:52:19 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
+(08-22) 16:52:19 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
+(08-22) 16:52:19 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(08-22) 16:52:19 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(08-22) 16:52:19 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
+(08-22) 16:52:19 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 5 nodes.
+(08-22) 16:52:19 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 5 nodes.
+(08-22) 16:52:19 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 5 nodes.
+(08-22) 16:52:19 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 5 nodes.
+(08-22) 16:52:19 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 5 nodes.
+(08-22) 16:52:19 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 16:52:19 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 16:52:19 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 16:52:19 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 16:52:19 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 16:52:20 INFO     [aggregator.py:622] Start monitoring events ...
+(08-22) 16:52:24 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 16:52:24 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 16:52:24 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 16:52:24 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 16:52:24 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 16:52:24 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 16:52:24 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 16:52:24 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 16:52:24 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 16:52:24 INFO     [executor.py:438] Start monitoring events ...
+(08-22) 16:52:24 INFO     [executor.py:438] Start monitoring events ...
+(08-22) 16:52:24 INFO     [aggregator.py:764] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:1)
+(08-22) 16:52:24 INFO     [executor.py:438] Start monitoring events ...
+(08-22) 16:52:24 INFO     [executor.py:438] Start monitoring events ...
+(08-22) 16:52:24 INFO     [aggregator.py:764] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:4)
+(08-22) 16:52:25 INFO     [aggregator.py:764] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:3)
+(08-22) 16:52:25 INFO     [aggregator.py:764] Round 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:2)
+(08-22) 16:52:25 INFO     [aggregator.py:227] Info of all feasible clients {'total_feasible_clients': 1870, 'total_num_samples': 96056}
+(08-22) 16:52:25 INFO     [aggregator.py:499] Wall clock: 0 s, Epoch: 1, Planned participants: 0, Succeed participants: 0, Training loss: 0.0
+(08-22) 16:52:25 INFO     [client_manager.py:186] Wall clock time: 0, 589 clients online, 1281 clients offline
+(08-22) 16:52:25 INFO     [aggregator.py:505] Selected participants to run: [1593, 686, 500, 84, 928, 239, 1953, 16, 300, 1355, 1626, 55, 451, 347, 1023, 1995, 166, 83, 612, 902, 1586, 371, 1034, 245, 1242, 566, 749, 1916, 2112, 1261, 997, 1983, 1769, 50, 901, 201, 121, 1544, 1367, 1993, 1108, 700, 1674, 935, 323, 96, 402, 1400, 156, 1225]:
+{16: {'computation': 17.28, 'communication': 40.9755279793149}, 50: {'computation': 36.96, 'communication': 380.74751626493963}, 55: {'computation': 36.72, 'communication': 58.26392926024418}, 83: {'computation': 34.8, 'communication': 105.5346291007184}, 84: {'computation': 6.48, 'communication': 39.87940145534165}, 96: {'computation': 34.56, 'communication': 634.0812705532286}, 121: {'computation': 7.44, 'communication': 505.52568412174764}, 156: {'computation': 5.76, 'communication': 786.1044862988567}, 166: {'computation': 35.52, 'communication': 102.87269313872339}, 201: {'computation': 4.32, 'communication': 491.7594949940785}, 239: {'computation': 5.76, 'communication': 45.8169888931491}, 245: {'computation': 5.76, 'communication': 192.48804991103057}, 300: {'computation': 7.68, 'communication': 57.98555191549522}, 323: {'computation': 6.0, 'communication': 658.2487403310985}, 347: {'computation': 9.84, 'communication': 91.15071601241095}, 371: {'computation': 3.6, 'communication': 192.59006698651757}, 402: {'computation': 35.04, 'communication': 650.1687130997245}, 451: {'computation': 5.52, 'communication': 91.50931864506816}, 500: {'computation': 15.36, 'communication': 27.892438116142248}, 566: {'computation': 38.16, 'communication': 208.8788240037659}, 612: {'computation': 34.56, 'communication': 111.5854533205822}, 686: {'computation': 9.84, 'communication': 25.812882792246313}, 700: {'computation': 34.32, 'communication': 603.1345105748851}, 749: {'computation': 4.32, 'communication': 243.12115173212928}, 901: {'computation': 42.24, 'communication': 407.71766886850713}, 902: {'computation': 23.04, 'communication': 135.42230274584048}, 927: {'computation': 6.48, 'communication': 1141.1262760918692}, 928: {'computation': 9.36, 'communication': 37.0217872023809}, 935: {'computation': 5.52, 'communication': 658.2487403310985}, 997: {'computation': 43.92, 'communication': 255.82352887835034}, 1023: {'computation': 5.04, 'communication': 127.32983953378124}, 1034: {'computation': 34.56, 'communication': 163.20936016903593}, 1108: {'computation': 38.88, 'communication': 597.8815511232867}, 1225: {'computation': 38.88, 'communication': 805.7413798156892}, 1242: {'computation': 5.52, 'communication': 211.95374085492844}, 1261: {'computation': 32.88, 'communication': 239.1698823901917}, 1355: {'computation': 28.08, 'communication': 48.16706584809857}, 1367: {'computation': 5.04, 'communication': 555.3836409788322}, 1400: {'computation': 32.16, 'communication': 698.4252469169577}, 1544: {'computation': 41.28, 'communication': 488.4722163946649}, 1546: {'computation': 12.96, 'communication': 1116.2702858055802}, 1586: {'computation': 43.92, 'communication': 123.12901534978229}, 1593: {'computation': 7.44, 'communication': 15.437546826023961}, 1626: {'computation': 7.68, 'communication': 81.49211122323045}, 1674: {'computation': 10.32, 'communication': 632.6287504044972}, 1769: {'computation': 5.76, 'communication': 377.52685112403077}, 1916: {'computation': 10.32, 'communication': 238.5793728851611}, 1953: {'computation': 10.56, 'communication': 44.6728727474333}, 1983: {'computation': 4.32, 'communication': 326.39322882005115}, 1993: {'computation': 38.4, 'communication': 564.1822270910922}, 1995: {'computation': 11.04, 'communication': 123.34507504562222}, 2112: {'computation': 7.44, 'communication': 264.0228855549156}}
+(08-22) 16:52:25 INFO     [executor.py:445] Executor 3: Received (Event:UPDATE_MODEL) from aggregator
+(08-22) 16:52:25 INFO     [executor.py:445] Executor 4: Received (Event:UPDATE_MODEL) from aggregator
+(08-22) 16:52:25 INFO     [executor.py:445] Executor 1: Received (Event:UPDATE_MODEL) from aggregator
+(08-22) 16:52:25 INFO     [executor.py:445] Executor 2: Received (Event:UPDATE_MODEL) from aggregator
+(08-22) 16:52:26 INFO     [executor.py:445] Executor 3: Received (Event:TRAIN) from aggregator
+(08-22) 16:52:26 INFO     [executor.py:445] Executor 2: Received (Event:TRAIN) from aggregator
+(08-22) 16:52:26 INFO     [executor.py:445] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 16:52:26 INFO     [executor.py:445] Executor 4: Received (Event:TRAIN) from aggregator
+(08-22) 16:52:26 INFO     [client.py:18] Start to train (CLIENT: 1593) ...
+(08-22) 16:52:26 INFO     [client.py:18] Start to train (CLIENT: 686) ...
+(08-22) 16:52:26 INFO     [client.py:18] Start to train (CLIENT: 84) ...
+(08-22) 16:52:26 INFO     [client.py:18] Start to train (CLIENT: 500) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-22) 16:52:27 INFO     [client.py:328] Training of (CLIENT: 500) completes, {'clientId': 500, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-22) 16:52:27 INFO     [client.py:328] Training of (CLIENT: 1593) completes, {'clientId': 1593, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-22) 16:52:27 INFO     [client.py:328] Training of (CLIENT: 84) completes, {'clientId': 84, 'moving_loss': 22.71981052888958, 'trained_size': 80, 'success': True, 'utility': 381.3224192004626}
+(08-22) 16:52:27 INFO     [executor.py:325] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:27 INFO     [executor.py:326] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:327] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:328] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:329] tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:330] tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1.], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:332] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:27 INFO     [executor.py:335] ><><><><><><><
+(08-22) 16:52:27 INFO     [executor.py:338] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:27 INFO     [executor.py:339] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:340] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:341] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:342] tensor([  57.1836,  -37.8926,   17.2375,  176.8956,   -8.4798,   -7.9114,
+          14.9583,  -30.3927,  -44.5887,  -75.1118,  -26.5818,  -87.3071,
+          45.2248,  -17.4356,  -11.9346,   32.1507,   -4.8940,  116.4072,
+           3.3663,   13.9920,  -35.8803,  -35.8479,   24.2250,  -14.6787,
+         -32.9464,  175.6322,  -70.2545,   29.4482,   -8.4504,  150.9639,
+          18.5298,   61.7182,  -20.3483,  -44.1046,  -40.7217,    4.4888,
+          35.9609,   16.3524,   38.0053, -125.3682,  -48.3737,  137.2745,
+           3.7796,  -68.2513,  -31.8272,   13.0021,  -20.2716,  -76.5654,
+        -168.5883,  -37.9053,   10.8402,   24.7131,   71.4931,  -19.0794,
+        -118.0756,   63.9958,  -95.3362,   -5.0358,  -48.4273,   25.8386,
+         -45.4501,  -73.6142,  105.0956,   61.5969], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:343] tensor([ 3978.2043,   978.7358,   265.1347, 26258.0762,   114.0553,   158.7152,
+          927.4417,   675.4296,  3215.6106,  6596.8164,   773.6394,  4871.6450,
+         1378.9895,   399.8723,   239.8773,   672.2483,   101.1790,  9241.1533,
+          283.5565,   144.1817,  1690.0253,   873.3441,   491.9583,   184.9723,
+         2630.3259, 16833.1914,  2961.6475,  1032.3717,   104.2322, 18017.2910,
+         1389.8080,  3698.2554,   362.4988,  1880.6290,  1970.2333,    79.2370,
+          848.8908,   149.1676,   792.7139,  9965.6729,  1251.6300, 11210.0771,
+          135.7264,  3443.8147,  1452.1625,   943.4805,  1230.7324,  3032.4990,
+        14921.3037,  1302.9012,   399.3922,   780.7206,  2782.9233,   335.2830,
+         7775.1235,  2299.5200,  5251.9810,   473.1731,  1889.8135,   500.0298,
+         2164.7849,  3925.6421,  7144.2183,  2540.6211], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:345] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:27 INFO     [executor.py:346] tensor([  57.1836,  -37.8926,   17.2375,  176.8956,   -8.4798,   -7.9114,
+          14.9583,  -30.3927,  -44.5887,  -75.1118,  -26.5818,  -87.3071,
+          45.2248,  -17.4356,  -11.9346,   32.1507,   -4.8940,  116.4072,
+           3.3663,   13.9920,  -35.8803,  -35.8479,   24.2250,  -14.6787,
+         -32.9464,  175.6322,  -70.2545,   29.4482,   -8.4504,  150.9639,
+          18.5298,   61.7182,  -20.3483,  -44.1046,  -40.7217,    4.4888,
+          35.9609,   16.3524,   38.0053, -125.3682,  -48.3737,  137.2745,
+           3.7796,  -68.2513,  -31.8272,   13.0021,  -20.2716,  -76.5654,
+        -168.5883,  -37.9053,   10.8402,   24.7131,   71.4931,  -19.0794,
+        -118.0756,   63.9958,  -95.3362,   -5.0358,  -48.4273,   25.8386,
+         -45.4501,  -73.6142,  105.0956,   61.5969], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:347] tensor([ 3978.2043,   978.7358,   265.1347, 26258.0762,   114.0553,   158.7152,
+          927.4417,   675.4296,  3215.6106,  6596.8164,   773.6394,  4871.6450,
+         1378.9895,   399.8723,   239.8773,   672.2483,   101.1790,  9241.1533,
+          283.5565,   144.1817,  1690.0253,   873.3441,   491.9583,   184.9723,
+         2630.3259, 16833.1914,  2961.6475,  1032.3717,   104.2322, 18017.2910,
+         1389.8080,  3698.2554,   362.4988,  1880.6290,  1970.2333,    79.2370,
+          848.8908,   149.1676,   792.7139,  9965.6729,  1251.6300, 11210.0771,
+          135.7264,  3443.8147,  1452.1625,   943.4805,  1230.7324,  3032.4990,
+        14921.3037,  1302.9012,   399.3922,   780.7206,  2782.9233,   335.2830,
+         7775.1235,  2299.5200,  5251.9810,   473.1731,  1889.8135,   500.0298,
+         2164.7849,  3925.6421,  7144.2183,  2540.6211], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:325] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:27 INFO     [executor.py:326] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:327] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:328] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:329] tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:330] tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1.], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:332] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:27 INFO     [executor.py:335] ><><><><><><><
+(08-22) 16:52:27 INFO     [executor.py:338] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:27 INFO     [executor.py:339] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:340] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:341] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:342] tensor([ 9.2727e+01, -2.3536e+01, -2.9972e+01, -1.0616e+02, -1.4219e+01,
+        -3.1271e+01,  1.1914e+02, -8.2547e+00, -2.8956e+02, -2.5033e+01,
+         1.9781e+01,  6.1395e+01,  1.4759e+01,  8.6601e+00,  2.3231e+01,
+         9.0660e+01,  3.0290e+01,  4.6727e+01,  1.1793e+01, -5.8374e+01,
+         6.5973e+01, -2.1185e+01,  2.0020e+01, -5.6999e+01,  2.4962e+02,
+         1.1444e+02,  2.6268e+01,  1.6700e+01,  1.7833e+01, -1.1067e+02,
+        -1.2086e+01,  7.7733e+01, -1.8892e+02,  7.7382e+01,  7.8644e+01,
+         8.4194e+00,  2.2930e+01, -7.1830e+00, -6.6574e+01, -3.3054e+02,
+         5.8225e+01,  1.5760e+02,  1.0247e+01, -1.7864e+02,  2.9328e+01,
+        -3.6635e+02,  3.4930e+01,  6.1852e+01, -1.6929e+02,  9.3390e+01,
+         1.0052e+01,  1.0717e+02,  6.1037e+01,  9.3277e+01,  8.0928e+01,
+         1.2687e+02,  2.7249e+01, -2.7857e+01, -4.4983e+01, -2.0522e+01,
+         3.6752e+01,  5.6754e+00,  1.1767e+02, -3.2829e-01], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:343] tensor([  8958.2988,    503.1639,   1683.5592,  11017.2910,    469.6939,
+          1101.5562,  13018.7021,    598.8791,  73358.0938,   1744.2200,
+          1111.0559,   4188.5649,    230.0558,    196.4213,    619.3953,
+          7850.1914,   1150.9459,   3213.2573,    408.9420,   6122.9810,
+          5264.2754,    553.5757,   1790.5327,   4000.3357,  61865.8789,
+         18659.1348,   1953.1915,    393.7672,    549.4082,  15981.3398,
+           914.9704,   7170.4209,  32817.7734,  10049.0078,  20021.2598,
+           493.6380,   1556.1818,    141.2707,   4236.3872,  95876.3672,
+          3356.7312,  20842.4238,    853.9052,  29105.6719,    871.0364,
+        114601.6641,   1060.4939,  11236.9492,  26942.8594,   8333.3389,
+          1193.3374,   9631.8447,   3374.3127,   9665.9580,   7312.7407,
+         14725.9160,   1241.4089,   1179.5675,   4515.9741,    531.3281,
+          1721.4365,   2896.3992,  12334.6514,    356.7729], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:345] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:27 INFO     [executor.py:346] tensor([ 9.2727e+01, -2.3536e+01, -2.9972e+01, -1.0616e+02, -1.4219e+01,
+        -3.1271e+01,  1.1914e+02, -8.2547e+00, -2.8956e+02, -2.5033e+01,
+         1.9781e+01,  6.1395e+01,  1.4759e+01,  8.6601e+00,  2.3231e+01,
+         9.0660e+01,  3.0290e+01,  4.6727e+01,  1.1793e+01, -5.8374e+01,
+         6.5973e+01, -2.1185e+01,  2.0020e+01, -5.6999e+01,  2.4962e+02,
+         1.1444e+02,  2.6268e+01,  1.6700e+01,  1.7833e+01, -1.1067e+02,
+        -1.2086e+01,  7.7733e+01, -1.8892e+02,  7.7382e+01,  7.8644e+01,
+         8.4194e+00,  2.2930e+01, -7.1830e+00, -6.6574e+01, -3.3054e+02,
+         5.8225e+01,  1.5760e+02,  1.0247e+01, -1.7864e+02,  2.9328e+01,
+        -3.6635e+02,  3.4930e+01,  6.1852e+01, -1.6929e+02,  9.3390e+01,
+         1.0052e+01,  1.0717e+02,  6.1037e+01,  9.3277e+01,  8.0928e+01,
+         1.2687e+02,  2.7249e+01, -2.7857e+01, -4.4983e+01, -2.0522e+01,
+         3.6752e+01,  5.6754e+00,  1.1767e+02, -3.2829e-01], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:347] tensor([  8958.2988,    503.1639,   1683.5592,  11017.2910,    469.6939,
+          1101.5562,  13018.7021,    598.8791,  73358.0938,   1744.2200,
+          1111.0559,   4188.5649,    230.0558,    196.4213,    619.3953,
+          7850.1914,   1150.9459,   3213.2573,    408.9420,   6122.9810,
+          5264.2754,    553.5757,   1790.5327,   4000.3357,  61865.8789,
+         18659.1348,   1953.1915,    393.7672,    549.4082,  15981.3398,
+           914.9704,   7170.4209,  32817.7734,  10049.0078,  20021.2598,
+           493.6380,   1556.1818,    141.2707,   4236.3872,  95876.3672,
+          3356.7312,  20842.4238,    853.9052,  29105.6719,    871.0364,
+        114601.6641,   1060.4939,  11236.9492,  26942.8594,   8333.3389,
+          1193.3374,   9631.8447,   3374.3127,   9665.9580,   7312.7407,
+         14725.9160,   1241.4089,   1179.5675,   4515.9741,    531.3281,
+          1721.4365,   2896.3992,  12334.6514,    356.7729], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:325] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:27 INFO     [executor.py:326] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:327] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:328] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:329] tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:330] tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1.], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:332] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:332] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:332] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:332] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:332] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:27 INFO     [executor.py:335] ><><><><><><><
+(08-22) 16:52:27 INFO     [executor.py:338] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:27 INFO     [executor.py:339] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:340] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:341] <class 'torch.Tensor'>
+(08-22) 16:52:27 INFO     [executor.py:342] tensor([   7.9403,  -57.3571,  -27.3524,  126.2864,  -11.7063,  -29.5435,
+          30.2990,   49.2847, -266.9697,   18.7289,   58.6495,  -15.7283,
+          75.7761,  -17.0713,  -27.9928,   57.3205,    8.4545, -106.9370,
+          19.6999,  -23.5535, -370.5738, -153.6323,  -91.2184,  -21.1512,
+         207.9224,  155.6311, -139.4140,   56.4490,  -16.1538,   67.6157,
+           5.5892, -131.5317,  -17.8531,   27.1669,   93.2650,   41.7725,
+         -29.7965,    0.9003,  138.4843,  -21.4908,  -44.6900,  100.6632,
+         -36.2598,    0.7772,   51.4748,    3.5333,   12.2130,  -75.8331,
+        -105.5573,  -65.9110,  -47.7542,   90.8499,   22.0159,   40.9449,
+        -237.2973,  -43.9440, -147.2469,  -60.4030,  -11.4256,   60.4158,
+         -39.8870, -207.7550,   61.0195,  -11.3618], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:343] tensor([8.0565e+02, 2.1279e+03, 1.4987e+03, 1.1117e+04, 1.2849e+02, 8.5873e+02,
+        8.7701e+02, 2.0880e+03, 4.3936e+04, 2.8862e+03, 3.5615e+03, 4.3130e+03,
+        3.7547e+03, 4.4105e+02, 6.3948e+02, 2.2189e+03, 1.3975e+02, 8.4811e+03,
+        1.8037e+03, 9.5902e+02, 8.9343e+04, 1.6979e+04, 6.0659e+03, 4.5117e+02,
+        3.0718e+04, 1.6668e+04, 1.2254e+04, 2.4120e+03, 2.9335e+02, 7.1255e+03,
+        2.4581e+02, 1.1700e+04, 2.0539e+03, 5.3035e+03, 1.3022e+04, 1.1461e+03,
+        2.0103e+03, 6.2246e+01, 1.3062e+04, 6.3766e+02, 1.2209e+03, 7.1566e+03,
+        1.5289e+03, 1.3248e+03, 2.2116e+03, 6.1154e+03, 6.2196e+02, 3.9240e+03,
+        7.9812e+03, 3.7283e+03, 2.0735e+03, 5.0490e+03, 8.9685e+02, 1.2992e+03,
+        3.4205e+04, 1.3941e+03, 1.5494e+04, 3.2495e+03, 3.7942e+02, 2.6772e+03,
+        1.3608e+03, 2.9266e+04, 2.3856e+03, 2.8425e+03], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:345] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:27 INFO     [executor.py:345] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:27 INFO     [executor.py:345] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:27 INFO     [executor.py:345] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:27 INFO     [executor.py:345] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:27 INFO     [executor.py:346] tensor([   7.9403,  -57.3571,  -27.3524,  126.2864,  -11.7063,  -29.5435,
+          30.2990,   49.2847, -266.9697,   18.7289,   58.6495,  -15.7283,
+          75.7761,  -17.0713,  -27.9928,   57.3205,    8.4545, -106.9370,
+          19.6999,  -23.5535, -370.5738, -153.6323,  -91.2184,  -21.1512,
+         207.9224,  155.6311, -139.4140,   56.4490,  -16.1538,   67.6157,
+           5.5892, -131.5317,  -17.8531,   27.1669,   93.2650,   41.7725,
+         -29.7965,    0.9003,  138.4843,  -21.4908,  -44.6900,  100.6632,
+         -36.2598,    0.7772,   51.4748,    3.5333,   12.2130,  -75.8331,
+        -105.5573,  -65.9110,  -47.7542,   90.8499,   22.0159,   40.9449,
+        -237.2973,  -43.9440, -147.2469,  -60.4030,  -11.4256,   60.4158,
+         -39.8870, -207.7550,   61.0195,  -11.3618], device='cuda:1')
+(08-22) 16:52:27 INFO     [executor.py:347] tensor([8.0565e+02, 2.1279e+03, 1.4987e+03, 1.1117e+04, 1.2849e+02, 8.5873e+02,
+        8.7701e+02, 2.0880e+03, 4.3936e+04, 2.8862e+03, 3.5615e+03, 4.3130e+03,
+        3.7547e+03, 4.4105e+02, 6.3948e+02, 2.2189e+03, 1.3975e+02, 8.4811e+03,
+        1.8037e+03, 9.5902e+02, 8.9343e+04, 1.6979e+04, 6.0659e+03, 4.5117e+02,
+        3.0718e+04, 1.6668e+04, 1.2254e+04, 2.4120e+03, 2.9335e+02, 7.1255e+03,
+        2.4581e+02, 1.1700e+04, 2.0539e+03, 5.3035e+03, 1.3022e+04, 1.1461e+03,
+        2.0103e+03, 6.2246e+01, 1.3062e+04, 6.3766e+02, 1.2209e+03, 7.1566e+03,
+        1.5289e+03, 1.3248e+03, 2.2116e+03, 6.1154e+03, 6.2196e+02, 3.9240e+03,
+        7.9812e+03, 3.7283e+03, 2.0735e+03, 5.0490e+03, 8.9685e+02, 1.2992e+03,
+        3.4205e+04, 1.3941e+03, 1.5494e+04, 3.2495e+03, 3.7942e+02, 2.6772e+03,
+        1.3608e+03, 2.9266e+04, 2.3856e+03, 2.8425e+03], device='cuda:1')
+(08-22) 16:52:28 INFO     [client.py:328] Training of (CLIENT: 686) completes, {'clientId': 686, 'moving_loss': 15.867782592399994, 'trained_size': 80, 'success': True, 'utility': 187.2216113236172}
+(08-22) 16:52:28 INFO     [executor.py:325] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:28 INFO     [executor.py:326] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:327] <class 'torch.Tensor'>
+(08-22) 16:52:28 INFO     [executor.py:328] <class 'torch.Tensor'>
+(08-22) 16:52:28 INFO     [executor.py:329] tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       device='cuda:1')
+(08-22) 16:52:28 INFO     [executor.py:330] tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+        1., 1., 1., 1., 1., 1., 1., 1., 1., 1.], device='cuda:1')
+(08-22) 16:52:28 INFO     [executor.py:332] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:332] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:332] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:332] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:28 INFO     [executor.py:332] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:28 INFO     [executor.py:335] ><><><><><><><
+(08-22) 16:52:28 INFO     [executor.py:338] 0 <class 'utils.resnet_speech.ResNet'>
+(08-22) 16:52:28 INFO     [executor.py:339] <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:340] <class 'torch.Tensor'>
+(08-22) 16:52:28 INFO     [executor.py:341] <class 'torch.Tensor'>
+(08-22) 16:52:28 INFO     [executor.py:342] tensor([  33.5807,  -16.3782,  -10.2427,  104.1344,   -3.8289,   15.1854,
+          44.8516,    7.0854,   14.3467,   81.9536,  -30.3814,  -30.9412,
+          -1.9919,   -8.2875,   29.6711,  -77.4106,   -6.7731,   81.7101,
+         -18.6134,   -9.0099,   89.4488,   10.5617,   29.2994,   29.1630,
+          34.9626, -150.2909,    8.1062,   80.0529,    9.9549,  -36.5979,
+           2.9035,  -68.6966,   68.9595,  -30.1438, -146.1447,   51.2406,
+           4.9457,  -16.2477,   51.4373,  -20.4859,    8.8401,  -34.7342,
+         -19.1798,  -23.3178,  -55.1587,   54.3056,   23.0975, -160.5710,
+         -96.9995,    6.7746,   -3.0507,   14.1111,  -43.8953, -118.6880,
+        -183.8587,   10.3669,   -7.2296,   -3.4571,   -8.9012,  -12.8752,
+         -17.3777,  -81.6167,   -2.8098,   -3.9156], device='cuda:1')
+(08-22) 16:52:28 INFO     [executor.py:343] tensor([ 1978.0513,   281.6020,   235.7976, 10213.1260,   122.4204,   310.1136,
+         2058.8735,   273.3358,   376.7331,  6144.1064,  1023.1167,  1669.1571,
+           71.7366,   139.4909,   985.0814,  5015.2788,   191.1017,  6770.7271,
+          287.3872,   106.4306,  6818.4595,   422.6526,   664.9238,   917.4342,
+         1687.9475, 19074.4785,   613.9147,  5803.7529,   235.1805,  1834.1956,
+          348.3716,  3609.5464,  6547.3877,   993.2560, 26975.7285,  2082.8105,
+          236.0644,   340.0792,  2853.0073,  1414.9789,   129.6070,  1499.0114,
+          369.9234,   541.2136,  2457.0269,  2918.7300,   878.2763, 23044.6562,
+         7901.1406,   226.8934,   576.6959,   628.4860,  1695.3351, 11206.5254,
+        29063.9785,   661.7952,   161.5465,   958.1633,   340.9578,   372.6786,
+          714.9657,  6272.8672,  1367.6281,   227.8631], device='cuda:1')
+(08-22) 16:52:28 INFO     [executor.py:345] 1 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 2 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 3 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 4 <class 'torch.nn.modules.pooling.MaxPool2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 5 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 6 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 7 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 8 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 9 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 10 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 11 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 12 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 13 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 14 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 15 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 16 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 17 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 18 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 19 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 20 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 21 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 22 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 23 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 24 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 25 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 26 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 27 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 28 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 29 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 30 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 31 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 32 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 33 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 34 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 35 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 36 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 37 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 38 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 39 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 40 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 41 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 42 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 43 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 44 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 45 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 46 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 47 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 48 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 49 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 50 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 51 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 52 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 53 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 54 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 55 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 56 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 57 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 58 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 59 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 60 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 61 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 62 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 63 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 64 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 65 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 66 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 67 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 68 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 69 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 70 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 71 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 72 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 73 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 74 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 75 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 76 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 77 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 78 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 79 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 80 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 81 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 82 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 83 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 84 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 85 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 86 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 87 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 88 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 89 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 90 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 91 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 92 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 93 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 94 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 95 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 96 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 97 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 98 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 99 <class 'torch.nn.modules.container.Sequential'>
+(08-22) 16:52:28 INFO     [executor.py:345] 100 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 101 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 102 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 103 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 104 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 105 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 106 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 107 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 108 <class 'utils.resnet_speech.BasicBlock'>
+(08-22) 16:52:28 INFO     [executor.py:345] 109 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 110 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 111 <class 'torch.nn.modules.activation.ReLU'>
+(08-22) 16:52:28 INFO     [executor.py:345] 112 <class 'torch.nn.modules.conv.Conv2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 113 <class 'torch.nn.modules.batchnorm.BatchNorm2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 114 <class 'torch.nn.modules.pooling.AvgPool2d'>
+(08-22) 16:52:28 INFO     [executor.py:345] 115 <class 'torch.nn.modules.linear.Linear'>
+(08-22) 16:52:28 INFO     [executor.py:346] tensor([  33.5807,  -16.3782,  -10.2427,  104.1344,   -3.8289,   15.1854,
+          44.8516,    7.0854,   14.3467,   81.9536,  -30.3814,  -30.9412,
+          -1.9919,   -8.2875,   29.6711,  -77.4106,   -6.7731,   81.7101,
+         -18.6134,   -9.0099,   89.4488,   10.5617,   29.2994,   29.1630,
+          34.9626, -150.2909,    8.1062,   80.0529,    9.9549,  -36.5979,
+           2.9035,  -68.6966,   68.9595,  -30.1438, -146.1447,   51.2406,
+           4.9457,  -16.2477,   51.4373,  -20.4859,    8.8401,  -34.7342,
+         -19.1798,  -23.3178,  -55.1587,   54.3056,   23.0975, -160.5710,
+         -96.9995,    6.7746,   -3.0507,   14.1111,  -43.8953, -118.6880,
+        -183.8587,   10.3669,   -7.2296,   -3.4571,   -8.9012,  -12.8752,
+         -17.3777,  -81.6167,   -2.8098,   -3.9156], device='cuda:1')
+(08-22) 16:52:28 INFO     [executor.py:347] tensor([ 1978.0513,   281.6020,   235.7976, 10213.1260,   122.4204,   310.1136,
+         2058.8735,   273.3358,   376.7331,  6144.1064,  1023.1167,  1669.1571,
+           71.7366,   139.4909,   985.0814,  5015.2788,   191.1017,  6770.7271,
+          287.3872,   106.4306,  6818.4595,   422.6526,   664.9238,   917.4342,
+         1687.9475, 19074.4785,   613.9147,  5803.7529,   235.1805,  1834.1956,
+          348.3716,  3609.5464,  6547.3877,   993.2560, 26975.7285,  2082.8105,
+          236.0644,   340.0792,  2853.0073,  1414.9789,   129.6070,  1499.0114,
+          369.9234,   541.2136,  2457.0269,  2918.7300,   878.2763, 23044.6562,
+         7901.1406,   226.8934,   576.6959,   628.4860,  1695.3351, 11206.5254,
+        29063.9785,   661.7952,   161.5465,   958.1633,   340.9578,   372.6786,
+          714.9657,  6272.8672,  1367.6281,   227.8631], device='cuda:1')

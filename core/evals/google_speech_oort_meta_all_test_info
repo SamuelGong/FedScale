@@ -1,3 +1,4 @@
 job_name=google_speech_oort_meta_all_test
 model=resnet34
-time_stamp=0816_111122
+time_stamp=0822_174241
+git_head_hash=0c579e8

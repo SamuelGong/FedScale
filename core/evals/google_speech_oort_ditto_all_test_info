@@ -1,3 +1,4 @@
 job_name=google_speech_oort_ditto_all_test
 model=resnet34
-time_stamp=0820_103741
+time_stamp=0822_182600
+git_head_hash=0c579e8

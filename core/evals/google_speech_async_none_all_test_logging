@@ -1,176 +1,199 @@
 /data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
 Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
   from numba.decorators import jit as optional_jit
-(08-20) 20:06:13 INFO     [aggregator.py:11] Job args Namespace(adam_epsilon=1e-08, adaptation_mode=0, aggregator_device=0, all_test_ratio=0.3, async_end_time=345600, async_eval_interval=2400, async_num_issues_max=50, async_sec_per_step=2400, async_update_ratio=1.0, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=2.4368231046931412, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/google_speech', data_map_file='/homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv', data_set='google_speech', dataset_size='default', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=501, eval_interval=20, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=316, filter_more=1000000000000000.0, finetune=False, gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='google_speech_async_none_all_test', labels_path='labels.json', learners='1-2-3-4', learning_rate=0.05, line_by_line=False, local_steps=4, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=20856, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='resnet34', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=35, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='none', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='38545', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='random', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, sync_mode='async', task='speech', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='all', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0820_200528', total_worker=50, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+(08-22) 19:12:13 INFO     [executor.py:49] (EXECUTOR:1) is setting up environ ...
 /data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
 Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
   from numba.decorators import jit as optional_jit
-(08-20) 20:06:13 INFO     [executor.py:49] (EXECUTOR:2) is setting up environ ...
+(08-22) 19:12:13 INFO     [executor.py:49] (EXECUTOR:3) is setting up environ ...
 /data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
 Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
   from numba.decorators import jit as optional_jit
-(08-20) 20:06:13 INFO     [executor.py:49] (EXECUTOR:1) is setting up environ ...
+(08-22) 19:12:13 INFO     [executor.py:49] (EXECUTOR:2) is setting up environ ...
 /data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
 Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
   from numba.decorators import jit as optional_jit
-(08-20) 20:06:13 INFO     [executor.py:49] (EXECUTOR:3) is setting up environ ...
+(08-22) 19:12:13 INFO     [executor.py:49] (EXECUTOR:4) is setting up environ ...
 /data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/librosa/util/decorators.py:9: NumbaDeprecationWarning: An import was requested from a module that has moved location.
 Import of 'jit' requested from: 'numba.decorators', please update to use 'numba.core.decorators' or pin to Numba version 0.48.0. This alias will not be present in Numba version 0.50.0.
   from numba.decorators import jit as optional_jit
-(08-20) 20:06:13 INFO     [executor.py:49] (EXECUTOR:4) is setting up environ ...
-(08-20) 20:06:14 INFO     [executor.py:86] Start to connect to 127.0.0.1:20856 for control plane communication ...
-(08-20) 20:06:14 INFO     [executor.py:86] Start to connect to 127.0.0.1:20856 for control plane communication ...
-(08-20) 20:06:14 INFO     [executor.py:86] Start to connect to 127.0.0.1:20856 for control plane communication ...
-(08-20) 20:06:14 INFO     [executor.py:86] Start to connect to 127.0.0.1:20856 for control plane communication ...
-(08-20) 20:06:19 INFO     [aggregator.py:104] End up with cuda device (cuda:0)
-(08-20) 20:06:19 INFO     [aggregator.py:124] Start to initiate 127.0.0.1:20856 for control plane communication ...
-(08-20) 20:06:21 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
-(08-20) 20:06:21 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
-(08-20) 20:06:21 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
-(08-20) 20:06:21 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
-(08-20) 20:06:21 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
-(08-20) 20:06:21 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 5 nodes.
-(08-20) 20:06:21 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 5 nodes.
-(08-20) 20:06:21 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 5 nodes.
-(08-20) 20:06:21 INFO     [fllibs.py:78] Initializing the model ...
-(08-20) 20:06:21 INFO     [fllibs.py:78] Initializing the model ...
-(08-20) 20:06:21 INFO     [fllibs.py:78] Initializing the model ...
-(08-20) 20:06:21 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 5 nodes.
-(08-20) 20:06:21 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 5 nodes.
-(08-20) 20:06:21 INFO     [fllibs.py:78] Initializing the model ...
-(08-20) 20:06:21 INFO     [fllibs.py:78] Initializing the model ...
-(08-20) 20:06:22 INFO     [aggregator.py:624] Start monitoring events ...
-(08-20) 20:06:27 INFO     [executor.py:123] Data partitioner starts ...
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [executor.py:123] Data partitioner starts ...
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [executor.py:123] Data partitioner starts ...
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [executor.py:123] Data partitioner starts ...
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
-(08-20) 20:06:27 INFO     [executor.py:132] Data partitioner completes ...
-(08-20) 20:06:27 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
-(08-20) 20:06:27 INFO     [executor.py:132] Data partitioner completes ...
-(08-20) 20:06:27 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
-(08-20) 20:06:27 INFO     [executor.py:132] Data partitioner completes ...
-(08-20) 20:06:27 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
-(08-20) 20:06:27 INFO     [executor.py:132] Data partitioner completes ...
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
-(08-20) 20:06:27 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
-(08-20) 20:06:27 INFO     [executor.py:403] Start monitoring events ...
-(08-20) 20:06:27 INFO     [aggregator.py:675] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:2)
-(08-20) 20:06:27 INFO     [executor.py:403] Start monitoring events ...
-(08-20) 20:06:27 INFO     [executor.py:403] Start monitoring events ...
-(08-20) 20:06:27 INFO     [executor.py:403] Start monitoring events ...
-(08-20) 20:06:27 INFO     [aggregator.py:675] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:4)
-(08-20) 20:06:27 INFO     [aggregator.py:675] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:1)
-(08-20) 20:06:27 INFO     [aggregator.py:675] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:3)
-(08-20) 20:06:27 INFO     [aggregator.py:227] Info of all feasible clients {'total_feasible_clients': 1, 'total_num_samples': 316}
-(08-20) 20:06:27 INFO     [client_manager.py:186] Wall clock time: 0, 1 clients online, 0 clients offline
-(08-20) 20:06:27 INFO     [aggregator.py:456] [Async] 1 clients to start at step 0/144 wall clock 0 s: [237]
-(08-20) 20:06:27 INFO     [aggregator.py:459] [Async] while 0/1 sampled clients dropped or busy: []
-(08-20) 20:06:27 INFO     [executor.py:410] Executor 3: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
-(08-20) 20:06:27 INFO     [executor.py:410] Executor 4: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
-(08-20) 20:06:27 INFO     [executor.py:410] Executor 2: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
-(08-20) 20:06:27 INFO     [executor.py:410] Executor 1: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
-(08-20) 20:06:28 INFO     [aggregator.py:638] [Async] 1 clients to end at step 1/144 wall clock 2400 s: [237]
-(08-20) 20:06:28 INFO     [executor.py:410] Executor 3: Received (Event:TRAIN) from aggregator
-(08-20) 20:06:29 INFO     [client.py:18] Start to train (CLIENT: 237) ...
+(08-22) 19:12:13 INFO     [aggregator.py:11] Job args Namespace(adam_epsilon=1e-08, adaptation_mode=0, aggregator_device=0, all_test_ratio=0.3, async_end_time=345600, async_eval_interval=14400, async_num_issues_max=50, async_sec_per_step=240, async_update_ratio=0.1, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=2.4368231046931412, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/google_speech', data_map_file='/homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv', data_set='google_speech', dataset_size='default', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=501, eval_interval=20, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=28, filter_more=1000000000000000.0, finetune=False, git_head_hash='0c579e8d8bd5fd16fc68a91e37b924b744eb54b1', gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='google_speech_async_none_all_test', labels_path='labels.json', learners='1-2-3-4', learning_rate=0.05, line_by_line=False, local_steps=4, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=51600, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='resnet34', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=35, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='none', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='23565', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='random', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, sync_mode='async', task='speech', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='all', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0822_190357', total_worker=50, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+(08-22) 19:12:20 INFO     [executor.py:86] Start to connect to 127.0.0.1:51600 for control plane communication ...
+(08-22) 19:12:20 INFO     [executor.py:86] Start to connect to 127.0.0.1:51600 for control plane communication ...
+(08-22) 19:12:20 INFO     [executor.py:86] Start to connect to 127.0.0.1:51600 for control plane communication ...
+(08-22) 19:12:21 INFO     [executor.py:86] Start to connect to 127.0.0.1:51600 for control plane communication ...
+(08-22) 19:12:24 INFO     [aggregator.py:104] End up with cuda device (cuda:0)
+(08-22) 19:12:24 INFO     [aggregator.py:124] Start to initiate 127.0.0.1:51600 for control plane communication ...
+(08-22) 19:12:34 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
+(08-22) 19:12:34 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(08-22) 19:12:34 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
+(08-22) 19:12:34 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(08-22) 19:12:34 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 5 nodes.
+(08-22) 19:12:34 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
+(08-22) 19:12:34 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 5 nodes.
+(08-22) 19:12:34 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 5 nodes.
+(08-22) 19:12:34 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 19:12:34 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 19:12:34 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 19:12:34 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 5 nodes.
+(08-22) 19:12:34 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 19:12:34 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 5 nodes.
+(08-22) 19:12:34 INFO     [fllibs.py:78] Initializing the model ...
+(08-22) 19:12:41 INFO     [aggregator.py:622] Start monitoring events ...
+(08-22) 19:12:50 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 19:12:50 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 19:12:50 INFO     [executor.py:123] Data partitioner starts ...
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 19:12:50 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 19:12:50 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 19:12:50 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 19:12:50 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 19:12:50 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 19:12:50 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-22) 19:12:50 INFO     [executor.py:132] Data partitioner completes ...
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-22) 19:12:50 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-22) 19:12:50 INFO     [executor.py:412] Start monitoring events ...
+(08-22) 19:12:50 INFO     [executor.py:412] Start monitoring events ...
+(08-22) 19:12:50 INFO     [aggregator.py:673] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:1)
+(08-22) 19:12:50 INFO     [executor.py:412] Start monitoring events ...
+(08-22) 19:12:50 INFO     [executor.py:412] Start monitoring events ...
+(08-22) 19:12:50 INFO     [aggregator.py:673] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:4)
+(08-22) 19:12:51 INFO     [aggregator.py:673] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:2)
+(08-22) 19:12:51 INFO     [aggregator.py:673] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:3)
+(08-22) 19:12:51 INFO     [aggregator.py:227] Info of all feasible clients {'total_feasible_clients': 1870, 'total_num_samples': 96056}
+(08-22) 19:12:51 INFO     [client_manager.py:186] Wall clock time: 0, 589 clients online, 1281 clients offline
+(08-22) 19:12:51 INFO     [aggregator.py:454] [Async] 37 clients to start at step 0/1440 wall clock 0 s: [16, 50, 55, 84, 121, 156, 201, 239, 245, 300, 323, 324, 402, 500, 612, 686, 700, 749, 901, 902, 935, 997, 1023, 1034, 1225, 1242, 1261, 1355, 1367, 1400, 1544, 1593, 1674, 1769, 1916, 1953, 1983]
+(08-22) 19:12:51 INFO     [aggregator.py:457] [Async] while 13/50 sampled clients dropped or busy: [157, 427, 576, 856, 938, 996, 1010, 1108, 1137, 1291, 1308, 1427, 1586]
+(08-22) 19:12:51 INFO     [executor.py:419] Executor 2: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(08-22) 19:12:51 INFO     [executor.py:419] Executor 1: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(08-22) 19:12:51 INFO     [executor.py:419] Executor 4: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(08-22) 19:12:51 INFO     [executor.py:419] Executor 3: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(08-22) 19:12:51 INFO     [async_controller.py:39] LIST_TASK {16: 58, 50: 418, 55: 95, 84: 46, 121: 513, 156: 792, 201: 496, 239: 52, 245: 198, 300: 66, 323: 664, 324: 552, 402: 685, 500: 43, 612: 146, 686: 36, 700: 637, 749: 247, 901: 450, 902: 158, 935: 664, 997: 300, 1023: 132, 1034: 198, 1225: 845, 1242: 217, 1261: 272, 1355: 76, 1367: 560, 1400: 731, 1544: 530, 1593: 23, 1674: 643, 1769: 383, 1916: 249, 1953: 55, 1983: 331} || {157: 973, 427: 647, 576: 358, 856: 1272, 938: 543, 996: 873, 1010: 53, 1108: 637, 1137: 161, 1291: 66, 1308: 326, 1427: 448, 1586: 167}
+(08-22) 19:12:51 INFO     [aggregator.py:636] [Async] 16 clients to end at step 1/1440 wall clock 240 s: [16, 55, 84, 239, 245, 300, 500, 612, 686, 902, 1023, 1034, 1242, 1355, 1593, 1953]
+(08-22) 19:12:52 INFO     [executor.py:419] Executor 2: Received (Event:TRAIN) from aggregator
+(08-22) 19:12:52 INFO     [executor.py:419] Executor 3: Received (Event:TRAIN) from aggregator
+(08-22) 19:12:52 INFO     [executor.py:419] Executor 4: Received (Event:TRAIN) from aggregator
+(08-22) 19:12:52 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 19:12:52 INFO     [client.py:18] Start to train (CLIENT: 16) ...
+(08-22) 19:12:52 INFO     [client.py:18] Start to train (CLIENT: 55) ...
+(08-22) 19:12:52 INFO     [client.py:18] Start to train (CLIENT: 84) ...
+(08-22) 19:12:52 INFO     [client.py:18] Start to train (CLIENT: 239) ...
 /data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
   return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
-(08-20) 20:06:31 INFO     [client.py:328] Training of (CLIENT: 237) completes, {'clientId': 237, 'moving_loss': 28.052250439881007, 'trained_size': 80, 'success': True, 'utility': 423.71500187654254}
-(08-20) 20:06:31 INFO     [aggregator.py:675] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
-(08-20) 20:06:32 INFO     [aggregator.py:675] Step 1: Receive (Event:TRAIN) from (Executor:3)
-(08-20) 20:06:32 INFO     [aggregator.py:405] 1.0 1.0 0.0
-(08-20) 20:06:32 INFO     [aggregator.py:406] Before: [-7.9138055e-02  2.3491545e-02  6.6829338e-03 -3.6833175e-02
- -9.8243402e-04  2.4834133e-05  1.9379778e-02 -1.4456982e-02
-  1.4451204e-03  8.0192843e-03]
+(08-22) 19:15:11 INFO     [client.py:328] Training of (CLIENT: 239) completes, {'clientId': 239, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-22) 19:15:11 INFO     [aggregator.py:673] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(08-22) 19:15:12 INFO     [executor.py:419] Executor 1: Received (Event:TRAIN) from aggregator
+(08-22) 19:15:12 INFO     [client.py:18] Start to train (CLIENT: 245) ...
+(08-22) 19:15:12 INFO     [aggregator.py:673] Step 1: Receive (Event:TRAIN) from (Executor:1)
 Traceback (most recent call last):
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 460, in <module>
-    executor.run()
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 169, in run
-    self.event_monitor()
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 407, in event_monitor
-    event_dict = self.server_event_queue.get()
-  File "<string>", line 2, in get
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 757, in _callmethod
-    kind, result = conn.recv()
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 250, in recv
-    buf = self._recv_bytes()
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
-    buf = self._recv(4)
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 379, in _recv
-    chunk = read(handle, remaining)
-ConnectionResetError: [Errno 104] Connection reset by peer
-Traceback (most recent call last):
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 460, in <module>
-    executor.run()
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 169, in run
-    self.event_monitor()
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 407, in event_monitor
-    event_dict = self.server_event_queue.get()
-  File "<string>", line 2, in get
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 757, in _callmethod
-    kind, result = conn.recv()
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 250, in recv
-    buf = self._recv_bytes()
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
-    buf = self._recv(4)
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 379, in _recv
-    chunk = read(handle, remaining)
-ConnectionResetError: [Errno 104] Connection reset by peer
-Traceback (most recent call last):
-  File "/homes/zjiangaj/FedScale/core/aggregator.py", line 818, in <module>
+  File "/homes/zjiangaj/FedScale/core/aggregator.py", line 816, in <module>
     aggregator.run()
   File "/homes/zjiangaj/FedScale/core/aggregator.py", line 281, in run
     self.event_monitor()
-  File "/homes/zjiangaj/FedScale/core/aggregator.py", line 684, in event_monitor
+  File "/homes/zjiangaj/FedScale/core/aggregator.py", line 682, in event_monitor
     self.async_client_completion_handler(results)
-  File "/homes/zjiangaj/FedScale/core/aggregator.py", line 411, in async_client_completion_handler
-    logging.info(f"After: {param.data.numpy().flatten()[:10]}")
-TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+  File "/homes/zjiangaj/FedScale/core/aggregator.py", line 407, in async_client_completion_handler
+    torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-22) 19:16:48 INFO     [client.py:328] Training of (CLIENT: 84) completes, {'clientId': 84, 'moving_loss': 22.71981052888958, 'trained_size': 80, 'success': True, 'utility': 381.3224192004626}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-22) 19:16:51 INFO     [client.py:328] Training of (CLIENT: 16) completes, {'clientId': 16, 'moving_loss': 20.860373688563904, 'trained_size': 80, 'success': True, 'utility': 365.3852646273642}
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+(08-22) 19:16:52 INFO     [client.py:328] Training of (CLIENT: 55) completes, {'clientId': 55, 'moving_loss': 28.28773336336154, 'trained_size': 80, 'success': True, 'utility': 425.48971024633937}
 Traceback (most recent call last):
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 460, in <module>
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 473, in <module>
     executor.run()
   File "/homes/zjiangaj/FedScale/core/executor.py", line 169, in run
     self.event_monitor()
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 407, in event_monitor
-    event_dict = self.server_event_queue.get()
-  File "<string>", line 2, in get
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 437, in event_monitor
+    self.push_msg_to_server('train_nowait', None)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 180, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 757, in _callmethod
     kind, result = conn.recv()
   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 250, in recv
     buf = self._recv_bytes()
   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
     buf = self._recv(4)
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 379, in _recv
-    chunk = read(handle, remaining)
-ConnectionResetError: [Errno 104] Connection reset by peer
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError
 Traceback (most recent call last):
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 460, in <module>
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 473, in <module>
     executor.run()
   File "/homes/zjiangaj/FedScale/core/executor.py", line 169, in run
     self.event_monitor()
-  File "/homes/zjiangaj/FedScale/core/executor.py", line 406, in event_monitor
-    if not self.server_event_queue.empty():
-  File "<string>", line 2, in empty
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 437, in event_monitor
+    self.push_msg_to_server('train_nowait', None)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 180, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 757, in _callmethod
     kind, result = conn.recv()
   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 250, in recv
     buf = self._recv_bytes()
   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
     buf = self._recv(4)
-  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 379, in _recv
-    chunk = read(handle, remaining)
-ConnectionResetError: [Errno 104] Connection reset by peer
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 473, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 169, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 437, in event_monitor
+    self.push_msg_to_server('train_nowait', None)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 180, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 757, in _callmethod
+    kind, result = conn.recv()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError
+(08-22) 19:16:57 INFO     [client.py:328] Training of (CLIENT: 245) completes, {'clientId': 245, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+Traceback (most recent call last):
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 473, in <module>
+    executor.run()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 169, in run
+    self.event_monitor()
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 437, in event_monitor
+    self.push_msg_to_server('train_nowait', None)
+  File "/homes/zjiangaj/FedScale/core/executor.py", line 180, in push_msg_to_server
+    self.client_event_queue.put({'return': results, 'event': event, 'executorId': self.this_rank})
+  File "<string>", line 2, in put
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/managers.py", line 757, in _callmethod
+    kind, result = conn.recv()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/connection.py", line 383, in _recv
+    raise EOFError
+EOFError
