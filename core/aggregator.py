@@ -401,11 +401,10 @@ class Aggregator(object):
 
             for idx, param in enumerate(self.model.parameters()):
                 remaining_ratio = 1 - self.async_update_ratio
+                if not param.data.is_cuda:
+                    param.data = param.data.to(device=device)
                 param.data *= remaining_ratio
                 # The += here cannot be =!
-                if idx == 0:
-                    logging.info(f"A {param.data.is_cuda}")
-
                 param.data += self.async_update_ratio *\
                              torch.from_numpy(results['update_weight'][idx]).to(device=device) * importance
         else:
