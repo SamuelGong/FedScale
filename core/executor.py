@@ -343,7 +343,8 @@ class Executor(object):
                 logging.info(f"{module.bn1.running_var}")
             else:
                 logging.info(f"{idx} {type(module)}")
-
+        logging.info(f"{self.model.bn1.running_mean}")
+        logging.info(f"{self.model.bn1.running_var}")
         exit(0)
         gc.collect()
         torch.cuda.empty_cache()
