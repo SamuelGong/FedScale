@@ -319,9 +319,8 @@ class Executor(object):
             logging.info(f"Client {clientId}'s training failed as {e}")
 
         # we need to get runtime variance for BN
-        for idx, param in enumerate(self.model.parameters()):
-            if idx == 0:
-                logging.info(f"{type(param)}")
+
+        logging.info(f"{self.model.__dict__}")
         exit(0)
         self.model = client_model
 
