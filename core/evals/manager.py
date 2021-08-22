@@ -13,6 +13,8 @@ def load_yaml_conf(yaml_file):
     return data
 
 def process_cmd(yaml_file):
+    label = subprocess.check_output(["git", "describe"]).strip()
+    exit(0)
 
     yaml_conf = load_yaml_conf(yaml_file)
 
