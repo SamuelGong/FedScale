@@ -364,9 +364,9 @@ class Executor(object):
             data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
                                          isTest=True, collate_fn=self.collate_fn)
 
-            for idx, param in enumerate(client_model.parameters()):
-                if idx == 0:
-                    logging.info(f"Before (Test): {param.data.cpu().numpy().flatten()[:10]}")
+            # for idx, param in enumerate(client_model.parameters()):
+            #     if idx == 0:
+            #         logging.info(f"Before (Test): {param.data.cpu().numpy().flatten()[:10]}")
 
             test_res = test_model(self.this_rank, client_model, data_loader, device=device,
                                   criterion=criterion, tokenizer=tokenizer)
@@ -387,12 +387,12 @@ class Executor(object):
         if self.test_mode == "all":  # should have clientId and conf prepared
             # data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
             #                              collate_fn=self.collate_fn, my_use=True)
-            data_loader = select_dataset(clientId, self.training_sets, batch_size=args.test_bsz, isTest=True,
+            data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
                                          collate_fn=self.collate_fn, my_use=True)
 
-            for idx, param in enumerate(client_model.parameters()):
-                if idx == 0:
-                    logging.info(f"Before (All Test): {param.data.cpu().numpy().flatten()[:10]}")
+            # for idx, param in enumerate(client_model.parameters()):
+            #     if idx == 0:
+            #         logging.info(f"Before (All Test): {param.data.cpu().numpy().flatten()[:10]}")
 
             local_test_res = test_model(clientId, client_model, data_loader, device=device, criterion=criterion,
                                       tokenizer=tokenizer)

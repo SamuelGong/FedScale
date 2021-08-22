@@ -116,13 +116,12 @@ class DataPartitioner(object):
         test_length = max(1, int(len(resultIndex) * self.args.all_test_ratio))
         train_length = len(resultIndex) - test_length
         if istest:
-            # resultIndex = resultIndex[train_length:]
-            resultIndex = resultIndex[:train_length]
+            resultIndex = resultIndex[train_length:]
         else:
             resultIndex = resultIndex[:train_length]
 
-        # self.rng.shuffle(resultIndex)
-        logging.info(f"my_use {resultIndex}")
+        self.rng.shuffle(resultIndex)
+
         return Partition(self.data, resultIndex)
 
     def getSize(self):
