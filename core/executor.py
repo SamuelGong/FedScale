@@ -321,7 +321,7 @@ class Executor(object):
         # we need to get runtime variance for BN
         for idx, param in enumerate(self.model.parameters()):
             if idx == 0:
-                logging.info(f"{param.__dict__}")
+                logging.info(f"{type(param)}")
         exit(0)
         self.model = client_model
 
