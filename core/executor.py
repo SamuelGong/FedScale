@@ -322,7 +322,12 @@ class Executor(object):
 
         for idx, module in enumerate(self.model.modules()):
             if idx == 0:
-                logging.info(f"{type(module)}")
+                logging.info(f"{idx} {type(module)}")
+                logging.info(f"{type(module.bn1)}")
+                logging.info(f"{type(module.bn1.running_mean)}")
+                logging.info(f"{module.bn1.running_mean}")
+            else:
+                logging.info(f"{idx} {type(module)}")
         exit(0)
         self.model = client_model
 
