@@ -38,7 +38,7 @@ def process_cmd(yaml_file):
                 'ps_ip':ps_ip,
                 'ps_port':random.randint(1000, 60000),
                 'manager_port':random.randint(1000, 60000),
-                'git_head_hash':f'{git_head_hash}'
+                'git_head_hash':git_head_hash
                 }
 
     for conf in yaml_conf['job_conf']:
