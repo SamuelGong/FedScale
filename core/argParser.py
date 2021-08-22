@@ -174,6 +174,7 @@ parser.add_argument('--async_eval_interval', type=int, default=14400)
 parser.add_argument('--async_num_issues_max', type=int, default=100)
 parser.add_argument('--async_sec_per_step', type=int, default=240)
 parser.add_argument('--async_update_ratio', type=float, default=0.1)
+parser.add_argument('--git_head_hash', type=str, default=None)
 
 args = parser.parse_args()
 
