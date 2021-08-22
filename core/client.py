@@ -75,7 +75,7 @@ class Client(object):
                 ]
                 optimizer_2 = torch.optim.AdamW(optimizer_2_grouped_parameters, lr=conf.learning_rate)
         else:
-            optimizer = torch.optim.SGD(model.parameters(), lr=conf.learning_rate, momentum=0, weight_decay=0)
+            optimizer = torch.optim.SGD(model.parameters(), lr=conf.learning_rate, momentum=0.9, weight_decay=5e-4)
             if conf.personalized in ["ditto"]:
                 optimizer_2 = torch.optim.SGD(client_model.parameters(), lr=conf.learning_rate, momentum=0.9, weight_decay=5e-4)
 
@@ -122,7 +122,7 @@ class Client(object):
             else:
                 true_num_steps = len(client_data)
             # currently centralized learning goes with 1 epoch
-        cnt = 0
+        # cnt = 0
         while True:
 
             if conf.personalized == "meta" and specified_local_steps is None:
@@ -174,9 +174,9 @@ class Client(object):
                     else:
                         (data, target) = data_pair
 
-                    if cnt == 0:
-                        logging.info(f"First Train {data.numpy().flatten()[:10]}")
-                    cnt += 1
+                    # if cnt == 0:
+                    #     logging.info(f"First Train {data.numpy().flatten()[:10]}")
+                    # cnt += 1
 
                     if conf.task == "detection":
                         im_data.resize_(data[0].size()).copy_(data[0])
@@ -241,11 +241,11 @@ class Client(object):
                     true_model.zero_grad()
                     loss.backward()
 
-                    for idx, param in enumerate(true_model.parameters()):
-                        if idx == 0:
-                            logging.info(f"\tWhy? Before: {param.data.cpu().numpy().flatten()[:10]}")
-                            logging.info(f"\tWhy? grad: {param.grad.cpu().numpy().flatten()[:10]}")
-                            logging.info(f"\tWhy? expected: {param.data.cpu().numpy().flatten()[:10] - conf.learning_rate * param.grad.cpu().numpy().flatten()[:10]}")
+                    # for idx, param in enumerate(true_model.parameters()):
+                    #     if idx == 0:
+                    #         logging.info(f"\tWhy? Before: {param.data.cpu().numpy().flatten()[:10]}")
+                    #         logging.info(f"\tWhy? grad: {param.grad.cpu().numpy().flatten()[:10]}")
+                    #         logging.info(f"\tWhy? expected: {param.data.cpu().numpy().flatten()[:10] - conf.learning_rate * param.grad.cpu().numpy().flatten()[:10]}")
 
 
                     if conf.personalized == "meta" and loop_idx > 0 and specified_local_steps is None:
@@ -277,8 +277,8 @@ class Client(object):
                             optimizer.step()
 
                     for idx, param in enumerate(true_model.parameters()):
-                        if idx == 0:
-                            logging.info(f"\tWhy? After: {param.data.cpu().numpy().flatten()[:10]}")
+                        # if idx == 0:
+                        #     logging.info(f"\tWhy? After: {param.data.cpu().numpy().flatten()[:10]}")
 
                     if (conf.personalized == "meta" and conf.adaptation_mode == 0
                             and loop_idx == 1 and specified_local_steps is None) \
@@ -291,7 +291,7 @@ class Client(object):
                             or conf.personalized == "none":
                         temp_loss = sum([l**2 for l in loss_list])/float(len(loss_list))
 
-                        logging.info(f"\tWhy? Client {clientId} Step {completed_steps} Loss {temp_loss}")
+                        # logging.info(f"\tWhy? Client {clientId} Step {completed_steps} Loss {temp_loss}")
 
                         # only measure the loss of the first epoch
                         if completed_steps < len(client_data):
