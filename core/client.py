@@ -276,7 +276,7 @@ class Client(object):
                         else:
                             optimizer.step()
 
-                    for idx, param in enumerate(true_model.parameters()):
+                    # for idx, param in enumerate(true_model.parameters()):
                         # if idx == 0:
                         #     logging.info(f"\tWhy? After: {param.data.cpu().numpy().flatten()[:10]}")
 
