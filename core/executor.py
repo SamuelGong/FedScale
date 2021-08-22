@@ -327,6 +327,7 @@ class Executor(object):
                 logging.info(f"{type(module.bn1.running_mean)}")
                 logging.info(f"{type(module.bn1.running_var)}")
                 logging.info(f"{module.bn1.running_mean}")
+                logging.info(f"{module.bn1.running_var}")
             else:
                 logging.info(f"{idx} {type(module)}")
 
@@ -339,6 +340,7 @@ class Executor(object):
                 logging.info(f"{type(module.bn1.running_mean)}")
                 logging.info(f"{type(module.bn1.running_var)}")
                 logging.info(f"{module.bn1.running_mean}")
+                logging.info(f"{module.bn1.running_var}")
             else:
                 logging.info(f"{idx} {type(module)}")
 
