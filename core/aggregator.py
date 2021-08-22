@@ -342,12 +342,7 @@ class Aggregator(object):
             self.model_in_update = [True]
 
             for idx, param in enumerate(self.model.parameters()):
-                if idx == 0:
-                    logging.info(f"{importance}")
-                    logging.info(f"Before: {param.data.cpu().numpy().flatten()[:10]}")
                 param.data = torch.from_numpy(results['update_weight'][idx]).to(device=device)*importance
-                if idx == 0:
-                    logging.info(f"After: {param.data.cpu().numpy().flatten()[:10]}")
         else:
             for idx, param in enumerate(self.model.parameters()):
                 param.data += torch.from_numpy(results['update_weight'][idx]).to(device=device)*importance
