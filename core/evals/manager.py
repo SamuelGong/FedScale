@@ -15,7 +15,7 @@ def load_yaml_conf(yaml_file):
 def process_cmd(yaml_file):
     process = subprocess.Popen(['git', 'rev-parse', 'HEAD'], shell=False, stdout=subprocess.PIPE)
     git_head_hash = process.communicate()[0].strip().decode("utf-8")
-    print(git_head_hash)
+    print(git_head_hash[:7])
     exit(0)
 
     yaml_conf = load_yaml_conf(yaml_file)
@@ -70,7 +70,8 @@ def process_cmd(yaml_file):
 
     ls = [f"job_name={job_name.split('/')[-1]}\n",
           f"model={job_conf['model']}\n",
-          f"time_stamp={time_stamp}"]
+          f"time_stamp={time_stamp}\n",
+          f"git_head_hash={git_head_hash}"]
     with open(f"{job_name}_info", 'w') as fout:
         fout.writelines(ls)
 
