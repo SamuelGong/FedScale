@@ -1,4 +1,4 @@
 job_name=google_speech_async_none_all_test
 model=resnet34
-time_stamp=0822_190357
-git_head_hash=0c579e8
+time_stamp=0822_211811
+git_head_hash=ade9bc2
