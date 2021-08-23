@@ -24,3 +24,8 @@ quotas
 ./data/*
 ./scripts/logs/*
 data/
+core/evals/google_speech_async_none_all_test_logging
+core/evals/google_speech_oort_ditto_all_test_logging
+core/evals/google_speech_oort_meta_all_test_logging
+core/evals/google_speech_random_ditto_all_test_logging
+core/evals/google_speech_random_meta_all_test_logging
