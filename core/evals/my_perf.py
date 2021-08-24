@@ -24,7 +24,6 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
 
     X = [i for i in range(len(datas[0]))]
     for i, data in enumerate(datas):
-        print(i, len(xs[i]), len(data))
         plt.plot(xs[i], data, linetype[i % len(linetype)],
                  color=colors[(i // 2) % len(colors)], label=linelabels[i],
                  linewidth=1.)
@@ -123,46 +122,41 @@ def run(task_prefix):
         focus = []
         focus_local = []
         focus_duration = []
-        test_flag = 0
-        culmu_time_in_hrs = []
         for idx, line in enumerate(lines):
-            if 'Wall clock:' in line:
-                culmu_time = line[line.find("Wall clock:")+12:].split(' ')[0]
-                if test_flag == 1:
-                    test_flag = 0
-                    culmu_time_in_hrs.append(int(culmu_time) / 60 / 60)
             if 'FL Testing' in line:
                 focus.append(line)
-                test_flag = 1
             elif 'FL Local Testing' in line:
                 focus_local.append(line)
             elif 'Wall clock time' in line:
                 focus_duration.append(line)
-        # culmu_time_in_hrs = culmu_time_in_hrs[:10]
-        culmu_time_in_hrs_list.append(culmu_time_in_hrs)
-        culmu_time_in_hrs_list.append(culmu_time_in_hrs)
 
         x_list = []
         y_list = []
-        # for f in focus[:10]:
+        clock_list = []
         for f in focus:
             epoch = f[f.find("epoch")+7:].split(',')[0]
             top1_acc_str = f[f.find("top_1")+7:].split(' ')[0]
+            virtual_clock_str = f[f.find("virtual_clock")+15:].split(',')[0]
             x_list.append(int(epoch))
             y_list.append(float(top1_acc_str))
+            clock_list.append(float(virtual_clock_str) / 60 / 60)
         y_list_list.append(y_list)
         x_list_list.append(x_list)
+        culmu_time_in_hrs_list.append(clock_list)
 
         x_local_list = []
         y_local_list = []
-        # for f in focus_local[:10]:
+        clock_local_list = []
         for f in focus_local:
             epoch = f[f.find("epoch") + 7:].split(',')[0]
             top1_acc_str = f[f.find("top_1") + 7:].split(' ')[0]
+            virtual_clock_str = f[f.find("virtual_clock") + 15:].split(',')[0]
             x_local_list.append(int(epoch))
             y_local_list.append(float(top1_acc_str))
+            clock_local_list.append(float(virtual_clock_str) / 60 / 60)
         y_list_list.append(y_local_list)
         x_list_list.append(x_local_list)
+        culmu_time_in_hrs_list.append(clock_local_list)
 
         if v not in ["async"]:
             x_list_2 = []

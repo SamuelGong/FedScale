@@ -682,7 +682,7 @@ class Aggregator(object):
                         self.executor_info_handler(executorId, results)
                     elif event_msg == 'train':
                         self.async_client_completion_handler(results)
-                        logging.info(f"[Async] {len(self.stats_util_accumulator)}/{self.tasks_round}")
+                        # logging.info(f"[Async] {len(self.stats_util_accumulator)}/{self.tasks_round}")
                         if len(self.stats_util_accumulator) == self.tasks_round:
                             avg_loss = sum(self.loss_accumulator) / max(1, len(self.loss_accumulator))
                             logging.info(f"[Async] All {self.tasks_round} clients at {self.global_virtual_clock} s end; "
