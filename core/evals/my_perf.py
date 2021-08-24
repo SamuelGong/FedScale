@@ -24,6 +24,7 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
 
     X = [i for i in range(len(datas[0]))]
     for i, data in enumerate(datas):
+        print(i, len(xs[i]), len(data))
         plt.plot(xs[i], data, linetype[i % len(linetype)],
                  color=colors[(i // 2) % len(colors)], label=linelabels[i],
                  linewidth=1.)
@@ -95,7 +96,8 @@ def run(task_prefix):
     personalized = "none" # "meta" or "none" or "ditto"
     task_dict = {
         f"random_{personalized}_all_test": "random",
-        f"oort_{personalized}_all_test": "oort"
+        f"oort_{personalized}_all_test": "oort",
+        f"async_{personalized}_all_test": "async"
     }
     label_list = []
     duration_label_list = []
