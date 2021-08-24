@@ -178,8 +178,8 @@ def run(task_prefix):
 
 
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_round_to_acc")
-    plot_line(y_list_list, x_list_list,
-              label_list, "Training Rounds", "Accuracy (%)", save_path)
+    plot_line(y_list_list[:-2], x_list_list[:-2],
+              label_list[:-2], "Training Rounds", "Accuracy (%)", save_path)
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_time_to_acc")
     plot_line(y_list_list, culmu_time_in_hrs_list,
             label_list, " Training Time (h)", "Accuracy (%)", save_path)
