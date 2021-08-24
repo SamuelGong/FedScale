@@ -4,7 +4,7 @@ from argparse import Namespace
 import gc
 from client import Client
 import time
-
+import traceback
 
 class Executor(object):
     """Each executor takes certain resource to run real training.
@@ -316,6 +316,10 @@ class Executor(object):
             else:
                 train_res = client.train(client_data=client_data, model=client_model, conf=conf)
         except Exception as e:
+            stack_summary = traceback.extract_tb(e.__traceback__)
+            lines = traceback.format_list(stack_summary)
+            for line in lines:
+                logging.info(line)
             logging.info(f"Client {clientId}'s training failed as {e}")
 
         # we need to get runtime variance for BN
