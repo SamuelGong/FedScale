@@ -92,100 +92,118 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
     plt.savefig(name, bbox_inches='tight')
 
 def run(task_prefix):
-    personalized = "none" # "meta" or "none" or "ditto"
+    personalized = "ditto" # "meta" or "none" or "ditto"
     task_dict = {
         f"random_{personalized}_all_test": "random",
         f"oort_{personalized}_all_test": "oort",
-        f"async_{personalized}_all_test": "async"
+        # f"async_{personalized}_all_test": "async"
     }
-    label_list = []
-    duration_label_list = []
 
-    x_list_list = []
-    y_list_list = []
-    x_list_list_2 = []
-    y_list_list_2 = []
-    culmu_time_in_hrs_list = []
+    # x-axis
+    training_round_list_list_no_sync = []
+    testing_round_list_list_no_sync = []
+    testing_hour_list_list = []
+
+    # testing_acc_lines-axis
+    acc_list_list = []
+    acc_list_list_no_async = []
+    duration_list_list_no_sync = []
+
+    # label
+    label_list = []
+    label_list_no_async = []
+    label_list_duration_no_async = []
 
     for k, v in task_dict.items():
         if v not in ["async"]:
-            duration_label_list.append(v)
+            label_list_duration_no_async.append(v)
+            label_list_no_async.append(f"{v}_g")
+            label_list_no_async.append(f"{v}_l")
         label_list.append(f"{v}_g")
         label_list.append(f"{v}_l")
+
+        testing_acc_lines = []
+        testing_local_acc_lines = []
+        training_duration_lines = []
         log_file = os.path.join(
             os.getcwd(), 'history', f"{task_prefix}_{k}",
             'aggregator', 'log_1'
         )
         with open(log_file, 'r') as file:
             lines = file.readlines()
-
-        focus = []
-        focus_local = []
-        focus_duration = []
         for idx, line in enumerate(lines):
             if 'FL Testing' in line:
-                focus.append(line)
+                testing_acc_lines.append(line)
             elif 'FL Local Testing' in line:
-                focus_local.append(line)
+                testing_local_acc_lines.append(line)
             elif 'Wall clock time' in line:
-                focus_duration.append(line)
+                training_duration_lines.append(line)
 
-        x_list = []
-        y_list = []
-        clock_list = []
-        for f in focus:
+        # global testing accuracy
+        round_list = []
+        acc_list = []
+        hour_list = []
+        for f in testing_acc_lines:
             epoch = f[f.find("epoch")+7:].split(',')[0]
             top1_acc_str = f[f.find("top_1")+7:].split(' ')[0]
             virtual_clock_str = f[f.find("virtual_clock")+15:].split(',')[0]
-            x_list.append(int(epoch))
-            y_list.append(float(top1_acc_str))
-            clock_list.append(float(virtual_clock_str) / 60 / 60)
-        y_list_list.append(y_list)
-        x_list_list.append(x_list)
-        culmu_time_in_hrs_list.append(clock_list)
+            round_list.append(int(epoch))
+            acc_list.append(float(top1_acc_str))
+            hour_list.append(float(virtual_clock_str) / 60 / 60)
 
-        x_local_list = []
-        y_local_list = []
-        clock_local_list = []
-        for f in focus_local:
+        acc_list_list.append(acc_list)
+        if v not in ["async"]:
+            testing_round_list_list_no_sync.append(round_list)
+            acc_list_list_no_async.append(acc_list)
+        testing_hour_list_list.append(hour_list)
+
+        # average local testing accuracy
+        round_local_list = []
+        acc_local_list = []
+        hour_local_list = []
+        for f in testing_local_acc_lines:
             epoch = f[f.find("epoch") + 7:].split(',')[0]
             top1_acc_str = f[f.find("top_1") + 7:].split(' ')[0]
             virtual_clock_str = f[f.find("virtual_clock") + 15:].split(',')[0]
-            x_local_list.append(int(epoch))
-            y_local_list.append(float(top1_acc_str))
-            clock_local_list.append(float(virtual_clock_str) / 60 / 60)
-        y_list_list.append(y_local_list)
-        x_list_list.append(x_local_list)
-        culmu_time_in_hrs_list.append(clock_local_list)
+            round_local_list.append(int(epoch))
+            acc_local_list.append(float(top1_acc_str))
+            hour_local_list.append(float(virtual_clock_str) / 60 / 60)
 
+        acc_list_list.append(acc_local_list)
         if v not in ["async"]:
-            x_list_2 = []
-            y_list_2 = []
+            testing_round_list_list_no_sync.append(round_local_list)
+            acc_list_list_no_async.append(acc_local_list)
+        testing_hour_list_list.append(hour_local_list)
+
+        # duration for each training round
+        if v not in ["async"]:
+            round_list = []
+            duration_list = []
             epoch = 0
-            for f in focus_duration:
+            for f in training_duration_lines:
                 t = int(f[f.find("Wall clock time") + 17:].split(',')[0])
-                y_list_2.append(t)
+                duration_list.append(t)
                 if epoch > 0:
-                    x_list_2.append(epoch)
+                    round_list.append(epoch)
                 epoch += 1
 
             tmp_list = []
-            for idx in range(len(y_list_2[:-1])):
-                tmp_list.append(y_list_2[idx+1] - y_list_2[idx])
+            for idx in range(len(duration_list[:-1])):
+                tmp_list.append(duration_list[idx+1] - duration_list[idx])
 
-            y_list_list_2.append(tmp_list)
-            x_list_list_2.append(x_list_2)
+            duration_list_list_no_sync.append(tmp_list)
+            training_round_list_list_no_sync.append(round_list)
 
 
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_round_to_acc")
-    plot_line(y_list_list[:-2], x_list_list[:-2],
-              label_list[:-2], "Training Rounds", "Accuracy (%)", save_path)
+    plot_line(acc_list_list_no_async, testing_round_list_list_no_sync,
+              label_list_no_async, "Training Rounds", "Accuracy (%)", save_path)
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_time_to_acc")
-    plot_line(y_list_list, culmu_time_in_hrs_list,
+    plot_line(acc_list_list, testing_hour_list_list,
             label_list, " Training Time (h)", "Accuracy (%)", save_path)
 
     save_path = os.path.join(os.getcwd(), 'history', f"{personalized}_round_duration")
-    plot_line_2(y_list_list_2, x_list_list_2,
-              duration_label_list, "Training Rounds", "Duration (s)", save_path)
+    plot_line_2(duration_list_list_no_sync, training_round_list_list_no_sync,
+              label_list_duration_no_async, "Training Rounds", "Duration (s)", save_path)
 
 run(sys.argv[1])
