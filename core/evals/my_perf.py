@@ -92,11 +92,11 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
     plt.savefig(name, bbox_inches='tight')
 
 def run(task_prefix):
-    personalized = "ditto" # "meta" or "none" or "ditto"
+    personalized = "meta" # "meta" or "none" or "ditto"
     task_dict = {
         f"random_{personalized}_all_test": "random",
         f"oort_{personalized}_all_test": "oort",
-        # f"async_{personalized}_all_test": "async"
+        f"async_{personalized}_all_test_60": "async"
     }
 
     # x-axis
