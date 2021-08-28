@@ -8,7 +8,7 @@ ps_ip: 127.0.0.1
 # Note that if we collocate ps and worker, then we need to decrease this number of gpus by 1
 # E.g., master node has 4 GPUs, then 1 for the ps, and worker should be set to: worker:3
 worker_ips: 
-    - 127.0.0.1:[0,0,4,0,0,0,0,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
+    - 127.0.0.1:[0,0,0,4,0,0,0,0] # worker_ip: [(# processes on gpu) for gpu in available_gpus]
     #- 10.0.0.4:[5]
     #- 10.0.0.5:[5]
     #- 10.0.0.6:[5]
@@ -42,7 +42,7 @@ setup_commands:
 
 job_conf: 
     - log_path: $HOME/FedScale/core/evals # Path of log files
-    - job_name: google_speech_async_ditto_all_test                   # Generate logs under this folder: log_path/job_name/time_stamp
+    - job_name: google_speech_async_ditto_all_test_100                   # Generate logs under this folder: log_path/job_name/time_stamp
     - task: speech
     - total_worker: 50                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: google_speech                     # Dataset: openImg, google_speech, stackoverflow
@@ -68,6 +68,6 @@ job_conf:
     - async_eval_interval: 14400 # 14400s = 4 hours
     - async_num_issues_max: 50
     - async_sec_per_step: 240 # 240s = 4 mins
-    - async_update_ratio: 0.1
+    - async_update_ratio: 1.0
     - personalized: ditto # "none" or "meta"
 
