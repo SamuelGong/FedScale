@@ -1,0 +1,381 @@
+(08-28) 14:15:53 INFO     [executor.py:49] (EXECUTOR:1) is setting up environ ...
+(08-28) 14:15:54 INFO     [executor.py:86] Start to connect to 127.0.0.1:33454 for control plane communication ...
+(08-28) 14:16:02 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(08-28) 14:16:02 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 5 nodes.
+(08-28) 14:16:13 INFO     [executor.py:123] Data partitioner starts ...
+(08-28) 14:16:13 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-28) 14:16:13 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-28) 14:16:13 INFO     [divide_data.py:94] Randomly partitioning data, 1816 samples...
+(08-28) 14:16:13 INFO     [executor.py:132] Data partitioner completes ...
+(08-28) 14:16:14 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-28) 14:16:14 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-28) 14:16:14 INFO     [executor.py:416] Start monitoring events ...
+(08-28) 14:16:32 INFO     [client.py:328] Training of (CLIENT: 16) completes, {'clientId': 16, 'moving_loss': 20537702.000061743, 'trained_size': 80, 'success': True, 'utility': 362548.3316750956}
+(08-28) 14:16:42 INFO     [client.py:328] Training of (CLIENT: 300) completes, {'clientId': 300, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:17:04 INFO     [client.py:328] Training of (CLIENT: 902) completes, {'clientId': 902, 'moving_loss': 20595201.54399139, 'trained_size': 80, 'success': True, 'utility': 317673.55503025086}
+(08-28) 14:17:31 INFO     [client.py:328] Training of (CLIENT: 50) completes, {'clientId': 50, 'moving_loss': 20538623.52028115, 'trained_size': 80, 'success': True, 'utility': 362556.4652985785}
+(08-28) 14:17:35 INFO     [client.py:328] Training of (CLIENT: 1983) completes, {'clientId': 1983, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:17:39 INFO     [client.py:328] Training of (CLIENT: 84) completes, {'clientId': 84, 'moving_loss': 19426138.136947494, 'trained_size': 80, 'success': True, 'utility': 352600.7431592621}
+(08-28) 14:17:56 INFO     [client.py:328] Training of (CLIENT: 155) completes, {'clientId': 155, 'moving_loss': 20556177.7675284, 'trained_size': 80, 'success': True, 'utility': 308304.66424796643}
+(08-28) 14:18:01 INFO     [client.py:328] Training of (CLIENT: 287) completes, {'clientId': 287, 'moving_loss': 20564643.663451727, 'trained_size': 80, 'success': True, 'utility': 353716.40059296135}
+(08-28) 14:18:05 INFO     [client.py:328] Training of (CLIENT: 460) completes, {'clientId': 460, 'moving_loss': 20565751.09543723, 'trained_size': 80, 'success': True, 'utility': 312911.39475157607}
+(08-28) 14:18:19 INFO     [client.py:328] Training of (CLIENT: 802) completes, {'clientId': 802, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:18:33 INFO     [client.py:328] Training of (CLIENT: 1229) completes, {'clientId': 1229, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:18:44 INFO     [client.py:328] Training of (CLIENT: 1677) completes, {'clientId': 1677, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:19:04 INFO     [client.py:328] Training of (CLIENT: 1962) completes, {'clientId': 1962, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:19:17 INFO     [client.py:328] Training of (CLIENT: 201) completes, {'clientId': 201, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:19:24 INFO     [client.py:328] Training of (CLIENT: 901) completes, {'clientId': 901, 'moving_loss': 20528517.72317187, 'trained_size': 80, 'success': True, 'utility': 362467.25842246774}
+(08-28) 14:19:47 INFO     [client.py:328] Training of (CLIENT: 1674) completes, {'clientId': 1674, 'moving_loss': 20597862.104740072, 'trained_size': 80, 'success': True, 'utility': 317694.07346254727}
+(08-28) 14:19:59 INFO     [client.py:328] Training of (CLIENT: 1258) completes, {'clientId': 1258, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:20:03 INFO     [client.py:328] Training of (CLIENT: 233) completes, {'clientId': 233, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:20:14 INFO     [client.py:328] Training of (CLIENT: 334) completes, {'clientId': 334, 'moving_loss': 20407316.146989815, 'trained_size': 80, 'success': True, 'utility': 361395.66037894646}
+(08-28) 14:20:28 INFO     [client.py:328] Training of (CLIENT: 565) completes, {'clientId': 565, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:20:33 INFO     [client.py:328] Training of (CLIENT: 859) completes, {'clientId': 859, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:20:38 INFO     [client.py:328] Training of (CLIENT: 1039) completes, {'clientId': 1039, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:20:48 INFO     [client.py:328] Training of (CLIENT: 1579) completes, {'clientId': 1579, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:21:26 INFO     [client.py:328] Training of (CLIENT: 1225) completes, {'clientId': 1225, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:21:43 INFO     [client.py:328] Training of (CLIENT: 1913) completes, {'clientId': 1913, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:22:09 INFO     [client.py:328] Training of (CLIENT: 595) completes, {'clientId': 595, 'moving_loss': 20554796.804370403, 'trained_size': 80, 'success': True, 'utility': 326429.2674284219}
+(08-28) 14:22:18 INFO     [client.py:328] Training of (CLIENT: 2117) completes, {'clientId': 2117, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 14:22:24 INFO     [client.py:328] Training of (CLIENT: 516) completes, {'clientId': 516, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:22:27 INFO     [client.py:328] Training of (CLIENT: 802) completes, {'clientId': 802, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:22:48 INFO     [client.py:328] Training of (CLIENT: 1312) completes, {'clientId': 1312, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:22:54 INFO     [client.py:328] Training of (CLIENT: 1715) completes, {'clientId': 1715, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:23:00 INFO     [client.py:328] Training of (CLIENT: 1781) completes, {'clientId': 1781, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:23:25 INFO     [client.py:328] Training of (CLIENT: 688) completes, {'clientId': 688, 'moving_loss': 20501015.23388904, 'trained_size': 80, 'success': True, 'utility': 362224.37452066893}
+(08-28) 14:23:42 INFO     [client.py:328] Training of (CLIENT: 544) completes, {'clientId': 544, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:23:46 INFO     [client.py:328] Training of (CLIENT: 605) completes, {'clientId': 605, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:23:55 INFO     [client.py:328] Training of (CLIENT: 950) completes, {'clientId': 950, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:24:01 INFO     [client.py:328] Training of (CLIENT: 1510) completes, {'clientId': 1510, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:24:12 INFO     [client.py:328] Training of (CLIENT: 174) completes, {'clientId': 174, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:24:20 INFO     [client.py:328] Training of (CLIENT: 477) completes, {'clientId': 477, 'moving_loss': 20514264.912133552, 'trained_size': 80, 'success': True, 'utility': 362341.40729104466}
+(08-28) 14:24:28 INFO     [client.py:328] Training of (CLIENT: 795) completes, {'clientId': 795, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:24:35 INFO     [client.py:328] Training of (CLIENT: 1014) completes, {'clientId': 1014, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:24:45 INFO     [client.py:328] Training of (CLIENT: 1447) completes, {'clientId': 1447, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 14:24:54 INFO     [client.py:328] Training of (CLIENT: 1453) completes, {'clientId': 1453, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:25:16 INFO     [client.py:328] Training of (CLIENT: 389) completes, {'clientId': 389, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:25:26 INFO     [client.py:328] Training of (CLIENT: 470) completes, {'clientId': 470, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 14:25:29 INFO     [client.py:328] Training of (CLIENT: 247) completes, {'clientId': 247, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:25:45 INFO     [client.py:328] Training of (CLIENT: 849) completes, {'clientId': 849, 'moving_loss': 20560780.660321575, 'trained_size': 80, 'success': True, 'utility': 308339.1797571741}
+(08-28) 14:25:58 INFO     [client.py:328] Training of (CLIENT: 1031) completes, {'clientId': 1031, 'moving_loss': 20622130.325486176, 'trained_size': 80, 'success': True, 'utility': 313340.0109779147}
+(08-28) 14:26:04 INFO     [client.py:328] Training of (CLIENT: 1948) completes, {'clientId': 1948, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.24}
+(08-28) 14:26:23 INFO     [client.py:328] Training of (CLIENT: 103) completes, {'clientId': 103, 'moving_loss': 20583746.6481523, 'trained_size': 80, 'success': True, 'utility': 272215.8847924718}
+(08-28) 14:26:30 INFO     [client.py:328] Training of (CLIENT: 333) completes, {'clientId': 333, 'moving_loss': 20498355.302775398, 'trained_size': 80, 'success': True, 'utility': 362200.87512009486}
+(08-28) 14:26:41 INFO     [client.py:328] Training of (CLIENT: 469) completes, {'clientId': 469, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:26:56 INFO     [client.py:328] Training of (CLIENT: 727) completes, {'clientId': 727, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:26:59 INFO     [client.py:328] Training of (CLIENT: 1060) completes, {'clientId': 1060, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:27:04 INFO     [client.py:328] Training of (CLIENT: 1532) completes, {'clientId': 1532, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:28:08 INFO     [client.py:328] Training of (CLIENT: 2093) completes, {'clientId': 2093, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:28:12 INFO     [client.py:328] Training of (CLIENT: 424) completes, {'clientId': 424, 'moving_loss': 20590967.032097604, 'trained_size': 80, 'success': True, 'utility': 317640.89544213016}
+(08-28) 14:28:25 INFO     [client.py:328] Training of (CLIENT: 1492) completes, {'clientId': 1492, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:28:33 INFO     [client.py:328] Training of (CLIENT: 444) completes, {'clientId': 444, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:28:36 INFO     [client.py:328] Training of (CLIENT: 511) completes, {'clientId': 511, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:28:39 INFO     [client.py:328] Training of (CLIENT: 547) completes, {'clientId': 547, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:28:42 INFO     [client.py:328] Training of (CLIENT: 551) completes, {'clientId': 551, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:29:00 INFO     [client.py:328] Training of (CLIENT: 224) completes, {'clientId': 224, 'moving_loss': 20587935.189077914, 'trained_size': 80, 'success': True, 'utility': 322154.90262937447}
+(08-28) 14:29:09 INFO     [client.py:328] Training of (CLIENT: 691) completes, {'clientId': 691, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:29:19 INFO     [client.py:328] Training of (CLIENT: 1175) completes, {'clientId': 1175, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:29:22 INFO     [client.py:328] Training of (CLIENT: 1352) completes, {'clientId': 1352, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:29:25 INFO     [client.py:328] Training of (CLIENT: 1453) completes, {'clientId': 1453, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:29:53 INFO     [client.py:328] Training of (CLIENT: 67) completes, {'clientId': 67, 'moving_loss': 20541938.523231104, 'trained_size': 80, 'success': True, 'utility': 362585.7230348143}
+(08-28) 14:30:02 INFO     [client.py:328] Training of (CLIENT: 521) completes, {'clientId': 521, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:30:08 INFO     [client.py:328] Training of (CLIENT: 1972) completes, {'clientId': 1972, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:30:26 INFO     [client.py:328] Training of (CLIENT: 352) completes, {'clientId': 352, 'moving_loss': 20610010.435366236, 'trained_size': 80, 'success': True, 'utility': 213371.771918696}
+(08-28) 14:30:35 INFO     [client.py:328] Training of (CLIENT: 744) completes, {'clientId': 744, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:30:47 INFO     [client.py:328] Training of (CLIENT: 1770) completes, {'clientId': 1770, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:30:59 INFO     [client.py:328] Training of (CLIENT: 401) completes, {'clientId': 401, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:31:02 INFO     [client.py:328] Training of (CLIENT: 1115) completes, {'clientId': 1115, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 14:31:06 INFO     [client.py:328] Training of (CLIENT: 1608) completes, {'clientId': 1608, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:31:13 INFO     [client.py:328] Training of (CLIENT: 1649) completes, {'clientId': 1649, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:31:19 INFO     [client.py:328] Training of (CLIENT: 2105) completes, {'clientId': 2105, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:31:23 INFO     [client.py:328] Training of (CLIENT: 245) completes, {'clientId': 245, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:31:36 INFO     [client.py:328] Training of (CLIENT: 662) completes, {'clientId': 662, 'moving_loss': 19478805.667201124, 'trained_size': 80, 'success': True, 'utility': 300116.63966721005}
+(08-28) 14:31:45 INFO     [client.py:328] Training of (CLIENT: 1039) completes, {'clientId': 1039, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:32:28 INFO     [client.py:328] Training of (CLIENT: 1447) completes, {'clientId': 1447, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 14:33:01 INFO     [client.py:328] Training of (CLIENT: 533) completes, {'clientId': 533, 'moving_loss': 20531007.234208666, 'trained_size': 80, 'success': True, 'utility': 362489.23611458513}
+(08-28) 14:33:05 INFO     [client.py:328] Training of (CLIENT: 470) completes, {'clientId': 470, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 14:33:54 INFO     [client.py:328] Training of (CLIENT: 79) completes, {'clientId': 79, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:33:57 INFO     [client.py:328] Training of (CLIENT: 474) completes, {'clientId': 474, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:34:09 INFO     [client.py:328] Training of (CLIENT: 540) completes, {'clientId': 540, 'moving_loss': 20520964.37965505, 'trained_size': 80, 'success': True, 'utility': 362400.5684733294}
+(08-28) 14:34:12 INFO     [client.py:328] Training of (CLIENT: 831) completes, {'clientId': 831, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:34:15 INFO     [client.py:328] Training of (CLIENT: 1171) completes, {'clientId': 1171, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.22}
+(08-28) 14:34:18 INFO     [client.py:328] Training of (CLIENT: 27) completes, {'clientId': 27, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:34:22 INFO     [client.py:328] Training of (CLIENT: 354) completes, {'clientId': 354, 'moving_loss': 19493547.48078448, 'trained_size': 80, 'success': True, 'utility': 309060.48381480924}
+(08-28) 14:34:45 INFO     [client.py:328] Training of (CLIENT: 795) completes, {'clientId': 795, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:35:35 INFO     [client.py:328] Training of (CLIENT: 1241) completes, {'clientId': 1241, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:36:16 INFO     [client.py:328] Training of (CLIENT: 584) completes, {'clientId': 584, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:36:24 INFO     [client.py:328] Training of (CLIENT: 1665) completes, {'clientId': 1665, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:36:27 INFO     [client.py:328] Training of (CLIENT: 247) completes, {'clientId': 247, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:36:45 INFO     [client.py:328] Training of (CLIENT: 863) completes, {'clientId': 863, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:36:53 INFO     [client.py:328] Training of (CLIENT: 1066) completes, {'clientId': 1066, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:36:58 INFO     [client.py:328] Training of (CLIENT: 1545) completes, {'clientId': 1545, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:37:05 INFO     [client.py:328] Training of (CLIENT: 1954) completes, {'clientId': 1954, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:37:08 INFO     [client.py:328] Training of (CLIENT: 1966) completes, {'clientId': 1966, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:37:43 INFO     [client.py:328] Training of (CLIENT: 245) completes, {'clientId': 245, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:38:19 INFO     [client.py:328] Training of (CLIENT: 1039) completes, {'clientId': 1039, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:38:56 INFO     [client.py:328] Training of (CLIENT: 1336) completes, {'clientId': 1336, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:39:14 INFO     [client.py:328] Training of (CLIENT: 723) completes, {'clientId': 723, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:39:16 INFO     [client.py:328] Training of (CLIENT: 2095) completes, {'clientId': 2095, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:39:31 INFO     [client.py:328] Training of (CLIENT: 184) completes, {'clientId': 184, 'moving_loss': 20527346.4862628, 'trained_size': 80, 'success': True, 'utility': 362456.9181462563}
+(08-28) 14:39:35 INFO     [client.py:328] Training of (CLIENT: 255) completes, {'clientId': 255, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:39:39 INFO     [client.py:328] Training of (CLIENT: 1337) completes, {'clientId': 1337, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:39:44 INFO     [client.py:328] Training of (CLIENT: 84) completes, {'clientId': 84, 'moving_loss': 17420640.253452882, 'trained_size': 80, 'success': True, 'utility': 333904.32405420934}
+(08-28) 14:40:31 INFO     [client.py:328] Training of (CLIENT: 648) completes, {'clientId': 648, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:40:37 INFO     [client.py:328] Training of (CLIENT: 711) completes, {'clientId': 711, 'moving_loss': 19473965.821066268, 'trained_size': 80, 'success': True, 'utility': 317731.0793995569}
+(08-28) 14:41:15 INFO     [client.py:328] Training of (CLIENT: 999) completes, {'clientId': 999, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:41:18 INFO     [client.py:328] Training of (CLIENT: 1574) completes, {'clientId': 1574, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:41:30 INFO     [client.py:328] Training of (CLIENT: 2026) completes, {'clientId': 2026, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:41:53 INFO     [client.py:328] Training of (CLIENT: 978) completes, {'clientId': 978, 'moving_loss': 20536661.653712682, 'trained_size': 80, 'success': True, 'utility': 362539.1490360195}
+(08-28) 14:41:58 INFO     [client.py:328] Training of (CLIENT: 350) completes, {'clientId': 350, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:42:01 INFO     [client.py:328] Training of (CLIENT: 544) completes, {'clientId': 544, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:42:26 INFO     [client.py:328] Training of (CLIENT: 173) completes, {'clientId': 173, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:42:30 INFO     [client.py:328] Training of (CLIENT: 401) completes, {'clientId': 401, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:42:59 INFO     [client.py:328] Training of (CLIENT: 82) completes, {'clientId': 82, 'moving_loss': 20573619.51470994, 'trained_size': 80, 'success': True, 'utility': 326578.69429014553}
+(08-28) 14:43:04 INFO     [client.py:328] Training of (CLIENT: 174) completes, {'clientId': 174, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:43:29 INFO     [client.py:328] Training of (CLIENT: 433) completes, {'clientId': 433, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:43:32 INFO     [client.py:328] Training of (CLIENT: 437) completes, {'clientId': 437, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:44:01 INFO     [client.py:328] Training of (CLIENT: 615) completes, {'clientId': 615, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:44:05 INFO     [client.py:328] Training of (CLIENT: 646) completes, {'clientId': 646, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:44:32 INFO     [client.py:328] Training of (CLIENT: 1312) completes, {'clientId': 1312, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:45:12 INFO     [client.py:328] Training of (CLIENT: 2157) completes, {'clientId': 2157, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:45:32 INFO     [client.py:328] Training of (CLIENT: 157) completes, {'clientId': 157, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:45:36 INFO     [client.py:328] Training of (CLIENT: 688) completes, {'clientId': 688, 'moving_loss': 19425615.615750268, 'trained_size': 80, 'success': True, 'utility': 352596.00102780765}
+(08-28) 14:46:01 INFO     [client.py:328] Training of (CLIENT: 2074) completes, {'clientId': 2074, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:46:05 INFO     [client.py:328] Training of (CLIENT: 741) completes, {'clientId': 741, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:46:22 INFO     [client.py:328] Training of (CLIENT: 1251) completes, {'clientId': 1251, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:46:26 INFO     [client.py:328] Training of (CLIENT: 1651) completes, {'clientId': 1651, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.22}
+(08-28) 14:46:40 INFO     [client.py:328] Training of (CLIENT: 82) completes, {'clientId': 82, 'moving_loss': 19495135.74754373, 'trained_size': 80, 'success': True, 'utility': 317903.73340882093}
+(08-28) 14:47:22 INFO     [client.py:328] Training of (CLIENT: 579) completes, {'clientId': 579, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:47:26 INFO     [client.py:328] Training of (CLIENT: 960) completes, {'clientId': 960, 'moving_loss': 20586724.860556975, 'trained_size': 80, 'success': True, 'utility': 317608.17340983084}
+(08-28) 14:47:30 INFO     [client.py:328] Training of (CLIENT: 1137) completes, {'clientId': 1137, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:48:07 INFO     [client.py:328] Training of (CLIENT: 1447) completes, {'clientId': 1447, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 14:48:20 INFO     [client.py:328] Training of (CLIENT: 2162) completes, {'clientId': 2162, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:48:30 INFO     [client.py:328] Training of (CLIENT: 25) completes, {'clientId': 25, 'moving_loss': 20574331.59359874, 'trained_size': 80, 'success': True, 'utility': 303904.8774265802}
+(08-28) 14:48:34 INFO     [client.py:328] Training of (CLIENT: 1400) completes, {'clientId': 1400, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:49:17 INFO     [client.py:328] Training of (CLIENT: 14) completes, {'clientId': 14, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:49:21 INFO     [client.py:328] Training of (CLIENT: 425) completes, {'clientId': 425, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 14:49:31 INFO     [client.py:328] Training of (CLIENT: 151) completes, {'clientId': 151, 'moving_loss': 20518822.38875389, 'trained_size': 80, 'success': True, 'utility': 362381.65418247227}
+(08-28) 14:49:36 INFO     [client.py:328] Training of (CLIENT: 353) completes, {'clientId': 353, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:50:03 INFO     [client.py:328] Training of (CLIENT: 394) completes, {'clientId': 394, 'moving_loss': 20575854.349683255, 'trained_size': 80, 'success': True, 'utility': 340204.61595482257}
+(08-28) 14:50:07 INFO     [client.py:328] Training of (CLIENT: 486) completes, {'clientId': 486, 'moving_loss': 20490690.30251928, 'trained_size': 80, 'success': True, 'utility': 362133.14945765934}
+(08-28) 14:50:11 INFO     [client.py:328] Training of (CLIENT: 518) completes, {'clientId': 518, 'moving_loss': 20558134.523502186, 'trained_size': 80, 'success': True, 'utility': 349126.3089339508}
+(08-28) 14:50:20 INFO     [client.py:328] Training of (CLIENT: 775) completes, {'clientId': 775, 'moving_loss': 20598300.725141328, 'trained_size': 80, 'success': True, 'utility': 290466.2454919313}
+(08-28) 14:50:27 INFO     [client.py:328] Training of (CLIENT: 815) completes, {'clientId': 815, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:50:30 INFO     [client.py:328] Training of (CLIENT: 969) completes, {'clientId': 969, 'moving_loss': 19420167.27748185, 'trained_size': 80, 'success': True, 'utility': 352546.5509346019}
+(08-28) 14:51:04 INFO     [client.py:328] Training of (CLIENT: 1677) completes, {'clientId': 1677, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:51:12 INFO     [client.py:328] Training of (CLIENT: 2026) completes, {'clientId': 2026, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:51:41 INFO     [client.py:328] Training of (CLIENT: 67) completes, {'clientId': 67, 'moving_loss': 19473684.734038405, 'trained_size': 80, 'success': True, 'utility': 353031.98480852385}
+(08-28) 14:52:02 INFO     [client.py:328] Training of (CLIENT: 950) completes, {'clientId': 950, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:52:31 INFO     [client.py:328] Training of (CLIENT: 1531) completes, {'clientId': 1531, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:53:10 INFO     [client.py:328] Training of (CLIENT: 145) completes, {'clientId': 145, 'moving_loss': 20506928.11552777, 'trained_size': 80, 'success': True, 'utility': 362276.60694471805}
+(08-28) 14:53:13 INFO     [client.py:328] Training of (CLIENT: 160) completes, {'clientId': 160, 'moving_loss': 20513662.599425025, 'trained_size': 80, 'success': True, 'utility': 362336.0879574655}
+(08-28) 14:53:16 INFO     [client.py:328] Training of (CLIENT: 171) completes, {'clientId': 171, 'moving_loss': 20488679.00849271, 'trained_size': 80, 'success': True, 'utility': 362115.37616394216}
+(08-28) 14:53:19 INFO     [client.py:328] Training of (CLIENT: 208) completes, {'clientId': 208, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:53:46 INFO     [client.py:328] Training of (CLIENT: 691) completes, {'clientId': 691, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:54:14 INFO     [client.py:328] Training of (CLIENT: 1137) completes, {'clientId': 1137, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:54:47 INFO     [client.py:328] Training of (CLIENT: 2137) completes, {'clientId': 2137, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:54:53 INFO     [client.py:328] Training of (CLIENT: 1414) completes, {'clientId': 1414, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:54:59 INFO     [client.py:328] Training of (CLIENT: 1036) completes, {'clientId': 1036, 'moving_loss': 19488258.759584144, 'trained_size': 80, 'success': True, 'utility': 286945.8019543813}
+(08-28) 14:55:22 INFO     [client.py:328] Training of (CLIENT: 68) completes, {'clientId': 68, 'moving_loss': 19433439.92482955, 'trained_size': 80, 'success': True, 'utility': 352667.00372860103}
+(08-28) 14:56:11 INFO     [client.py:328] Training of (CLIENT: 630) completes, {'clientId': 630, 'moving_loss': 20598894.847874347, 'trained_size': 80, 'success': True, 'utility': 313163.4371549938}
+(08-28) 14:56:14 INFO     [client.py:328] Training of (CLIENT: 741) completes, {'clientId': 741, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 14:57:12 INFO     [client.py:328] Training of (CLIENT: 2020) completes, {'clientId': 2020, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:57:16 INFO     [client.py:328] Training of (CLIENT: 265) completes, {'clientId': 265, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:57:19 INFO     [client.py:328] Training of (CLIENT: 495) completes, {'clientId': 495, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:57:49 INFO     [client.py:328] Training of (CLIENT: 838) completes, {'clientId': 838, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:57:53 INFO     [client.py:328] Training of (CLIENT: 1246) completes, {'clientId': 1246, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:57:56 INFO     [client.py:328] Training of (CLIENT: 1352) completes, {'clientId': 1352, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:58:19 INFO     [client.py:328] Training of (CLIENT: 1902) completes, {'clientId': 1902, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:58:37 INFO     [client.py:328] Training of (CLIENT: 229) completes, {'clientId': 229, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:58:45 INFO     [client.py:328] Training of (CLIENT: 17) completes, {'clientId': 17, 'moving_loss': 20591348.58386702, 'trained_size': 80, 'success': True, 'utility': 353945.9913380104}
+(08-28) 14:58:49 INFO     [client.py:328] Training of (CLIENT: 513) completes, {'clientId': 513, 'moving_loss': 20562280.033844437, 'trained_size': 80, 'success': True, 'utility': 340092.3774364473}
+(08-28) 14:58:52 INFO     [client.py:328] Training of (CLIENT: 696) completes, {'clientId': 696, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:58:56 INFO     [client.py:328] Training of (CLIENT: 2089) completes, {'clientId': 2089, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 14:58:59 INFO     [client.py:328] Training of (CLIENT: 404) completes, {'clientId': 404, 'moving_loss': 18420485.389814414, 'trained_size': 80, 'success': True, 'utility': 343352.7435376223}
+(08-28) 14:59:34 INFO     [client.py:328] Training of (CLIENT: 658) completes, {'clientId': 658, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:00:19 INFO     [client.py:328] Training of (CLIENT: 87) completes, {'clientId': 87, 'moving_loss': 20552994.211112842, 'trained_size': 80, 'success': True, 'utility': 317347.87164002366}
+(08-28) 15:00:22 INFO     [client.py:328] Training of (CLIENT: 333) completes, {'clientId': 333, 'moving_loss': 19420436.70236551, 'trained_size': 80, 'success': True, 'utility': 352548.99644608155}
+(08-28) 15:01:00 INFO     [client.py:328] Training of (CLIENT: 560) completes, {'clientId': 560, 'moving_loss': 20498988.07378611, 'trained_size': 80, 'success': True, 'utility': 362206.46553068474}
+(08-28) 15:01:04 INFO     [client.py:328] Training of (CLIENT: 703) completes, {'clientId': 703, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:01:15 INFO     [client.py:328] Training of (CLIENT: 731) completes, {'clientId': 731, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:01:18 INFO     [client.py:328] Training of (CLIENT: 838) completes, {'clientId': 838, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:01:40 INFO     [client.py:328] Training of (CLIENT: 1318) completes, {'clientId': 1318, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:02:52 INFO     [client.py:328] Training of (CLIENT: 396) completes, {'clientId': 396, 'moving_loss': 19446564.603251636, 'trained_size': 80, 'success': True, 'utility': 352786.0732240014}
+(08-28) 15:03:15 INFO     [client.py:328] Training of (CLIENT: 1378) completes, {'clientId': 1378, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:03:18 INFO     [client.py:328] Training of (CLIENT: 1610) completes, {'clientId': 1610, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:03:21 INFO     [client.py:328] Training of (CLIENT: 206) completes, {'clientId': 206, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:04:09 INFO     [client.py:328] Training of (CLIENT: 1608) completes, {'clientId': 1608, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:04:47 INFO     [client.py:328] Training of (CLIENT: 2105) completes, {'clientId': 2105, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:05:09 INFO     [client.py:328] Training of (CLIENT: 376) completes, {'clientId': 376, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:05:13 INFO     [client.py:328] Training of (CLIENT: 437) completes, {'clientId': 437, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:05:53 INFO     [client.py:328] Training of (CLIENT: 1082) completes, {'clientId': 1082, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:06:05 INFO     [client.py:328] Training of (CLIENT: 1360) completes, {'clientId': 1360, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:06:10 INFO     [client.py:328] Training of (CLIENT: 1755) completes, {'clientId': 1755, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:07:40 INFO     [client.py:328] Training of (CLIENT: 790) completes, {'clientId': 790, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:07:45 INFO     [client.py:328] Training of (CLIENT: 1003) completes, {'clientId': 1003, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:07:53 INFO     [client.py:328] Training of (CLIENT: 12) completes, {'clientId': 12, 'moving_loss': 20573575.429181285, 'trained_size': 80, 'success': True, 'utility': 340185.77540682786}
+(08-28) 15:08:06 INFO     [client.py:328] Training of (CLIENT: 425) completes, {'clientId': 425, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 15:08:26 INFO     [client.py:328] Training of (CLIENT: 909) completes, {'clientId': 909, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:08:46 INFO     [client.py:328] Training of (CLIENT: 1337) completes, {'clientId': 1337, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:09:09 INFO     [client.py:328] Training of (CLIENT: 265) completes, {'clientId': 265, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:10:02 INFO     [client.py:328] Training of (CLIENT: 705) completes, {'clientId': 705, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:10:05 INFO     [client.py:328] Training of (CLIENT: 947) completes, {'clientId': 947, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:10:09 INFO     [client.py:328] Training of (CLIENT: 1197) completes, {'clientId': 1197, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:10:13 INFO     [client.py:328] Training of (CLIENT: 1298) completes, {'clientId': 1298, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 15:11:06 INFO     [client.py:328] Training of (CLIENT: 1655) completes, {'clientId': 1655, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:11:23 INFO     [client.py:328] Training of (CLIENT: 144) completes, {'clientId': 144, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:11:28 INFO     [client.py:328] Training of (CLIENT: 818) completes, {'clientId': 818, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:11:31 INFO     [client.py:328] Training of (CLIENT: 1833) completes, {'clientId': 1833, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:11:47 INFO     [client.py:328] Training of (CLIENT: 1106) completes, {'clientId': 1106, 'moving_loss': 19444189.8664632, 'trained_size': 80, 'success': True, 'utility': 352764.5321533395}
+(08-28) 15:12:12 INFO     [client.py:328] Training of (CLIENT: 1849) completes, {'clientId': 1849, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:12:17 INFO     [client.py:328] Training of (CLIENT: 126) completes, {'clientId': 126, 'moving_loss': 20506422.73497966, 'trained_size': 80, 'success': True, 'utility': 362272.1428758631}
+(08-28) 15:12:20 INFO     [client.py:328] Training of (CLIENT: 192) completes, {'clientId': 192, 'moving_loss': 19437429.8288107, 'trained_size': 80, 'success': True, 'utility': 352703.2051234983}
+(08-28) 15:12:44 INFO     [client.py:328] Training of (CLIENT: 640) completes, {'clientId': 640, 'moving_loss': 20579663.773433328, 'trained_size': 80, 'success': True, 'utility': 335699.62589094567}
+(08-28) 15:12:48 INFO     [client.py:328] Training of (CLIENT: 662) completes, {'clientId': 662, 'moving_loss': 17468442.358256258, 'trained_size': 80, 'success': True, 'utility': 284207.80683256563}
+(08-28) 15:13:00 INFO     [client.py:328] Training of (CLIENT: 823) completes, {'clientId': 823, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:13:50 INFO     [client.py:328] Training of (CLIENT: 1024) completes, {'clientId': 1024, 'moving_loss': 20496453.691347238, 'trained_size': 80, 'success': True, 'utility': 362184.074228316}
+(08-28) 15:13:55 INFO     [client.py:328] Training of (CLIENT: 1732) completes, {'clientId': 1732, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:14:22 INFO     [client.py:328] Training of (CLIENT: 569) completes, {'clientId': 569, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:14:31 INFO     [client.py:328] Training of (CLIENT: 584) completes, {'clientId': 584, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:14:56 INFO     [client.py:328] Training of (CLIENT: 36) completes, {'clientId': 36, 'moving_loss': 20516301.419077285, 'trained_size': 80, 'success': True, 'utility': 362359.392153832}
+(08-28) 15:15:00 INFO     [client.py:328] Training of (CLIENT: 551) completes, {'clientId': 551, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:15:18 INFO     [client.py:328] Training of (CLIENT: 52) completes, {'clientId': 52, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:15:25 INFO     [client.py:328] Training of (CLIENT: 231) completes, {'clientId': 231, 'moving_loss': 20539977.96479903, 'trained_size': 80, 'success': True, 'utility': 362568.41971511225}
+(08-28) 15:15:28 INFO     [client.py:328] Training of (CLIENT: 346) completes, {'clientId': 346, 'moving_loss': 18434588.898098156, 'trained_size': 80, 'success': True, 'utility': 343484.1611309438}
+(08-28) 15:15:38 INFO     [client.py:328] Training of (CLIENT: 450) completes, {'clientId': 450, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:15:41 INFO     [client.py:328] Training of (CLIENT: 843) completes, {'clientId': 843, 'moving_loss': 20514253.190146074, 'trained_size': 80, 'success': True, 'utility': 362341.3037688843}
+(08-28) 15:15:52 INFO     [client.py:328] Training of (CLIENT: 908) completes, {'clientId': 908, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:16:00 INFO     [client.py:328] Training of (CLIENT: 1336) completes, {'clientId': 1336, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:16:24 INFO     [client.py:328] Training of (CLIENT: 2041) completes, {'clientId': 2041, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:16:27 INFO     [client.py:328] Training of (CLIENT: 2101) completes, {'clientId': 2101, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:16:41 INFO     [client.py:328] Training of (CLIENT: 873) completes, {'clientId': 873, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:16:58 INFO     [client.py:328] Training of (CLIENT: 628) completes, {'clientId': 628, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:17:04 INFO     [client.py:328] Training of (CLIENT: 404) completes, {'clientId': 404, 'moving_loss': 17441381.843419217, 'trained_size': 80, 'success': True, 'utility': 334103.0436824588}
+(08-28) 15:17:33 INFO     [client.py:328] Training of (CLIENT: 1201) completes, {'clientId': 1201, 'moving_loss': 20588138.16780014, 'trained_size': 80, 'success': True, 'utility': 294931.998533485}
+(08-28) 15:17:37 INFO     [client.py:328] Training of (CLIENT: 5) completes, {'clientId': 5, 'moving_loss': 19439760.194257367, 'trained_size': 80, 'success': True, 'utility': 352724.3473921912}
+(08-28) 15:17:56 INFO     [client.py:328] Training of (CLIENT: 270) completes, {'clientId': 270, 'moving_loss': 19446557.681546785, 'trained_size': 80, 'success': True, 'utility': 352786.01043961395}
+(08-28) 15:18:06 INFO     [client.py:328] Training of (CLIENT: 904) completes, {'clientId': 904, 'moving_loss': 20491759.95380567, 'trained_size': 80, 'success': True, 'utility': 362142.6013386941}
+(08-28) 15:18:09 INFO     [client.py:328] Training of (CLIENT: 1579) completes, {'clientId': 1579, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:18:34 INFO     [client.py:328] Training of (CLIENT: 2067) completes, {'clientId': 2067, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:18:48 INFO     [client.py:328] Training of (CLIENT: 1343) completes, {'clientId': 1343, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 15:19:11 INFO     [client.py:328] Training of (CLIENT: 816) completes, {'clientId': 816, 'moving_loss': 20602310.56908069, 'trained_size': 80, 'success': True, 'utility': 322267.3541932781}
+(08-28) 15:19:15 INFO     [client.py:328] Training of (CLIENT: 99) completes, {'clientId': 99, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:19:32 INFO     [client.py:328] Training of (CLIENT: 1000) completes, {'clientId': 1000, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:19:47 INFO     [client.py:328] Training of (CLIENT: 1362) completes, {'clientId': 1362, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:19:53 INFO     [client.py:328] Training of (CLIENT: 22) completes, {'clientId': 22, 'moving_loss': 20565981.218208052, 'trained_size': 80, 'success': True, 'utility': 294773.25293677684}
+(08-28) 15:20:02 INFO     [client.py:328] Training of (CLIENT: 155) completes, {'clientId': 155, 'moving_loss': 19472444.149952866, 'trained_size': 80, 'success': True, 'utility': 300067.6286262516}
+(08-28) 15:20:22 INFO     [client.py:328] Training of (CLIENT: 354) completes, {'clientId': 354, 'moving_loss': 18457798.8792601, 'trained_size': 80, 'success': True, 'utility': 300737.78363945975}
+(08-28) 15:20:37 INFO     [client.py:328] Training of (CLIENT: 991) completes, {'clientId': 991, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:20:40 INFO     [client.py:328] Training of (CLIENT: 1428) completes, {'clientId': 1428, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:20:52 INFO     [client.py:328] Training of (CLIENT: 1587) completes, {'clientId': 1587, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:21:12 INFO     [client.py:328] Training of (CLIENT: 1781) completes, {'clientId': 1781, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:21:43 INFO     [client.py:328] Training of (CLIENT: 1432) completes, {'clientId': 1432, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:22:12 INFO     [client.py:328] Training of (CLIENT: 818) completes, {'clientId': 818, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:22:28 INFO     [client.py:328] Training of (CLIENT: 1492) completes, {'clientId': 1492, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:22:52 INFO     [client.py:328] Training of (CLIENT: 1031) completes, {'clientId': 1031, 'moving_loss': 19534281.59862207, 'trained_size': 80, 'success': True, 'utility': 304963.4645183578}
+(08-28) 15:23:24 INFO     [client.py:328] Training of (CLIENT: 174) completes, {'clientId': 174, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:23:38 INFO     [client.py:328] Training of (CLIENT: 565) completes, {'clientId': 565, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:23:59 INFO     [client.py:328] Training of (CLIENT: 1591) completes, {'clientId': 1591, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:24:02 INFO     [client.py:328] Training of (CLIENT: 1877) completes, {'clientId': 1877, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:24:05 INFO     [client.py:328] Training of (CLIENT: 2029) completes, {'clientId': 2029, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:24:20 INFO     [client.py:328] Training of (CLIENT: 2162) completes, {'clientId': 2162, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:24:28 INFO     [client.py:328] Training of (CLIENT: 2093) completes, {'clientId': 2093, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:24:47 INFO     [client.py:328] Training of (CLIENT: 1505) completes, {'clientId': 1505, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:24:56 INFO     [client.py:328] Training of (CLIENT: 48) completes, {'clientId': 48, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:00 INFO     [client.py:328] Training of (CLIENT: 1354) completes, {'clientId': 1354, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:06 INFO     [client.py:328] Training of (CLIENT: 516) completes, {'clientId': 516, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:17 INFO     [client.py:328] Training of (CLIENT: 899) completes, {'clientId': 899, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:22 INFO     [client.py:328] Training of (CLIENT: 1118) completes, {'clientId': 1118, 'moving_loss': 20572898.344601665, 'trained_size': 80, 'success': True, 'utility': 317501.49903354497}
+(08-28) 15:25:26 INFO     [client.py:328] Training of (CLIENT: 1194) completes, {'clientId': 1194, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:31 INFO     [client.py:328] Training of (CLIENT: 1648) completes, {'clientId': 1648, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:35 INFO     [client.py:328] Training of (CLIENT: 1887) completes, {'clientId': 1887, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:25:44 INFO     [client.py:328] Training of (CLIENT: 2130) completes, {'clientId': 2130, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:26:07 INFO     [client.py:328] Training of (CLIENT: 503) completes, {'clientId': 503, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:26:10 INFO     [client.py:328] Training of (CLIENT: 951) completes, {'clientId': 951, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:26:25 INFO     [client.py:328] Training of (CLIENT: 470) completes, {'clientId': 470, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 15:26:43 INFO     [client.py:328] Training of (CLIENT: 753) completes, {'clientId': 753, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:26:46 INFO     [client.py:328] Training of (CLIENT: 1154) completes, {'clientId': 1154, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:26:57 INFO     [client.py:328] Training of (CLIENT: 1159) completes, {'clientId': 1159, 'moving_loss': 20506392.301071133, 'trained_size': 80, 'success': True, 'utility': 362271.87404883537}
+(08-28) 15:27:00 INFO     [client.py:328] Training of (CLIENT: 1904) completes, {'clientId': 1904, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:27:03 INFO     [client.py:328] Training of (CLIENT: 404) completes, {'clientId': 404, 'moving_loss': 16517514.783531731, 'trained_size': 80, 'success': True, 'utility': 325133.96410495637}
+(08-28) 15:27:29 INFO     [client.py:328] Training of (CLIENT: 541) completes, {'clientId': 541, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:27:32 INFO     [client.py:328] Training of (CLIENT: 1572) completes, {'clientId': 1572, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 15:28:01 INFO     [client.py:328] Training of (CLIENT: 328) completes, {'clientId': 328, 'moving_loss': 17489349.819855954, 'trained_size': 80, 'success': True, 'utility': 301105.94392361847}
+(08-28) 15:28:12 INFO     [client.py:328] Training of (CLIENT: 705) completes, {'clientId': 705, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:28:20 INFO     [client.py:328] Training of (CLIENT: 1248) completes, {'clientId': 1248, 'moving_loss': 19419922.353411652, 'trained_size': 80, 'success': True, 'utility': 352544.32779699436}
+(08-28) 15:28:34 INFO     [client.py:328] Training of (CLIENT: 1328) completes, {'clientId': 1328, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:28:52 INFO     [client.py:328] Training of (CLIENT: 1526) completes, {'clientId': 1526, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:28:56 INFO     [client.py:328] Training of (CLIENT: 1613) completes, {'clientId': 1613, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:29:05 INFO     [client.py:328] Training of (CLIENT: 1828) completes, {'clientId': 1828, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:29:32 INFO     [client.py:328] Training of (CLIENT: 1810) completes, {'clientId': 1810, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:29:36 INFO     [client.py:328] Training of (CLIENT: 1276) completes, {'clientId': 1276, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.23}
+(08-28) 15:30:02 INFO     [client.py:328] Training of (CLIENT: 1557) completes, {'clientId': 1557, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:30:06 INFO     [client.py:328] Training of (CLIENT: 31) completes, {'clientId': 31, 'moving_loss': 19499206.599327438, 'trained_size': 80, 'success': True, 'utility': 278194.807630787}
+(08-28) 15:30:19 INFO     [client.py:328] Training of (CLIENT: 1132) completes, {'clientId': 1132, 'moving_loss': 20607703.489135005, 'trained_size': 80, 'success': True, 'utility': 245136.82582247342}
+(08-28) 15:30:22 INFO     [client.py:328] Training of (CLIENT: 1469) completes, {'clientId': 1469, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:30:41 INFO     [client.py:328] Training of (CLIENT: 213) completes, {'clientId': 213, 'moving_loss': 18409194.026529506, 'trained_size': 80, 'success': True, 'utility': 343247.4934646848}
+(08-28) 15:31:09 INFO     [client.py:328] Training of (CLIENT: 743) completes, {'clientId': 743, 'moving_loss': 20524041.502371244, 'trained_size': 80, 'success': True, 'utility': 362427.7384737211}
+(08-28) 15:31:12 INFO     [client.py:328] Training of (CLIENT: 823) completes, {'clientId': 823, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:31:38 INFO     [client.py:328] Training of (CLIENT: 1290) completes, {'clientId': 1290, 'moving_loss': 20570822.217345152, 'trained_size': 80, 'success': True, 'utility': 308414.4645327193}
+(08-28) 15:31:41 INFO     [client.py:328] Training of (CLIENT: 1298) completes, {'clientId': 1298, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.25}
+(08-28) 15:32:07 INFO     [client.py:328] Training of (CLIENT: 2061) completes, {'clientId': 2061, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:32:21 INFO     [client.py:328] Training of (CLIENT: 978) completes, {'clientId': 978, 'moving_loss': 19453598.568915207, 'trained_size': 80, 'success': True, 'utility': 352849.870116254}
+(08-28) 15:32:39 INFO     [client.py:328] Training of (CLIENT: 730) completes, {'clientId': 730, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:32:54 INFO     [client.py:328] Training of (CLIENT: 827) completes, {'clientId': 827, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:32:58 INFO     [client.py:328] Training of (CLIENT: 374) completes, {'clientId': 374, 'moving_loss': 20564458.06555508, 'trained_size': 80, 'success': True, 'utility': 285692.72665258404}
+(08-28) 15:33:08 INFO     [client.py:328] Training of (CLIENT: 555) completes, {'clientId': 555, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:33:12 INFO     [client.py:328] Training of (CLIENT: 1427) completes, {'clientId': 1427, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:33:31 INFO     [client.py:328] Training of (CLIENT: 1713) completes, {'clientId': 1713, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:33:35 INFO     [client.py:328] Training of (CLIENT: 265) completes, {'clientId': 265, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:33:49 INFO     [client.py:328] Training of (CLIENT: 567) completes, {'clientId': 567, 'moving_loss': 20571957.63548111, 'trained_size': 80, 'success': True, 'utility': 344708.03196696605}
+(08-28) 15:33:52 INFO     [client.py:328] Training of (CLIENT: 993) completes, {'clientId': 993, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:33:56 INFO     [client.py:328] Training of (CLIENT: 1297) completes, {'clientId': 1297, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:33:59 INFO     [client.py:328] Training of (CLIENT: 1428) completes, {'clientId': 1428, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:34:15 INFO     [client.py:328] Training of (CLIENT: 1937) completes, {'clientId': 1937, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.2}
+(08-28) 15:34:19 INFO     [client.py:328] Training of (CLIENT: 2017) completes, {'clientId': 2017, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:34:56 INFO     [client.py:328] Training of (CLIENT: 241) completes, {'clientId': 241, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:34:58 INFO     [client.py:328] Training of (CLIENT: 129) completes, {'clientId': 129, 'moving_loss': 19454791.906328905, 'trained_size': 80, 'success': True, 'utility': 352860.69234260847}
+(08-28) 15:35:10 INFO     [client.py:328] Training of (CLIENT: 184) completes, {'clientId': 184, 'moving_loss': 19445613.948696464, 'trained_size': 80, 'success': True, 'utility': 352777.45006116445}
+(08-28) 15:35:20 INFO     [client.py:328] Training of (CLIENT: 83) completes, {'clientId': 83, 'moving_loss': 19411636.729437407, 'trained_size': 80, 'success': True, 'utility': 352469.1122189282}
+(08-28) 15:35:47 INFO     [client.py:328] Training of (CLIENT: 239) completes, {'clientId': 239, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:35:58 INFO     [client.py:328] Training of (CLIENT: 640) completes, {'clientId': 640, 'moving_loss': 19495322.08839436, 'trained_size': 80, 'success': True, 'utility': 326735.9541832633}
+(08-28) 15:36:25 INFO     [client.py:328] Training of (CLIENT: 1344) completes, {'clientId': 1344, 'moving_loss': 19453462.29093074, 'trained_size': 80, 'success': True, 'utility': 352848.6342072996}
+(08-28) 15:36:50 INFO     [client.py:328] Training of (CLIENT: 1372) completes, {'clientId': 1372, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:36:58 INFO     [client.py:328] Training of (CLIENT: 1719) completes, {'clientId': 1719, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:37:24 INFO     [client.py:328] Training of (CLIENT: 726) completes, {'clientId': 726, 'moving_loss': 18299504.851410437, 'trained_size': 80, 'success': True, 'utility': 342223.36426525115}
+(08-28) 15:38:15 INFO     [client.py:328] Training of (CLIENT: 427) completes, {'clientId': 427, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:38:23 INFO     [client.py:328] Training of (CLIENT: 1770) completes, {'clientId': 1770, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:39:50 INFO     [client.py:328] Training of (CLIENT: 849) completes, {'clientId': 849, 'moving_loss': 18445158.95617432, 'trained_size': 80, 'success': True, 'utility': 292045.22768460034}
+(08-28) 15:40:17 INFO     [client.py:328] Training of (CLIENT: 265) completes, {'clientId': 265, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:40:43 INFO     [client.py:328] Training of (CLIENT: 600) completes, {'clientId': 600, 'moving_loss': 0.0001, 'trained_size': 80, 'success': True, 'utility': 0.21}
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/homes/zjiangaj/FedScale/core/executor.py", line 311, in training_handler
+    client_model=local_model)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/FedScale/core/client.py", line 115, in train
+    loader = iter(client_data)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 359, in __iter__
+    return self._get_iterator()
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 305, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 918, in __init__
+    w.start()
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/process.py", line 105, in start
+    self._popen = self._Popen(self)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/context.py", line 223, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+
+(08-28) 15:40:58 INFO     [executor.py:322]   File "/data/samuel/anaconda3/envs/fedscale/lib/python3.6/multiprocessing/popen_fork.py", line 66, in _launch
+    self.pid = os.fork()
+
+(08-28) 15:40:58 INFO     [executor.py:323] Client 777's training failed as [Errno 12] Cannot allocate memory
