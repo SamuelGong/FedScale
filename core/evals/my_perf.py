@@ -95,8 +95,8 @@ def run(task_prefix):
     personalized = "meta" # "meta" or "none" or "ditto"
     task_dict = {
         f"random_{personalized}_all_test": "random",
-        f"oort_{personalized}_all_test": "oort",
-        f"async_{personalized}_all_test_60": "async"
+        # f"oort_{personalized}_all_test": "oort",
+        f"async_{personalized}_all_test_100": "async"
     }
 
     # x-axis
