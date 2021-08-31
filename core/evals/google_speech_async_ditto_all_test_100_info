@@ -1,4 +1,4 @@
 job_name=google_speech_async_ditto_all_test_100
 model=resnet34
-time_stamp=0828_095349
-git_head_hash=39b5c14
+time_stamp=0829_125330
+git_head_hash=7106f40
