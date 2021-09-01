@@ -44,7 +44,7 @@ job_conf:
     - log_path: $HOME/FedScale/core/evals # Path of log files
     - job_name: google_speech_local_none_all_test                   # Generate logs under this folder: log_path/job_name/time_stamp
     - task: speech
-    - total_worker: 100000000                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
+    - total_worker: 50                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: google_speech                     # Dataset: openImg, google_speech, stackoverflow
     - data_dir: $HOME/FedScale/dataset/data/google_speech    # Path of the dataset
     - data_map_file: $HOME/FedScale/dataset/data/google_speech/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
@@ -62,7 +62,10 @@ job_conf:
     - learning_rate: 5e-2
     - batch_size: 20
     - test_bsz: 20
-    - sample_mode: local
+    - sync_mode: local
     - test_mode: all # "default" or "all"
-
+    - async_end_time: 345601 # 345600s = 4 days
+    - async_eval_interval: 14400 # 14400s = 4 hours
+    - async_num_issues_max: 100000000
+    - async_sec_per_step: 60 # 240s = 4 mins
 
