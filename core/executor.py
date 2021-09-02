@@ -41,7 +41,7 @@ class Executor(object):
         self.personalized = args.personalized
         self.dataset_size = args.dataset_size
         self.sync_mode = args.sync_mode
-        if self.sync_mode in ["async"]:
+        if self.sync_mode in ["async", "local"]:
             self.client_cb_idx_mapping = dict()
             self.current_cb_idx = 0
 
@@ -279,13 +279,15 @@ class Executor(object):
         # load last global model
         if self.sync_mode in ["async"]:
             client_model = self.load_async_global_model(clientId)
+        elif self.sync_mode in ["local"]:
+            pass  # we don't need any global model
         else:
             client_model = self.load_global_model()
 
         conf.clientId, conf.device = clientId, self.device
         conf.tokenizer = tokenizer
 
-        if clientId == 0: # related to centralized training
+        if clientId == 0:  # related to centralized training
             client_data = select_dataset(1, self.centralized_training_sets, batch_size=conf.batch_size,
                                          collate_fn=self.collate_fn)
         else:
@@ -313,6 +315,16 @@ class Executor(object):
                 with open(local_model_path, 'wb') as f:
                     pickle.dump(local_model, f)
                 del local_model
+            elif self.sync_mode in ["local"]:
+                local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
+                if os.path.exists(local_model_path):
+                    with open(local_model_path, 'rb') as f:
+                        local_model = pickle.load(f)
+                else:
+                    local_model = init_model()
+                train_res = client.train(client_data=client_data, model=local_model, conf=conf)
+                with open(local_model_path, 'wb') as f:
+                    pickle.dump(local_model, f)
             else:
                 train_res = client.train(client_data=client_data, model=client_model, conf=conf)
         except Exception as e:
@@ -346,7 +358,7 @@ class Executor(object):
             client.train(client_data=client_data, model=client_model, conf=conf,
                          specified_local_steps=1)  # for "meta"
             # client_model has already been updated implicitly
-        elif self.personalized == "ditto":
+        elif self.personalized == "ditto" or self.sync_mode in ["local"]:
             local_model_path = os.path.join(logDir, 'model_client' + str(clientId) + '.pth.tar')
             if os.path.exists(local_model_path):
                 with open(local_model_path, 'rb') as f:

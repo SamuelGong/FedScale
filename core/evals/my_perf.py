@@ -96,9 +96,9 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
     plt.savefig(name, bbox_inches='tight')
 
 def run(task_prefix):
-    personalized = "ditto" # "meta" or "none" or "ditto"
+    personalized = "meta" # "meta" or "none" or "ditto"
     task_dict = {
-        f"local_none_all_test": "random",
+        f"local_none_all_test": "local",
         f"random_{personalized}_all_test": "random",
         # f"oort_{personalized}_all_test": "oort",
         f"async_{personalized}_all_test_100_60": "async"

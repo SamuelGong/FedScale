@@ -60,7 +60,7 @@ class Aggregator(object):
         self.global_num_batches = None
         self.sync_mode = self.args.sync_mode
         self.global_model_has_changed = False
-        if self.sync_mode in ["async"]:
+        if self.sync_mode in ["async", "local"]:
             self.async_controller = AsyncController(args)
             self.async_sec_per_step = args.async_sec_per_step
             self.async_step = 0 # then will start from 0
@@ -227,7 +227,7 @@ class Aggregator(object):
             logging.info("Info of all feasible clients {}".format(self.client_manager.getDataInfo()))
 
             # start to sample clients
-            if self.sync_mode == "async":
+            if self.sync_mode in ["async", "local"]:
                 self.async_step_completion_handler()
             else:
                 self.round_completion_handler()
@@ -459,7 +459,7 @@ class Aggregator(object):
         logging.info(f"[Async] while {len(lost_clients)}/{len(async_sampled_clients)} sampled clients "
                      f"dropped or busy: {lost_clients}")
 
-        if len(final_participated_clients) > 0:
+        if len(final_participated_clients) > 0 and self.sync_mode not in ["local"]:
             self.broadcast_msg({
                 'event': 'update_async_model',
                 'clientIds': final_participated_clients
@@ -608,7 +608,7 @@ class Aggregator(object):
                         self.testing_history['perf'][self.epoch]['local_loss'],
                         self.testing_history['perf'][self.epoch]['local_test_len']))
 
-        if self.sync_mode in ["async"]:
+        if self.sync_mode in ["async", "local"]:
             self.test_result_accumulator = []
             self.async_step_completion_handler()
         else:
@@ -623,7 +623,7 @@ class Aggregator(object):
     def event_monitor(self):
         logging.info("Start monitoring events ...")
 
-        if self.sync_mode == "async":
+        if self.sync_mode in ["async", "local"]:
             while True:
                 if len(self.event_queue) != 0:
                     event_msg = self.event_queue.popleft()
@@ -651,8 +651,9 @@ class Aggregator(object):
                         break
                     elif event_msg == 'test':
                         if self.global_virtual_clock % self.async_eval_interval == 0:
-                            self.broadcast_msg({'event': 'update_model'})  # all use the latest global model
-                            self.broadcast_models()
+                            if self.sync_mode not in ["local"]:
+                                self.broadcast_msg({'event': 'update_model'})  # all use the latest global model
+                                self.broadcast_models()
                             if self.test_mode == "all":
                                 for executorId in self.executors:
                                     next_clientId = self.resource_manager.get_next_all_test_task()
@@ -671,7 +672,7 @@ class Aggregator(object):
                     event_dict = self.client_event_queue.get()
                     event_msg, executorId, results = event_dict['event'], event_dict['executorId'], event_dict['return']
 
-                    if self.sync_mode in ["async"]:
+                    if self.sync_mode in ["async", "local"]:
                         logging.info(f"Step {self.async_step}: Receive (Event:{event_msg.upper()})"
                                      f" from (Executor:{executorId})")
                     else:
