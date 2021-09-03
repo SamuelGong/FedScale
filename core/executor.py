@@ -344,7 +344,9 @@ class Executor(object):
             logging.info(f"Client {clientId}'s training failed as {e}")
 
         # we need to get runtime variance for BN
-        self.model = client_model
+        if self.sync_mode not in ["local"]:
+            self.model = client_model
+
         gc.collect()
         torch.cuda.empty_cache()
         return train_res
