@@ -1,0 +1,58 @@
+(08-13) 18:12:20 INFO     [executor.py:45] (EXECUTOR:2) is setting up environ ...
+(08-13) 18:12:21 INFO     [executor.py:82] Start to connect to 127.0.0.1:53377 for control plane communication ...
+(08-13) 18:12:28 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(08-13) 18:12:28 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 5 nodes.
+(08-13) 18:12:34 INFO     [executor.py:119] Data partitioner starts ...
+(08-13) 18:12:34 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/google_speech/client_data_mapping/train.csv...
+(08-13) 18:12:34 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(08-13) 18:12:35 INFO     [divide_data.py:94] Randomly partitioning data, 1800 samples...
+(08-13) 18:12:35 INFO     [executor.py:128] Data partitioner completes ...
+(08-13) 18:12:35 INFO     [divide_data.py:94] Randomly partitioning data, 10800 samples...
+(08-13) 18:12:35 INFO     [executor.py:357] Start monitoring events ...
+(08-13) 18:17:07 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 7.700779711778298, 'trained_size': 10780, 'success': True, 'utility': 222.00223006848628}
+(08-13) 18:21:27 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 2.5878, Top-1 Accuracy: 123.0/450 (0.2733), Top-5 Accuracy: 0.6733
+(08-13) 18:21:27 INFO     [executor.py:301] After aggregation epoch 10, CumulTime 547.1219, eval_time 1.9977, test_loss 2.5878, test_accuracy 27.33%, test_5_accuracy 67.33% 
+
+(08-13) 18:27:12 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.7904790051608677, 'trained_size': 10780, 'success': True, 'utility': 107.04702533480113}
+(08-13) 18:30:38 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.577379379861272, 'trained_size': 10780, 'success': True, 'utility': 128.43374957974302}
+(08-13) 18:32:18 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.259586851234677, 'trained_size': 10780, 'success': True, 'utility': 120.25537762570926}
+(08-13) 18:33:08 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.1839723000105353, 'trained_size': 10780, 'success': True, 'utility': 118.226150745372}
+(08-13) 18:38:11 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 2.212, Top-1 Accuracy: 173.0/450 (0.3844), Top-5 Accuracy: 0.7111
+(08-13) 18:38:11 INFO     [executor.py:301] After aggregation epoch 30, CumulTime 1551.2804, eval_time 1.1155, test_loss 2.212, test_accuracy 38.44%, test_5_accuracy 71.11% 
+
+(08-13) 18:39:58 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.6548346897783834, 'trained_size': 10780, 'success': True, 'utility': 102.91230254241547}
+(08-13) 18:40:50 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.662399933037963, 'trained_size': 10780, 'success': True, 'utility': 130.5348979064333}
+(08-13) 18:46:42 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.7556177827247115, 'trained_size': 10780, 'success': True, 'utility': 105.99978211976736}
+(08-13) 18:46:48 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.3184, Top-1 Accuracy: 276.0/450 (0.6133), Top-5 Accuracy: 0.8622
+(08-13) 18:46:48 INFO     [executor.py:301] After aggregation epoch 40, CumulTime 2067.5482, eval_time 1.1082, test_loss 1.3184, test_accuracy 61.33%, test_5_accuracy 86.22% 
+
+(08-13) 18:47:40 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 0.9152417269454095, 'trained_size': 10780, 'success': True, 'utility': 76.5346134271979}
+(08-13) 18:51:56 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.1502666204183782, 'trained_size': 10780, 'success': True, 'utility': 85.80038677463884}
+(08-13) 18:55:33 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.635, Top-1 Accuracy: 238.0/450 (0.5289), Top-5 Accuracy: 0.7889
+(08-13) 18:55:33 INFO     [executor.py:301] After aggregation epoch 50, CumulTime 2593.043, eval_time 1.1111, test_loss 1.635, test_accuracy 52.89%, test_5_accuracy 78.89% 
+
+(08-13) 18:58:02 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.8048788470040513, 'trained_size': 10780, 'success': True, 'utility': 107.4766236017206}
+(08-13) 18:59:46 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.4036393529635818, 'trained_size': 10780, 'success': True, 'utility': 94.78022926205087}
+(08-13) 19:04:00 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.7543, Top-1 Accuracy: 240.0/450 (0.5333), Top-5 Accuracy: 0.7667
+(08-13) 19:04:00 INFO     [executor.py:301] After aggregation epoch 60, CumulTime 3099.702, eval_time 1.0985, test_loss 1.7543, test_accuracy 53.33%, test_5_accuracy 76.67% 
+
+(08-13) 19:09:04 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.0789251670776059, 'trained_size': 10780, 'success': True, 'utility': 83.09705812660684}
+(08-13) 19:13:08 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.5794, Top-1 Accuracy: 253.0/450 (0.5622), Top-5 Accuracy: 0.8089
+(08-13) 19:13:08 INFO     [executor.py:301] After aggregation epoch 70, CumulTime 3648.4391, eval_time 2.9928, test_loss 1.5794, test_accuracy 56.22%, test_5_accuracy 80.89% 
+
+(08-13) 19:21:04 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 2.307800294090142, 'trained_size': 10780, 'success': True, 'utility': 121.53156743075812}
+(08-13) 19:21:59 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.293729323482471, 'trained_size': 10780, 'success': True, 'utility': 90.99377819547782}
+(08-13) 19:22:04 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.2355, Top-1 Accuracy: 296.0/450 (0.6578), Top-5 Accuracy: 0.86
+(08-13) 19:22:04 INFO     [executor.py:301] After aggregation epoch 80, CumulTime 4184.4266, eval_time 1.1405, test_loss 1.2355, test_accuracy 65.78%, test_5_accuracy 86.00% 
+
+(08-13) 19:27:58 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.319143567503468, 'trained_size': 10780, 'success': True, 'utility': 91.88318035430747}
+(08-13) 19:30:29 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.4027, Top-1 Accuracy: 275.0/450 (0.6111), Top-5 Accuracy: 0.8533
+(08-13) 19:30:29 INFO     [executor.py:301] After aggregation epoch 90, CumulTime 4688.6671, eval_time 1.0621, test_loss 1.4027, test_accuracy 61.11%, test_5_accuracy 85.33% 
+
+(08-13) 19:31:22 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 0.8165226737664806, 'trained_size': 10780, 'success': True, 'utility': 72.28931533847499}
+(08-13) 19:32:20 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.2378217427469336, 'trained_size': 10780, 'success': True, 'utility': 89.00595010211606}
+(08-13) 19:38:24 INFO     [client.py:327] Training of (CLIENT: 0) completes, {'clientId': 0, 'moving_loss': 1.157547025009742, 'trained_size': 10780, 'success': True, 'utility': 86.07148749767455}
+(08-13) 19:39:24 INFO     [utils_model.py:354] Rank 2: Test set: Average loss: 1.6401, Top-1 Accuracy: 261.0/450 (0.58), Top-5 Accuracy: 0.8178
+(08-13) 19:39:24 INFO     [executor.py:301] After aggregation epoch 100, CumulTime 5224.4403, eval_time 1.1145, test_loss 1.6401, test_accuracy 58.00%, test_5_accuracy 81.78% 
+
+(08-13) 19:40:21 INFO     [executor.py:404] Terminating (Executor 2) ...

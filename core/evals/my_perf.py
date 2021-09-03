@@ -17,20 +17,20 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     ax = fig.add_subplot(111)
 
     colors = ['#b35806', '#f1a340', '#998ec3', '#542788']
-    linetype = ['-']
-    # linetype = ['-', '--']
+    # linetype = ['-']
+    linetype = ['-', '--']
     # markertype = ['o', '|', '+', 'x']
     #
     # X_max = float('inf')
 
     X = [i for i in range(len(datas[0]))]
     for i, data in enumerate(datas):
-        # plt.plot(xs[i], data, linetype[i % len(linetype)],
-        #          color=colors[(i // 2) % len(colors)], label=linelabels[i],
-        #          linewidth=1.)
         plt.plot(xs[i], data, linetype[i % len(linetype)],
-                 color=colors[i % len(colors)], label=linelabels[i],
+                 color=colors[(i // 2) % len(colors)], label=linelabels[i],
                  linewidth=1.)
+        # plt.plot(xs[i], data, linetype[i % len(linetype)],
+        #          color=colors[i % len(colors)], label=linelabels[i],
+        #          linewidth=1.)
         # X_max = min(X_max, max(xs[i]))
 
     legend_properties = {'size': _fontsize}
@@ -98,7 +98,7 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
 def run(task_prefix):
     personalized = "meta" # "meta" or "none" or "ditto"
     task_dict = {
-        f"local_none_all_test": "local",
+        f"local_none_all_test_60": "local",
         f"random_{personalized}_all_test": "random",
         # f"oort_{personalized}_all_test": "oort",
         f"async_{personalized}_all_test_100_60": "async"
@@ -120,16 +120,16 @@ def run(task_prefix):
     label_list_duration_no_async = []
 
     for k, v in task_dict.items():
-        # if v not in ["async"]:
-        #     label_list_duration_no_async.append(v)
-        #     label_list_no_async.append(f"{v}_g")
-        #     label_list_no_async.append(f"{v}_l")
-        # label_list.append(f"{v}_g")
-        # label_list.append(f"{v}_l")
-        if v not in ["async"]:
+        if v not in ["async", "local"]:
+            label_list_duration_no_async.append(v)
+            label_list_no_async.append(f"{v}_g")
+            label_list_no_async.append(f"{v}_l")
+        label_list.append(f"{v}_g")
+        label_list.append(f"{v}_l")
+        if v not in ["async", "local"]:
             label_list_duration_no_async.append(v)
             label_list_no_async.append(f"{v}")
-        label_list.append(f"{v}")
+        # label_list.append(f"{v}")
 
         testing_acc_lines = []
         testing_local_acc_lines = []
@@ -149,22 +149,22 @@ def run(task_prefix):
                 training_duration_lines.append(line)
 
         # global testing accuracy
-        # round_list = []
-        # acc_list = []
-        # hour_list = []
-        # for f in testing_acc_lines:
-        #     epoch = f[f.find("epoch")+7:].split(',')[0]
-        #     top1_acc_str = f[f.find("top_1")+7:].split(' ')[0]
-        #     virtual_clock_str = f[f.find("virtual_clock")+15:].split(',')[0]
-        #     round_list.append(int(epoch))
-        #     acc_list.append(float(top1_acc_str))
-        #     hour_list.append(float(virtual_clock_str) / 60 / 60)
-        #
-        # acc_list_list.append(acc_list)
-        # if v not in ["async"]:
-        #     testing_round_list_list_no_sync.append(round_list)
-        #     acc_list_list_no_async.append(acc_list)
-        # testing_hour_list_list.append(hour_list)
+        round_list = []
+        acc_list = []
+        hour_list = []
+        for f in testing_acc_lines:
+            epoch = f[f.find("epoch")+7:].split(',')[0]
+            top1_acc_str = f[f.find("top_1")+7:].split(' ')[0]
+            virtual_clock_str = f[f.find("virtual_clock")+15:].split(',')[0]
+            round_list.append(int(epoch))
+            acc_list.append(float(top1_acc_str))
+            hour_list.append(float(virtual_clock_str) / 60 / 60)
+
+        acc_list_list.append(acc_list)
+        if v not in ["async", "local"]:
+            testing_round_list_list_no_sync.append(round_list)
+            acc_list_list_no_async.append(acc_list)
+        testing_hour_list_list.append(hour_list)
 
         # average local testing accuracy
         round_local_list = []
@@ -179,13 +179,13 @@ def run(task_prefix):
             hour_local_list.append(float(virtual_clock_str) / 60 / 60)
 
         acc_list_list.append(acc_local_list)
-        if v not in ["async"]:
+        if v not in ["async", "local"]:
             testing_round_list_list_no_sync.append(round_local_list)
             acc_list_list_no_async.append(acc_local_list)
         testing_hour_list_list.append(hour_local_list)
 
         # duration for each training round
-        if v not in ["async"]:
+        if v not in ["async", "local"]:
             round_list = []
             duration_list = []
             epoch = 0

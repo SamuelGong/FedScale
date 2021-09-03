@@ -8,6 +8,8 @@ from datetime import datetime
 log_dir = os.path.join(os.getcwd(), 'history')
 focus_str_in_agg = "FL Local Testing"
 focus_str_in_exe = "(Local) After aggregation"
+# focus_str_in_agg = "FL Local Testing"
+# focus_str_in_exe = "(Local) After aggregation"
 
 
 def within_the_range(ts_str, sts_str, ets_str):
@@ -87,6 +89,10 @@ def my_cdf(datas, labels, xlabel, ylabel, path):
 def run(task):
     personalized = "meta"
     task_dict = {
+        f"{task}_local_none_all_test_60": {
+            "virtual_clock": -1,
+            "label": "local"
+        },
         f"{task}_random_{personalized}_all_test": {
             "virtual_clock": -1,
             "label": "fed_sync"
