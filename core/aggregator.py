@@ -661,7 +661,8 @@ class Aggregator(object):
                                     if next_clientId is not None:
                                         config = self.get_client_conf(next_clientId)
                                         self.server_event_queue[executorId].put(
-                                            {'event': 'test', 'clientId': next_clientId, 'conf': config}
+                                            {'event': 'test', 'clientId': next_clientId, 'conf': config,
+                                             'global_virtual_clock': round(self.global_virtual_clock)}
                                         )
                             else:
                                 self.broadcast_msg(send_msg)
@@ -706,7 +707,7 @@ class Aggregator(object):
                             if next_clientId is not None:
                                 config = self.get_client_conf(next_clientId)
                                 runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config,
-                                                   'necessary': False}
+                                                   'global_virtual_clock': round(self.global_virtual_clock)}
                                 self.server_event_queue[executorId].put(runtime_profile)
                         else:
                             pass
@@ -784,8 +785,7 @@ class Aggregator(object):
                             next_clientId = self.resource_manager.get_next_all_test_task()
                             if next_clientId is not None:
                                 config = self.get_client_conf(next_clientId)
-                                runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config,
-                                                   'necessary': False}
+                                runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config}
                                 self.server_event_queue[executorId].put(runtime_profile)
                         else:
                             pass

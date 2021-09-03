@@ -41,6 +41,8 @@ class Executor(object):
         self.personalized = args.personalized
         self.dataset_size = args.dataset_size
         self.sync_mode = args.sync_mode
+        self.all_testing_sets = None
+        self.centralized_training_sets = None
         if self.sync_mode in ["async", "local"]:
             self.client_cb_idx_mapping = dict()
             self.current_cb_idx = 0
@@ -115,7 +117,7 @@ class Executor(object):
         """Return the model architecture used in training"""
         return init_model()
 
-    def init_data(self):
+    def init_data(self, partition_test=True):
         """Return the training and testing dataset"""
         train_dataset, test_dataset = init_dataset(self.dataset_size)
 
@@ -127,7 +129,10 @@ class Executor(object):
                                                 data_map_file=self.args.data_map_file)
 
         testing_sets = DataPartitioner(data=test_dataset, numOfClass=self.args.num_class, isTest=True)
-        testing_sets.partition_data_helper(num_clients=len(self.executors))
+        if partition_test:
+            testing_sets.partition_data_helper(num_clients=len(self.executors))
+        else:
+            testing_sets.partition_data_helper(num_clients=1)
 
         logging.info("Data partitioner completes ...")
 
@@ -160,9 +165,13 @@ class Executor(object):
         self.setup_env()
         self.model = self.init_model()
         self.model = self.model.to(device=self.device)
-        self.training_sets, self.testing_sets = self.init_data()
+
         if self.test_mode == "all":
+            self.training_sets, self.testing_sets = self.init_data(partition_test=False)
             self.all_testing_sets = self.init_data_all_test()
+        else:
+            self.training_sets, self.testing_sets = self.init_data()
+
         if self.sample_mode == "centralized":
             self.centralized_training_sets = self.init_data_centralized_train()
         self.start_event()
@@ -340,7 +349,7 @@ class Executor(object):
         torch.cuda.empty_cache()
         return train_res
 
-    def testing_handler(self, args, clientId=None, conf=None, necessary=True):
+    def testing_handler(self, args, clientId=None, conf=None, global_virtual_clock=None):
         """Test model"""
         evalStart = time.time()
         device = self.device
@@ -376,25 +385,26 @@ class Executor(object):
         else:
             criterion = torch.nn.CrossEntropyLoss().to(device=device)
 
-        if necessary:
+        if self.test_mode == "all":
+            data_loader = select_dataset(1, self.testing_sets, batch_size=args.test_bsz,
+                                         isTest=True, collate_fn=self.collate_fn)
+        else:
             data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
                                          isTest=True, collate_fn=self.collate_fn)
 
-            test_res = test_model(self.this_rank, client_model, data_loader, device=device,
-                                  criterion=criterion, tokenizer=tokenizer)
+        test_res = test_model(self.this_rank, client_model, data_loader, device=device,
+                              criterion=criterion, tokenizer=tokenizer)
 
-            test_loss, acc, acc_5, testResults = test_res
-            logging.info("After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, "
-                         "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
-                        .format(self.epoch, round(time.time() - self.start_run_time, 4),
-                                round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
+        test_loss, acc, acc_5, testResults = test_res
+        if global_virtual_clock:
+            prompt_prefix = f"After global virtual clock {global_virtual_clock}, "
         else:
-            testResults = {
-                'top_1': 0,
-                'top_5': 0,
-                'test_loss': 0,
-                'test_len': 0
-            }
+            prompt_prefix = f"After aggregation epoch {self.epoch}, "
+
+        logging.info(prompt_prefix + "CumulTime {}, eval_time {}, test_loss {}, "
+                     "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
+                    .format(round(time.time() - self.start_run_time, 4),
+                            round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
 
         if self.test_mode == "all":  # should have clientId and conf prepared
             data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
@@ -405,9 +415,9 @@ class Executor(object):
 
             local_test_loss, local_acc, local_acc_5, local_testResults = local_test_res
             logging.info(
-                "(Local) After aggregation epoch {}, CumulTime {}, eval_time {}, test_loss {}, "
+                "(Local) " + prompt_prefix + "CumulTime {}, eval_time {}, test_loss {}, "
                 "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
-                    .format(self.epoch, round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
+                    .format(round(time.time() - self.start_run_time, 4), round(time.time() - evalStart, 4),
                             local_test_loss, local_acc * 100., local_acc_5 * 100.))
 
             testResults.update({
@@ -457,9 +467,9 @@ class Executor(object):
                 elif event_msg == 'test':
                     if self.test_mode == "all":
                         clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
-                        if 'necessary' in event_dict and event_dict['necessary'] is False:
+                        if 'global_virtual_clock' in event_dict and event_dict['necessary'] is False:
                             test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
-                                                            necessary=False)
+                                                            global_virtual_clock=event_dict['global_virtual_clock'])
                         else:
                             test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf)
                     else:
