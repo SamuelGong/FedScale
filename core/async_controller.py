@@ -62,7 +62,7 @@ class AsyncController(object):
                 clients_not_busy.append(client)
         available_clients = clients_not_busy
 
-        if self.mode == "async":
+        if self.mode in ["async", "local"]:
             self.rng.shuffle(available_clients)
             picked_clients = available_clients[:self.async_num_issues_max]
 
