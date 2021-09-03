@@ -64,7 +64,7 @@ job_conf:
     - test_bsz: 20
     - test_mode: all # "default" or "all"
     - sync_mode: async
-    - async_end_time: 345600 # 345600s = 4 days
+    - async_end_time: 345601 # 345600s = 4 days
     - async_eval_interval: 14401 # 14400s = 4 hours
     - async_num_issues_max: 50
     - async_sec_per_step: 60 # 240s = 4 mins
