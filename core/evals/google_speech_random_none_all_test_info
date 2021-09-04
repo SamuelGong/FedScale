@@ -1,0 +1,4 @@
+job_name=google_speech_random_none_all_test
+model=resnet34
+time_stamp=0903_145558
+git_head_hash=96426b0
