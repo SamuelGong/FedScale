@@ -469,7 +469,7 @@ class Executor(object):
                 elif event_msg == 'test':
                     if self.test_mode == "all":
                         clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
-                        if 'global_virtual_clock' in event_dict and event_dict['necessary'] is False:
+                        if 'global_virtual_clock' in event_dict:
                             test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
                                                             global_virtual_clock=event_dict['global_virtual_clock'])
                         else:

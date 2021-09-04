@@ -6,10 +6,10 @@ from collections import defaultdict
 from datetime import datetime
 
 log_dir = os.path.join(os.getcwd(), 'history')
-focus_str_in_agg = "FL Local Testing"
-focus_str_in_exe = "(Local) After aggregation"
-# focus_str_in_agg = "FL Local Testing"
-# focus_str_in_exe = "(Local) After aggregation"
+focus_str_in_agg_local = "FL Local Testing"
+focus_str_in_exe_local = "(Local) After aggregation"
+focus_str_in_agg_global = "FL Testing"
+focus_str_in_exe_global = "] After aggregation"
 
 
 def within_the_range(ts_str, sts_str, ets_str):
@@ -31,7 +31,7 @@ def within_the_range(ts_str, sts_str, ets_str):
             return False
 
 
-def extract_executors(folder, start_timestamp, end_timestamp):
+def extract_executors(folder, start_timestamp, end_timestamp, focus_str_in_exe):
 
     base_path = os.path.join(log_dir, folder, 'executor')
     file_paths = []
@@ -89,21 +89,26 @@ def my_cdf(datas, labels, xlabel, ylabel, path):
 def run(task):
     personalized = "meta"
     task_dict = {
-        f"{task}_local_none_all_test_60": {
+        # f"{task}_local_none_all_test_60": {
+        #     "virtual_clock": -1,
+        #     "label": "local"
+        # },
+        # f"{task}_random_{personalized}_all_test": {
+        #     "virtual_clock": -1,
+        #     "label": "fed_sync"
+        # },
+        # f"{task}_async_{personalized}_all_test_100_60": {
+        #     "virtual_clock": -1,
+        #     "label": "fed_async"
+        # },
+        f"{task}_random_none_all_test": {
             "virtual_clock": -1,
-            "label": "local"
-        },
-        f"{task}_random_{personalized}_all_test": {
-            "virtual_clock": -1,
-            "label": "fed_sync"
-        },
-        f"{task}_async_{personalized}_all_test_100_60": {
-            "virtual_clock": -1,
-            "label": "fed_async"
+            "label": "sync_plain"
         }
     }
 
-    test_accs_list = []
+    test_accs_local_list = []
+    test_accs_global_list = []
     label_list = []
     for folder, d in task_dict.items():
         agg_path = os.path.join(log_dir, folder, 'aggregator', 'log_1')
@@ -112,7 +117,7 @@ def run(task):
 
         focus_lines = []
         for l in lines:
-            if focus_str_in_agg in l:
+            if focus_str_in_agg_local in l:
                 focus_lines.append(l)
 
         virtual_clock_timestamp_dict = {}
@@ -142,14 +147,23 @@ def run(task):
         else:
             start_timestamp = virtual_clock_timestamp_dict[temp[start_timestamp_idx]]
 
-        test_accs = extract_executors(folder, start_timestamp, end_timestamp)
-        test_accs_list.append(test_accs)
+        test_accs_local = extract_executors(folder, start_timestamp, end_timestamp, focus_str_in_exe_local)
+        test_accs_local_list.append(test_accs_local)
+
+        test_accs_global = extract_executors(folder, start_timestamp, end_timestamp, focus_str_in_exe_global)
+        test_accs_global_list.append(test_accs_global)
+
         label_list.append(d["label"])
 
-    save_path = os.path.join(log_dir, 'converge_acc_cdf.png')
+    save_path_global = os.path.join(log_dir, 'global_converge_acc_cdf.png')
+    y_label = "CDF across clients"
+    x_label = "Global Testing Accuracy (%)"
+    my_cdf(test_accs_global_list, label_list, x_label, y_label, save_path_global)
+
+    save_path_local = os.path.join(log_dir, 'local_converge_acc_cdf.png')
     y_label = "CDF across clients"
     x_label = "Local Testing Accuracy (%)"
-    my_cdf(test_accs_list, label_list, x_label, y_label, save_path)
+    my_cdf(test_accs_local_list, label_list, x_label, y_label, save_path_local)
 
 
 run(sys.argv[1])
