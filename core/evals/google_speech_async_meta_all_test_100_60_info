@@ -1,0 +1,4 @@
+job_name=google_speech_async_meta_all_test_100_60
+model=resnet34
+time_stamp=0904_100654
+git_head_hash=0b369ce
