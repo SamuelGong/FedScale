@@ -7,9 +7,9 @@ from datetime import datetime
 
 log_dir = os.path.join(os.getcwd(), 'history')
 focus_str_in_agg_local = "FL Local Testing"
-focus_str_in_exe_local = "(Local) After aggregation"
+focus_str_in_exe_local = "(Local) After"
 focus_str_in_agg_global = "FL Testing"
-focus_str_in_exe_global = "] After aggregation"
+focus_str_in_exe_global = "] After"
 
 
 def within_the_range(ts_str, sts_str, ets_str):
@@ -69,7 +69,7 @@ def my_cdf(datas, labels, xlabel, ylabel, path):
     fig = plt.figure(figsize=(2, 1.6), dpi=1200)
     ax = fig.add_subplot(111)
 
-    colors = ['#b35806','#f1a340', '#998ec3','#542788']
+    colors = ['#b35806','#e08214','#fdb863','#8073ac','#542788']
     linetype = ['-', '-.', '--', ':']
 
     for idx, data in enumerate(datas):
@@ -87,24 +87,28 @@ def my_cdf(datas, labels, xlabel, ylabel, path):
 
 
 def run(task):
-    personalized = "meta"
+    # personalized = "meta"
     task_dict = {
-        # f"{task}_local_none_all_test_60": {
-        #     "virtual_clock": -1,
-        #     "label": "local"
-        # },
-        # f"{task}_random_{personalized}_all_test": {
-        #     "virtual_clock": -1,
-        #     "label": "fed_sync"
-        # },
-        # f"{task}_async_{personalized}_all_test_100_60": {
-        #     "virtual_clock": -1,
-        #     "label": "fed_async"
-        # },
+        f"{task}_local_none_all_test_60" : {
+            "virtual_clock": -1,
+            "label": "local"
+        },
         f"{task}_random_none_all_test": {
             "virtual_clock": -1,
-            "label": "sync_plain"
-        }
+            "label": "sync_none"
+        },
+        f"{task}_random_meta_all_test": {
+            "virtual_clock": -1,
+            "label": "sync_meta"
+        },
+        f"{task}_async_meta_all_test_100_60": {
+            "virtual_clock": -1,
+            "label": "async_meta"
+        },
+        # f"{task}_async_none_all_test_60": {
+        #     "virtual_clock": -1,
+        #     "label": "async_none"
+        # },
     }
 
     test_accs_local_list = []
