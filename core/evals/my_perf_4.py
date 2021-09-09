@@ -50,6 +50,7 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
 
     ax.set_ylabel(y_label, fontsize=_fontsize)
     ax.set_xlabel(label, fontsize=_fontsize)
+    ax.set_ylim(0)
     plt.plot()
     plt.savefig(name, bbox_inches='tight')
 
