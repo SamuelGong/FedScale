@@ -10,6 +10,7 @@ focus_str_in_agg_local = "FL Local Testing"
 focus_str_in_exe_local = "(Local) After"
 focus_str_in_agg_global = "FL Testing"
 focus_str_in_exe_global = "] After"
+plt.rcParams["font.family"] = "Times New Roman"
 
 
 def within_the_range(ts_str, sts_str, ets_str):
@@ -95,7 +96,7 @@ def run(task):
         },
         f"{task}_random_none_all_test": {
             "virtual_clock": -1,
-            "label": "sync_none"
+            "label": "sync_plain"
         },
         f"{task}_random_meta_all_test": {
             "virtual_clock": -1,
@@ -105,10 +106,10 @@ def run(task):
             "virtual_clock": -1,
             "label": "async_meta"
         },
-        # f"{task}_async_none_all_test_60": {
-        #     "virtual_clock": -1,
-        #     "label": "async_none"
-        # },
+        f"{task}_async_none_all_test_60": {
+            "virtual_clock": -1,
+            "label": "async_plain"
+        },
     }
 
     test_accs_local_list = []
