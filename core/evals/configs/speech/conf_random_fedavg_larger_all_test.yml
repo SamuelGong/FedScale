@@ -44,7 +44,7 @@ job_conf:
     - log_path: $HOME/FedScale/core/evals # Path of log files
     - job_name: google_speech_random_none_larger_all_test                   # Generate logs under this folder: log_path/job_name/time_stamp
     - task: speech
-    - total_worker: 350                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
+    - total_worker: 230                      # Number of participants per round, we use K=100 in our paper, large K will be much slower
     - data_set: google_speech                     # Dataset: openImg, google_speech, stackoverflow
     - data_dir: $HOME/FedScale/dataset/data/google_speech    # Path of the dataset
     - data_map_file: $HOME/FedScale/dataset/data/google_speech/client_data_mapping/train.csv              # Allocation of data to each client, turn to iid setting if not provided
