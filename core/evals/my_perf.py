@@ -16,7 +16,7 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     fig = plt.figure(figsize=(2, 1.6), dpi=1200)  # 2.5 inch for 1/3 double column width
     ax = fig.add_subplot(111)
 
-    colors = ['#b35806','#e08214','#fdb863','#8073ac','#542788']
+    colors = ['#b35806','#e08214','#fdb863','#8073ac','#542788', '#000000']
     # linetype = ['-']
     linetype = ['-', '--']
     # markertype = ['o', '|', '+', 'x']
@@ -63,7 +63,7 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
     fig = plt.figure(figsize=(2, 1.6), dpi=1200)  # 2.5 inch for 1/3 double column width
     ax = fig.add_subplot(111)
 
-    colors = ['#b35806','#e08214','#fdb863','#8073ac','#542788']
+    colors = ['#b35806','#e08214','#fdb863','#8073ac','#542788', '#000000']
     linetype = ['-']
     # markertype = ['o', '|', '+', 'x']
     #
@@ -106,7 +106,8 @@ def run(task_prefix):
         f"random_none_all_test": "sync_plain",
         f"random_meta_all_test": f"sync_meta",
         f"async_meta_all_test_100_60": "async_meta",
-        f"async_none_all_test_60": "async_plain"
+        f"async_none_all_test_60": "async_plain",
+        f"random_none_larger_all_test": "sync_plain_larger",
     }
 
     # x-axis
