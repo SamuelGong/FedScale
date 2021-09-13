@@ -351,7 +351,7 @@ class Executor(object):
         torch.cuda.empty_cache()
         return train_res
 
-    def testing_handler(self, args, clientId=None, conf=None, global_virtual_clock=None):
+    def testing_handler(self, args, clientId=None, conf=None, necessary=False, global_virtual_clock=None):
         """Test model"""
         evalStart = time.time()
         device = self.device
@@ -387,26 +387,35 @@ class Executor(object):
         else:
             criterion = torch.nn.CrossEntropyLoss().to(device=device)
 
-        if self.test_mode == "all":
-            data_loader = select_dataset(1, self.testing_sets, batch_size=args.test_bsz,
-                                         isTest=True, collate_fn=self.collate_fn)
+        if necessary:
+            if self.test_mode == "all":
+                data_loader = select_dataset(1, self.testing_sets, batch_size=args.test_bsz,
+                                             isTest=True, collate_fn=self.collate_fn)
+                test_res = test_model(clientId, client_model, data_loader, device=device,
+                                      criterion=criterion, tokenizer=tokenizer)
+            else:
+                data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
+                                             isTest=True, collate_fn=self.collate_fn)
+                test_res = test_model(self.this_rank, client_model, data_loader, device=device,
+                                      criterion=criterion, tokenizer=tokenizer)
+
+            test_loss, acc, acc_5, testResults = test_res
+            if global_virtual_clock:
+                prompt_prefix = f"After global virtual clock {global_virtual_clock}, "
+            else:
+                prompt_prefix = f"After aggregation epoch {self.epoch}, "
+
+            logging.info(prompt_prefix + "CumulTime {}, eval_time {}, test_loss {}, "
+                         "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
+                        .format(round(time.time() - self.start_run_time, 4),
+                                round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
         else:
-            data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
-                                         isTest=True, collate_fn=self.collate_fn)
-
-        test_res = test_model(self.this_rank, client_model, data_loader, device=device,
-                              criterion=criterion, tokenizer=tokenizer)
-
-        test_loss, acc, acc_5, testResults = test_res
-        if global_virtual_clock:
-            prompt_prefix = f"After global virtual clock {global_virtual_clock}, "
-        else:
-            prompt_prefix = f"After aggregation epoch {self.epoch}, "
-
-        logging.info(prompt_prefix + "CumulTime {}, eval_time {}, test_loss {}, "
-                     "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
-                    .format(round(time.time() - self.start_run_time, 4),
-                            round(time.time() - evalStart, 4), test_loss, acc*100., acc_5*100.))
+            testResults = {
+                'top_1': 0,
+                'top_5': 0,
+                'test_loss': 0,
+                'test_len': 0,
+            }
 
         if self.test_mode == "all":  # should have clientId and conf prepared
             data_loader = select_dataset(clientId, self.all_testing_sets, batch_size=args.test_bsz, isTest=True,
@@ -468,12 +477,14 @@ class Executor(object):
 
                 elif event_msg == 'test':
                     if self.test_mode == "all":
-                        clientId, client_conf = event_dict['clientId'], self.override_conf(event_dict['conf'])
+                        clientId, client_conf, = event_dict['clientId'], self.override_conf(event_dict['conf'])
+                        necessary = event_dict['necessary']
                         if 'global_virtual_clock' in event_dict:
                             test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
-                                                            global_virtual_clock=event_dict['global_virtual_clock'])
+                                                            necessary=necessary, global_virtual_clock=event_dict['global_virtual_clock'])
                         else:
-                            test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf)
+                            test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
+                                                            necessary=necessary)
                     else:
                         test_res = self.testing_handler(args=self.args)
 
