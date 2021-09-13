@@ -60,6 +60,7 @@ class Aggregator(object):
         self.global_num_batches = None
         self.sync_mode = self.args.sync_mode
         self.global_model_has_changed = False
+        self.personalized = self.args.personalized
         if self.sync_mode in ["async", "local"]:
             self.async_controller = AsyncController(args)
             self.async_sec_per_step = args.async_sec_per_step
@@ -658,11 +659,16 @@ class Aggregator(object):
                                 for executorId in self.executors:
                                     next_clientId = self.resource_manager.get_next_all_test_task()
 
+                                    if self.sync_mode in ["local"] or not self.personalized == "none":
+                                        global_test = 'local'
+                                    else:
+                                        global_test = 'global'
+
                                     if next_clientId is not None:
                                         config = self.get_client_conf(next_clientId)
                                         self.server_event_queue[executorId].put(
                                             {'event': 'test', 'clientId': next_clientId, 'conf': config,
-                                             'necessary': True,
+                                             'global_test': global_test,
                                              'global_virtual_clock': round(self.global_virtual_clock)}
                                         )
                             else:
@@ -707,8 +713,14 @@ class Aggregator(object):
                             next_clientId = self.resource_manager.get_next_all_test_task()
                             if next_clientId is not None:
                                 config = self.get_client_conf(next_clientId)
+
+                                if self.sync_mode in ["local"] or not self.personalized == "none":
+                                    global_test = 'local'
+                                else:
+                                    global_test = 'none'
+
                                 runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config,
-                                                   'necessary': False,
+                                                   'global_test': global_test,
                                                    'global_virtual_clock': round(self.global_virtual_clock)}
                                 self.server_event_queue[executorId].put(runtime_profile)
                         else:
@@ -755,9 +767,15 @@ class Aggregator(object):
 
                                 if next_clientId is not None:
                                     config = self.get_client_conf(next_clientId)
+
+                                    if self.sync_mode in ["local"] or not self.personalized == "none":
+                                        global_test = 'local'
+                                    else:
+                                        global_test = 'global'
+
                                     self.server_event_queue[executorId].put(
                                         {'event': 'test', 'clientId': next_clientId, 'conf': config,
-                                         'necessary': True}
+                                         'global_test': global_test}
                                     )
                         else:
                             self.broadcast_msg(send_msg)
@@ -788,8 +806,14 @@ class Aggregator(object):
                             next_clientId = self.resource_manager.get_next_all_test_task()
                             if next_clientId is not None:
                                 config = self.get_client_conf(next_clientId)
+
+                                if self.sync_mode in ["local"] or not self.personalized == "none":
+                                    global_test = 'local'
+                                else:
+                                    global_test = 'none'
+
                                 runtime_profile = {'event': 'test', 'clientId': next_clientId, 'conf': config,
-                                                   'necessary': False}
+                                                   'global_test': global_test}
                                 self.server_event_queue[executorId].put(runtime_profile)
                         else:
                             pass

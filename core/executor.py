@@ -167,8 +167,10 @@ class Executor(object):
         self.model = self.model.to(device=self.device)
 
         if self.test_mode == "all":
-            self.training_sets, self.testing_sets = self.init_data(partition_test=False)
             self.all_testing_sets = self.init_data_all_test()
+
+        if self.sync_mode in ["local"] or not self.personalized == "none":
+            self.training_sets, self.testing_sets = self.init_data(partition_test=False)
         else:
             self.training_sets, self.testing_sets = self.init_data()
 
@@ -351,7 +353,7 @@ class Executor(object):
         torch.cuda.empty_cache()
         return train_res
 
-    def testing_handler(self, args, clientId=None, conf=None, necessary=False, global_virtual_clock=None):
+    def testing_handler(self, args, clientId=None, conf=None, global_test='global', global_virtual_clock=None):
         """Test model"""
         evalStart = time.time()
         device = self.device
@@ -387,13 +389,13 @@ class Executor(object):
         else:
             criterion = torch.nn.CrossEntropyLoss().to(device=device)
 
-        if necessary:
-            if self.test_mode == "all":
+        if global_test not in ["none"]:
+            if global_test == "local":
                 data_loader = select_dataset(1, self.testing_sets, batch_size=args.test_bsz,
                                              isTest=True, collate_fn=self.collate_fn)
                 test_res = test_model(clientId, client_model, data_loader, device=device,
                                       criterion=criterion, tokenizer=tokenizer)
-            else:
+            else:  # global_test == "global"
                 data_loader = select_dataset(self.this_rank, self.testing_sets, batch_size=args.test_bsz,
                                              isTest=True, collate_fn=self.collate_fn)
                 test_res = test_model(self.this_rank, client_model, data_loader, device=device,
@@ -478,13 +480,13 @@ class Executor(object):
                 elif event_msg == 'test':
                     if self.test_mode == "all":
                         clientId, client_conf, = event_dict['clientId'], self.override_conf(event_dict['conf'])
-                        necessary = event_dict['necessary']
+                        global_test = event_dict['global_test']
                         if 'global_virtual_clock' in event_dict:
                             test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
-                                                            necessary=necessary, global_virtual_clock=event_dict['global_virtual_clock'])
+                                                            global_test=global_test, global_virtual_clock=event_dict['global_virtual_clock'])
                         else:
                             test_res = self.testing_handler(args=self.args, clientId=clientId, conf=client_conf,
-                                                            necessary=necessary)
+                                                            global_test=global_test)
                     else:
                         test_res = self.testing_handler(args=self.args)
 
