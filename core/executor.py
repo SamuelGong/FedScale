@@ -358,6 +358,11 @@ class Executor(object):
         evalStart = time.time()
         device = self.device
 
+        if global_virtual_clock:
+            prompt_prefix = f"After global virtual clock {global_virtual_clock}, "
+        else:
+            prompt_prefix = f"After aggregation epoch {self.epoch}, "
+
         if self.personalized == "meta":  # one step forward
             # load last global model
             client_model = self.load_global_model()
@@ -402,10 +407,6 @@ class Executor(object):
                                       criterion=criterion, tokenizer=tokenizer)
 
             test_loss, acc, acc_5, testResults = test_res
-            if global_virtual_clock:
-                prompt_prefix = f"After global virtual clock {global_virtual_clock}, "
-            else:
-                prompt_prefix = f"After aggregation epoch {self.epoch}, "
 
             logging.info(prompt_prefix + "CumulTime {}, eval_time {}, test_loss {}, "
                          "test_accuracy {:.2f}%, test_5_accuracy {:.2f}% \n"
