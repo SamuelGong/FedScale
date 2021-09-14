@@ -1,0 +1,4 @@
+job_name=openimage_async_none_all_test
+model=shufflenet_v2_x2_0
+time_stamp=0914_154137
+git_head_hash=498ff73

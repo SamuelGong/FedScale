@@ -1,0 +1,739 @@
+(09-14) 15:41:59 INFO     [executor.py:51] (EXECUTOR:1) is setting up environ ...
+(09-14) 15:41:59 INFO     [executor.py:51] (EXECUTOR:2) is setting up environ ...
+(09-14) 15:41:59 INFO     [executor.py:51] (EXECUTOR:3) is setting up environ ...
+(09-14) 15:41:59 INFO     [executor.py:51] (EXECUTOR:4) is setting up environ ...
+(09-14) 15:41:59 INFO     [aggregator.py:11] Job args Namespace(adam_epsilon=1e-08, adaptation_mode=0, aggregator_device=0, all_test_ratio=0.3, async_end_time=345601, async_eval_interval=14400, async_num_issues_max=50, async_sec_per_step=60, async_update_ratio=1.0, backbone='./resnet50.pth', backend='gloo', batch_size=20, bidirectional=True, blacklist_max_len=0.3, blacklist_rounds=-1, block_size=64, cfg_file='./utils/rcnn/cfgs/res101.yml', clip_bound=0.9, clock_factor=1.1624548736462095, conf_path='~/dataset/', cuda_device=None, cut_off_util=0.05, data_cache='', data_dir='/homes/zjiangaj/FedScale/dataset/data/open_images', data_map_file='/homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv', data_set='openImg', dataset_size='default', decay_epoch=10, decay_factor=0.98, device_avail_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_behave_trace', device_conf_file='/homes/zjiangaj/FedScale/dataset/data/device_info/client_device_capacity', dump_epoch=10000000000.0, epochs=501, eval_interval=20, exploration_alpha=0.3, exploration_decay=0.98, exploration_factor=0.9, exploration_min=0.3, filter_less=256, filter_more=398, finetune=False, git_head_hash='498ff7344a92bbeb686329283e811f5c1bccb217', gradient_policy='fed-avg', hidden_layers=7, hidden_size=256, input_dim=0, job_name='openimage_async_none_all_test', labels_path='labels.json', learners='1-2-3-4', learning_rate=0.05, line_by_line=False, local_steps=20, log_path='/homes/zjiangaj/FedScale/core/evals', loss_decay=0.2, malicious_factor=1000000000000000.0, manager_port=42337, min_learning_rate=5e-05, mlm=False, mlm_probability=0.15, model='shufflenet_v2_x2_0', model_size=65536, noise_dir=None, noise_factor=0.1, noise_max=0.5, noise_min=0.0, noise_prob=0.4, num_class=596, num_classes=35, num_loaders=4, output_dim=0, overcommitment=1.3, overwrite_cache=False, pacer_delta=5, pacer_step=20, personalized='none', proxy_mu=0.1, ps_ip='127.0.0.1', ps_port='53301', rnn_type='lstm', round_penalty=2.0, round_threshold=30, sample_mode='random', sample_rate=16000, sample_seed=233, sample_window=5.0, spec_augment=False, speed_volume_perturb=False, sync_mode='async', task='cv', test_bsz=20, test_interval=20, test_manifest='data/test_manifest.csv', test_mode='all', test_output_dir='./logs/server', test_ratio=1.0, test_size_file='', this_rank=0, time_stamp='0914_154137', total_worker=50, train_manifest='data/train_manifest.csv', train_size_file='', train_uniform=False, upload_epoch=20, use_cuda=True, vocab_tag_size=500, vocab_token_size=10000, weight_decay=0, window='hamming', window_size=0.02, window_stride=0.01, yogi_beta=0.9, yogi_beta2=0.99, yogi_eta=0.003, yogi_tau=1e-08)
+(09-14) 15:41:59 INFO     [executor.py:88] Start to connect to 127.0.0.1:42337 for control plane communication ...
+(09-14) 15:41:59 INFO     [executor.py:88] Start to connect to 127.0.0.1:42337 for control plane communication ...
+(09-14) 15:42:00 INFO     [executor.py:88] Start to connect to 127.0.0.1:42337 for control plane communication ...
+(09-14) 15:42:00 INFO     [executor.py:88] Start to connect to 127.0.0.1:42337 for control plane communication ...
+(09-14) 15:42:05 INFO     [aggregator.py:105] End up with cuda device (cuda:0)
+(09-14) 15:42:05 INFO     [aggregator.py:125] Start to initiate 127.0.0.1:42337 for control plane communication ...
+(09-14) 15:42:08 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 0
+(09-14) 15:42:08 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 3
+(09-14) 15:42:08 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 2
+(09-14) 15:42:08 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 4
+(09-14) 15:42:08 INFO     [distributed_c10d.py:194] Added key: store_based_barrier_key:1 to store for rank: 1
+(09-14) 15:42:08 INFO     [distributed_c10d.py:225] Rank 0: Completed store-based barrier for 5 nodes.
+(09-14) 15:42:08 INFO     [distributed_c10d.py:225] Rank 4: Completed store-based barrier for 5 nodes.
+(09-14) 15:42:08 INFO     [distributed_c10d.py:225] Rank 1: Completed store-based barrier for 5 nodes.
+(09-14) 15:42:08 INFO     [fllibs.py:78] Initializing the model ...
+(09-14) 15:42:08 INFO     [fllibs.py:78] Initializing the model ...
+(09-14) 15:42:08 INFO     [fllibs.py:78] Initializing the model ...
+(09-14) 15:42:08 INFO     [distributed_c10d.py:225] Rank 3: Completed store-based barrier for 5 nodes.
+(09-14) 15:42:08 INFO     [distributed_c10d.py:225] Rank 2: Completed store-based barrier for 5 nodes.
+(09-14) 15:42:08 INFO     [fllibs.py:78] Initializing the model ...
+(09-14) 15:42:08 INFO     [fllibs.py:78] Initializing the model ...
+(09-14) 15:42:09 INFO     [aggregator.py:625] Start monitoring events ...
+(09-14) 15:42:18 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:18 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:18 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:18 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:18 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:18 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:18 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:18 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:21 INFO     [executor.py:125] Data partitioner starts ...
+(09-14) 15:42:21 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:21 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:21 INFO     [executor.py:125] Data partitioner starts ...
+(09-14) 15:42:21 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:21 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:21 INFO     [executor.py:125] Data partitioner starts ...
+(09-14) 15:42:21 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:21 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:21 INFO     [executor.py:125] Data partitioner starts ...
+(09-14) 15:42:21 INFO     [divide_data.py:52] Partitioning data by profile /homes/zjiangaj/FedScale/dataset/data/open_images/client_data_mapping/train.csv...
+(09-14) 15:42:21 INFO     [divide_data.py:64] Trace names are client_id, sample_path, label_name, label_id
+(09-14) 15:42:23 INFO     [divide_data.py:94] Randomly partitioning data, 63063 samples...
+(09-14) 15:42:23 INFO     [divide_data.py:94] Randomly partitioning data, 63063 samples...
+(09-14) 15:42:23 INFO     [executor.py:137] Data partitioner completes ...
+(09-14) 15:42:23 INFO     [executor.py:452] Start monitoring events ...
+(09-14) 15:42:23 INFO     [executor.py:137] Data partitioner completes ...
+(09-14) 15:42:23 INFO     [divide_data.py:94] Randomly partitioning data, 63063 samples...
+(09-14) 15:42:23 INFO     [divide_data.py:94] Randomly partitioning data, 63063 samples...
+(09-14) 15:42:23 INFO     [executor.py:452] Start monitoring events ...
+(09-14) 15:42:23 INFO     [executor.py:137] Data partitioner completes ...
+(09-14) 15:42:23 INFO     [aggregator.py:684] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:1)
+(09-14) 15:42:23 INFO     [executor.py:137] Data partitioner completes ...
+(09-14) 15:42:23 INFO     [executor.py:452] Start monitoring events ...
+(09-14) 15:42:23 INFO     [executor.py:452] Start monitoring events ...
+(09-14) 15:42:23 INFO     [aggregator.py:684] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:4)
+(09-14) 15:42:23 INFO     [aggregator.py:684] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:2)
+(09-14) 15:42:23 INFO     [aggregator.py:684] Step 0: Receive (Event:REPORT_EXECUTOR_INFO) from (Executor:3)
+(09-14) 15:42:23 INFO     [aggregator.py:228] Info of all feasible clients {'total_feasible_clients': 442, 'total_num_samples': 138729}
+(09-14) 15:42:23 INFO     [client_manager.py:186] Wall clock time: 0, 118 clients online, 324 clients offline
+(09-14) 15:42:23 INFO     [aggregator.py:457] [Async] 42 clients to start at step 0/5760 wall clock 0 s: [38, 71, 82, 87, 270, 327, 341, 344, 416, 501, 505, 569, 739, 777, 1138, 1254, 1263, 1386, 1444, 1453, 1526, 1534, 1544, 1772, 1836, 2009, 2093, 2444, 2622, 2691, 2811, 2932, 3342, 3579, 3592, 3709, 3907, 3934, 4620, 4782, 4998, 7742]
+(09-14) 15:42:23 INFO     [aggregator.py:460] [Async] while 8/50 sampled clients dropped or busy: [679, 879, 996, 2097, 2266, 2278, 3002, 3451]
+(09-14) 15:42:23 INFO     [executor.py:459] Executor 2: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:23 INFO     [executor.py:459] Executor 3: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:23 INFO     [executor.py:459] Executor 1: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:23 INFO     [executor.py:459] Executor 4: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:24 INFO     [aggregator.py:639] [Async] 8 clients to end at step 1/5760 wall clock 60 s: [38, 270, 505, 1534, 3709, 3907, 3934, 4782]
+(09-14) 15:42:24 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:24 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:24 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:24 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:24 INFO     [client.py:18] Start to train (CLIENT: 38) ...
+(09-14) 15:42:24 INFO     [client.py:18] Start to train (CLIENT: 270) ...
+(09-14) 15:42:24 INFO     [client.py:18] Start to train (CLIENT: 505) ...
+(09-14) 15:42:25 INFO     [client.py:18] Start to train (CLIENT: 1534) ...
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+/data/samuel/anaconda3/envs/fedscale/lib/python3.6/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:29 INFO     [client.py:328] Training of (CLIENT: 38) completes, {'clientId': 38, 'moving_loss': 51.337893865333584, 'trained_size': 400, 'success': True, 'utility': 1640.795688741276}
+(09-14) 15:42:29 INFO     [client.py:328] Training of (CLIENT: 1534) completes, {'clientId': 1534, 'moving_loss': 165.66974433903536, 'trained_size': 400, 'success': True, 'utility': 3282.1753648526724}
+(09-14) 15:42:29 INFO     [client.py:328] Training of (CLIENT: 505) completes, {'clientId': 505, 'moving_loss': 34.50079188646308, 'trained_size': 400, 'success': True, 'utility': 1204.116181698681}
+(09-14) 15:42:29 INFO     [client.py:328] Training of (CLIENT: 270) completes, {'clientId': 270, 'moving_loss': 43.66952931266475, 'trained_size': 400, 'success': True, 'utility': 1348.0916630095508}
+(09-14) 15:42:29 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:42:30 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:3)
+(09-14) 15:42:30 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:30 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:42:30 INFO     [client.py:18] Start to train (CLIENT: 3709) ...
+(09-14) 15:42:30 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+(09-14) 15:42:30 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:30 INFO     [client.py:18] Start to train (CLIENT: 3907) ...
+(09-14) 15:42:30 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:30 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:30 INFO     [client.py:18] Start to train (CLIENT: 3934) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:31 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:31 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:42:31 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:31 INFO     [client.py:18] Start to train (CLIENT: 4782) ...
+(09-14) 15:42:31 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:33 INFO     [client.py:328] Training of (CLIENT: 3709) completes, {'clientId': 3709, 'moving_loss': 34.31683351797069, 'trained_size': 400, 'success': True, 'utility': 1177.469486211653}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:34 INFO     [client.py:328] Training of (CLIENT: 3934) completes, {'clientId': 3934, 'moving_loss': 116.06568731695852, 'trained_size': 400, 'success': True, 'utility': 2639.477766756226}
+(09-14) 15:42:34 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:34 INFO     [client.py:328] Training of (CLIENT: 4782) completes, {'clientId': 4782, 'moving_loss': 62.49714655811981, 'trained_size': 400, 'success': True, 'utility': 1628.5358182552732}
+(09-14) 15:42:34 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:3)
+(09-14) 15:42:34 INFO     [client.py:328] Training of (CLIENT: 3907) completes, {'clientId': 3907, 'moving_loss': 41.038064438039505, 'trained_size': 400, 'success': True, 'utility': 1197.9399297685186}
+(09-14) 15:42:34 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+(09-14) 15:42:35 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:2)
+(09-14) 15:42:35 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:42:35 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:4)
+(09-14) 15:42:35 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:42:36 INFO     [aggregator.py:684] Step 1: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:42:36 INFO     [aggregator.py:697] [Async] All 8 clients at 60.0 s end; moving loss all the way around: 68.63696140432316
+(09-14) 15:42:36 INFO     [client_manager.py:186] Wall clock time: 60, 136 clients online, 306 clients offline
+(09-14) 15:42:36 INFO     [aggregator.py:457] [Async] 46 clients to start at step 1/5760 wall clock 60 s: [36, 38, 53, 83, 107, 141, 142, 150, 163, 208, 265, 270, 377, 378, 379, 386, 388, 555, 741, 969, 1051, 1200, 1216, 1391, 1873, 2096, 2113, 2187, 2277, 2467, 2496, 2547, 2558, 2663, 3021, 3383, 3520, 3709, 4139, 4343, 4782, 5548, 6032, 6109, 6273, 7262]
+(09-14) 15:42:36 INFO     [aggregator.py:460] [Async] while 4/50 sampled clients dropped or busy: [427, 1516, 3114, 4011]
+(09-14) 15:42:36 INFO     [executor.py:459] Executor 3: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:36 INFO     [executor.py:459] Executor 4: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:36 INFO     [executor.py:459] Executor 2: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:36 INFO     [executor.py:459] Executor 1: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:42:36 INFO     [aggregator.py:639] [Async] 21 clients to end at step 2/5760 wall clock 120 s: [87, 344, 1386, 1453, 2691, 3342, 4620, 7742, 38, 53, 142, 150, 270, 1873, 2277, 2496, 2558, 3709, 4139, 4782, 5548]
+(09-14) 15:42:37 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:37 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:37 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:37 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:37 INFO     [client.py:18] Start to train (CLIENT: 87) ...
+(09-14) 15:42:37 INFO     [client.py:18] Start to train (CLIENT: 344) ...
+(09-14) 15:42:37 INFO     [client.py:18] Start to train (CLIENT: 1386) ...
+(09-14) 15:42:37 INFO     [client.py:18] Start to train (CLIENT: 1453) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:41 INFO     [client.py:328] Training of (CLIENT: 1453) completes, {'clientId': 1453, 'moving_loss': 99.08628593765629, 'trained_size': 400, 'success': True, 'utility': 2767.270229378734}
+(09-14) 15:42:41 INFO     [client.py:328] Training of (CLIENT: 344) completes, {'clientId': 344, 'moving_loss': 96.57872913667431, 'trained_size': 400, 'success': True, 'utility': 2417.5521447189058}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:41 INFO     [client.py:328] Training of (CLIENT: 1386) completes, {'clientId': 1386, 'moving_loss': 39.535794247220835, 'trained_size': 400, 'success': True, 'utility': 1156.945914913013}
+(09-14) 15:42:41 INFO     [client.py:328] Training of (CLIENT: 87) completes, {'clientId': 87, 'moving_loss': 58.79552474176974, 'trained_size': 400, 'success': True, 'utility': 1502.8935020419199}
+(09-14) 15:42:41 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:42:42 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+(09-14) 15:42:42 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:42 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:42 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:4)
+(09-14) 15:42:42 INFO     [client.py:18] Start to train (CLIENT: 3342) ...
+(09-14) 15:42:42 INFO     [client.py:18] Start to train (CLIENT: 2691) ...
+(09-14) 15:42:42 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:42 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:42:42 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:42 INFO     [client.py:18] Start to train (CLIENT: 4620) ...
+(09-14) 15:42:42 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:42:42 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:43 INFO     [client.py:18] Start to train (CLIENT: 7742) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:43 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:43 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:45 INFO     [client.py:328] Training of (CLIENT: 3342) completes, {'clientId': 3342, 'moving_loss': 94.43061998296729, 'trained_size': 400, 'success': True, 'utility': 2001.813625090308}
+(09-14) 15:42:45 INFO     [client.py:328] Training of (CLIENT: 2691) completes, {'clientId': 2691, 'moving_loss': 64.78285966951573, 'trained_size': 400, 'success': True, 'utility': 1746.585262441495}
+(09-14) 15:42:46 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:46 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:46 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:46 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:42:46 INFO     [client.py:18] Start to train (CLIENT: 38) ...
+(09-14) 15:42:46 INFO     [client.py:328] Training of (CLIENT: 4620) completes, {'clientId': 4620, 'moving_loss': 41.03111625873252, 'trained_size': 400, 'success': True, 'utility': 1197.838513511574}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:47 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:47 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:47 INFO     [client.py:18] Start to train (CLIENT: 53) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:47 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:47 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:42:48 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:48 INFO     [client.py:328] Training of (CLIENT: 7742) completes, {'clientId': 7742, 'moving_loss': 41.0416356508082, 'trained_size': 400, 'success': True, 'utility': 1409.4024143228637}
+(09-14) 15:42:48 INFO     [client.py:18] Start to train (CLIENT: 142) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:49 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:42:49 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:3)
+(09-14) 15:42:50 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:50 INFO     [client.py:328] Training of (CLIENT: 38) completes, {'clientId': 38, 'moving_loss': 7.590722953176625, 'trained_size': 400, 'success': True, 'utility': 630.9240068245425}
+(09-14) 15:42:50 INFO     [client.py:18] Start to train (CLIENT: 150) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:50 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:51 INFO     [client.py:328] Training of (CLIENT: 53) completes, {'clientId': 53, 'moving_loss': 20.89994695292713, 'trained_size': 400, 'success': True, 'utility': 841.1828600478619}
+(09-14) 15:42:51 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:51 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:2)
+(09-14) 15:42:51 INFO     [client.py:18] Start to train (CLIENT: 270) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:52 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:52 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:4)
+(09-14) 15:42:52 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:52 INFO     [client.py:328] Training of (CLIENT: 142) completes, {'clientId': 142, 'moving_loss': 11.464098765773667, 'trained_size': 400, 'success': True, 'utility': 639.928958566653}
+(09-14) 15:42:53 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:42:53 INFO     [client.py:328] Training of (CLIENT: 150) completes, {'clientId': 150, 'moving_loss': 9.470002877818677, 'trained_size': 400, 'success': True, 'utility': 655.4727763711896}
+(09-14) 15:42:53 INFO     [client.py:18] Start to train (CLIENT: 1873) ...
+(09-14) 15:42:53 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:53 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:53 INFO     [client.py:18] Start to train (CLIENT: 2277) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:54 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:42:54 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:3)
+(09-14) 15:42:54 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:55 INFO     [client.py:328] Training of (CLIENT: 270) completes, {'clientId': 270, 'moving_loss': 21.28449086951463, 'trained_size': 400, 'success': True, 'utility': 941.1564014688105}
+(09-14) 15:42:55 INFO     [client.py:18] Start to train (CLIENT: 2496) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:55 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:56 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:56 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:56 INFO     [client.py:328] Training of (CLIENT: 2277) completes, {'clientId': 2277, 'moving_loss': 6.785940811680153, 'trained_size': 400, 'success': True, 'utility': 711.1605885829938}
+(09-14) 15:42:56 INFO     [client.py:328] Training of (CLIENT: 1873) completes, {'clientId': 1873, 'moving_loss': 8.257968166972049, 'trained_size': 400, 'success': True, 'utility': 715.5433490155813}
+(09-14) 15:42:56 INFO     [client.py:18] Start to train (CLIENT: 2558) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:42:57 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:42:57 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:42:57 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:57 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:42:58 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:42:58 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:4)
+(09-14) 15:42:58 INFO     [client.py:18] Start to train (CLIENT: 3709) ...
+(09-14) 15:42:58 INFO     [client.py:18] Start to train (CLIENT: 4139) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:00 INFO     [client.py:328] Training of (CLIENT: 2558) completes, {'clientId': 2558, 'moving_loss': 25.35671375439852, 'trained_size': 400, 'success': True, 'utility': 1122.9265418060454}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:00 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+(09-14) 15:43:01 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:2)
+(09-14) 15:43:01 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:01 INFO     [client.py:328] Training of (CLIENT: 3709) completes, {'clientId': 3709, 'moving_loss': 13.899390446567297, 'trained_size': 400, 'success': True, 'utility': 749.3659142446802}
+(09-14) 15:43:01 INFO     [client.py:328] Training of (CLIENT: 4139) completes, {'clientId': 4139, 'moving_loss': 19.478235633111034, 'trained_size': 400, 'success': True, 'utility': 1103.3538539695412}
+(09-14) 15:43:01 INFO     [client.py:18] Start to train (CLIENT: 4782) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:02 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:43:02 INFO     [client.py:328] Training of (CLIENT: 2496) completes, {'clientId': 2496, 'moving_loss': 11.991916755337808, 'trained_size': 400, 'success': True, 'utility': 671.8093323286703}
+(09-14) 15:43:02 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:43:02 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:02 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:43:03 INFO     [client.py:18] Start to train (CLIENT: 5548) ...
+(09-14) 15:43:03 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:03 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:03 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:04 INFO     [client.py:328] Training of (CLIENT: 4782) completes, {'clientId': 4782, 'moving_loss': 17.802082814620924, 'trained_size': 400, 'success': True, 'utility': 869.1657990977633}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:05 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+(09-14) 15:43:05 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:2)
+(09-14) 15:43:05 INFO     [client.py:328] Training of (CLIENT: 5548) completes, {'clientId': 5548, 'moving_loss': 27.56024974130752, 'trained_size': 400, 'success': True, 'utility': 1286.1974928921234}
+(09-14) 15:43:06 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:43:06 INFO     [aggregator.py:684] Step 2: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:43:06 INFO     [aggregator.py:697] [Async] All 21 clients at 120.0 s end; moving loss all the way around: 44.352414393211596
+(09-14) 15:43:07 INFO     [client_manager.py:186] Wall clock time: 120, 139 clients online, 303 clients offline
+(09-14) 15:43:07 INFO     [aggregator.py:457] [Async] 48 clients to start at step 2/5760 wall clock 120 s: [38, 53, 87, 139, 344, 505, 584, 791, 819, 899, 998, 1031, 1283, 1386, 1453, 1461, 1534, 1576, 1873, 1953, 2119, 2277, 2282, 2389, 2402, 2496, 2558, 2691, 2753, 3002, 3145, 3180, 3407, 3418, 3553, 3590, 3709, 3865, 3934, 3967, 3977, 4139, 4329, 4620, 4782, 5009, 5247, 6709]
+(09-14) 15:43:07 INFO     [aggregator.py:460] [Async] while 2/50 sampled clients dropped or busy: [927, 1919]
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 4: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 3: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 2: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 1: Received (Event:UPDATE_ASYNC_MODEL) from aggregator
+(09-14) 15:43:07 INFO     [aggregator.py:639] [Async] 28 clients to end at step 3/5760 wall clock 180 s: [416, 1444, 1526, 1836, 377, 379, 1391, 2096, 2467, 2547, 3520, 38, 53, 505, 819, 899, 1534, 1873, 2119, 2277, 2496, 2558, 3002, 3553, 3709, 3934, 4139, 4782]
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:07 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:07 INFO     [client.py:18] Start to train (CLIENT: 416) ...
+(09-14) 15:43:08 INFO     [client.py:18] Start to train (CLIENT: 1444) ...
+(09-14) 15:43:08 INFO     [client.py:18] Start to train (CLIENT: 1526) ...
+(09-14) 15:43:08 INFO     [client.py:18] Start to train (CLIENT: 1836) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:11 INFO     [client.py:328] Training of (CLIENT: 416) completes, {'clientId': 416, 'moving_loss': 36.244466381605285, 'trained_size': 400, 'success': True, 'utility': 1396.718353328087}
+(09-14) 15:43:11 INFO     [client.py:328] Training of (CLIENT: 1526) completes, {'clientId': 1526, 'moving_loss': 59.61613703081069, 'trained_size': 400, 'success': True, 'utility': 1598.2777779951791}
+(09-14) 15:43:11 INFO     [client.py:328] Training of (CLIENT: 1444) completes, {'clientId': 1444, 'moving_loss': 37.6785323209647, 'trained_size': 400, 'success': True, 'utility': 1289.0396717535668}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:11 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:43:12 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:12 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:4)
+(09-14) 15:43:12 INFO     [client.py:18] Start to train (CLIENT: 377) ...
+(09-14) 15:43:12 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+(09-14) 15:43:12 INFO     [client.py:328] Training of (CLIENT: 1836) completes, {'clientId': 1836, 'moving_loss': 58.008487791465704, 'trained_size': 400, 'success': True, 'utility': 1843.1519413817728}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:12 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:12 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:13 INFO     [client.py:18] Start to train (CLIENT: 379) ...
+(09-14) 15:43:13 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:43:13 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:13 INFO     [client.py:18] Start to train (CLIENT: 1391) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:13 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:13 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:14 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:14 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:14 INFO     [client.py:18] Start to train (CLIENT: 2096) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:15 INFO     [client.py:328] Training of (CLIENT: 377) completes, {'clientId': 377, 'moving_loss': 19.0196479734161, 'trained_size': 400, 'success': True, 'utility': 1099.0103388521038}
+(09-14) 15:43:16 INFO     [client.py:328] Training of (CLIENT: 379) completes, {'clientId': 379, 'moving_loss': 14.445255278169999, 'trained_size': 400, 'success': True, 'utility': 801.9458898450733}
+(09-14) 15:43:16 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:43:16 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:4)
+(09-14) 15:43:16 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:16 INFO     [client.py:18] Start to train (CLIENT: 2467) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:17 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:17 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:17 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:43:17 INFO     [client.py:328] Training of (CLIENT: 1391) completes, {'clientId': 1391, 'moving_loss': 45.50992962107482, 'trained_size': 400, 'success': True, 'utility': 1295.2521165978853}
+(09-14) 15:43:17 INFO     [client.py:18] Start to train (CLIENT: 2547) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:18 INFO     [client.py:328] Training of (CLIENT: 2096) completes, {'clientId': 2096, 'moving_loss': 18.96190312522377, 'trained_size': 400, 'success': True, 'utility': 1119.1133720574985}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:18 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:18 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:18 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:18 INFO     [client.py:18] Start to train (CLIENT: 3520) ...
+(09-14) 15:43:18 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:19 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:19 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:2)
+(09-14) 15:43:19 INFO     [client.py:18] Start to train (CLIENT: 38) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:19 INFO     [client.py:328] Training of (CLIENT: 2467) completes, {'clientId': 2467, 'moving_loss': 23.431024402644987, 'trained_size': 400, 'success': True, 'utility': 968.112067947611}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:20 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:20 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:21 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:21 INFO     [client.py:18] Start to train (CLIENT: 53) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:22 INFO     [client.py:328] Training of (CLIENT: 38) completes, {'clientId': 38, 'moving_loss': 6.994924769161997, 'trained_size': 400, 'success': True, 'utility': 605.657369987045}
+(09-14) 15:43:22 INFO     [client.py:328] Training of (CLIENT: 3520) completes, {'clientId': 3520, 'moving_loss': 16.002013595262376, 'trained_size': 400, 'success': True, 'utility': 720.0453044680597}
+(09-14) 15:43:22 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:23 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:23 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:2)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:23 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:43:23 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:23 INFO     [client.py:18] Start to train (CLIENT: 505) ...
+(09-14) 15:43:23 INFO     [client.py:18] Start to train (CLIENT: 819) ...
+(09-14) 15:43:23 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:24 INFO     [client.py:328] Training of (CLIENT: 53) completes, {'clientId': 53, 'moving_loss': 12.263329980380227, 'trained_size': 400, 'success': True, 'utility': 644.3502927878228}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:25 INFO     [client.py:328] Training of (CLIENT: 2547) completes, {'clientId': 2547, 'moving_loss': 22.69792315807431, 'trained_size': 400, 'success': True, 'utility': 857.5620737425412}
+(09-14) 15:43:25 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:4)
+(09-14) 15:43:25 INFO     [executor.py:459] Executor 4: Received (Event:TRAIN) from aggregator
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:25 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:4)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:26 INFO     [client.py:18] Start to train (CLIENT: 899) ...
+(09-14) 15:43:26 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:1)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:26 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:1)
+(09-14) 15:43:26 INFO     [executor.py:459] Executor 1: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:26 INFO     [client.py:328] Training of (CLIENT: 505) completes, {'clientId': 505, 'moving_loss': 9.562916559015825, 'trained_size': 400, 'success': True, 'utility': 633.9412972765223}
+(09-14) 15:43:26 INFO     [client.py:18] Start to train (CLIENT: 1534) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:27 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:2)
+(09-14) 15:43:27 INFO     [client.py:328] Training of (CLIENT: 819) completes, {'clientId': 819, 'moving_loss': 13.999050131311948, 'trained_size': 400, 'success': True, 'utility': 680.9585424602418}
+(09-14) 15:43:28 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:2)
+(09-14) 15:43:28 INFO     [executor.py:459] Executor 2: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:28 INFO     [client.py:18] Start to train (CLIENT: 1873) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:28 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN_NOWAIT) from (Executor:3)
+(09-14) 15:43:28 INFO     [executor.py:459] Executor 3: Received (Event:TRAIN) from aggregator
+(09-14) 15:43:28 INFO     [aggregator.py:684] Step 3: Receive (Event:TRAIN) from (Executor:3)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:29 INFO     [client.py:18] Start to train (CLIENT: 2119) ...
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+(09-14) 15:43:30 INFO     [client.py:328] Training of (CLIENT: 1534) completes, {'clientId': 1534, 'moving_loss': 11.421612052593435, 'trained_size': 400, 'success': True, 'utility': 861.7948269280155}
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
