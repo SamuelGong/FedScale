@@ -102,11 +102,11 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
 def run(task_prefix):
     # personalized = "meta" # "meta" or "none" or "ditto"
     task_dict = {
-        f"local_none_all_test_60": "local",
+        # f"local_none_all_test_60": "local",
         f"random_none_all_test": "sync_plain",
-        f"random_meta_all_test": f"sync_meta",
-        f"async_meta_all_test_100_60": "async_meta",
-        f"async_none_all_test_60": "async_plain",
+        # f"random_meta_all_test": f"sync_plainync_meta",
+        # f"async_meta_all_test_100_60": "async_meta",
+        # f"async_none_all_test_60": "async_plain",
         f"random_none_larger_all_test": "sync_plain_larger",
     }
 
@@ -210,14 +210,14 @@ def run(task_prefix):
             training_round_list_list_no_sync.append(round_list)
 
 
-    save_path = os.path.join(os.getcwd(), 'history', f"round_to_acc")
+    save_path = os.path.join(os.getcwd(), 'history', f"{task_prefix}_round_to_acc")
     plot_line(acc_list_list_no_async, testing_round_list_list_no_sync,
               label_list_no_async, "Training Rounds", "Accuracy (%)", save_path)
-    save_path = os.path.join(os.getcwd(), 'history', f"time_to_acc")
+    save_path = os.path.join(os.getcwd(), 'history', f"{task_prefix}_time_to_acc")
     plot_line(acc_list_list, testing_hour_list_list,
             label_list, " Training Time (h)", "Accuracy (%)", save_path)
 
-    save_path = os.path.join(os.getcwd(), 'history', f"round_duration")
+    save_path = os.path.join(os.getcwd(), 'history', f"{task_prefix}_round_duration")
     plot_line_2(duration_list_list_no_sync, training_round_list_list_no_sync,
               label_list_duration_no_async, "Training Rounds", "Duration (s)", save_path)
 
