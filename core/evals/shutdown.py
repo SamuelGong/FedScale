@@ -5,7 +5,7 @@ import argparse
 job_name = sys.argv[1]
 
 if job_name == 'all':
-    #os.system("ps -ef | grep python | grep FedScale > fedscale_running_temp")
+    os.system("ps -ef | grep python | grep FedScale > fedscale_running_temp")
     pass
 else:
     os.system("ps -ef | grep python | grep job_name={} > fedscale_running_temp".format(job_name))
