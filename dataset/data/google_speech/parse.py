@@ -68,7 +68,7 @@ with open("val.csv", "w") as fout:
 
 
 
-"""
+# """
 client_dict = {k: v for v, k in enumerate(client_list)}
 labels = ['up', 'two', 'sheila', 'zero', 'yes', 'five', 'one', 'happy', 'marvin', 'no', 'go', 'seven', 'eight', 'tree', 'stop', 'down', 'forward', 'learn', 'house', 'three', 'six', 'backward', 'dog', 'cat', 'wow', 'left', 'off', 'on', 'four', 'visual', 'nine', 'bird', 'right', 'follow', 'bed']
 
@@ -130,4 +130,4 @@ for audio in train:
 print(audioToClient)
 with open('audioToClient', 'wb') as f:
     pickle.dump(audioToClient, f)
-"""
+# """

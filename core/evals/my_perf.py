@@ -17,6 +17,7 @@ def plot_line(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_pl
     ax = fig.add_subplot(111)
 
     colors = ['#b35806','#e08214','#fdb863','#8073ac','#542788', '#000000']
+    colors = ['#b35806', '#e08214', '#8073ac', '#542788', '#000000']
     # linetype = ['-']
     linetype = ['-', '--']
     # markertype = ['o', '|', '+', 'x']
@@ -101,14 +102,23 @@ def plot_line_2(datas, xs, linelabels=None, label=None, y_label="CDF", name="my_
 
 def run(task_prefix):
     # personalized = "meta" # "meta" or "none" or "ditto"
-    task_dict = {
+    task_dict = {  # for google_speech
         # f"local_none_all_test_60": "local",
         f"random_none_all_test": "sync_plain",
         # f"random_meta_all_test": f"sync_plainync_meta",
         # f"async_meta_all_test_100_60": "async_meta",
-        # f"async_none_all_test_60": "async_plain",
+        f"async_none_all_test_60": "async_plain",
         f"random_none_larger_all_test": "sync_plain_larger",
     }
+
+    # task_dict = {  # for openimage
+    #     # f"local_none_all_test_60": "local",
+    #     f"random_none_all_test": "sync_plain",
+    #     # f"random_meta_all_test": f"sync_plainync_meta",
+    #     # f"async_meta_all_test_100_60": "async_meta",
+    #     f"async_none_all_test": "async_plain",
+    #     f"random_none_larger_all_test": "sync_plain_larger",
+    # }
 
     # x-axis
     training_round_list_list_no_sync = []

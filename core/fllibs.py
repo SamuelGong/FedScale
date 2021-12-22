@@ -174,8 +174,13 @@ def init_dataset_all_test():
             from utils.openimage import OpenImage
             _, all_test_transform = get_data_transform('openImg')
             all_test_dataset = OpenImage(args.data_dir, dataset='train', transform=all_test_transform)
+
+        elif args.data_set == 'femnist':
+            from utils.femnist import FEMNIST
+            _, all_test_transform = get_data_transform('mnist')
+            all_test_dataset = FEMNIST(args.data_dir, train=True, transform=all_test_transform)
         else:
-            print('DataSet must be {}!'.format(['speech', 'openImg']))
+            print('DataSet must be {}!'.format(['speech', 'openImg', 'femnist']))
             sys.exit(-1)
 
     return all_test_dataset
