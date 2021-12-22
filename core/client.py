@@ -3,10 +3,12 @@ import logging
 import math
 from utils.nlp import mask_tokens
 from torch.autograd import Variable
+from optimizer import ClientOptimizer
 
 class Client(object):
     """Basic client component in Federated Learning"""
     def __init__(self, conf):
+        self.optimizer = ClientOptimizer()
         pass
 
     def train(self, client_data, model, conf):
@@ -19,9 +21,12 @@ class Client(object):
         model.train()
 
         trained_unique_samples = min(len(client_data.dataset), conf.local_steps * conf.batch_size)
-        if conf.gradient_policy == 'prox':
-            global_model = [param.data.clone() for param in model.parameters()]
+        global_model = None
 
+        if conf.gradient_policy == 'prox':
+            # could be move to optimizer
+            global_model = [param.data.clone() for param in model.parameters()]
+        
         if conf.task == "detection":
             lr = conf.learning_rate
             params = []
@@ -35,6 +40,7 @@ class Client(object):
             optimizer = torch.optim.SGD(params, momentum=cfg.TRAIN.MOMENTUM)
 
         elif conf.task == 'nlp':
+            
             no_decay = ["bias", "LayerNorm.weight"]
             optimizer_grouped_parameters = [
                 {
@@ -125,7 +131,7 @@ class Client(object):
 
                     # ======== collect training feedback for other decision components [e.g., kuiper selector] ======
                     if conf.task == 'nlp':
-                        loss_list = [loss.item()] #[loss.mean().data.item()]
+                        loss_list = [loss.mean().data.item()]
                     elif conf.task == "detection":
                         loss_list = [loss.tolist()]
                         loss = loss.mean()
@@ -148,10 +154,8 @@ class Client(object):
                     optimizer.step()
 
                     # ========= Weight handler ========================
-                    if conf.gradient_policy == 'prox':
-                        for idx, param in enumerate(model.parameters()):
-                            param.data += conf.learning_rate * conf.proxy_mu * (param.data - global_model[idx])
-
+                    self.optimizer.update_client_weight(conf, model, global_model if global_model is not None else None  )
+                    
                     completed_steps += 1
 
                     if completed_steps == conf.local_steps:
