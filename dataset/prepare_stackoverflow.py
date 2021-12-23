@@ -3,7 +3,7 @@ import gc
 import collections
 from multiprocessing import Pool, cpu_count
 
-N_JOBS = 16
+N_JOBS = 32
 
 # dependencies
 # torch
@@ -103,7 +103,7 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
             print(f"CPU worker {worker_idx}: fail due to {e}")
             raise e
 
-        if idx % 10000 == 0:
+        if idx % 1000 == 0:
             print(f"CPU worker {worker_idx}: {len(files)-idx} "
                   f"files left, {idx} files complete, remaining "
                   f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
