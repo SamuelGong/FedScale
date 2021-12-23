@@ -2,7 +2,7 @@ import os
 import collections
 from multiprocessing import Pool, cpu_count
 
-N_JOBS = cpu_count()
+N_JOBS = 1
 
 # dependencies
 # torch
@@ -22,7 +22,7 @@ from transformers import (
     AutoTokenizer,
     AlbertTokenizer,
     MobileBertForPreTraining,
-    AutoModelForMaskedLM  # TODO: change to AutoModelForMaskedLM
+    AutoModelForMaskedLM
 )
 config = AutoConfig.from_pretrained(model_name)
 model = AutoModelForMaskedLM.from_config(config)
