@@ -73,7 +73,7 @@ def chunks_idx(l, n):
         yield si, si+(d+1 if i < r else d)
 
 
-print(f"Elapsed time: {time.perf_counter() - start_time}")
+print(f"[A] Elapsed time: {time.perf_counter() - start_time}")
 
 
 def feature_creation_worker(files, tokenizer, block_size, worker_idx):
@@ -119,5 +119,7 @@ user_id = -1
 files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not in entry.name]
 # make sure files are ordered
 files = [os.path.join(file_path, x) for x in sorted(files)]
+
+print(f"[B] Elapsed time: {time.perf_counter() - start_time}")
 
 print(len(files))
