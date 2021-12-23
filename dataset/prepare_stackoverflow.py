@@ -118,7 +118,7 @@ user_id = -1
 
 files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not in entry.name]
 # make sure files are ordered
-files = [os.path.join(file_path, x) for x in sorted(files)]
+files = [os.path.join(train_data_dir, x) for x in sorted(files)]
 
 print(f"[B] Elapsed time: {time.perf_counter() - start_time}")
 
