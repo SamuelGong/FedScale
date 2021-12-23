@@ -74,7 +74,7 @@ def chunks_idx(l, n):
         yield si, si+(d+1 if i < r else d)
 
 
-print(f"[A] Elapsed time: {time.perf_counter() - start_time}")
+print(f"[Debug] [A] Elapsed time: {time.perf_counter() - start_time}")
 
 
 def feature_creation_worker(files, tokenizer, block_size, worker_idx):
@@ -112,7 +112,7 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
     return (examples, client_mapping, sample_client)
 
 block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
-print(block_size)
+print(f"[Debug] block_size: {block_size}))
 
 examples = []
 sample_client = []
@@ -123,7 +123,7 @@ files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not
 # make sure files are ordered
 files = [os.path.join(train_data_dir, x) for x in sorted(files)]
 
-print(f"[B] Elapsed time: {time.perf_counter() - start_time}")
+print(f"[Debug] [B] Elapsed time: {time.perf_counter() - start_time}")
 
 pool_inputs = []
 pool = Pool(N_JOBS)
@@ -146,4 +146,4 @@ for (examples, client_mapping, sample_client) in pool_outputs:
     user_id_base = true_sample_client[-1] + 1
 
 print(len(sample_client))
-print(f"[C] Elapsed time: {time.perf_counter() - start_time}")
+print(f"[Debug] [C] Elapsed time: {time.perf_counter() - start_time}")
