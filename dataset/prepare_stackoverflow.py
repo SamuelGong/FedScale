@@ -22,10 +22,10 @@ from transformers import (
     AutoTokenizer,
     AlbertTokenizer,
     MobileBertForPreTraining,
-    AutoModelWithLMHead  # TODO: change to AutoModelForMaskedLM
+    AutoModelForMaskedLM  # TODO: change to AutoModelForMaskedLM
 )
 config = AutoConfig.from_pretrained(model_name)
-model = AutoModelWithLMHead.from_config(config)
+model = AutoModelForMaskedLM.from_config(config)
 tokenizer = AlbertTokenizer.from_pretrained(model_name, do_lower_case=True)
 
 # relative path to this file
