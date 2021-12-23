@@ -143,3 +143,4 @@ for (examples, client_mapping, sample_client) in pool_outputs:
     user_id_base = true_sample_client[-1] + 1
 
 print(len(sample_client))
+print(f"[C] Elapsed time: {time.perf_counter() - start_time}")
