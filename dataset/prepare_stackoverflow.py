@@ -1,21 +1,23 @@
 import os
 
 # dependencies
+# torch
 # transformer
+# sentencepiece
 
 # Albert over StackOverflow
-model = "albert-base-v2"
+model_name = "albert-base-v2"
 from transformers import (
     AdamW,
     AutoConfig,
     AutoTokenizer,
     AlbertTokenizer,
     MobileBertForPreTraining,
-    AutoModelWithLMHead
+    AutoModelWithLMHead  # TODO: change to AutoModelForMaskedLM
 )
-config = AutoConfig.from_pretrained(model)
+config = AutoConfig.from_pretrained(model_name)
 model = AutoModelWithLMHead.from_config(config)
-tokenizer = AlbertTokenizer.from_pretrained(model, do_lower_case=True)
+tokenizer = AlbertTokenizer.from_pretrained(model_name, do_lower_case=True)
 
 # relative path to this file
 root_dir = "data/reddit"
