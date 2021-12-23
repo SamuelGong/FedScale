@@ -122,4 +122,23 @@ files = [os.path.join(file_path, x) for x in sorted(files)]
 
 print(f"[B] Elapsed time: {time.perf_counter() - start_time}")
 
-print(len(files))
+pool_inputs = []
+pool = Pool(N_JOBS)
+worker_cnt = 0
+for begin, end in chunks_idx(range(len(files)), N_JOBS):
+    pool_inputs.append([files[begin:end], tokenizer, block_size, worker_cnt])
+    worker_cnt += 1
+
+pool_outputs = pool.starmap(feature_creation_worker, pool_inputs)
+pool.close()
+pool.join()
+
+user_id_base = 0
+for (examples, client_mapping, sample_client) in pool_outputs:
+    self.examples += examples
+    true_sample_client = [i + user_id_base for i in sample_client]
+    self.sample_client += true_sample_client
+    for user_id, true_user_id in zip(sample_client, true_sample_client):
+        self.client_mapping[true_user_id] = client_mapping[user_id]
+    user_id_base = true_sample_client[-1] + 1
+
