@@ -3,7 +3,7 @@ import gc
 import collections
 from multiprocessing import Pool, cpu_count
 
-N_JOBS = 20
+N_JOBS = 16
 
 # dependencies
 # torch
@@ -122,6 +122,8 @@ user_id = -1
 files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not in entry.name]
 # make sure files are ordered
 files = [os.path.join(train_data_dir, x) for x in sorted(files)]
+
+files = files[:10000]
 
 print(f"[Debug] [B] Elapsed time: {time.perf_counter() - start_time}")
 
