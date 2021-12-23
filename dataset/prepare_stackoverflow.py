@@ -110,6 +110,8 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
 
     return (examples, client_mapping, sample_client)
 
+block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
+print(block_size)
 
 examples = []
 sample_client = []
