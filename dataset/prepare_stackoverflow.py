@@ -3,7 +3,7 @@ import gc
 import collections
 from multiprocessing import Pool, cpu_count
 
-N_JOBS = 16
+N_JOBS = 20
 
 # dependencies
 # torch
