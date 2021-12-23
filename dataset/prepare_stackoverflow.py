@@ -2,7 +2,7 @@ import os
 import collections
 from multiprocessing import Pool, cpu_count
 
-N_JOBS = 1
+N_JOBS = 16
 
 # dependencies
 # torch
@@ -103,9 +103,9 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
             raise e
 
         if idx % 10000 == 0:
-            logging.info(f"CPU worker {worker_idx}: {len(files)-idx} "
-                         f"files left, {idx} files complete, remaining "
-                         f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
+            print(f"CPU worker {worker_idx}: {len(files)-idx} "
+                  f"files left, {idx} files complete, remaining "
+                  f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
             gc.collect()
 
     return (examples, client_mapping, sample_client)
