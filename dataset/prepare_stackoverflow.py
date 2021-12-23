@@ -1,4 +1,8 @@
 import os
+import collections
+from multiprocessing import Pool, cpu_count
+
+N_JOBS = cpu_count()
 
 # dependencies
 # torch
@@ -61,4 +65,59 @@ test_mapping_path = os.path.join(client_data_mapping_dir, "test.csv")
 #     # The rest of the time (10% of the time) we keep the masked input tokens unchanged
 #     return inputs, labels
 
+
+def chunks_idx(l, n):
+    d, r = divmod(len(l), n)
+    for i in range(n):
+        si = (d+1)*(i if i < r else r) + d*(0 if i < r else i - r)
+        yield si, si+(d+1 if i < r else d)
+
+
 print(f"Elapsed time: {time.perf_counter() - start_time}")
+
+
+def feature_creation_worker(files, tokenizer, block_size, worker_idx):
+    examples = []
+    sample_client = []
+    client_mapping = collections.defaultdict(list)
+
+    user_id = -1
+    start_time = time.time()
+    for idx, file in enumerate(files):
+        try:
+            with open(file, encoding="utf-8", errors='ignore') as f:
+                text = f.read()
+
+            tokenized_text = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(text))
+            if len(tokenized_text) > 0:
+                user_id += 1
+
+            for i in range(0, len(tokenized_text) -
+                              block_size + 1, block_size):  # Truncate in block of block_size
+                examples.append(tokenizer
+                                .build_inputs_with_special_tokens(tokenized_text[i : i + block_size]))
+                client_mapping[user_id].append(len(examples)-1)
+                sample_client.append(user_id)
+        except Exception as e:
+            print(f"CPU worker {worker_idx}: fail due to {e}")
+            raise e
+
+        if idx % 10000 == 0:
+            logging.info(f"CPU worker {worker_idx}: {len(files)-idx} "
+                         f"files left, {idx} files complete, remaining "
+                         f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
+            gc.collect()
+
+    return (examples, client_mapping, sample_client)
+
+
+examples = []
+sample_client = []
+client_mapping = collections.defaultdict(list)
+user_id = -1
+
+files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not in entry.name]
+# make sure files are ordered
+files = [os.path.join(file_path, x) for x in sorted(files)]
+
+print(len(files))
