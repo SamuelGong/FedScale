@@ -57,7 +57,7 @@ def mask_tokens(inputs, tokenizer):
     probability_matrix = probability_matrix.filled(fill_value=0.0)
 
     if tokenizer._pad_token is not None:
-        padding_mask = ma.masked_equal(labels, tokenizer.pad_token_id).mask.astype(int)
+        padding_mask = np.ma.masked_equal(labels, tokenizer.pad_token_id).mask.astype(int)
         probability_matrix = np.ma.array(probability_matrix, mask=padding_mask)
         probability_matrix = probability_matrix.filled(fill_value=0.0)
 
