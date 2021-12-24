@@ -49,7 +49,6 @@ def mask_tokens(inputs, tokenizer):
     # We sample a few tokens in each sequence for masked-LM training (with probability mlm_probability defaults to 0.15 in Bert/RoBERTa)
     mlm_probability = 0.15
     probability_matrix = np.full(labels.shape, mlm_probability)
-    print(labels)
     special_tokens_mask = [
         tokenizer.get_special_tokens_mask(val, already_has_special_tokens=True) for val in labels
     ]
@@ -88,8 +87,7 @@ print(f"[Debug] [A] Elapsed time: {time.perf_counter() - start_time}")
 
 
 def feature_creation_worker(files, tokenizer, block_size, worker_idx):
-    inputs = []
-    labels = []
+    examples = []
     sample_client = []
     client_mapping = collections.defaultdict(list)
 
@@ -108,10 +106,6 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
                               block_size + 1, block_size):  # Truncate in block of block_size
                 examples = tokenizer\
                     .build_inputs_with_special_tokens(tokenized_text[i : i + block_size])
-                print(f'examples: {examples}')
-                input, label = mask_tokens(examples, tokenizer)
-                inputs += input
-                labels += labels
                 client_mapping[user_id].append(len(examples)-1)
                 sample_client.append(user_id)
         except Exception as e:
@@ -123,6 +117,9 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
                   f"files left, {idx} files complete, remaining "
                   f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
             gc.collect()
+
+    inputs, labels = mask_tokens(examples, tokenizer)
+    print(f"Tokens masked.")
 
     return (inputs, labels, client_mapping, sample_client)
 
