@@ -49,6 +49,7 @@ def mask_tokens(inputs, tokenizer):
     # We sample a few tokens in each sequence for masked-LM training (with probability mlm_probability defaults to 0.15 in Bert/RoBERTa)
     mlm_probability = 0.15
     probability_matrix = np.full(labels.shape, mlm_probability)
+    print(labels)
     special_tokens_mask = [
         tokenizer.get_special_tokens_mask(val, already_has_special_tokens=True) for val in labels
     ]
