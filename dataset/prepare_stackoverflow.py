@@ -104,8 +104,8 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
 
             for i in range(0, len(tokenized_text) -
                               block_size + 1, block_size):  # Truncate in block of block_size
-                examples = tokenizer
-                                .build_inputs_with_special_tokens(tokenized_text[i : i + block_size])
+                examples = tokenizer\
+                    .build_inputs_with_special_tokens(tokenized_text[i : i + block_size])
                 input, label = mask_tokens(examples, tokenizer)
                 inputs += input
                 labels += labels
