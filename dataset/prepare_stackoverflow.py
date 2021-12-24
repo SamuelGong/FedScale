@@ -6,6 +6,7 @@ import numpy as np
 from multiprocessing import Pool, cpu_count
 
 N_JOBS = 16
+N_JOBS = 1
 
 # dependencies
 # torch
@@ -106,6 +107,7 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
                               block_size + 1, block_size):  # Truncate in block of block_size
                 examples = tokenizer\
                     .build_inputs_with_special_tokens(tokenized_text[i : i + block_size])
+                print(f'examples: {examples}')
                 input, label = mask_tokens(examples, tokenizer)
                 inputs += input
                 labels += labels
@@ -136,7 +138,7 @@ files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not
 # make sure files are ordered
 files = [os.path.join(train_data_dir, x) for x in sorted(files)]
 
-files = files[:100]
+files = files[:10]
 
 print(f"[Debug] [B] Elapsed time: {time.perf_counter() - start_time}")
 
