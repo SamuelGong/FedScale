@@ -1,6 +1,8 @@
 import os
 import gc
 import collections
+import copy
+import numpy as np
 from multiprocessing import Pool, cpu_count
 
 N_JOBS = 16
@@ -38,33 +40,39 @@ test_data_dir = os.path.join(root_dir, "test")
 test_mapping_path = os.path.join(client_data_mapping_dir, "test.csv")
 
 
-# def mask_tokens(inputs, tokenizer, args, device='cpu') -> Tuple[torch.Tensor, torch.Tensor]:
-#     """ Prepare masked tokens inputs/labels for masked language modeling: 80% MASK, 10% random, 10% original. """
-#     labels = inputs.clone().to(device=device)
-#     # We sample a few tokens in each sequence for masked-LM training (with probability args.mlm_probability defaults to 0.15 in Bert/RoBERTa)
-#     probability_matrix = torch.full(labels.shape, args.mlm_probability, device=device)
-#     special_tokens_mask = [
-#         tokenizer.get_special_tokens_mask(val, already_has_special_tokens=True) for val in labels.tolist()
-#     ]
-#     probability_matrix.masked_fill_(torch.tensor(special_tokens_mask, dtype=torch.bool, device=device), value=0.0)
-#     if tokenizer._pad_token is not None:
-#         padding_mask = labels.eq(tokenizer.pad_token_id)
-#         probability_matrix.masked_fill_(padding_mask, value=0.0)
-#     masked_indices = torch.tensor(torch.bernoulli(probability_matrix), dtype=torch.bool).detach().to(device=device)
-#     labels[~masked_indices] = -100  # We only compute loss on masked tokens
-#
-#     # 80% of the time, we replace masked input tokens with tokenizer.mask_token ([MASK])
-#     indices_replaced = torch.tensor(torch.bernoulli(torch.full(labels.shape, 0.8)), dtype=torch.bool, device=device) & masked_indices
-#     inputs[indices_replaced] = tokenizer.convert_tokens_to_ids(tokenizer.mask_token)
-#
-#     # 10% of the time, we replace masked input tokens with random word
-#     indices_random = torch.tensor(torch.bernoulli(torch.full(labels.shape, 0.5)), dtype=torch.bool, device=device) & masked_indices & ~indices_replaced
-#     random_words = torch.randint(len(tokenizer), labels.shape, dtype=torch.long)
-#     bool_indices_random = indices_random
-#     inputs[bool_indices_random] = random_words[bool_indices_random]
-#
-#     # The rest of the time (10% of the time) we keep the masked input tokens unchanged
-#     return inputs, labels
+def mask_tokens(inputs, tokenizer):
+    """ Prepare masked tokens inputs/labels for masked language modeling: 80% MASK, 10% random, 10% original. """
+    inputs = np.array(inputs)
+    labels = copy.deepcopy(inputs)
+
+    # We sample a few tokens in each sequence for masked-LM training (with probability mlm_probability defaults to 0.15 in Bert/RoBERTa)
+    mlm_probability = 0.15
+    probability_matrix = np.full(labels.shape, mlm_probability)
+    special_tokens_mask = [
+        tokenizer.get_special_tokens_mask(val, already_has_special_tokens=True) for val in labels
+    ]
+    probability_matrix = np.ma.array(probability_matrix, mask=special_tokens_mask)
+    probability_matrix = probability_matrix.filled(fill_value=0.0)
+
+    if tokenizer._pad_token is not None:
+        padding_mask = ma.masked_equal(labels, tokenizer.pad_token_id).mask.astype(int)
+        probability_matrix = np.ma.array(probability_matrix, mask=padding_mask)
+        probability_matrix = probability_matrix.filled(fill_value=0.0)
+
+    masked_indices = np.random.binomial(1, probability_matrix).astype(bool)
+    labels[~masked_indices] = -100  # We only compute loss on masked tokens
+
+    # 80% of the time, we replace masked input tokens with tokenizer.mask_token ([MASK])
+    indices_replaced = np.random.binomial(1, np.full(labels.shape, 0.8)).astype(bool) & masked_indices
+    inputs[indices_replaced] = tokenizer.convert_tokens_to_ids(tokenizer.mask_token)
+
+    # 10% of the time, we replace masked input tokens with random word
+    indices_random = np.random.binomial(1, np.full(labels.shape, 0.5)).astype(bool) & masked_indices & ~indices_replaced
+    random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+    inputs[indices_random] = random_words[indices_random]
+
+    # The rest of the time (10% of the time) we keep the masked input tokens unchanged
+    return inputs.tolist(), labels.tolist()
 
 
 def chunks_idx(l, n):
@@ -78,7 +86,8 @@ print(f"[Debug] [A] Elapsed time: {time.perf_counter() - start_time}")
 
 
 def feature_creation_worker(files, tokenizer, block_size, worker_idx):
-    examples = []
+    inputs = []
+    labels = []
     sample_client = []
     client_mapping = collections.defaultdict(list)
 
@@ -95,8 +104,11 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
 
             for i in range(0, len(tokenized_text) -
                               block_size + 1, block_size):  # Truncate in block of block_size
-                examples.append(tokenizer
-                                .build_inputs_with_special_tokens(tokenized_text[i : i + block_size]))
+                examples = tokenizer
+                                .build_inputs_with_special_tokens(tokenized_text[i : i + block_size])
+                input, label = mask_tokens(examples, tokenizer)
+                inputs += input
+                labels += labels
                 client_mapping[user_id].append(len(examples)-1)
                 sample_client.append(user_id)
         except Exception as e:
@@ -109,12 +121,13 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
                   f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
             gc.collect()
 
-    return (examples, client_mapping, sample_client)
+    return (inputs, labels, client_mapping, sample_client)
 
 block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
 print(f"[Debug] block_size: {block_size}")
 
-examples = []
+inputs = []
+labels = []
 sample_client = []
 client_mapping = collections.defaultdict(list)
 user_id = -1
@@ -123,7 +136,7 @@ files = [entry.name for entry in os.scandir(train_data_dir) if '_cached_lm_' not
 # make sure files are ordered
 files = [os.path.join(train_data_dir, x) for x in sorted(files)]
 
-files = files[:10000]
+files = files[:100]
 
 print(f"[Debug] [B] Elapsed time: {time.perf_counter() - start_time}")
 
@@ -139,13 +152,14 @@ pool.close()
 pool.join()
 
 user_id_base = 0
-for (examples, client_mapping, sample_client) in pool_outputs:
-    examples += examples
+for (input, label, client_mapping, sample_client) in pool_outputs:
+    inputs += input
+    labels += label
+
     true_sample_client = [i + user_id_base for i in sample_client]
     sample_client += true_sample_client
     for user_id, true_user_id in zip(sample_client, true_sample_client):
         client_mapping[true_user_id] = client_mapping[user_id]
     user_id_base = true_sample_client[-1] + 1
 
-print(len(sample_client))
 print(f"[Debug] [C] Elapsed time: {time.perf_counter() - start_time}")
