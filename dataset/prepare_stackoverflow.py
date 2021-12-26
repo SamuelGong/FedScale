@@ -206,6 +206,7 @@ completed_steps = 0
 train_start_time = time.perf_counter()
 while completed_steps < local_steps:
     for (data, target) in client_data:
+        print(data.size, target.size)
         outputs = model(data, labels=target)
         loss = outputs[0]
         loss_list = [loss.item()]
