@@ -131,8 +131,6 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
             gc.collect()
 
     inputs, labels = mask_tokens(examples, tokenizer)
-    print(f"Tokens masked.")
-
     return (inputs, labels, client_mapping, sample_client)
 
 block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
@@ -180,12 +178,13 @@ print(f"[Debug] [C] Elapsed time: {time.perf_counter() - start_time}")
 model = AutoModelForMaskedLM.from_config(config)
 learning_rate = 4e-5
 batch_size = 20
+weight_decay = 0.0
 
 no_decay = ["bias", "LayerNorm.weight"]
 optimizer_grouped_parameters = [
     {
         "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
-        "weight_decay": conf.weight_decay,
+        "weight_decay": weight_decay,
     },
     {
         "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
