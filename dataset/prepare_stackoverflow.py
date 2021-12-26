@@ -7,7 +7,7 @@ from multiprocessing import Pool, cpu_count
 from torch.utils.data import DataLoader, Dataset
 
 N_JOBS = 16
-N_JOBS = 1
+N_JOBS = 2
 
 # dependencies
 # torch
