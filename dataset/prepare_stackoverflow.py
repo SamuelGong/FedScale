@@ -2,6 +2,7 @@ import os
 import gc
 import collections
 import copy
+import torch
 import numpy as np
 from multiprocessing import Pool, cpu_count
 from torch.utils.data import DataLoader, Dataset
