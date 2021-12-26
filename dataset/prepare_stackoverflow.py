@@ -199,6 +199,7 @@ optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
 criterion = torch.nn.CrossEntropyLoss(reduction='none')
 dataset = TextDataset(inputs, labels)
 client_data = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=False, drop_last=False)
+print(len(client_data))
 
 local_steps = 20
 completed_steps = 0
@@ -206,7 +207,6 @@ completed_steps = 0
 train_start_time = time.perf_counter()
 while completed_steps < local_steps:
     for (data, target) in client_data:
-        print(data.size(), target.size())
         outputs = model(data, labels=target)
         loss = outputs[0]
         loss_list = [loss.item()]
@@ -220,3 +220,6 @@ while completed_steps < local_steps:
         loss.backward()
         optimizer.step()
         completed_steps += 1
+
+        if completed_steps == local_steps:
+            break
