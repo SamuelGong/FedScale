@@ -94,8 +94,9 @@ class TextDataset(Dataset):
         return len(self.inputs)
 
     def __getitem__(self, index):
-        return self.inputs[index], self.labels[index]
-
+        inputs = torch.tensor(self.inputs[index], dtype=torch.long)
+        labels = torch.tensor(self.labels[index], dtype=torch.long)
+        return inputs, labels
 
 print(f"[Debug] [A] Elapsed time: {time.perf_counter() - start_time}")
 
