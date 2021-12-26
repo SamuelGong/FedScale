@@ -86,6 +86,7 @@ def chunks_idx(l, n):
 
 class TextDataset(Dataset):
     def __init__(self, inputs, labels):
+        super().__init__()
         self.inputs = inputs
         self.labels = labels
 
@@ -93,7 +94,7 @@ class TextDataset(Dataset):
         return len(self.inputs)
 
     def __getitem__(self, index):
-        return (self.inputs[index], self.labels[index])
+        return self.inputs[index], self.labels[index]
 
 
 print(f"[Debug] [A] Elapsed time: {time.perf_counter() - start_time}")
@@ -196,7 +197,7 @@ optimizer_grouped_parameters = [
 optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
 criterion = torch.nn.CrossEntropyLoss(reduction='none')
 dataset = TextDataset(inputs, labels)
-client_data = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True, drop_last=False)
+client_data = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=False, drop_last=False)
 
 local_steps = 20
 completed_steps = 0
