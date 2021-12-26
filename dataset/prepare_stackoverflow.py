@@ -195,7 +195,7 @@ optimizer_grouped_parameters = [
 
 optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
 criterion = torch.nn.CrossEntropyLoss(reduction='none')
-dataset = Dataset(inputs, labels)
+dataset = TextDataset(inputs, labels)
 client_data = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True, drop_last=False)
 
 local_steps = 20
