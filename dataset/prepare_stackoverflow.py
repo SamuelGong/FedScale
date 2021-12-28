@@ -231,8 +231,8 @@ test_interval = 5
 
 model.train()
 while completed_steps < local_steps:
-    for data, target in train_data:
-        outputs = model(data, labels=target)
+    for inputs, targets in train_data:
+        outputs = model(inputs, labels=targets)
         loss = outputs[0]
         loss_value = loss.data.item()
 
@@ -248,9 +248,9 @@ while completed_steps < local_steps:
         if completed_steps % test_interval == 0:
             model.eval()
             loss_value = 0.0
-            for test_data, test_target in test_data:
-                test_output = model(test_data, test_target)
-                loss = outputs[0]
+            for test_inputs, test_targets in test_data:
+                test_outputs = model(test_inputs, test_targets)
+                loss = test_outputs[0]
                 loss_value += loss.data.item()
 
             perplexity = np.exp(loss_value)
