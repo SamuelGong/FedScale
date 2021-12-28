@@ -25,7 +25,7 @@ import time
 repack = True
 test_training = False
 prepare_num_training_clients = 10
-prepare_num_testing_samples = 20
+prepare_num_testing_clients = 1
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"
@@ -139,12 +139,12 @@ def feature_creation_worker(files, tokenizer, block_size, worker_idx):
     return (inputs, labels, client_mapping, sample_client)
 
 
-def prepare_data(data_dir, block_size, clip):
+def prepare_data(data_dir, block_size, num_files_clip):
     files = [entry.name for entry
              in os.scandir(data_dir) if '_cached_lm_' not in entry.name]
     # make sure files are ordered
     files = [os.path.join(data_dir, x) for x in sorted(files)]
-    files = files[:clip]
+    files = files[:num_files_clip]
 
     inputs = []
     labels = []
@@ -251,6 +251,7 @@ from transformers import (
     MobileBertForPreTraining,
     AutoModelForMaskedLM
 )
+
 config = AutoConfig.from_pretrained(model_name)
 tokenizer = AlbertTokenizer.from_pretrained(model_name, do_lower_case=True)
 block_size = 64 - (tokenizer.model_max_length
@@ -264,15 +265,21 @@ train_data_clip, raw_train_clients = read_data_map(
 print(f"Training data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
+test_data_clip, _ = read_data_map(
+    test_mapping_path, prepare_num_testing_clients
+)
+print(f"Testing data mapping read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
+
 # Reading Training data
 train_inputs, train_labels, train_client_mapping, train_sample_clients \
-    = prepare_data(train_data_dir, block_size, clip=train_data_clip)
+        = prepare_data(train_data_dir, block_size, num_files_clip=train_data_clip)
 print(f"Training data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 # Reading Testing data
 test_inputs, test_labels, test_client_mapping, test_sample_clients \
-        = prepare_data(test_data_dir, block_size, clip=prepare_num_testing_samples)
+        = prepare_data(test_data_dir, block_size, num_files_clip=test_data_clip)
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
@@ -280,8 +287,6 @@ print(f"Testing data read. "
 if repack:
     # training
     repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
-    train_inputs, train_labels, train_client_mapping, train_sample_clients \
-        = prepare_data(train_data_dir, block_size, clip=train_data_clip)
     print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
     
@@ -290,8 +295,6 @@ if repack:
         'mock_client': [sample_id for sample_id in range(prepare_num_testing_samples)]
     }
     repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
-    train_inputs, train_labels, train_client_mapping, train_sample_clients \
-        = prepare_data(train_data_dir, block_size, clip=train_data_clip)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
