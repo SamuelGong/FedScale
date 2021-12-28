@@ -25,8 +25,8 @@ import time
 repack_train = True
 repack_test = True
 test_training = False
-prepare_num_training_clients = 10
-prepare_num_testing_clients = 1
+prepare_num_training_clients = 1000
+prepare_num_testing_clients = 10
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"
@@ -205,6 +205,7 @@ def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
         with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
             zf.write(file_path, arcname=str(client_cnt))
 
+        os.remove(file_path)
         client_cnt += 1
 
     print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
