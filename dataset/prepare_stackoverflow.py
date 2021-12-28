@@ -225,7 +225,7 @@ optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
 criterion = torch.nn.CrossEntropyLoss(reduction='none')
 # len(train_data) = 269 when files = files[:200]
 
-local_steps = 20
+local_steps = 30
 completed_steps = 0
 test_interval = 5
 
@@ -249,7 +249,7 @@ while completed_steps < local_steps:
             model.eval()
             loss_value = 0.0
             for test_data, test_target in test_data:
-                test_output = model(test_data, test_label)
+                test_output = model(test_data, test_target)
                 loss = outputs[0]
                 loss_value += loss.data.item()
 
