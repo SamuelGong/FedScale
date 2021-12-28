@@ -311,7 +311,7 @@ if repack_test or test_training:
         raw_test_clients = {
             'mock_client': [sample_id for sample_id in range(len(test_inputs))]
         }
-        repack_data(raw_test_clients, train_inputs, train_labels,
+        repack_data(raw_test_clients, test_inputs, test_labels,
                     test_gen_dir, starting_cnt=0)
         print(f"Testing data packed. "
               f"Elapsed time: {time.perf_counter() - start_time}")
