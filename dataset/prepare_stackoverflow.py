@@ -299,7 +299,7 @@ if repack:
     
     # testing
     raw_test_clients = {
-        'mock_client': [sample_id for sample_id in range(prepare_num_testing_samples)]
+        'mock_client': [sample_id for sample_id in range(len(test_inputs))]
     }
     repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
     print(f"Testing data packed. "
