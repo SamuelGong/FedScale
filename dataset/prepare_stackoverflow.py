@@ -247,13 +247,13 @@ while completed_steps < local_steps:
 
         if completed_steps % test_interval == 0:
             model.eval()
-            loss_value = 0.0
+            test_loss_value = 0.0
             for test_inputs, test_targets in test_data:
                 test_outputs = model(test_inputs, test_targets)
-                loss = test_outputs[0]
-                loss_value += loss.data.item()
+                test_loss = test_outputs[0]
+                test_loss_value += test_loss.data.item()
 
-            perplexity = np.exp(loss_value)
+            perplexity = np.exp(test_loss_value)
             model.train()
 
             test_time = time.perf_counter() - start_time
