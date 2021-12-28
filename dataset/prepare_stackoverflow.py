@@ -225,7 +225,7 @@ def regenerate_data(raw_clients, gen_dir, starting_cnt=1):
 
 
 prepare_num_training_clients = 10
-prepare_num_testing_samples = 0
+prepare_num_testing_samples = 20
 
 sample_id = 0
 with open(train_mapping_path) as csv_file:
@@ -259,34 +259,42 @@ train_inputs, train_labels, train_client_mapping, train_sample_clients \
 print(f"Training data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-# test_inputs, test_labels, test_client_mapping, test_sample_clients \
-#         = prepare_data(test_data_dir, block_size, clip=prepare_num_testing_samples)
-# print(f"Testing data read. "
-#       f"Elapsed time: {time.perf_counter() - start_time}")
+test_inputs, test_labels, test_client_mapping, test_sample_clients \
+        = prepare_data(test_data_dir, block_size, clip=prepare_num_testing_samples)
+print(f"Testing data read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
 
 if regenerate:
     # Pack training data
     regenerate_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+    train_inputs, train_labels, train_client_mapping, train_sample_clients \
+        = prepare_data(train_data_dir, block_size, clip=train_data_clip)
+    print(f"Training data packed. "
+          f"Elapsed time: {time.perf_counter() - start_time}")
     
     # Pack testing data
     raw_test_clients = {
         'mock_client': [sample_id for sample_id in range(prepare_num_testing_samples)]
     }
     regenerate_data(raw_test_clients, test_gen_dir, starting_cnt=0)
+    train_inputs, train_labels, train_client_mapping, train_sample_clients \
+        = prepare_data(train_data_dir, block_size, clip=train_data_clip)
+    print(f"Testing data packed. "
+          f"Elapsed time: {time.perf_counter() - start_time}")
 
 if test_training:
     train_batch_size = 20
     train_dataset = TextDataset(train_inputs, train_labels)
     train_data = DataLoader(dataset=train_dataset, batch_size=train_batch_size,
                             shuffle=True, drop_last=True)
-    print(f"Training data loaded. Number of training data batches {len(train_data)}. "
+    print(f"Testing training. Number of training data batches {len(train_data)}. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
     test_batch_size = 20
     test_dataset = TextDataset(test_inputs, test_labels)
     test_data = DataLoader(dataset=test_dataset, batch_size=test_batch_size,
                             shuffle=True, drop_last=False)
-    print(f"Testing data loaded. Number of testing data batches {len(test_data)}. "
+    print(f"Number of testing data batches {len(test_data)}. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
     model = AutoModelForMaskedLM.from_config(config)
