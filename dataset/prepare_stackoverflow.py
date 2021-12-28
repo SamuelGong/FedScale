@@ -390,7 +390,9 @@ if test_training:
                     test_outputs = model(test_inputs, labels=test_targets)
                     test_loss = test_outputs[0]
                     test_loss_value += test_loss.data.item()
+                    print(f'\t{len(test_targets)}')
 
+                print(len(test_data))
                 test_loss_value /= len(test_data)
                 perplexity = np.exp(test_loss_value)
                 model.train()
