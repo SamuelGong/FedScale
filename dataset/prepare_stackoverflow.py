@@ -194,7 +194,7 @@ print(f"[Debug] Training data loaded. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 test_inputs, test_labels, test_client_mapping, test_sample_clients \
-    = prepare_data(test_data_dir, block_size, clip=20)
+    = prepare_data(test_data_dir, block_size, clip=5)
 test_batch_size = 20
 test_dataset = TextDataset(test_inputs, test_labels)
 test_data = DataLoader(dataset=test_dataset, batch_size=test_batch_size,
@@ -251,8 +251,6 @@ while completed_steps < local_steps:
             for test_inputs, test_targets in test_data:
                 test_outputs = model(test_inputs, labels=test_targets)
                 test_loss = test_outputs[0]
-                print(type(test_loss), test_loss.shape)
-                print(type(test_loss.data.item()), test_loss.data.item())
                 test_loss_value += test_loss.data.item()
 
             perplexity = np.exp(test_loss_value)
