@@ -253,6 +253,7 @@ while completed_steps < local_steps:
                 test_loss = test_outputs[0]
                 test_loss_value += test_loss.data.item()
 
+            test_loss_value /= len(test_data)
             perplexity = np.exp(test_loss_value)
             model.train()
 
