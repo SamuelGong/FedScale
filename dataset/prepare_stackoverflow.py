@@ -9,6 +9,7 @@ import pickle
 import csv
 from multiprocessing import Pool, cpu_count
 from torch.utils.data import DataLoader, Dataset
+import zipfile
 
 N_JOBS = 16
 
@@ -20,7 +21,13 @@ N_JOBS = 16
 # debugging
 import time
 
-# relative path to this file
+# configurations
+repack = True
+test_training = False
+prepare_num_training_clients = 10
+prepare_num_testing_samples = 20
+
+model_name = "albert-base-v2"
 root_dir = "data/reddit"
 client_data_mapping_dir = os.path.join(root_dir, "client_data_mapping")
 train_data_dir = os.path.join(root_dir, "train")
@@ -29,38 +36,8 @@ test_data_dir = os.path.join(root_dir, "test")
 test_mapping_path = os.path.join(client_data_mapping_dir, "test.csv")
 
 gen_dir = os.path.join(root_dir, "Reddit")
-os.makedirs(gen_dir, exist_ok=True)
 train_gen_dir = os.path.join(gen_dir, 'train')
 test_gen_dir = os.path.join(gen_dir, 'test')
-
-regenerate = True
-if regenerate:
-    if os.path.isdir(train_gen_dir):
-        shutil.rmtree(train_gen_dir)
-    if os.path.isdir(test_gen_dir):
-        shutil.rmtree(test_gen_dir)
-os.makedirs(train_gen_dir)
-os.makedirs(test_gen_dir)
-
-test_training = False
-
-start_time = time.perf_counter()
-
-# Albert over StackOverflow
-model_name = "albert-base-v2"
-from transformers import (
-    AdamW,
-    AutoConfig,
-    AutoTokenizer,
-    AlbertTokenizer,
-    MobileBertForPreTraining,
-    AutoModelForMaskedLM
-)
-config = AutoConfig.from_pretrained(model_name)
-tokenizer = AlbertTokenizer.from_pretrained(model_name, do_lower_case=True)
-
-print(f"[Debug] NLP libraries imported. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
 
 
 def mask_tokens(inputs, tokenizer):
@@ -200,7 +177,7 @@ def prepare_data(data_dir, block_size, clip):
     return inputs, labels, client_mapping, sample_clients
 
 
-def regenerate_data(raw_clients, gen_dir, starting_cnt=1):
+def repack_data(raw_clients, gen_dir, starting_cnt=1):
     client_cnt = starting_cnt
     for raw_client_id, sample_id_list in raw_clients.items():
         client_path = os.path.join(gen_dir, str(client_cnt))
@@ -221,67 +198,103 @@ def regenerate_data(raw_clients, gen_dir, starting_cnt=1):
         with open(file_path, 'wb') as fout:
             pickle.dump(data_dict, fout)
 
+        zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
+        with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
+            zf.write(client_path)
+        shutil.rmtree(client_path)
+
         client_cnt += 1
+        
+        
+def read_data_map(mapping_path, prepare):
+    sample_id = 0
+    with open(mapping_path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        read_first = True
+        raw_train_clients = {}
+
+        for row in csv_reader:
+            if read_first:
+                read_first = False
+            else:
+                client_id = row[0]
+
+                if client_id not in raw_train_clients:
+                    if len(raw_train_clients.keys()) \
+                            == num_clients:
+                        break
+                    raw_train_clients[client_id] = []
+
+                raw_train_clients[client_id].append(sample_id)
+                sample_id += 1
+    return sample_id, raw_train_clients
 
 
-prepare_num_training_clients = 10
-prepare_num_testing_samples = 20
+# File operations
+start_time = time.perf_counter()
+os.makedirs(gen_dir, exist_ok=True)
+if repack:
+    if os.path.isdir(train_gen_dir):
+        shutil.rmtree(train_gen_dir)
+    if os.path.isdir(test_gen_dir):
+        shutil.rmtree(test_gen_dir)
+os.makedirs(train_gen_dir)
+os.makedirs(test_gen_dir)
 
-sample_id = 0
-with open(train_mapping_path) as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    read_first = True
-    raw_train_clients = {}
+# Importing libraries
+from transformers import (
+    AdamW,
+    AutoConfig,
+    AutoTokenizer,
+    AlbertTokenizer,
+    MobileBertForPreTraining,
+    AutoModelForMaskedLM
+)
+config = AutoConfig.from_pretrained(model_name)
+tokenizer = AlbertTokenizer.from_pretrained(model_name, do_lower_case=True)
+block_size = 64 - (tokenizer.model_max_length
+                   - tokenizer.max_len_single_sentence)
+print(f"[Debug] NLP libraries imported. Computed block size: {block_size}. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
 
-    for row in csv_reader:
-        if read_first:
-            read_first = False
-        else:
-            client_id = row[0]
-
-            if client_id not in raw_train_clients:
-                if len(raw_train_clients.keys()) \
-                        == prepare_num_training_clients:
-                    break
-                raw_train_clients[client_id] = []
-
-            raw_train_clients[client_id].append(sample_id)
-            sample_id += 1
-
-train_data_clip = sample_id
+# Reading Mapping information for training datasets
+train_data_clip, raw_train_clients = read_data_map(
+    train_mapping_path, prepare_num_training_clients)
 print(f"Training data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
-
+# Reading Training data
 train_inputs, train_labels, train_client_mapping, train_sample_clients \
     = prepare_data(train_data_dir, block_size, clip=train_data_clip)
 print(f"Training data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
+# Reading Testing data
 test_inputs, test_labels, test_client_mapping, test_sample_clients \
         = prepare_data(test_data_dir, block_size, clip=prepare_num_testing_samples)
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-if regenerate:
-    # Pack training data
-    regenerate_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+# Repacking data
+if repack:
+    # training
+    repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
     train_inputs, train_labels, train_client_mapping, train_sample_clients \
         = prepare_data(train_data_dir, block_size, clip=train_data_clip)
     print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
     
-    # Pack testing data
+    # testing
     raw_test_clients = {
         'mock_client': [sample_id for sample_id in range(prepare_num_testing_samples)]
     }
-    regenerate_data(raw_test_clients, test_gen_dir, starting_cnt=0)
+    repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
     train_inputs, train_labels, train_client_mapping, train_sample_clients \
         = prepare_data(train_data_dir, block_size, clip=train_data_clip)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
+# Testing training with loaded data
 if test_training:
     train_batch_size = 20
     train_dataset = TextDataset(train_inputs, train_labels)
@@ -315,8 +328,6 @@ if test_training:
     ]
 
     optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
-    criterion = torch.nn.CrossEntropyLoss(reduction='none')
-    # len(train_data) = 269 when files = files[:200]
 
     local_steps = 30
     completed_steps = 0
