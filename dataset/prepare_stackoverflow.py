@@ -278,26 +278,38 @@ test_data_clip, _ = read_data_map(
 print(f"Testing data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-# Reading Training data
+# Reading and packing training data
 train_inputs, train_labels, train_client_mapping, train_sample_clients \
         = prepare_data(train_data_dir, block_size, num_files_clip=train_data_clip)
 print(f"Training data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-# Reading Testing data
+if repack:
+    repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+    print(f"Training data packed. "
+          f"Elapsed time: {time.perf_counter() - start_time}")
+
+if not test_training:
+    del train_inputs
+    del train_labels
+    del train_client_mapping
+    del train_sample_clients
+    gc.collect()
+
+# Reading and packing testing data
 test_inputs, test_labels, test_client_mapping, test_sample_clients \
         = prepare_data(test_data_dir, block_size, num_files_clip=test_data_clip)
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-# Repacking data
+if not test_training:
+    del test_inputs
+    del test_labels
+    del test_client_mapping
+    del test_sample_clients
+    gc.collect()
+
 if repack:
-    # training
-    repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
-    print(f"Training data packed. "
-          f"Elapsed time: {time.perf_counter() - start_time}")
-    
-    # testing
     raw_test_clients = {
         'mock_client': [sample_id for sample_id in range(len(test_inputs))]
     }
