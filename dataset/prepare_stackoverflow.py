@@ -180,7 +180,7 @@ def prepare_data(data_dir, block_size, num_files_clip):
     return inputs, labels, client_mapping, sample_clients
 
 
-def repack_data(raw_clients, gen_dir, starting_cnt=1):
+def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
     client_cnt = starting_cnt
     client_samples_cnts = []
     for raw_client_id, sample_id_list in raw_clients.items():
@@ -188,16 +188,16 @@ def repack_data(raw_clients, gen_dir, starting_cnt=1):
         os.makedirs(client_path, exist_ok=True)
         file_path = os.path.join(client_path, 'data.bin')
 
-        inputs = []
-        labels = []
+        client_inputs = []
+        client_labels = []
         for sample_id in sample_id_list:
-            inputs.append(train_inputs[sample_id])
-            labels.append(train_labels[sample_id])
+            client_inputs.append(inputs[sample_id])
+            client_labels.append(labels[sample_id])
         client_samples_cnts.append(len(sample_id_list))
 
         data_dict = {
-            'x': inputs,
-            'y': labels
+            'x': client_inputs,
+            'y': client_labels
         }
 
         with open(file_path, 'wb') as fout:
@@ -288,7 +288,8 @@ if repack_train or test_training:
           f"Elapsed time: {time.perf_counter() - start_time}")
 
     if repack_train:
-        repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+        repack_data(raw_train_clients, train_inputs, train_labels,
+                    train_gen_dir, starting_cnt=1)
         print(f"Training data packed. "
               f"Elapsed time: {time.perf_counter() - start_time}")
 
@@ -310,7 +311,8 @@ if repack_test or test_training:
         raw_test_clients = {
             'mock_client': [sample_id for sample_id in range(len(test_inputs))]
         }
-        repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
+        repack_data(raw_test_clients, train_inputs, train_labels,
+                    test_gen_dir, starting_cnt=0)
         print(f"Testing data packed. "
               f"Elapsed time: {time.perf_counter() - start_time}")
 
