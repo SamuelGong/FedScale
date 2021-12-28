@@ -177,7 +177,7 @@ def prepare_data(data_dir, block_size, clip):
         sample_clients += true_sample_clients
         for user_id, true_user_id in zip(sample_clients, true_sample_clients):
             client_mapping[true_user_id] = client_mapping[user_id]
-        user_id_base = true_sample_client[-1] + 1
+        user_id_base = true_sample_clients[-1] + 1
 
     return inputs, labels, client_mapping, sample_clients
 
