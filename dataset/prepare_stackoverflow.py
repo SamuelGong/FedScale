@@ -27,7 +27,7 @@ repack_test = False
 # after repacking, can upload to s3 using commands like
 #   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursive
 
-test_training = False
+test_training = True
 prepare_num_training_clients = 10
 # 1000: ~870s
 
