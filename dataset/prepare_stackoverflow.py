@@ -22,11 +22,17 @@ N_JOBS = 16
 import time
 
 # configurations
-repack_train = True
-repack_test = True
+repack_train = False
+repack_test = False
+# after repacking, can upload to s3 using commands like
+#   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursive
+
 test_training = False
 prepare_num_training_clients = 1000
+# 1000: ~870s
+
 prepare_num_testing_clients = 10
+# 10: ~10s
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"
