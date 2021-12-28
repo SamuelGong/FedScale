@@ -207,7 +207,7 @@ def repack_data(raw_clients, gen_dir, starting_cnt=1):
         client_cnt += 1
         
         
-def read_data_map(mapping_path, prepare):
+def read_data_map(mapping_path, num_clients):
     sample_id = 0
     with open(mapping_path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
