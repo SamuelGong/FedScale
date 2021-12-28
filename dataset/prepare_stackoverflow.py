@@ -184,7 +184,8 @@ def prepare_data(data_dir, block_size, clip):
 
 block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
 
-train_inputs, train_labels = prepare_data(train_data_dir, block_size, clip=200)
+train_inputs, train_labels, train_client_mapping, train_sample_clients \
+    = prepare_data(train_data_dir, block_size, clip=200)
 train_batch_size = 20
 train_dataset = TextDataset(train_inputs, train_labels)
 train_data = DataLoader(dataset=train_dataset, batch_size=train_batch_size,
@@ -192,7 +193,8 @@ train_data = DataLoader(dataset=train_dataset, batch_size=train_batch_size,
 print(f"[Debug] Training data loaded. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-test_inputs, test_labels = prepare_data(test_data_dir, block_size, clip=20)
+test_inputs, test_labels, test_client_mapping, test_sample_clients \
+    = prepare_data(test_data_dir, block_size, clip=20)
 test_batch_size = 20
 test_dataset = TextDataset(test_inputs, test_labels)
 test_data = DataLoader(dataset=test_dataset, batch_size=test_batch_size,
