@@ -180,6 +180,7 @@ def prepare_data(data_dir, block_size, num_files_clip):
 
 def repack_data(raw_clients, gen_dir, starting_cnt=1):
     client_cnt = starting_cnt
+    client_samples_cnts = []
     for raw_client_id, sample_id_list in raw_clients.items():
         client_path = os.path.join(gen_dir, str(client_cnt))
         os.makedirs(client_path, exist_ok=True)
@@ -190,6 +191,7 @@ def repack_data(raw_clients, gen_dir, starting_cnt=1):
         for sample_id in sample_id_list:
             inputs.append(train_inputs[sample_id])
             labels.append(train_labels[sample_id])
+        client_samples_cnts.append(len(sample_id_list))
 
         data_dict = {
             'x': inputs,
@@ -205,6 +207,10 @@ def repack_data(raw_clients, gen_dir, starting_cnt=1):
         shutil.rmtree(client_path)
 
         client_cnt += 1
+    print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
+          f"min/max/avg # samples: {min(client_samples_cnts)}"
+          f"/{max(client_samples_cnts)}"
+          f"/{np.mean(client_samples_cnts)}.")
         
         
 def read_data_map(mapping_path, num_clients):
