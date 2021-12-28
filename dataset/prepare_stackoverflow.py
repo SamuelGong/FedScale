@@ -190,7 +190,7 @@ train_batch_size = 20
 train_dataset = TextDataset(train_inputs, train_labels)
 train_data = DataLoader(dataset=train_dataset, batch_size=train_batch_size,
                         shuffle=True, drop_last=True)
-print(f"[Debug] Training data loaded. "
+print(f"[Debug] Training data loaded. Number of training data samples {len(train_data)}. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 test_inputs, test_labels, test_client_mapping, test_sample_clients \
@@ -199,7 +199,7 @@ test_batch_size = 20
 test_dataset = TextDataset(test_inputs, test_labels)
 test_data = DataLoader(dataset=test_dataset, batch_size=test_batch_size,
                         shuffle=True, drop_last=False)
-print(f"[Debug] Testing data loaded. "
+print(f"[Debug] Testing data loaded. Number of testing data samples {len(test_data)}. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 
