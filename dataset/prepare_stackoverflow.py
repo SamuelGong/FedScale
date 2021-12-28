@@ -22,7 +22,8 @@ N_JOBS = 16
 import time
 
 # configurations
-repack = True
+repack_train = False
+repack_test = True
 test_training = False
 prepare_num_training_clients = 1000
 prepare_num_testing_clients = 10
@@ -241,13 +242,15 @@ def read_data_map(mapping_path, num_clients):
 # File operations
 start_time = time.perf_counter()
 os.makedirs(gen_dir, exist_ok=True)
-if repack:
+if repack_train:
     if os.path.isdir(train_gen_dir):
         shutil.rmtree(train_gen_dir)
+
+if repack_test:
     if os.path.isdir(test_gen_dir):
         shutil.rmtree(test_gen_dir)
-os.makedirs(train_gen_dir)
-os.makedirs(test_gen_dir)
+os.makedirs(train_gen_dir, exist_ok=True)
+os.makedirs(test_gen_dir, exist_ok=True)
 
 # Importing libraries
 from transformers import (
@@ -279,43 +282,45 @@ print(f"Testing data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 # Reading and packing training data
-# train_inputs, train_labels, train_client_mapping, train_sample_clients \
-#         = prepare_data(train_data_dir, block_size, num_files_clip=train_data_clip)
-# print(f"Training data read. "
-#       f"Elapsed time: {time.perf_counter() - start_time}")
-#
-# if repack:
-#     repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
-#     print(f"Training data packed. "
-#           f"Elapsed time: {time.perf_counter() - start_time}")
-#
-# if not test_training:
-#     del train_inputs
-#     del train_labels
-#     del train_client_mapping
-#     del train_sample_clients
-#     gc.collect()
-
-# Reading and packing testing data
-test_inputs, test_labels, test_client_mapping, test_sample_clients \
-        = prepare_data(test_data_dir, block_size, num_files_clip=test_data_clip)
-print(f"Testing data read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
-
-if repack:
-    raw_test_clients = {
-        'mock_client': [sample_id for sample_id in range(len(test_inputs))]
-    }
-    repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
-    print(f"Testing data packed. "
+if repack_train or test_training:
+    train_inputs, train_labels, train_client_mapping, train_sample_clients \
+            = prepare_data(train_data_dir, block_size, num_files_clip=train_data_clip)
+    print(f"Training data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
-if not test_training:
-    del test_inputs
-    del test_labels
-    del test_client_mapping
-    del test_sample_clients
-    gc.collect()
+    if repack_train:
+        repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+        print(f"Training data packed. "
+              f"Elapsed time: {time.perf_counter() - start_time}")
+
+    if not test_training:
+        del train_inputs
+        del train_labels
+        del train_client_mapping
+        del train_sample_clients
+        gc.collect()
+
+# Reading and packing testing data
+if repack_test or test_training:
+    test_inputs, test_labels, test_client_mapping, test_sample_clients \
+            = prepare_data(test_data_dir, block_size, num_files_clip=test_data_clip)
+    print(f"Testing data read. "
+          f"Elapsed time: {time.perf_counter() - start_time}")
+
+    if repack_test:
+        raw_test_clients = {
+            'mock_client': [sample_id for sample_id in range(len(test_inputs))]
+        }
+        repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
+        print(f"Testing data packed. "
+              f"Elapsed time: {time.perf_counter() - start_time}")
+
+    if not test_training:
+        del test_inputs
+        del test_labels
+        del test_client_mapping
+        del test_sample_clients
+        gc.collect()
 
 # Testing training with loaded data
 if test_training:
