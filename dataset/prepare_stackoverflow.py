@@ -25,7 +25,7 @@ import time
 repack = True
 test_training = False
 prepare_num_training_clients = 1000
-prepare_num_testing_clients = 20
+prepare_num_testing_clients = 10
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"
@@ -279,35 +279,28 @@ print(f"Testing data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 # Reading and packing training data
-train_inputs, train_labels, train_client_mapping, train_sample_clients \
-        = prepare_data(train_data_dir, block_size, num_files_clip=train_data_clip)
-print(f"Training data read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
-
-if repack:
-    repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
-    print(f"Training data packed. "
-          f"Elapsed time: {time.perf_counter() - start_time}")
-
-if not test_training:
-    del train_inputs
-    del train_labels
-    del train_client_mapping
-    del train_sample_clients
-    gc.collect()
+# train_inputs, train_labels, train_client_mapping, train_sample_clients \
+#         = prepare_data(train_data_dir, block_size, num_files_clip=train_data_clip)
+# print(f"Training data read. "
+#       f"Elapsed time: {time.perf_counter() - start_time}")
+#
+# if repack:
+#     repack_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+#     print(f"Training data packed. "
+#           f"Elapsed time: {time.perf_counter() - start_time}")
+#
+# if not test_training:
+#     del train_inputs
+#     del train_labels
+#     del train_client_mapping
+#     del train_sample_clients
+#     gc.collect()
 
 # Reading and packing testing data
 test_inputs, test_labels, test_client_mapping, test_sample_clients \
         = prepare_data(test_data_dir, block_size, num_files_clip=test_data_clip)
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
-
-if not test_training:
-    del test_inputs
-    del test_labels
-    del test_client_mapping
-    del test_sample_clients
-    gc.collect()
 
 if repack:
     raw_test_clients = {
@@ -316,6 +309,13 @@ if repack:
     repack_data(raw_test_clients, test_gen_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
+
+if not test_training:
+    del test_inputs
+    del test_labels
+    del test_client_mapping
+    del test_sample_clients
+    gc.collect()
 
 # Testing training with loaded data
 if test_training:
