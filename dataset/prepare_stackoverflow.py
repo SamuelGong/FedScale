@@ -245,7 +245,6 @@ os.makedirs(gen_dir, exist_ok=True)
 if repack_train:
     if os.path.isdir(train_gen_dir):
         shutil.rmtree(train_gen_dir)
-
 if repack_test:
     if os.path.isdir(test_gen_dir):
         shutil.rmtree(test_gen_dir)
