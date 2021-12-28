@@ -174,6 +174,7 @@ def prepare_data(data_dir, block_size, clip):
             client_mapping[true_user_id] = client_mapping[user_id]
         user_id_base = true_sample_clients[-1] + 1
 
+    print(f'\tNumber of samples processed: {len(inputs)}.')
     return inputs, labels, client_mapping, sample_clients
 
 
