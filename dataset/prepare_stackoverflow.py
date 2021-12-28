@@ -22,11 +22,11 @@ N_JOBS = 16
 import time
 
 # configurations
-repack_train = False
+repack_train = True
 repack_test = True
 test_training = False
-prepare_num_training_clients = 1000
-prepare_num_testing_clients = 10
+prepare_num_training_clients = 10
+prepare_num_testing_clients = 1
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"
@@ -184,9 +184,7 @@ def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
     client_cnt = starting_cnt
     client_samples_cnts = []
     for raw_client_id, sample_id_list in raw_clients.items():
-        client_path = os.path.join(gen_dir, str(client_cnt))
-        os.makedirs(client_path, exist_ok=True)
-        file_path = os.path.join(client_path, 'data.bin')
+        file_path = os.path.join(gen_dir, 'data.bin')
 
         client_inputs = []
         client_labels = []
@@ -205,10 +203,10 @@ def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
 
         zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
         with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
-            zf.write(client_path)
-        shutil.rmtree(client_path)
+            zf.write(file_path, arcname=str(client_cnt))
 
         client_cnt += 1
+
     print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
           f"min/max/avg # samples: {min(client_samples_cnts)}"
           f"/{max(client_samples_cnts)}"
