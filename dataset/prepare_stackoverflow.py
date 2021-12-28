@@ -251,6 +251,8 @@ while completed_steps < local_steps:
             for test_inputs, test_targets in test_data:
                 test_outputs = model(test_inputs, test_targets)
                 test_loss = test_outputs[0]
+                print(type(test_loss), test_loss.shape)
+                print(type(test_loss.data.item()), test_loss.data.item())
                 test_loss_value += test_loss.data.item()
 
             perplexity = np.exp(test_loss_value)
