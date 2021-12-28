@@ -142,7 +142,7 @@ def test_model(rank, model, test_data, device='cpu', criterion=nn.NLLLoss(), tok
 
     model.eval()
     targets_list = []
-    preds = []
+    preds = []*
 
     decoder = None
 
