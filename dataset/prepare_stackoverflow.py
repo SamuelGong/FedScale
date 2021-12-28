@@ -24,8 +24,8 @@ import time
 # configurations
 repack = True
 test_training = False
-prepare_num_training_clients = 10
-prepare_num_testing_clients = 1
+prepare_num_training_clients = 1000
+prepare_num_testing_clients = 20
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"
