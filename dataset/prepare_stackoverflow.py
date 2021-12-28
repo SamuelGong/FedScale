@@ -30,7 +30,6 @@ test_mapping_path = os.path.join(client_data_mapping_dir, "test.csv")
 
 gen_dir = os.path.join(root_dir, "Reddit")
 os.makedirs(gen_dir, exist_ok=True)
-
 train_gen_dir = os.path.join(gen_dir, 'train')
 test_gen_dir = os.path.join(gen_dir, 'test')
 
@@ -43,6 +42,7 @@ if regenerate:
 os.makedirs(train_gen_dir)
 os.makedirs(test_gen_dir)
 
+test_training = False
 
 start_time = time.perf_counter()
 
@@ -200,12 +200,38 @@ def prepare_data(data_dir, block_size, clip):
     return inputs, labels, client_mapping, sample_clients
 
 
-prepare_num_training_clients = 1000
+def regenerate_data(raw_clients, gen_dir, starting_cnt=1):
+    client_cnt = starting_cnt
+    for raw_client_id, sample_id_list in raw_clients.items():
+        client_path = os.path.join(gen_dir, str(client_cnt))
+        os.makedirs(client_path, exist_ok=True)
+        file_path = os.path.join(client_path, 'data.bin')
+
+        inputs = []
+        labels = []
+        for sample_id in sample_id_list:
+            inputs.append(train_inputs[sample_id])
+            labels.append(train_labels[sample_id])
+
+        data_dict = {
+            'x': inputs,
+            'y': labels
+        }
+
+        with open(file_path, 'wb') as fout:
+            pickle.dump(data_dict, fout)
+
+        client_cnt += 1
+
+
+prepare_num_training_clients = 10
+prepare_num_testing_samples = 0
+
 sample_id = 0
 with open(train_mapping_path) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     read_first = True
-    unique_clients = {}
+    raw_train_clients = {}
 
     for row in csv_reader:
         if read_first:
@@ -213,120 +239,112 @@ with open(train_mapping_path) as csv_file:
         else:
             client_id = row[0]
 
-            if client_id not in unique_clients:
-                if len(unique_clients.keys()) \
+            if client_id not in raw_train_clients:
+                if len(raw_train_clients.keys()) \
                         == prepare_num_training_clients:
                     break
-                unique_clients[client_id] = []
+                raw_train_clients[client_id] = []
 
-            unique_clients[client_id].append(sample_id)
+            raw_train_clients[client_id].append(sample_id)
             sample_id += 1
 
 train_data_clip = sample_id
-print(f"Training Data Mapping Data Read. "
+print(f"Training data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
 block_size = 64 - (tokenizer.model_max_length - tokenizer.max_len_single_sentence)
 
 train_inputs, train_labels, train_client_mapping, train_sample_clients \
     = prepare_data(train_data_dir, block_size, clip=train_data_clip)
+print(f"Training data read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
 
-client_cnt = 0
-for raw_client_id, sample_id_list in unique_clients:
-    client_path = os.path.join(train_gen_dir, str(client_cnt))
-    os.makedirs(client_path, exist_ok=True)
-    file_path = os.path.join(client_path, 'data.bin')
+# test_inputs, test_labels, test_client_mapping, test_sample_clients \
+#         = prepare_data(test_data_dir, block_size, clip=prepare_num_testing_samples)
+# print(f"Testing data read. "
+#       f"Elapsed time: {time.perf_counter() - start_time}")
 
-    inputs = []
-    labels = []
-    for sample_id in sample_id_list:
-        inputs.append(train_inputs[sample_id])
-        labels.append(train_labels[sample_id])
-
-    data_dict = {
-        'x': inputs,
-        'y': labels
+if regenerate:
+    # Pack training data
+    regenerate_data(raw_train_clients, train_gen_dir, starting_cnt=1)
+    
+    # Pack testing data
+    raw_test_clients = {
+        'mock_client': [sample_id for sample_id in range(prepare_num_testing_samples)]
     }
+    regenerate_data(raw_test_clients, test_gen_dir, starting_cnt=0)
 
-    with open(file_path, 'wb') as fout:
-        pickle.dump(data_dict, fout)
+if test_training:
+    train_batch_size = 20
+    train_dataset = TextDataset(train_inputs, train_labels)
+    train_data = DataLoader(dataset=train_dataset, batch_size=train_batch_size,
+                            shuffle=True, drop_last=True)
+    print(f"Training data loaded. Number of training data batches {len(train_data)}. "
+          f"Elapsed time: {time.perf_counter() - start_time}")
 
-    client_cnt += 1
+    test_batch_size = 20
+    test_dataset = TextDataset(test_inputs, test_labels)
+    test_data = DataLoader(dataset=test_dataset, batch_size=test_batch_size,
+                            shuffle=True, drop_last=False)
+    print(f"Testing data loaded. Number of testing data batches {len(test_data)}. "
+          f"Elapsed time: {time.perf_counter() - start_time}")
 
-# train_batch_size = 20
-# train_dataset = TextDataset(train_inputs, train_labels)
-# train_data = DataLoader(dataset=train_dataset, batch_size=train_batch_size,
-#                         shuffle=True, drop_last=True)
-print(f"Training data loaded. Number of training data batches {len(train_data)}. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
+    model = AutoModelForMaskedLM.from_config(config)
+    learning_rate = 4e-5
 
-test_inputs, test_labels, test_client_mapping, test_sample_clients \
-    = prepare_data(test_data_dir, block_size, clip=5)
-# test_batch_size = 20
-# test_dataset = TextDataset(test_inputs, test_labels)
-# test_data = DataLoader(dataset=test_dataset, batch_size=test_batch_size,
-#                         shuffle=True, drop_last=False)
-print(f"Testing data loaded. Number of testing data batches {len(test_data)}. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
+    weight_decay = 0.0
 
+    no_decay = ["bias", "LayerNorm.weight"]
+    optimizer_grouped_parameters = [
+        {
+            "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
+            "weight_decay": weight_decay,
+        },
+        {
+            "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
+            "weight_decay": 0.0,
+        },
+    ]
 
-# ### Testing training
-# model = AutoModelForMaskedLM.from_config(config)
-# learning_rate = 4e-5
-#
-# weight_decay = 0.0
-#
-# no_decay = ["bias", "LayerNorm.weight"]
-# optimizer_grouped_parameters = [
-#     {
-#         "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
-#         "weight_decay": weight_decay,
-#     },
-#     {
-#         "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
-#         "weight_decay": 0.0,
-#     },
-# ]
-#
-# optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
-# criterion = torch.nn.CrossEntropyLoss(reduction='none')
-# # len(train_data) = 269 when files = files[:200]
-#
-# local_steps = 30
-# completed_steps = 0
-# test_interval = 5
-#
-# model.train()
-# while completed_steps < local_steps:
-#     for inputs, targets in train_data:
-#         outputs = model(inputs, labels=targets)
-#         loss = outputs[0]
-#         loss_value = loss.data.item()
-#
-#         train_time = time.perf_counter() - start_time
-#         print(f"[Step {completed_steps}] "
-#               f"loss: {loss_value}, elapsed time: {train_time}.")
-#
-#         optimizer.zero_grad()
-#         loss.backward()
-#         optimizer.step()
-#         completed_steps += 1
-#
-#         if completed_steps % test_interval == 0:
-#             model.eval()
-#             test_loss_value = 0.0
-#             for test_inputs, test_targets in test_data:
-#                 test_outputs = model(test_inputs, labels=test_targets)
-#                 test_loss = test_outputs[0]
-#                 test_loss_value += test_loss.data.item()
-#
-#             test_loss_value /= len(test_data)
-#             perplexity = np.exp(test_loss_value)
-#             model.train()
-#
-#             test_time = time.perf_counter() - start_time
-#             print(f"[Evaluate] "
-#                   f"perplexity: {perplexity}, elapsed time: {test_time}.")
-#
-#         if completed_steps == local_steps:
-#             break
+    optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=learning_rate)
+    criterion = torch.nn.CrossEntropyLoss(reduction='none')
+    # len(train_data) = 269 when files = files[:200]
+
+    local_steps = 30
+    completed_steps = 0
+    test_interval = 5
+
+    model.train()
+    while completed_steps < local_steps:
+        for inputs, targets in train_data:
+            outputs = model(inputs, labels=targets)
+            loss = outputs[0]
+            loss_value = loss.data.item()
+
+            train_time = time.perf_counter() - start_time
+            print(f"[Step {completed_steps}] "
+                  f"loss: {loss_value}, elapsed time: {train_time}.")
+
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            completed_steps += 1
+
+            if completed_steps % test_interval == 0:
+                model.eval()
+                test_loss_value = 0.0
+                for test_inputs, test_targets in test_data:
+                    test_outputs = model(test_inputs, labels=test_targets)
+                    test_loss = test_outputs[0]
+                    test_loss_value += test_loss.data.item()
+
+                test_loss_value /= len(test_data)
+                perplexity = np.exp(test_loss_value)
+                model.train()
+
+                test_time = time.perf_counter() - start_time
+                print(f"[Evaluate] "
+                      f"perplexity: {perplexity}, elapsed time: {test_time}.")
+
+            if completed_steps == local_steps:
+                break
