@@ -28,10 +28,10 @@ repack_test = False
 #   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursive
 
 test_training = False
-prepare_num_training_clients = 1000
+prepare_num_training_clients = 10
 # 1000: ~870s
 
-prepare_num_testing_clients = 10
+prepare_num_testing_clients = 1
 # 10: ~10s
 
 model_name = "albert-base-v2"
@@ -386,12 +386,14 @@ if test_training:
             if completed_steps % test_interval == 0:
                 model.eval()
                 test_loss_value = 0.0
+                num_test_samples = 0
                 for test_inputs, test_targets in test_data:
                     test_outputs = model(test_inputs, labels=test_targets)
                     test_loss = test_outputs[0]
                     test_loss_value += test_loss.data.item()
+                    num_test_samples += len(test_targets)
 
-                test_loss_value /= len(test_data)
+                test_loss_value /= num_test_samples
                 perplexity = np.exp(test_loss_value)
                 model.train()
 
