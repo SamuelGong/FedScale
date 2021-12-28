@@ -386,15 +386,12 @@ if test_training:
             if completed_steps % test_interval == 0:
                 model.eval()
                 test_loss_value = 0.0
-                num_test_samples = 0
                 for test_inputs, test_targets in test_data:
                     test_outputs = model(test_inputs, labels=test_targets)
                     test_loss = test_outputs[0]
                     test_loss_value += test_loss.data.item()
-                    num_test_samples += len(test_targets)
 
-                print(num_test_samples)
-                test_loss_value /= num_test_samples
+                test_loss_value /= len(test_data)
                 perplexity = np.exp(test_loss_value)
                 model.train()
 
