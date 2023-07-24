@@ -1,0 +1,170 @@
+(base) samuel@Paprikas-MacBook-Pro-1765 FedScale % git pull
+CONFLICT (modify/delete): thirdparty/oort_setup.py deleted in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541 and modified in HEAD. Version HEAD of thirdparty/oort_setup.py left in tree.
+Auto-merging thirdparty/oort/utils/lp_gurobi.py
+Auto-merging thirdparty/oort/utils/lp.py
+Auto-merging thirdparty/oort/oort.py
+Auto-merging thirdparty/oort/__init__.py
+CONFLICT (content): Merge conflict in thirdparty/oort/__init__.py
+Auto-merging install.sh
+CONFLICT (content): Merge conflict in install.sh
+Removing figures/faroverview.png
+Auto-merging fedscale/dataloaders/nlp.py
+CONFLICT (file location): core/utils/mock_speech.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/dataloaders/mock_speech.py.
+CONFLICT (file location): core/mock_fllibs.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_fllibs.py.
+CONFLICT (file location): core/mock_fl_client_libs.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_fl_client_libs.py.
+CONFLICT (file location): core/mock_fl_aggregator_libs.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_fl_aggregator_libs.py.
+CONFLICT (file location): core/mock_executor.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_executor.py.
+CONFLICT (file location): core/mock_evals/update_config.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/update_config.py.
+CONFLICT (file location): core/mock_evals/shutdown.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/shutdown.py.
+CONFLICT (file location): core/mock_evals/reddit_what_if_speedup_comp.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_what_if_speedup_comp.png.
+CONFLICT (file location): core/mock_evals/reddit_what_if_speedup_comm.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_what_if_speedup_comm.png.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls80 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls80.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls8 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls8.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls60 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls60.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls6 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls6.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls40 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls40.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls4 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls4.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls30 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls30.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls20 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls20.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls2 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls2.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls100 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls100.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls10 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls10.
+CONFLICT (file location): core/mock_evals/reddit_logging_ls1 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging_ls1.
+CONFLICT (file location): core/mock_evals/reddit_logging added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_logging.
+CONFLICT (file location): core/mock_evals/reddit_comm_portion_pdf.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_comm_portion_pdf.png.
+CONFLICT (file location): core/mock_evals/reddit_comm_portion.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit_comm_portion.png.
+CONFLICT (file location): core/mock_evals/reddit added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/reddit.
+CONFLICT (file location): core/mock_evals/plot_perf.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/plot_perf.py.
+CONFLICT (file location): core/mock_evals/openimage_what_if_speedup_comp.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_what_if_speedup_comp.png.
+CONFLICT (file location): core/mock_evals/openimage_what_if_speedup_comm.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_what_if_speedup_comm.png.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls80 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls80.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls8 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls8.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls60 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls60.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls6 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls6.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls40 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls40.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls4 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls4.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls30 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls30.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls20 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls20.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls2 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls2.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls100 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls100.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls10 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls10.
+CONFLICT (file location): core/mock_evals/openimage_logging_ls1 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging_ls1.
+CONFLICT (file location): core/mock_evals/openimage_logging added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_logging.
+CONFLICT (file location): core/mock_evals/openimage_comm_portion_pdf.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_comm_portion_pdf.png.
+CONFLICT (file location): core/mock_evals/openimage_comm_portion.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage_comm_portion.png.
+CONFLICT (file location): core/mock_evals/openimage added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/openimage.
+CONFLICT (file location): core/mock_evals/my_perf.sh added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/my_perf.sh.
+CONFLICT (file location): core/mock_evals/my_perf.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/my_perf.py.
+CONFLICT (file location): core/mock_evals/mock.sh added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/mock.sh.
+CONFLICT (file location): core/mock_evals/manager.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/manager.py.
+CONFLICT (file location): core/mock_evals/google_speech_what_if_speedup_comp.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_what_if_speedup_comp.png.
+CONFLICT (file location): core/mock_evals/google_speech_what_if_speedup_comm.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_what_if_speedup_comm.png.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls80 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls80.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls8 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls8.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls60 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls60.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls6 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls6.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls40 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls40.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls4 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls4.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls30 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls30.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls20 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls20.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls2 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls2.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls100 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls100.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls10 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls10.
+CONFLICT (file location): core/mock_evals/google_speech_logging_ls1 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging_ls1.
+CONFLICT (file location): core/mock_evals/google_speech_logging added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_logging.
+CONFLICT (file location): core/mock_evals/google_speech_comm_portion_pdf.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_comm_portion_pdf.png.
+CONFLICT (file location): core/mock_evals/google_speech_comm_portion.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech_comm_portion.png.
+CONFLICT (file location): core/mock_evals/google_speech added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/google_speech.
+CONFLICT (file location): core/mock_evals/configs/speech/conf.yml added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/configs/speech/conf.yml.
+CONFLICT (file location): core/mock_evals/configs/reddit/conf.yml added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/configs/reddit/conf.yml.
+CONFLICT (file location): core/mock_evals/configs/openimage/conf.yml added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_evals/configs/openimage/conf.yml.
+CONFLICT (file location): core/mock_argParser.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_argParser.py.
+CONFLICT (file location): core/mock_aggregator.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/mock_aggregator.py.
+CONFLICT (file location): core/.DS_Store added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to fedscale/cloud/execution/.DS_Store.
+Auto-merging docker/shutdown.py
+Removing dataset/download.sh
+Removing dataset/data/VLOG/parse.py
+Removing dataset/data/VLOG/README.md
+Removing dataset/README.md
+Removing core/utils/utils_model.py
+Removing core/utils/rcnn/lib/roi_data_layer/roidb.py
+Removing core/utils/rcnn/lib/roi_data_layer/roibatchLoader.py
+Removing core/utils/rcnn/lib/roi_data_layer/minibatch.py
+Removing core/utils/rcnn/lib/model/utils/__init__.py
+Removing core/utils/rcnn/lib/model/rpn/__init__.py
+Removing core/utils/rcnn/lib/model/roi_pooling/modules/__init__.py
+Removing core/utils/rcnn/lib/model/roi_pooling/functions/__init__.py
+Removing core/utils/rcnn/lib/model/roi_pooling/_ext/__init__.py
+Removing core/utils/rcnn/lib/model/roi_pooling/__init__.py
+Removing core/utils/rcnn/lib/model/roi_crop/modules/gridgen.py
+Removing core/utils/rcnn/lib/model/roi_crop/modules/__init__.py
+Removing core/utils/rcnn/lib/model/roi_crop/functions/__init__.py
+Removing core/utils/rcnn/lib/model/roi_crop/_ext/__init__.py
+Removing core/utils/rcnn/lib/model/roi_crop/__init__.py
+Removing core/utils/rcnn/lib/model/roi_align/modules/__init__.py
+Removing core/utils/rcnn/lib/model/roi_align/functions/__init__.py
+Removing core/utils/rcnn/lib/model/roi_align/_ext/__init__.py
+Removing core/utils/rcnn/lib/model/roi_align/__init__.py
+Removing core/utils/rcnn/lib/model/nms/nms_gpu.py
+Removing core/utils/rcnn/lib/model/nms/_ext/__init__.py
+Removing core/utils/rcnn/lib/model/nms/__init__.py
+Removing core/utils/rcnn/lib/model/faster_rcnn/vgg16.py
+Removing core/utils/rcnn/lib/model/faster_rcnn/resnet.py
+Removing core/utils/rcnn/lib/model/faster_rcnn/__init__.py
+Removing core/utils/rcnn/lib/model/__init__.py
+Removing core/utils/rcnn/lib/datasets/voc_eval.py
+Removing core/utils/rcnn/lib/datasets/pascal_voc_rbg.py
+Removing core/utils/rcnn/lib/datasets/imdb.py
+Removing core/utils/rcnn/lib/datasets/ds_utils.py
+Removing core/utils/rcnn/lib/datasets/coco.py
+Removing core/utils/rcnn/__init__.py
+Removing core/tests/testlibs.py
+Removing core/resource_manager.py
+Removing core/job_api_pb2_grpc.py
+Removing core/job_api_pb2.py
+Removing core/ipmapping
+Removing core/helper/client.py
+CONFLICT (modify/delete): core/fllibs.py deleted in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541 and modified in HEAD. Version HEAD of core/fllibs.py left in tree.
+Removing core/fl_aggregator_libs.py
+Removing core/executor.py
+Removing core/examples/differential_privacy/customized_client.py
+Removing core/evals/plot_perf.py
+CONFLICT (modify/delete): core/evals/manager.py deleted in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541 and modified in HEAD. Version HEAD of core/evals/manager.py left in tree.
+Removing core/communication/job_api.proto
+CONFLICT (modify/delete): core/client_manager.py deleted in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541 and modified in HEAD. Version HEAD of core/client_manager.py left in tree.
+Removing core/client.py
+Removing core/aggregator.py
+Removing core/README.md
+CONFLICT (file location): core/evals/pqe_time_to_round.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/pqe_time_to_round.png.
+CONFLICT (file location): core/evals/pqe_time_to_acc.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/pqe_time_to_acc.png.
+CONFLICT (file location): core/evals/pqe_round_latency.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/pqe_round_latency.png.
+CONFLICT (file location): core/evals/my_perf_for_pqe.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/my_perf_for_pqe.py.
+CONFLICT (file location): core/evals/my_perf_2.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/my_perf_2.py.
+CONFLICT (file location): core/evals/my_perf.py added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/my_perf.py.
+CONFLICT (file location): core/evals/google_speech_what_if_speedup_comp.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_what_if_speedup_comp.png.
+CONFLICT (file location): core/evals/google_speech_what_if_speedup_comm.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_what_if_speedup_comm.png.
+CONFLICT (file location): core/evals/google_speech_time_to_acc_tw200.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_time_to_acc_tw200.png.
+CONFLICT (file location): core/evals/google_speech_time_to_acc.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_time_to_acc.png.
+CONFLICT (file location): core/evals/google_speech_round_to_acc_tw200.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_round_to_acc_tw200.png.
+CONFLICT (file location): core/evals/google_speech_round_to_acc.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_round_to_acc.png.
+CONFLICT (file location): core/evals/google_speech_logging_ls8_tw200 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls8_tw200.
+CONFLICT (file location): core/evals/google_speech_logging_ls8 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls8.
+CONFLICT (file location): core/evals/google_speech_logging_ls6_tw200 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls6_tw200.
+CONFLICT (file location): core/evals/google_speech_logging_ls6 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls6.
+CONFLICT (file location): core/evals/google_speech_logging_ls4_tw200 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls4_tw200.
+CONFLICT (file location): core/evals/google_speech_logging_ls4 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls4.
+CONFLICT (file location): core/evals/google_speech_logging_ls30 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls30.
+CONFLICT (file location): core/evals/google_speech_logging_ls2_tw200 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls2_tw200.
+CONFLICT (file location): core/evals/google_speech_logging_ls20 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls20.
+CONFLICT (file location): core/evals/google_speech_logging_ls2 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls2.
+CONFLICT (file location): core/evals/google_speech_logging_ls10 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls10.
+CONFLICT (file location): core/evals/google_speech_logging_ls1 added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_logging_ls1.
+CONFLICT (file location): core/evals/google_speech_comm_portion_pdf.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_comm_portion_pdf.png.
+CONFLICT (file location): core/evals/google_speech_comm_portion.png added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/google_speech_comm_portion.png.
+CONFLICT (rename/delete): dataset/data/reddit/README.md deleted in HEAD and renamed to benchmark/dataset/reddit/README.md in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541. Version ca1cdcb79cd3d5f48e4f781f91543bfe645a5541 of benchmark/dataset/reddit/README.md left in tree.
+CONFLICT (file location): dataset/.DS_Store added in HEAD inside a directory that was renamed in ca1cdcb79cd3d5f48e4f781f91543bfe645a5541, suggesting it should perhaps be moved to benchmark/dataset/.DS_Store.
+Auto-merging benchmark/configs/openimage/openimage.yml
+Auto-merging .gitignore
+CONFLICT (content): Merge conflict in .gitignore
+Removing .DS_Store
+Automatic merge failed; fix conflicts and then commit the result.
