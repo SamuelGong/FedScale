@@ -86,7 +86,7 @@ def read_data_map(mapping_path, num_clients):
             else:
                 # client_id,sample_path,label_name,label_id
                 client_id = row[0]
-                label = row[4]
+                label = row[3]
 
                 if client_id not in raw_clients:
                     if len(raw_clients.keys()) \
