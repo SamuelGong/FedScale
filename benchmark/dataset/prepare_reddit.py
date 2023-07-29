@@ -11,7 +11,7 @@ from multiprocessing import Pool, cpu_count
 from torch.utils.data import DataLoader, Dataset
 import zipfile
 
-N_JOBS = 16
+N_JOBS = cpu_count() // 2
 
 # dependencies
 #   torch
@@ -28,11 +28,11 @@ repack_test = True
 #   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursive
 
 test_training = False
-prepare_num_training_clients = 1
-# 1000: ~870s
+prepare_num_training_clients = 1000
+# 1000: ~2700s for rgcpu7
 
-prepare_num_testing_clients = 5
-# 10: ~10s
+prepare_num_testing_clients = 20
+# 10: ~20s for rgcpu7
 
 model_name = "albert-base-v2"
 root_dir = "data/reddit"

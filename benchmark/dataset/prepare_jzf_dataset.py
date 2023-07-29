@@ -39,12 +39,12 @@ def jpg_handler(files, worker_idx):
 repack_train = True
 repack_test = True
 # after repacking, can upload to s3 using commands like
-#   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursiv
+#   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursive
 
-prepare_num_training_clients = 1
+prepare_num_training_clients = 1000
 # e.g., Reddit 1000: ~870s
 
-prepare_num_testing_clients = 5
+prepare_num_testing_clients = 20
 # e.g., Reddit 10: ~10s
 
 feature_creation_worker = jpg_handler
