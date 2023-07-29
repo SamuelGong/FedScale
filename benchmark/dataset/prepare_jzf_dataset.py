@@ -1,19 +1,39 @@
 import os
 import gc
+import time
 import shutil
-import collections
-import copy
-import torch
+from PIL import Image
 import numpy as np
 import pickle
 import csv
 from multiprocessing import Pool, cpu_count
-from torch.utils.data import DataLoader, Dataset
 import zipfile
 
-N_JOBS = 16
+# N_JOBS = 16
+N_JOBS = cpu_count() // 2
 
-import time
+
+def jpg_handler(files, worker_idx):
+    examples = []
+
+    st = time.time()
+    for idx, f in enumerate(files):
+        try:
+            image = Image.open(f)
+            example = np.asarray(image)
+            examples.append(example)
+        except Exception as e:
+            print(f"CPU worker {worker_idx}: fail due to {e}")
+            raise e
+
+        if idx % 1000 == 0:
+            print(f"CPU worker {worker_idx}: {len(files)-idx} "
+                  f"files left, {idx} files complete, remaining "
+                  f"time {(time.time()-st)/(idx+1)*(len(files)-idx)}")
+            gc.collect()
+
+    return examples
+
 
 # configurations
 repack_train = True
@@ -27,15 +47,13 @@ prepare_num_training_clients = 1
 prepare_num_testing_clients = 5
 # e.g., Reddit 10: ~10s
 
-#root_dir = "data/reddit"
+feature_creation_worker = jpg_handler
 root_dir = "data/openImg"
 client_data_mapping_dir = os.path.join(root_dir, "client_data_mapping")
 train_data_dir = os.path.join(root_dir, "train")
 train_mapping_path = os.path.join(client_data_mapping_dir, "train.csv")
 test_data_dir = os.path.join(root_dir, "test")
 test_mapping_path = os.path.join(client_data_mapping_dir, "test.csv")
-
-feature_creation_worker = jpg_handler
 
 gen_dir = os.path.join(root_dir, "jzf_openImg")
 train_gen_dir = os.path.join(gen_dir, 'train')
@@ -52,90 +70,60 @@ if repack_test:
 os.makedirs(train_gen_dir, exist_ok=True)
 os.makedirs(test_gen_dir, exist_ok=True)
 
+
 # Reading Mapping information for training datasets
 def read_data_map(mapping_path, num_clients):
     sample_id = 0
+    labels = []
     with open(mapping_path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         read_first = True
-        raw_train_clients = {}
+        raw_clients = {}
 
         for row in csv_reader:
             if read_first:
                 read_first = False
             else:
+                # client_id,sample_path,label_name,label_id
                 client_id = row[0]
+                label = row[4]
 
-                if client_id not in raw_train_clients:
-                    if len(raw_train_clients.keys()) \
+                if client_id not in raw_clients:
+                    if len(raw_clients.keys()) \
                             == num_clients:
                         break
-                    raw_train_clients[client_id] = []
+                    raw_clients[client_id] = []
 
-                raw_train_clients[client_id].append(sample_id)
+                raw_clients[client_id].append(sample_id)
+                labels.append(label)
                 sample_id += 1
-    return sample_id, raw_train_clients
+    return sample_id, raw_clients, labels
 
-train_data_clip, raw_train_clients = read_data_map(
+
+train_data_clip, raw_train_clients, train_labels = read_data_map(
     train_mapping_path, prepare_num_training_clients)
 print(f"Training data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
-test_data_clip, _ = read_data_map(
+test_data_clip, _, test_labels = read_data_map(
     test_mapping_path, prepare_num_testing_clients
 )
 print(f"Testing data mapping read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 
+
+def chunks_idx(l, n):
+    d, r = divmod(len(l), n)
+    for i in range(n):
+        si = (d+1)*(i if i < r else r) + d*(0 if i < r else i - r)
+        yield si, si+(d+1 if i < r else d)
+
 # Reading and packing training data
-def jpg_hander(files, worker_idx):
-    examples = []
-    sample_client = []
-    client_mapping = collections.defaultdict(list)
-
-    user_id = -1
-    start_time = time.time()
-    for idx, f in enumerate(files):
-        try:
-            with open(f, encoding="utf-8", errors='ignore') as fin:
-                text = fin.read()
-
-            tokenized_text = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(text))
-            if len(tokenized_text) > 0:
-                user_id += 1
-
-            for i in range(0, len(tokenized_text) -
-                              block_size + 1, block_size):  # Truncate in block of block_size
-                example = tokenizer\
-                    .build_inputs_with_special_tokens(tokenized_text[i : i + block_size])
-                examples.append(example)
-                client_mapping[user_id].append(len(examples)-1)
-                sample_client.append(user_id)
-        except Exception as e:
-            print(f"CPU worker {worker_idx}: fail due to {e}")
-            raise e
-
-        if idx % 1000 == 0:
-            print(f"CPU worker {worker_idx}: {len(files)-idx} "
-                  f"files left, {idx} files complete, remaining "
-                  f"time {(time.time()-start_time)/(idx+1)*(len(files)-idx)}")
-            gc.collect()
-
-    inputs, labels = mask_tokens(examples, tokenizer)
-    return (inputs, labels, client_mapping, sample_client)
-
-
 def prepare_data(data_dir, num_files_clip):
     files = [entry.name for entry in os.scandir(data_dir)]
     # make sure files are ordered
     files = [os.path.join(data_dir, x) for x in sorted(files)]
     files = files[:num_files_clip]
-
-    inputs = []
-    labels = []
-    sample_clients = []
-    client_mapping = collections.defaultdict(list)
-    user_id = -1
 
     pool_inputs = []
     pool = Pool(N_JOBS)
@@ -148,31 +136,23 @@ def prepare_data(data_dir, num_files_clip):
     pool.close()
     pool.join()
 
-    user_id_base = 0
-    for (input, label, m, s) in pool_outputs:
-        inputs += input
-        labels += label
+    all_examples = []
+    for examples in pool_outputs:
+        all_examples += examples
+    print(f'\tNumber of samples processed: {len(all_examples)}.')
+    return all_examples
 
-        true_sample_clients = [i + user_id_base for i in s]
-        sample_clients += true_sample_clients
-        for user_id, true_user_id in zip(s, true_sample_clients):
-            client_mapping[true_user_id] = m[user_id]
-        if true_sample_clients:
-            user_id_base = true_sample_clients[-1] + 1
 
-    print(f'\tNumber of samples processed: {len(inputs)}.')
-    return inputs, labels, client_mapping, sample_clients
-
-def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
+def repack_data(raw_clients, examples, labels, gen_dir, starting_cnt=1):
     client_cnt = starting_cnt
     client_samples_cnts = []
     for raw_client_id, sample_id_list in raw_clients.items():
-        file_path = os.path.join(gen_dir, 'data.bin')
+        temp_file_path = os.path.join(gen_dir, 'data.bin')
 
         client_inputs = []
         client_labels = []
         for sample_id in sample_id_list:
-            client_inputs.append(inputs[sample_id])
+            client_inputs.append(examples[sample_id])
             client_labels.append(labels[sample_id])
         client_samples_cnts.append(len(sample_id_list))
 
@@ -181,14 +161,14 @@ def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
             'y': client_labels
         }
 
-        with open(file_path, 'wb') as fout:
+        with open(temp_file_path, 'wb') as fout:
             pickle.dump(data_dict, fout)
 
         zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
         with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
-            zf.write(file_path, arcname=str(client_cnt))
+            zf.write(temp_file_path, arcname=str(client_cnt))
 
-        os.remove(file_path)
+        os.remove(temp_file_path)
         client_cnt += 1
 
     print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
@@ -196,28 +176,27 @@ def repack_data(raw_clients, inputs, labels, gen_dir, starting_cnt=1):
           f"/{max(client_samples_cnts)}"
           f"/{np.mean(client_samples_cnts)}.")
 
+
 if repack_train:
-    train_inputs, train_labels, train_client_mapping, train_sample_clients \
-            = prepare_data(train_data_dir, num_files_clip=train_data_clip)
+    train_examples = prepare_data(train_data_dir, num_files_clip=train_data_clip)
     print(f"Training data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
-    repack_data(raw_train_clients, train_inputs, train_labels,
+    repack_data(raw_train_clients, train_examples, train_labels,
                 train_gen_dir, starting_cnt=1)
     print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
 
 if repack_test:
-    test_inputs, test_labels, test_client_mapping, test_sample_clients \
-            = prepare_data(test_data_dir, num_files_clip=test_data_clip)
+    test_examples = prepare_data(test_data_dir, num_files_clip=test_data_clip)
     print(f"Testing data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
     raw_test_clients = {
-        'mock_client': [sample_id for sample_id in range(len(test_inputs))]
+        'mock_client': [sample_id for sample_id in range(len(test_examples))]
     }
-    repack_data(raw_test_clients, test_inputs, test_labels,
+    repack_data(raw_test_clients, test_examples, test_labels,
                 test_gen_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
