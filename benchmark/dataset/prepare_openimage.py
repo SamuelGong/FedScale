@@ -19,6 +19,10 @@ def jpg_handler(files, worker_idx):
     for idx, f in enumerate(files):
         try:
             image = Image.open(f)
+            # avoid channel error
+            if image.mode != 'RGB':
+                image = image.convert('RGB')
+
             example = np.asarray(image)
             examples.append(example)
         except Exception as e:
@@ -38,13 +42,13 @@ def jpg_handler(files, worker_idx):
 repack_train = True
 repack_test = True
 # after repacking, can upload to s3 using commands like
-#   aws s3 cp Reddit s3://jiangzhifeng/Reddit --recursive
+#   aws s3 cp Reddit s3://jiangzhifeng/openImg --recursive
 
 prepare_num_training_clients = 1000
-# e.g., Reddit 1000: ~870s
+# e.g.,
 
 prepare_num_testing_clients = 20
-# e.g., Reddit 10: ~10s
+# e.g.,
 
 feature_creation_worker = jpg_handler
 root_dir = "data/openImg"
@@ -116,6 +120,7 @@ def chunks_idx(l, n):
     for i in range(n):
         si = (d+1)*(i if i < r else r) + d*(0 if i < r else i - r)
         yield si, si+(d+1 if i < r else d)
+
 
 # Reading and packing training data
 def prepare_data(data_dir, num_files_clip):
