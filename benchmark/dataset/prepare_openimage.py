@@ -9,8 +9,7 @@ import csv
 from multiprocessing import Pool, cpu_count
 import zipfile
 
-# N_JOBS = 16
-N_JOBS = cpu_count() // 2
+N_JOBS = cpu_count()
 
 
 def jpg_handler(files, worker_idx):
@@ -23,13 +22,13 @@ def jpg_handler(files, worker_idx):
             example = np.asarray(image)
             examples.append(example)
         except Exception as e:
-            print(f"CPU worker {worker_idx}: fail due to {e}")
+            print(f"CPU worker {worker_idx}: fail due to {e}", flush=True)
             raise e
 
         if idx % 1000 == 0:
             print(f"CPU worker {worker_idx}: {len(files)-idx} "
                   f"files left, {idx} files complete, remaining "
-                  f"time {(time.time()-st)/(idx+1)*(len(files)-idx)}")
+                  f"time {(time.time()-st)/(idx+1)*(len(files)-idx)}", flush=True)
             gc.collect()
 
     return examples
@@ -128,7 +127,8 @@ def prepare_data(data_dir, num_files_clip):
     pool_inputs = []
     pool = Pool(N_JOBS)
     worker_cnt = 0
-    for begin, end in chunks_idx(range(len(files)), N_JOBS):
+    split_factor = 16  # to avoid too large return values for each subprocess
+    for begin, end in chunks_idx(range(len(files)), N_JOBS * split_factor):
         pool_inputs.append([files[begin:end], worker_cnt])
         worker_cnt += 1
 
