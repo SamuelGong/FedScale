@@ -19,7 +19,7 @@ def jpg_handler(files, worker_idx):
     for idx, f in enumerate(files):
         try:
             image = Image.open(f)
-            # avoid channel error
+            # avoid channel error: some images are greyscale
             if image.mode != 'RGB':
                 image = image.convert('RGB')
 
