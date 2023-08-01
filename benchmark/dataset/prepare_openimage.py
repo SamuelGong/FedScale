@@ -176,8 +176,9 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx, example_paths, labels,
             client_labels.append(labels[sample_id])
         client_samples_cnts.append(len(sample_id_list))
 
-        for idx, client_example_file in enumerate(client_examples_path):
+        for client_example_file in client_examples_path:
             shutil.copy(client_example_file, d)
+        client_samples_cnts.append(len(client_examples_path))
         with open(label_path, 'wb') as fout:
             pickle.dump(client_labels, fout)
 
