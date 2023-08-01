@@ -13,30 +13,30 @@ import zipfile
 N_JOBS = cpu_count()
 
 
-def jpg_handler(files, worker_idx):
-    examples = []
-
-    st = time.time()
-    for idx, f in enumerate(files):
-        try:
-            image = Image.open(f)
-            # avoid channel error: some images are greyscale
-            if image.mode != 'RGB':
-                image = image.convert('RGB')
-
-            example = np.asarray(image)
-            examples.append(example)
-        except Exception as e:
-            print(f"CPU worker {worker_idx}: fail due to {e}", flush=True)
-            raise e
-
-        if idx % 1000 == 0:
-            print(f"CPU worker {worker_idx}: {len(files)-idx} "
-                  f"files left, {idx} files complete, remaining "
-                  f"time {(time.time()-st)/(idx+1)*(len(files)-idx)}", flush=True)
-            gc.collect()
-
-    return examples
+# def jpg_handler(files, worker_idx):
+#     examples = []
+#
+#     st = time.time()
+#     for idx, f in enumerate(files):
+#         try:
+#             image = Image.open(f)
+#             # avoid channel error: some images are greyscale
+#             if image.mode != 'RGB':
+#                 image = image.convert('RGB')
+#
+#             example = np.asarray(image)
+#             examples.append(example)
+#         except Exception as e:
+#             print(f"CPU worker {worker_idx}: fail due to {e}", flush=True)
+#             raise e
+#
+#         if idx % 1000 == 0:
+#             print(f"CPU worker {worker_idx}: {len(files)-idx} "
+#                   f"files left, {idx} files complete, remaining "
+#                   f"time {(time.time()-st)/(idx+1)*(len(files)-idx)}", flush=True)
+#             gc.collect()
+#
+#     return examples
 
 # configurations
 repack_train = True
@@ -50,7 +50,7 @@ prepare_num_training_clients = 1000
 prepare_num_testing_clients = 50
 # e.g., ~100s for rgcpu7
 
-feature_creation_worker = jpg_handler
+# feature_creation_worker = jpg_handler
 root_dir = "data/openImg"
 client_data_mapping_dir = os.path.join(root_dir, "client_data_mapping")
 train_data_dir = os.path.join(root_dir, "train")
@@ -156,15 +156,15 @@ def prepare_data_path(data_dir, num_files_clip):
 #     print(f'\tNumber of samples processed: {len(all_examples)}.')
 #     return all_examples
 
-
-# New: under construction
-def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1):
-    client_cnt = starting_cnt
+def _repack_raw_data(raw_clients, begin, end, worker_idx, example_paths, labels, gen_dir):
+    st = time.time()
+    client_cnt = begin + 1  # start from 1
     client_samples_cnts = []
-    for raw_client_id, sample_id_list in raw_clients.items():
-        # as zipped files are even larger
-        # temp_file_path = os.path.join(gen_dir, 'data.bin')
-        logging.info(f"{client_cnt} clients' data repacked.")
+
+    for idx, raw_client_id in enumerate(list(
+            raw_clients.keys()
+    )[begin:end]):
+        sample_id_list = raw_clients[raw_client_id]
         d = os.path.join(gen_dir, str(client_cnt))
         os.makedirs(d, exist_ok=True)
         label_path = os.path.join(d, 'label.bin')
@@ -180,20 +180,43 @@ def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1)
             shutil.copy(client_example_file, d)
         with open(label_path, 'wb') as fout:
             pickle.dump(client_labels, fout)
-        # zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
-        # with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
-        #     zf.write(temp_file_path, arcname=str(client_cnt))
-        #
-        # os.remove(temp_file_path)
+
         client_cnt += 1
+        if idx % 10 == 0:
+            print(f"CPU worker {worker_idx}: {end-begin-idx-1} "
+                  f"clients left, {idx + 1} clients' data packed, remaining "
+                  f"time {(time.time()-st)/(idx+1)*(end-begin-idx-1)}", flush=True)
+            gc.collect()
 
-    print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
-          f"min/max/avg # samples: {min(client_samples_cnts)}"
-          f"/{max(client_samples_cnts)}"
-          f"/{np.mean(client_samples_cnts)}.")
+    return client_samples_cnts
 
 
-# Old
+# New
+def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1):
+    pool_inputs = []
+    pool = Pool(N_JOBS)
+    worker_cnt = 0
+    split_factor = 16  # to avoid too large return values for each subprocess
+    for begin, end in chunks_idx(range(len(raw_clients)), N_JOBS * split_factor):
+        pool_inputs.append([raw_clients, begin, end, worker_cnt,
+                            example_paths, labels, gen_dir])
+        worker_cnt += 1
+
+    pool_outputs = pool.starmap(_repack_raw_data, pool_inputs)
+    pool.close()
+    pool.join()
+
+    all_client_samples_cnts = []
+    for client_samples_cnts in pool_outputs:
+        all_client_samples_cnts += client_samples_cnts
+
+    print(f"\t# clients: {len(all_client_samples_cnts)}.\n\t"
+          f"min/max/avg # samples: {min(all_client_samples_cnts)}"
+          f"/{max(all_client_samples_cnts)}"
+          f"/{np.mean(all_client_samples_cnts)}.")
+
+
+# # Old
 # def repack_data(raw_clients, examples, labels, gen_dir, starting_cnt=1):
 #     client_cnt = starting_cnt
 #     client_samples_cnts = []
@@ -221,11 +244,11 @@ def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1)
 #
 #         os.remove(temp_file_path)
 #         client_cnt += 1
-
-    print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
-          f"min/max/avg # samples: {min(client_samples_cnts)}"
-          f"/{max(client_samples_cnts)}"
-          f"/{np.mean(client_samples_cnts)}.")
+#
+#     print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
+#           f"min/max/avg # samples: {min(client_samples_cnts)}"
+#           f"/{max(client_samples_cnts)}"
+#           f"/{np.mean(client_samples_cnts)}.")
 
 
 if repack_train:
