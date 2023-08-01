@@ -1,3 +1,4 @@
+import logging
 import os
 import gc
 import time
@@ -36,7 +37,6 @@ def jpg_handler(files, worker_idx):
             gc.collect()
 
     return examples
-
 
 # configurations
 repack_train = True
@@ -122,58 +122,69 @@ def chunks_idx(l, n):
         yield si, si+(d+1 if i < r else d)
 
 
-# Reading and packing training data
-def prepare_data(data_dir, num_files_clip):
+# New: Locating data
+def prepare_data_path(data_dir, num_files_clip):
     files = [entry.name for entry in os.scandir(data_dir)]
     # make sure files are ordered
     files = [os.path.join(data_dir, x) for x in sorted(files)]
-    files = files[:num_files_clip]
-
-    pool_inputs = []
-    pool = Pool(N_JOBS)
-    worker_cnt = 0
-    split_factor = 16  # to avoid too large return values for each subprocess
-    for begin, end in chunks_idx(range(len(files)), N_JOBS * split_factor):
-        pool_inputs.append([files[begin:end], worker_cnt])
-        worker_cnt += 1
-
-    pool_outputs = pool.starmap(feature_creation_worker, pool_inputs)
-    pool.close()
-    pool.join()
-
-    all_examples = []
-    for examples in pool_outputs:
-        all_examples += examples
-    print(f'\tNumber of samples processed: {len(all_examples)}.')
-    return all_examples
+    print(f'\tNumber of samples processed: {len(files)}.')
+    return files[:num_files_clip]
 
 
-def repack_data(raw_clients, examples, labels, gen_dir, starting_cnt=1):
+# # Old: Reading and packing training data
+# def prepare_data(data_dir, num_files_clip):
+#     files = [entry.name for entry in os.scandir(data_dir)]
+#     # make sure files are ordered
+#     files = [os.path.join(data_dir, x) for x in sorted(files)]
+#     files = files[:num_files_clip]
+#
+#     pool_inputs = []
+#     pool = Pool(N_JOBS)
+#     worker_cnt = 0
+#     split_factor = 16  # to avoid too large return values for each subprocess
+#     for begin, end in chunks_idx(range(len(files)), N_JOBS * split_factor):
+#         pool_inputs.append([files[begin:end], worker_cnt])
+#         worker_cnt += 1
+#
+#     pool_outputs = pool.starmap(feature_creation_worker, pool_inputs)
+#     pool.close()
+#     pool.join()
+#
+#     all_examples = []
+#     for examples in pool_outputs:
+#         all_examples += examples
+#     print(f'\tNumber of samples processed: {len(all_examples)}.')
+#     return all_examples
+
+
+# New: under construction
+def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1):
     client_cnt = starting_cnt
     client_samples_cnts = []
     for raw_client_id, sample_id_list in raw_clients.items():
-        temp_file_path = os.path.join(gen_dir, 'data.bin')
+        # as zipped files are even larger
+        # temp_file_path = os.path.join(gen_dir, 'data.bin')
+        logging.info(f"{client_cnt} clients' data repacked.")
+        d = os.path.join(gen_dir, str(client_cnt))
+        os.makedirs(d, exist_ok=True)
+        label_path = os.path.join(d, 'label.bin')
 
-        client_inputs = []
+        client_examples_path = []
         client_labels = []
         for sample_id in sample_id_list:
-            client_inputs.append(examples[sample_id])
+            client_examples_path.append(example_paths[sample_id])
             client_labels.append(labels[sample_id])
         client_samples_cnts.append(len(sample_id_list))
 
-        data_dict = {
-            'x': client_inputs,
-            'y': client_labels
-        }
-
-        with open(temp_file_path, 'wb') as fout:
-            pickle.dump(data_dict, fout)
-
-        zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
-        with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
-            zf.write(temp_file_path, arcname=str(client_cnt))
-
-        os.remove(temp_file_path)
+        for idx, client_example_file in enumerate(client_examples_path):
+            shutil.copy(client_example_file, d)
+        with open(label_path, 'wb') as fout:
+            pickle.dump(client_labels, fout)
+        # zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
+        # with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
+        #     zf.write(temp_file_path, arcname=str(client_cnt))
+        #
+        # os.remove(temp_file_path)
         client_cnt += 1
 
     print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
@@ -182,26 +193,61 @@ def repack_data(raw_clients, examples, labels, gen_dir, starting_cnt=1):
           f"/{np.mean(client_samples_cnts)}.")
 
 
+# Old
+# def repack_data(raw_clients, examples, labels, gen_dir, starting_cnt=1):
+#     client_cnt = starting_cnt
+#     client_samples_cnts = []
+#     for raw_client_id, sample_id_list in raw_clients.items():
+#         # though zipped files are even larger
+#         temp_file_path = os.path.join(gen_dir, 'data.bin')
+#         # temp_file_path = os.path.join(gen_dir, str(client_cnt))
+#
+#         client_inputs = []
+#         client_labels = []
+#         for sample_id in sample_id_list:
+#             client_inputs.append(examples[sample_id])
+#             client_labels.append(labels[sample_id])
+#         client_samples_cnts.append(len(sample_id_list))
+#
+#         data_dict = {
+#             'x': client_inputs,
+#             'y': client_labels
+#         }
+#         with open(temp_file_path, 'wb') as fout:
+#             pickle.dump(data_dict, fout)
+#         zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
+#         with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
+#             zf.write(temp_file_path, arcname=str(client_cnt))
+#
+#         os.remove(temp_file_path)
+#         client_cnt += 1
+
+    print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
+          f"min/max/avg # samples: {min(client_samples_cnts)}"
+          f"/{max(client_samples_cnts)}"
+          f"/{np.mean(client_samples_cnts)}.")
+
+
 if repack_train:
-    train_examples = prepare_data(train_data_dir, num_files_clip=train_data_clip)
+    train_examples_path = prepare_data_path(train_data_dir, num_files_clip=train_data_clip)
     print(f"Training data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
-    repack_data(raw_train_clients, train_examples, train_labels,
+    repack_raw_data(raw_train_clients, train_examples_path, train_labels,
                 train_gen_dir, starting_cnt=1)
     print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
 
 if repack_test:
-    test_examples = prepare_data(test_data_dir, num_files_clip=test_data_clip)
+    test_examples_path = prepare_data_path(test_data_dir, num_files_clip=test_data_clip)
     print(f"Testing data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
     raw_test_clients = {
-        'mock_client': [sample_id for sample_id in range(len(test_examples))]
+        'mock_client': [sample_id for sample_id in range(len(test_examples_path))]
     }
-    repack_data(raw_test_clients, test_examples, test_labels,
+    repack_raw_data(raw_test_clients, test_examples_path, test_labels,
                 test_gen_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
