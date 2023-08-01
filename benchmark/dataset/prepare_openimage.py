@@ -197,8 +197,8 @@ def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1)
     pool_inputs = []
     pool = Pool(N_JOBS)
     worker_cnt = 0
-    split_factor = 16  # to avoid too large return values for each subprocess
-    for begin, end in chunks_idx(range(len(raw_clients)), N_JOBS * split_factor):
+    # split_factor = 16  # to avoid too large return values for each subprocess
+    for begin, end in chunks_idx(range(len(raw_clients)), N_JOBS):
         pool_inputs.append([raw_clients, begin, end, worker_cnt,
                             example_paths, labels, gen_dir])
         worker_cnt += 1
