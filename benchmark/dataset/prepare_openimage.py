@@ -91,15 +91,19 @@ def read_data_map(mapping_path, num_clients):
                 client_id = row[0]
                 label = int(row[3])
 
-                if client_id not in raw_clients:
-                    if len(raw_clients.keys()) \
-                            == num_clients:
-                        break
-                    raw_clients[client_id] = []
+#                if client_id not in raw_clients:
+#                    if len(raw_clients.keys()) \
+#                            == num_clients:
+#                        break
+#                    raw_clients[client_id] = []
 
-                raw_clients[client_id].append(sample_id)
-                labels.append(label)
-                sample_id += 1
+#                raw_clients[client_id].append(sample_id)
+#                labels.append(label)
+#                sample_id += 1
+                if client_id == 222:
+                    raw_clients[client_id].append(sample_id)
+                    labels.append(label)
+                    sample_id += 1
     return sample_id, raw_clients, labels
 
 
