@@ -35,4 +35,4 @@ for client_id in range(1, num_clients + 1):
     if client_id not in raw_clients:
         empty_data_list.append(client_id)
 
-print(client_id)
+print(empty_data_list)
