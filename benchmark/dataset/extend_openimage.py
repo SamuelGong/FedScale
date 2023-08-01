@@ -31,8 +31,8 @@ with open(mapping_path) as csv_file:
             sample_id += 1
 
 empty_data_list = []
-for client_id in range(1, num_clients + 1):
-    if client_id not in raw_clients:
+for client_id, raw_client_id in enumerate(list(raw_clients.keys())):
+    if len(raw_clients[raw_client_id]) == 0:
         empty_data_list.append(client_id)
 
 print(empty_data_list)
