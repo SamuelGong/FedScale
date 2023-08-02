@@ -182,11 +182,16 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx,
         with open(label_path, 'wb') as fout:
             pickle.dump(client_labels, fout)
 
+        # To be faster and avoid errors on extraction:
+        # "tarfile.ReadError: unexpected end of data"
+
         tar_path = os.path.join(gen_dir, f"{client_cnt}.tar")
-        tar = tarfile.open(tar_path, "w:")
-        tar.add(label_path, recursive=False)
-        for client_example_file in client_examples_path:
-            tar.add(client_example_file, recursive=False)
+        with tarfile.open(tar_path, "w:") as tar:
+            arcname = f"{client_cnt}/{label_path.split('/')[-1]}"
+            tar.add(label_path, arcname=arcname)
+            for client_example_file in client_examples_path:
+                arcname = f"{client_cnt}/{client_example_file.split('/')[-1]}"
+                tar.add(client_example_file, arcname=arcname)
         os.remove(label_path)
 
         client_cnt += 1
