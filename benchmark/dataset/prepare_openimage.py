@@ -9,6 +9,7 @@ import pickle
 import csv
 from multiprocessing import Pool, cpu_count
 import zipfile
+import tarfile
 
 N_JOBS = cpu_count()
 
@@ -165,9 +166,7 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx, example_paths, labels,
             raw_clients.keys()
     )[begin:end]):
         sample_id_list = raw_clients[raw_client_id]
-        d = os.path.join(gen_dir, str(client_cnt))
-        os.makedirs(d, exist_ok=True)
-        label_path = os.path.join(d, 'label.bin')
+        label_path = os.path.join(gen_dir, f'{client_cnt}_label.bin')
 
         client_examples_path = []
         client_labels = []
@@ -176,11 +175,18 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx, example_paths, labels,
             client_labels.append(labels[sample_id])
         client_samples_cnts.append(len(sample_id_list))
 
-        for client_example_file in client_examples_path:
-            shutil.copy(client_example_file, d)
-        client_samples_cnts.append(len(client_examples_path))
+        # for client_example_file in client_examples_path:
+        #     shutil.copy(client_example_file, d)
+        # client_samples_cnts.append(len(client_examples_path))
         with open(label_path, 'wb') as fout:
             pickle.dump(client_labels, fout)
+
+        tar_path = os.path.join(gen_dir, f"{client_cnt}.tar")
+        tar = tarfile.open(tar_path, "w:")
+        tar.add(label_path)
+        for client_example_file in client_examples_path:
+            tar.add(client_example_file)
+        os.remove(label_path)
 
         client_cnt += 1
         if idx % 10 == 0:
