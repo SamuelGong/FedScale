@@ -157,9 +157,10 @@ def prepare_data_path(data_dir, num_files_clip):
 #     print(f'\tNumber of samples processed: {len(all_examples)}.')
 #     return all_examples
 
-def _repack_raw_data(raw_clients, begin, end, worker_idx, example_paths, labels, gen_dir):
+def _repack_raw_data(raw_clients, begin, end, worker_idx,
+                     example_paths, labels, gen_dir, starting_cnt):
     st = time.time()
-    client_cnt = begin + 1  # start from 1
+    client_cnt = begin + starting_cnt  # start from starting_cnt
     client_samples_cnts = []
 
     for idx, raw_client_id in enumerate(list(
@@ -206,7 +207,7 @@ def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1)
     # split_factor = 16  # to avoid too large return values for each subprocess
     for begin, end in chunks_idx(range(len(raw_clients)), N_JOBS):
         pool_inputs.append([raw_clients, begin, end, worker_cnt,
-                            example_paths, labels, gen_dir])
+                            example_paths, labels, gen_dir, starting_cnt])
         worker_cnt += 1
 
     pool_outputs = pool.starmap(_repack_raw_data, pool_inputs)
