@@ -1,0 +1,335 @@
+Downloading:   0%|          | 0.00/742k [00:00<?, ?B/s]Downloading:  45%|████▌     | 337k/742k [00:00<00:00, 2.00MB/s]Downloading: 100%|██████████| 742k/742k [00:00<00:00, 3.91MB/s]
+Downloading:   0%|          | 0.00/1.25M [00:00<?, ?B/s]Downloading:   3%|▎         | 33.0k/1.25M [00:00<00:07, 173kB/s]Downloading:   8%|▊         | 97.0k/1.25M [00:00<00:04, 267kB/s]Downloading:  19%|█▉        | 241k/1.25M [00:00<00:02, 487kB/s] Downloading:  40%|████      | 513k/1.25M [00:00<00:00, 854kB/s]Downloading:  83%|████████▎ | 1.04M/1.25M [00:00<00:00, 1.58MB/s]Downloading: 100%|██████████| 1.25M/1.25M [00:00<00:00, 1.32MB/s][Debug] NLP libraries imported. Computed block size: 62. Elapsed time: 63.10617557587102
+Training data mapping read. Elapsed time: 63.32472692010924
+Testing data mapping read. Elapsed time: 63.360822192858905
+
+CPU worker 30: 2026 files left, 0 files complete, remaining time 5753.769302845001
+CPU worker 30: 1026 files left, 1000 files complete, remaining time 1084.407407478138
+CPU worker 30: 26 files left, 2000 files complete, remaining time 31.90537476980466
+CPU worker 25: 2027 files left, 0 files complete, remaining time 6090.540321111679
+CPU worker 25: 1027 files left, 1000 files complete, remaining time 1084.3455804292257
+CPU worker 25: 27 files left, 2000 files complete, remaining time 33.175511572850695
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 3: 2027 files left, 0 files complete, remaining time 2444.447645664215
+CPU worker 3: 1027 files left, 1000 files complete, remaining time 1082.7572497423594
+CPU worker 3: 27 files left, 2000 files complete, remaining time 33.16005952676376
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 6: 2027 files left, 0 files complete, remaining time 3378.15371632576
+CPU worker 6: 1027 files left, 1000 files complete, remaining time 1083.1382687308571
+CPU worker 6: 27 files left, 2000 files complete, remaining time 33.16745913261059
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 16: 2027 files left, 0 files complete, remaining time 4108.379492044449
+CPU worker 16: 1027 files left, 1000 files complete, remaining time 1087.3303873136447
+CPU worker 16: 27 files left, 2000 files complete, remaining time 33.18263263752436
+CPU worker 19: 2027 files left, 0 files complete, remaining time 4997.341113567352
+CPU worker 19: 1027 files left, 1000 files complete, remaining time 1085.7524046619217
+CPU worker 19: 27 files left, 2000 files complete, remaining time 33.18926628490259
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 18: 2027 files left, 0 files complete, remaining time 6821.664020776749
+CPU worker 18: 1027 files left, 1000 files complete, remaining time 1083.335945457607
+CPU worker 18: 27 files left, 2000 files complete, remaining time 33.1720075929004
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 7: 2027 files left, 0 files complete, remaining time 3190.7321484088898
+CPU worker 7: 1027 files left, 1000 files complete, remaining time 1085.4477012095513
+CPU worker 7: 27 files left, 2000 files complete, remaining time 33.188512786038814
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 31: 2026 files left, 0 files complete, remaining time 3569.0296516418457
+CPU worker 31: 1026 files left, 1000 files complete, remaining time 1085.6290798687435
+CPU worker 31: 26 files left, 2000 files complete, remaining time 31.97855478998782
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 28: 2027 files left, 0 files complete, remaining time 5107.7480635643005
+CPU worker 28: 1027 files left, 1000 files complete, remaining time 1085.7593115057266
+CPU worker 28: 27 files left, 2000 files complete, remaining time 33.21493758433226
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 27: 2027 files left, 0 files complete, remaining time 6181.738077878952
+CPU worker 27: 1027 files left, 1000 files complete, remaining time 1086.8905261058312
+CPU worker 27: 27 files left, 2000 files complete, remaining time 33.226911045800804
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 13: 2027 files left, 0 files complete, remaining time 3295.6462008953094
+CPU worker 13: 1027 files left, 1000 files complete, remaining time 1087.1750515745832
+CPU worker 13: 27 files left, 2000 files complete, remaining time 33.224294921268765
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 10: 2027 files left, 0 files complete, remaining time 3480.586154460907
+CPU worker 10: 1027 files left, 1000 files complete, remaining time 1086.3076480270981
+CPU worker 10: 27 files left, 2000 files complete, remaining time 33.1954524449144
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 9: 2027 files left, 0 files complete, remaining time 1991.1603660583496
+CPU worker 9: 1027 files left, 1000 files complete, remaining time 1085.923850254579
+CPU worker 9: 27 files left, 2000 files complete, remaining time 33.31809654300181
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 23: 2027 files left, 0 files complete, remaining time 4653.45750617981
+CPU worker 23: 1027 files left, 1000 files complete, remaining time 1087.157216722315
+CPU worker 23: 27 files left, 2000 files complete, remaining time 33.221791698836135
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 12: 2027 files left, 0 files complete, remaining time 3407.6938676834106
+CPU worker 12: 1027 files left, 1000 files complete, remaining time 1090.2172193124698
+CPU worker 12: 27 files left, 2000 files complete, remaining time 33.22944945945911
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 26: 2027 files left, 0 files complete, remaining time 5963.283040523529
+CPU worker 26: 1027 files left, 1000 files complete, remaining time 1098.7342312305004
+CPU worker 26: 27 files left, 2000 files complete, remaining time 33.43971680451011
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 14: 2027 files left, 0 files complete, remaining time 1718.3625655174255
+CPU worker 14: 1027 files left, 1000 files complete, remaining time 1087.1262139561888
+CPU worker 14: 27 files left, 2000 files complete, remaining time 33.43781345752047
+CPU worker 22: 2027 files left, 0 files complete, remaining time 4090.203056335449
+CPU worker 22: 1027 files left, 1000 files complete, remaining time 1087.2232661680741
+CPU worker 22: 27 files left, 2000 files complete, remaining time 33.39736572949067
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 20: 2027 files left, 0 files complete, remaining time 4121.00213766098
+CPU worker 20: 1027 files left, 1000 files complete, remaining time 1101.2421936400526
+CPU worker 20: 27 files left, 2000 files complete, remaining time 33.45318935943329
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 8: 2027 files left, 0 files complete, remaining time 1757.734935760498
+CPU worker 8: 1027 files left, 1000 files complete, remaining time 1087.0425691325943
+CPU worker 8: 27 files left, 2000 files complete, remaining time 33.64552481742813
+CPU worker 24: 2027 files left, 0 files complete, remaining time 6979.4540984630585
+CPU worker 24: 1027 files left, 1000 files complete, remaining time 1085.9074512704626
+CPU worker 24: 27 files left, 2000 files complete, remaining time 33.62389680935347
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 4: 2027 files left, 0 files complete, remaining time 2935.8522317409515
+CPU worker 4: 1027 files left, 1000 files complete, remaining time 1086.9963542362311
+CPU worker 4: 27 files left, 2000 files complete, remaining time 33.193275086347136
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 0: 2027 files left, 0 files complete, remaining time 1764.7825272083282
+CPU worker 0: 1027 files left, 1000 files complete, remaining time 1100.4804672978141
+CPU worker 0: 27 files left, 2000 files complete, remaining time 33.76793931198978
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 21: 2027 files left, 0 files complete, remaining time 4771.730714559555
+CPU worker 21: 1027 files left, 1000 files complete, remaining time 1102.6641500151002
+CPU worker 21: 27 files left, 2000 files complete, remaining time 33.95464594968255
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 15: 2027 files left, 0 files complete, remaining time 3697.2018492221832
+CPU worker 15: 1027 files left, 1000 files complete, remaining time 1101.604064213765
+CPU worker 15: 27 files left, 2000 files complete, remaining time 33.980078994959726
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 17: 2027 files left, 0 files complete, remaining time 3487.987986087799
+CPU worker 17: 1027 files left, 1000 files complete, remaining time 1100.288468487851
+CPU worker 17: 27 files left, 2000 files complete, remaining time 33.99129358510385
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 5: 2027 files left, 0 files complete, remaining time 2318.248736143112
+CPU worker 5: 1027 files left, 1000 files complete, remaining time 1100.51774776756
+CPU worker 5: 27 files left, 2000 files complete, remaining time 33.970851491416234
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 2: 2027 files left, 0 files complete, remaining time 2331.5426499843597
+CPU worker 2: 1027 files left, 1000 files complete, remaining time 1086.7628683765215
+CPU worker 2: 27 files left, 2000 files complete, remaining time 34.010140598445815
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 1: 2027 files left, 0 files complete, remaining time 1354.8058214187622
+CPU worker 1: 1027 files left, 1000 files complete, remaining time 1087.0776329350163
+CPU worker 1: 27 files left, 2000 files complete, remaining time 33.888391475091275
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 11: 2027 files left, 0 files complete, remaining time 1811.4953532218933
+CPU worker 11: 1027 files left, 1000 files complete, remaining time 1103.2309859975592
+CPU worker 11: 27 files left, 2000 files complete, remaining time 34.01623075226436
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 29: 2026 files left, 0 files complete, remaining time 6876.842589855194
+CPU worker 29: 1026 files left, 1000 files complete, remaining time 1099.5839129913816
+CPU worker 29: 26 files left, 2000 files complete, remaining time 32.727007821820365
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+	Number of samples processed: 1650208.
+Training data read. Elapsed time: 2677.6473857192323
+	# clients: 1000.
+	min/max/avg # samples: 20/476/64.861.
+Training data packed. Elapsed time: 2684.069984975271
+CPU worker 9: 24 files left, 0 files complete, remaining time 115.67787551879883
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 4: 24 files left, 0 files complete, remaining time 92.43220710754395
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 6: 24 files left, 0 files complete, remaining time 14.456977844238281
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 24: 23 files left, 0 files complete, remaining time 10.563862562179565
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 28: 23 files left, 0 files complete, remaining time 153.4756462574005
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 30: 23 files left, 0 files complete, remaining time 110.26467943191528
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 27: 23 files left, 0 files complete, remaining time 5.084068298339844
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 11: 24 files left, 0 files complete, remaining time 66.38905334472656
+CPU worker 18: 24 files left, 0 files complete, remaining time 115.37928771972656
+CPU worker 16: 24 files left, 0 files complete, remaining time 20.610511779785156
+CPU worker 21: 24 files left, 0 files complete, remaining time 17.166475296020508
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 26: 23 files left, 0 files complete, remaining time 21.51997995376587
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 22: 23 files left, 0 files complete, remaining time 20.168984174728394
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 1: 24 files left, 0 files complete, remaining time 149.13214302062988
+CPU worker 13: 24 files left, 0 files complete, remaining time 156.76291465759277
+CPU worker 29: 23 files left, 0 files complete, remaining time 11.317439079284668
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 25: 23 files left, 0 files complete, remaining time 8.9909827709198
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 15: 24 files left, 0 files complete, remaining time 119.43390083312988
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 31: 23 files left, 0 files complete, remaining time 4.453478574752808
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 17: 24 files left, 0 files complete, remaining time 78.97106552124023
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 7: 24 files left, 0 files complete, remaining time 109.35916900634766
+CPU worker 8: 24 files left, 0 files complete, remaining time 12.017354965209961
+CPU worker 12: 24 files left, 0 files complete, remaining time 13.15909194946289
+CPU worker 23: 23 files left, 0 files complete, remaining time 10.314346551895142
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 3: 24 files left, 0 files complete, remaining time 88.34124183654785
+CPU worker 19: 24 files left, 0 files complete, remaining time 13.469221115112305
+CPU worker 20: 24 files left, 0 files complete, remaining time 13.200136184692383
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 5: 24 files left, 0 files complete, remaining time 8.559648513793945
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 10: 24 files left, 0 files complete, remaining time 9.074254989624023
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 14: 24 files left, 0 files complete, remaining time 44.5817756652832
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 0: 24 files left, 0 files complete, remaining time 8.957611083984375
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+CPU worker 2: 24 files left, 0 files complete, remaining time 149.79108238220215
+prepare_reddit.py:83: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  random_words = np.random.randint(0, len(tokenizer), labels.shape, dtype=np.long)
+	Number of samples processed: 20961.
+Testing data read. Elapsed time: 2703.417623325251
+	# clients: 1.
+	min/max/avg # samples: 20961/20961/20961.0.
+Testing data packed. Elapsed time: 2704.5009647952393
