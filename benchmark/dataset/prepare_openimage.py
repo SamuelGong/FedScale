@@ -67,57 +67,44 @@ start_time = time.perf_counter()
 os.makedirs(gen_dir, exist_ok=True)
 if repack_train:
     if os.path.isdir(train_gen_dir):
-        pass
-#        raise ValueError(f'Please remove {train_gen_dir} manually')
+        raise ValueError(f'Please remove {train_gen_dir} manually')
         # shutil.rmtree(train_gen_dir)
 if repack_test:
     if os.path.isdir(test_gen_dir):
-        pass
-#        raise ValueError(f'Please remove {test_gen_dir} manually')
+        raise ValueError(f'Please remove {test_gen_dir} manually')
         # shutil.rmtree(test_gen_dir)
-#os.makedirs(train_gen_dir, exist_ok=False)
-#os.makedirs(test_gen_dir, exist_ok=False)
+os.makedirs(train_gen_dir, exist_ok=False)
+os.makedirs(test_gen_dir, exist_ok=False)
 
 
 # Reading Mapping information for training datasets
 def read_data_map(mapping_path, num_clients):
-    sample_id = 0
-    labels = []
+    read_first = True
+    client_map = {}
+
     with open(mapping_path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
-        read_first = True
-        raw_clients = {}
-
         for row in csv_reader:
             if read_first:
                 read_first = False
             else:
                 # client_id,sample_path,label_name,label_id
                 client_id = row[0]
+                sample_path = row[1]
                 label = int(row[3])
 
-                if client_id not in raw_clients:
-                    if len(raw_clients.keys()) \
+                if client_id not in client_map:
+                    if len(client_map.keys()) \
                             == num_clients:
                         break
-                    raw_clients[client_id] = []
+                    client_map[client_id] = {
+                        'sample_paths': [],
+                        'labels': []
+                    }
 
-                raw_clients[client_id].append(sample_id)
-                labels.append(label)
-                sample_id += 1
-    return sample_id, raw_clients, labels
-
-
-train_data_clip, raw_train_clients, train_labels = read_data_map(
-    train_mapping_path, prepare_num_training_clients)
-print(f"Training data mapping read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
-
-test_data_clip, _, test_labels = read_data_map(
-    test_mapping_path, prepare_num_testing_clients
-)
-print(f"Testing data mapping read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
+                client_map[client_id]['sample_paths'].append(sample_path)
+                client_map[client_id]['labels'].append(label)
+    return client_map
 
 
 def chunks_idx(l, n):
@@ -127,73 +114,33 @@ def chunks_idx(l, n):
         yield si, si+(d+1 if i < r else d)
 
 
-# New: Locating data
-def prepare_data_path(data_dir, num_files_clip):
-    files = [entry.name for entry in os.scandir(data_dir)]
-    # make sure files are ordered
-    files = [os.path.join(data_dir, x) for x in sorted(files)]
-    print(f'\tNumber of samples processed: {len(files)}.')
-    return files[:num_files_clip]
-
-
-# # Old: Reading and packing training data
-# def prepare_data(data_dir, num_files_clip):
-#     files = [entry.name for entry in os.scandir(data_dir)]
-#     # make sure files are ordered
-#     files = [os.path.join(data_dir, x) for x in sorted(files)]
-#     files = files[:num_files_clip]
-#
-#     pool_inputs = []
-#     pool = Pool(N_JOBS)
-#     worker_cnt = 0
-#     split_factor = 16  # to avoid too large return values for each subprocess
-#     for begin, end in chunks_idx(range(len(files)), N_JOBS * split_factor):
-#         pool_inputs.append([files[begin:end], worker_cnt])
-#         worker_cnt += 1
-#
-#     pool_outputs = pool.starmap(feature_creation_worker, pool_inputs)
-#     pool.close()
-#     pool.join()
-#
-#     all_examples = []
-#     for examples in pool_outputs:
-#         all_examples += examples
-#     print(f'\tNumber of samples processed: {len(all_examples)}.')
-#     return all_examples
-
-def _repack_raw_data(raw_clients, begin, end, worker_idx,
-                     example_paths, labels, gen_dir, starting_cnt):
+def _repack_raw_data(client_map, begin, end, worker_idx, gen_dir, starting_cnt):
     st = time.time()
     client_cnt = begin + starting_cnt  # start from starting_cnt
     client_samples_cnts = []
 
     for idx, raw_client_id in enumerate(list(
-            raw_clients.keys()
+            client_map.keys()
     )[begin:end]):
-        sample_id_list = raw_clients[raw_client_id]
-        label_path = os.path.join(gen_dir, f'{client_cnt}_label_map.bin')
+        client_dict = client_map[raw_client_id]
+        sample_paths = client_dict["sample_paths"]
+        labels = client_dict["labels"]
 
-        client_examples_path = []
-        client_labels = {}
-        for sample_id in sample_id_list:
-            client_examples_path.append(example_paths[sample_id])
-            client_labels[sample_id] = labels[sample_id]
-        client_samples_cnts.append(len(sample_id_list))
+        sample_label_map = {k: v for k, v in zip(sample_paths, labels)}
+        sample_label_map_file = os.path.join(gen_dir, f'{client_cnt}_sample_label_map')
+        with open(sample_label_map_file, 'wb') as fout:
+            pickle.dump(sample_label_map, fout)
 
-        # for client_example_file in client_examples_path:
-        #     shutil.copy(client_example_file, d)
-        # client_samples_cnts.append(len(client_examples_path))
-        with open(label_path, 'wb') as fout:
-            pickle.dump(client_labels, fout)
-
+        client_samples_cnts.append(len(labels))
         tar_path = os.path.join(gen_dir, f"{client_cnt}.tar")
-        with tarfile.open(tar_path, "a:") as tar:
-            arcname = f"{client_cnt}/{label_path.split('/')[-1]}"
-            tar.add(label_path, arcname=arcname)
-#            for client_example_file in client_examples_path:
-#                arcname = f"{client_cnt}/{client_example_file.split('/')[-1]}"
-#                tar.add(client_example_file, arcname=arcname)
-        os.remove(label_path)
+        # use prefix "{client_cnt}/' for ease of extraction
+        with tarfile.open(tar_path, "w:") as tar:
+            tar.add(sample_label_map_file, arcname=f"{client_cnt}/sample_label_map")
+            for sample_path in sample_paths:
+                arcname = f"{client_cnt}/{data_file}"
+                data_file = os.path.join(train_data_dir, sample_path)
+                tar.add(data_file, arcname=arcname)
+        os.remove(sample_label_map_file)
 
         client_cnt += 1
         if idx % 10 == 0:
@@ -206,14 +153,13 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx,
 
 
 # New
-def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1):
+def repack_raw_data(client_map, gen_dir, starting_cnt=1):
     pool_inputs = []
     pool = Pool(N_JOBS)
     worker_cnt = 0
     # split_factor = 16  # to avoid too large return values for each subprocess
-    for begin, end in chunks_idx(range(len(raw_clients)), N_JOBS):
-        pool_inputs.append([raw_clients, begin, end, worker_cnt,
-                            example_paths, labels, gen_dir, starting_cnt])
+    for begin, end in chunks_idx(range(len(client_map)), N_JOBS):
+        pool_inputs.append([client_map, begin, end, worker_cnt, gen_dir, starting_cnt])
         worker_cnt += 1
 
     pool_outputs = pool.starmap(_repack_raw_data, pool_inputs)
@@ -230,62 +176,43 @@ def repack_raw_data(raw_clients, example_paths, labels, gen_dir, starting_cnt=1)
           f"/{np.mean(all_client_samples_cnts)}.")
 
 
-# # Old
-# def repack_data(raw_clients, examples, labels, gen_dir, starting_cnt=1):
-#     client_cnt = starting_cnt
-#     client_samples_cnts = []
-#     for raw_client_id, sample_id_list in raw_clients.items():
-#         # though zipped files are even larger
-#         temp_file_path = os.path.join(gen_dir, 'data.bin')
-#         # temp_file_path = os.path.join(gen_dir, str(client_cnt))
-#
-#         client_inputs = []
-#         client_labels = []
-#         for sample_id in sample_id_list:
-#             client_inputs.append(examples[sample_id])
-#             client_labels.append(labels[sample_id])
-#         client_samples_cnts.append(len(sample_id_list))
-#
-#         data_dict = {
-#             'x': client_inputs,
-#             'y': client_labels
-#         }
-#         with open(temp_file_path, 'wb') as fout:
-#             pickle.dump(data_dict, fout)
-#         zipfile_path = os.path.join(gen_dir, str(client_cnt) + '.zip')
-#         with zipfile.ZipFile(zipfile_path, mode='w', compression=zipfile.ZIP_DEFLATED) as zf:
-#             zf.write(temp_file_path, arcname=str(client_cnt))
-#
-#         os.remove(temp_file_path)
-#         client_cnt += 1
-#
-#     print(f"\t# clients: {len(client_samples_cnts)}.\n\t"
-#           f"min/max/avg # samples: {min(client_samples_cnts)}"
-#           f"/{max(client_samples_cnts)}"
-#           f"/{np.mean(client_samples_cnts)}.")
+train_data_clip, raw_train_clients, train_labels = read_data_map(
+    train_mapping_path, prepare_num_training_clients)
+print(f"Training data mapping read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
+
+test_data_clip, _, test_labels = read_data_map(
+    test_mapping_path, prepare_num_testing_clients
+)
+print(f"Testing data mapping read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
 
 
 if repack_train:
-    train_examples_path = prepare_data_path(train_data_dir, num_files_clip=train_data_clip)
+    train_client_map = read_data_map(
+        mapping_path=train_mapping_path,
+        num_clients=prepare_num_training_clients
+    )
     print(f"Training data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
-    repack_raw_data(raw_train_clients, train_examples_path, train_labels,
-                train_gen_dir, starting_cnt=1)
+    repack_raw_data(train_client_map, train_gen_dir, starting_cnt=1)
     print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
 
 if repack_test:
-    test_examples_path = prepare_data_path(test_data_dir, num_files_clip=test_data_clip)
+    test_client_map = read_data_map(
+        mapping_path=test_mapping_path,
+        num_clients=prepare_num_testing_clients
+    )
     print(f"Testing data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
     raw_test_clients = {
-        'mock_client': [sample_id for sample_id in range(len(test_examples_path))]
+        'mock_client': [sample_id for sample_id in range(len(test_client_map))]
     }
-    repack_raw_data(raw_test_clients, test_examples_path, test_labels,
-                test_gen_dir, starting_cnt=0)
+    repack_raw_data(test_client_map, test_gen_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
