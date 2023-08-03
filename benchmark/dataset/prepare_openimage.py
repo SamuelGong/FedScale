@@ -67,12 +67,16 @@ start_time = time.perf_counter()
 os.makedirs(gen_dir, exist_ok=True)
 if repack_train:
     if os.path.isdir(train_gen_dir):
-        shutil.rmtree(train_gen_dir)
+        pass
+#        raise ValueError(f'Please remove {train_gen_dir} manually')
+        # shutil.rmtree(train_gen_dir)
 if repack_test:
     if os.path.isdir(test_gen_dir):
-        shutil.rmtree(test_gen_dir)
-os.makedirs(train_gen_dir, exist_ok=True)
-os.makedirs(test_gen_dir, exist_ok=True)
+        pass
+#        raise ValueError(f'Please remove {test_gen_dir} manually')
+        # shutil.rmtree(test_gen_dir)
+#os.makedirs(train_gen_dir, exist_ok=False)
+#os.makedirs(test_gen_dir, exist_ok=False)
 
 
 # Reading Mapping information for training datasets
@@ -167,13 +171,13 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx,
             raw_clients.keys()
     )[begin:end]):
         sample_id_list = raw_clients[raw_client_id]
-        label_path = os.path.join(gen_dir, f'{client_cnt}_label.bin')
+        label_path = os.path.join(gen_dir, f'{client_cnt}_label_map.bin')
 
         client_examples_path = []
-        client_labels = []
+        client_labels = {}
         for sample_id in sample_id_list:
             client_examples_path.append(example_paths[sample_id])
-            client_labels.append(labels[sample_id])
+            client_labels[sample_id] = labels[sample_id]
         client_samples_cnts.append(len(sample_id_list))
 
         # for client_example_file in client_examples_path:
@@ -183,12 +187,12 @@ def _repack_raw_data(raw_clients, begin, end, worker_idx,
             pickle.dump(client_labels, fout)
 
         tar_path = os.path.join(gen_dir, f"{client_cnt}.tar")
-        with tarfile.open(tar_path, "w:") as tar:
+        with tarfile.open(tar_path, "a:") as tar:
             arcname = f"{client_cnt}/{label_path.split('/')[-1]}"
             tar.add(label_path, arcname=arcname)
-            for client_example_file in client_examples_path:
-                arcname = f"{client_cnt}/{client_example_file.split('/')[-1]}"
-                tar.add(client_example_file, arcname=arcname)
+#            for client_example_file in client_examples_path:
+#                arcname = f"{client_cnt}/{client_example_file.split('/')[-1]}"
+#                tar.add(client_example_file, arcname=arcname)
         os.remove(label_path)
 
         client_cnt += 1
