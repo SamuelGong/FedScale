@@ -137,7 +137,7 @@ def _repack_raw_data(client_map, begin, end, worker_idx, gen_dir, starting_cnt):
         with tarfile.open(tar_path, "w:") as tar:
             tar.add(sample_label_map_file, arcname=f"{client_cnt}/sample_label_map")
             for sample_path in sample_paths:
-                arcname = f"{client_cnt}/{data_file}"
+                arcname = f"{client_cnt}/{sample_path}"
                 data_file = os.path.join(train_data_dir, sample_path)
                 tar.add(data_file, arcname=arcname)
         os.remove(sample_label_map_file)
