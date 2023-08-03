@@ -176,18 +176,6 @@ def repack_raw_data(client_map, gen_dir, starting_cnt=1):
           f"/{np.mean(all_client_samples_cnts)}.")
 
 
-train_data_clip, raw_train_clients, train_labels = read_data_map(
-    train_mapping_path, prepare_num_training_clients)
-print(f"Training data mapping read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
-
-test_data_clip, _, test_labels = read_data_map(
-    test_mapping_path, prepare_num_testing_clients
-)
-print(f"Testing data mapping read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
-
-
 if repack_train:
     train_client_map = read_data_map(
         mapping_path=train_mapping_path,
