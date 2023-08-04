@@ -19,7 +19,7 @@ repack_test = True
 prepare_num_training_clients = 1000
 # e.g., s for rgcpu7
 
-prepare_num_testing_clients = 100
+prepare_num_testing_clients = 1000
 # e.g., s for rgcpu7
 
 # feature_creation_worker = jpg_handler
