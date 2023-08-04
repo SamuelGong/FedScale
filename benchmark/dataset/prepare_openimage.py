@@ -17,10 +17,10 @@ repack_test = True
 #   aws s3 cp jzf_openImg s3://jiangzhifeng/openImage --recursive
 
 prepare_num_training_clients = 1000
-# e.g., ~18800s for rgcpu7
+# e.g., s for rgcpu7
 
-prepare_num_testing_clients = 50
-# e.g., ~100s for rgcpu7
+prepare_num_testing_clients = 100
+# e.g., s for rgcpu7
 
 # feature_creation_worker = jpg_handler
 root_dir = "data/openImg"
