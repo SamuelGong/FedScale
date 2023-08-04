@@ -69,12 +69,12 @@ if repack_train:
     if os.path.isdir(train_gen_dir):
         raise ValueError(f'Please remove {train_gen_dir} manually')
         # shutil.rmtree(train_gen_dir)
+    os.makedirs(train_gen_dir, exist_ok=False)
 if repack_test:
     if os.path.isdir(test_gen_dir):
         raise ValueError(f'Please remove {test_gen_dir} manually')
         # shutil.rmtree(test_gen_dir)
-os.makedirs(train_gen_dir, exist_ok=False)
-os.makedirs(test_gen_dir, exist_ok=False)
+    os.makedirs(test_gen_dir, exist_ok=False)
 
 
 # Reading Mapping information for training datasets
@@ -114,7 +114,7 @@ def chunks_idx(l, n):
         yield si, si+(d+1 if i < r else d)
 
 
-def _repack_raw_data(client_map, begin, end, worker_idx, gen_dir, starting_cnt):
+def _repack_raw_data(client_map, begin, end, worker_idx, gen_dir, starting_cnt, data_dir):
     st = time.time()
     client_cnt = begin + starting_cnt  # start from starting_cnt
     client_samples_cnts = []
@@ -138,7 +138,7 @@ def _repack_raw_data(client_map, begin, end, worker_idx, gen_dir, starting_cnt):
             tar.add(sample_label_map_file, arcname=f"{client_cnt}/sample_label_map")
             for sample_path in sample_paths:
                 arcname = f"{client_cnt}/{sample_path}"
-                data_file = os.path.join(train_data_dir, sample_path)
+                data_file = os.path.join(data_dir, sample_path)
                 tar.add(data_file, arcname=arcname)
         os.remove(sample_label_map_file)
 
@@ -153,13 +153,13 @@ def _repack_raw_data(client_map, begin, end, worker_idx, gen_dir, starting_cnt):
 
 
 # New
-def repack_raw_data(client_map, gen_dir, starting_cnt=1):
+def repack_raw_data(client_map, gen_dir, data_dir, starting_cnt=1):
     pool_inputs = []
     pool = Pool(N_JOBS)
     worker_cnt = 0
     # split_factor = 16  # to avoid too large return values for each subprocess
     for begin, end in chunks_idx(range(len(client_map)), N_JOBS):
-        pool_inputs.append([client_map, begin, end, worker_cnt, gen_dir, starting_cnt])
+        pool_inputs.append([client_map, begin, end, worker_cnt, gen_dir, starting_cnt, data_dir])
         worker_cnt += 1
 
     pool_outputs = pool.starmap(_repack_raw_data, pool_inputs)
@@ -184,7 +184,7 @@ if repack_train:
     print(f"Training data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
-    repack_raw_data(train_client_map, train_gen_dir, starting_cnt=1)
+    repack_raw_data(train_client_map, train_gen_dir, train_data_dir, starting_cnt=1)
     print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
@@ -200,7 +200,7 @@ if repack_test:
     raw_test_clients = {
         'mock_client': [sample_id for sample_id in range(len(test_client_map))]
     }
-    repack_raw_data(test_client_map, test_gen_dir, starting_cnt=0)
+    repack_raw_data(test_client_map, test_gen_dir, test_data_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
