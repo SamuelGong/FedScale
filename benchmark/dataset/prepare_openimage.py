@@ -1,46 +1,17 @@
-import logging
 import os
 import gc
 import time
-import shutil
-from PIL import Image
 import numpy as np
 import pickle
 import csv
 from multiprocessing import Pool, cpu_count
-import zipfile
 import tarfile
 
 N_JOBS = cpu_count()
 
 
-# def jpg_handler(files, worker_idx):
-#     examples = []
-#
-#     st = time.time()
-#     for idx, f in enumerate(files):
-#         try:
-#             image = Image.open(f)
-#             # avoid channel error: some images are greyscale
-#             if image.mode != 'RGB':
-#                 image = image.convert('RGB')
-#
-#             example = np.asarray(image)
-#             examples.append(example)
-#         except Exception as e:
-#             print(f"CPU worker {worker_idx}: fail due to {e}", flush=True)
-#             raise e
-#
-#         if idx % 1000 == 0:
-#             print(f"CPU worker {worker_idx}: {len(files)-idx} "
-#                   f"files left, {idx} files complete, remaining "
-#                   f"time {(time.time()-st)/(idx+1)*(len(files)-idx)}", flush=True)
-#             gc.collect()
-#
-#     return examples
-
 # configurations
-repack_train = True
+repack_train = False
 repack_test = True
 # after repacking, can upload to s3 using commands like
 #   aws s3 cp jzf_openImg s3://jiangzhifeng/openImage --recursive
@@ -189,6 +160,18 @@ if repack_train:
           f"Elapsed time: {time.perf_counter() - start_time}")
 
 
+def merge_map(test_client_map):
+    raw_client_id_list = list(test_client_map.keys())
+    first_raw_client_id = raw_client_id_list[0]
+    new_test_client_map = {first_raw_client_id: test_client_map[first_raw_client_id]}
+    for raw_client_id in raw_client_id_list[1:]:
+        new_test_client_map[first_raw_client_id]["sample_paths"] \
+            += test_client_map[raw_client_id]["sample_paths"]
+        new_test_client_map[first_raw_client_id]["labels"] \
+            += test_client_map[raw_client_id]["labels"]
+    return new_test_client_map
+
+
 if repack_test:
     test_client_map = read_data_map(
         mapping_path=test_mapping_path,
@@ -200,6 +183,8 @@ if repack_test:
     raw_test_clients = {
         'mock_client': [sample_id for sample_id in range(len(test_client_map))]
     }
+
+    new_test_client_map = merge_map(test_client_map)
     repack_raw_data(test_client_map, test_gen_dir, test_data_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
