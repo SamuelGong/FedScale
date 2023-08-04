@@ -180,12 +180,9 @@ if repack_test:
     print(f"Testing data read. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
-    raw_test_clients = {
-        'mock_client': [sample_id for sample_id in range(len(test_client_map))]
-    }
-
+    # merge to for a server's hold-out set
     new_test_client_map = merge_map(test_client_map)
-    repack_raw_data(test_client_map, test_gen_dir, test_data_dir, starting_cnt=0)
+    repack_raw_data(new_test_client_map, test_gen_dir, test_data_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
