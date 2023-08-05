@@ -12,15 +12,18 @@ N_JOBS = cpu_count()
 
 # configurations
 repack_train = False
-repack_test = False
+repack_test = True
 # after repacking, can upload to s3 using commands like
 #   aws s3 cp jzf_openImg s3://jiangzhifeng/openImage --recursive
 
 prepare_num_training_clients = 1000
-# e.g., s for rgcpu7
 
+# either one is effective
 prepare_num_testing_clients = 1000
-# e.g., s for rgcpu7
+# --- v.s. ---
+calibrate_test_with_training = True
+# (totally 574 labels if prepare_num_training_clients == 1000)
+sample_per_label_in_testing = 2
 
 prepare_num_validating_clients = 1000
 
@@ -53,12 +56,16 @@ if repack_test:
 
 
 # Reading Mapping information for training datasets
-def read_data_map(mapping_path, num_clients, follow=None):
+def read_data_map(mapping_path, num_clients=None, calibrate=None):
     read_first = True
     client_map = {}
 
-    if follow is not None:
-        label_set = list(follow.keys())
+    if calibrate is not None:
+        label_list = list(calibrate[0].keys())
+        num_labels = len(label_list)
+        sample_per_label = calibrate[1]
+        label_record = {}
+        finish_label = []
 
     with open(mapping_path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -71,9 +78,22 @@ def read_data_map(mapping_path, num_clients, follow=None):
                 sample_path = row[1]
                 label = int(row[3])
 
+                if calibrate is not None and label not in label_list:
+                    continue
+                else:
+                    if label not in label_record:
+                        label_record[label] = 0
+                    elif label_record[label] >= sample_per_label:
+                        finish_label.append(label)
+                        continue
+                    label_record[label] += 1
+
                 if client_id not in client_map:
-                    if len(client_map.keys()) \
+                    if calibrate is None and len(client_map.keys()) \
                             == num_clients:
+                        break
+                    elif calibrate is not None \
+                            and len(finish_label) == num_labels:
                         break
                     client_map[client_id] = {
                         'sample_paths': [],
@@ -190,11 +210,16 @@ print(f"Training data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 train_label_hist = inspect_label(train_client_map)
 
-test_client_map = read_data_map(
-    mapping_path=test_mapping_path,
-    num_clients=prepare_num_testing_clients,
-    follow=train_label_hist
-)
+if calibrate_test_with_training:
+    test_client_map = read_data_map(
+        mapping_path=test_mapping_path,
+        calibrate=(train_label_hist, sample_per_label_in_testing)
+    )
+else:
+    test_client_map = read_data_map(
+        mapping_path=test_mapping_path,
+        num_clients=prepare_num_testing_clients,
+    )
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 _ = inspect_label(test_client_map)
