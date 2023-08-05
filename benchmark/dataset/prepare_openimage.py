@@ -160,13 +160,15 @@ def merge_map(test_client_map):
 
 
 def inspect_label_dist(client_map):
-    label_hist = {}
+    temp = {}
     for raw_client_id, client_dict in client_map.items():
         for label in client_dict["labels"]:
-            if label not in label_hist:
-                label_hist[label] = 1
+            if label not in temp:
+                temp[label] = 1
             else:
-                label_hist[label] += 1
+                temp[label] += 1
+
+    label_hist = {k: temp[k] for k in sorted(temp.keys())}
     print(label_hist)
 
 
