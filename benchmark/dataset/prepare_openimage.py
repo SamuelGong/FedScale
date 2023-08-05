@@ -12,7 +12,7 @@ N_JOBS = cpu_count()
 
 # configurations
 repack_train = False
-repack_test = True
+repack_test = False
 # after repacking, can upload to s3 using commands like
 #   aws s3 cp jzf_openImg s3://jiangzhifeng/openImage --recursive
 
