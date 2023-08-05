@@ -147,19 +147,6 @@ def repack_raw_data(client_map, gen_dir, data_dir, starting_cnt=1):
           f"/{np.mean(all_client_samples_cnts)}.")
 
 
-if repack_train:
-    train_client_map = read_data_map(
-        mapping_path=train_mapping_path,
-        num_clients=prepare_num_training_clients
-    )
-    print(f"Training data read. "
-          f"Elapsed time: {time.perf_counter() - start_time}")
-
-    repack_raw_data(train_client_map, train_gen_dir, train_data_dir, starting_cnt=1)
-    print(f"Training data packed. "
-          f"Elapsed time: {time.perf_counter() - start_time}")
-
-
 def merge_map(test_client_map):
     raw_client_id_list = list(test_client_map.keys())
     first_raw_client_id = raw_client_id_list[0]
@@ -172,17 +159,41 @@ def merge_map(test_client_map):
     return new_test_client_map
 
 
-if repack_test:
-    test_client_map = read_data_map(
-        mapping_path=test_mapping_path,
-        num_clients=prepare_num_testing_clients
-    )
-    print(f"Testing data read. "
+def inspect_label_dist(client_map):
+    label_hist = {}
+    for raw_client_id, client_dict in client_map.items():
+        for label in client_dict["labels"]:
+            if label not in label_hist:
+                label_hist[label] = 1
+            else:
+                label_hist[label] += 1
+    print(label_hist)
+
+
+train_client_map = read_data_map(
+    mapping_path=train_mapping_path,
+    num_clients=prepare_num_training_clients
+)
+print(f"Training data read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
+inspect_label_dist(train_client_map)
+
+test_client_map = read_data_map(
+    mapping_path=test_mapping_path,
+    num_clients=prepare_num_testing_clients
+)
+print(f"Testing data read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
+inspect_label_dist(test_client_map)
+
+if repack_train:
+    repack_raw_data(train_client_map, train_gen_dir, train_data_dir, starting_cnt=1)
+    print(f"Training data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
 
+if repack_test:
     # merge to for a server's hold-out set
     new_test_client_map = merge_map(test_client_map)
     repack_raw_data(new_test_client_map, test_gen_dir, test_data_dir, starting_cnt=0)
     print(f"Testing data packed. "
           f"Elapsed time: {time.perf_counter() - start_time}")
-
