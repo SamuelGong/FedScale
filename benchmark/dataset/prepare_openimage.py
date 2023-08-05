@@ -22,6 +22,8 @@ prepare_num_training_clients = 1000
 prepare_num_testing_clients = 1000
 # e.g., s for rgcpu7
 
+prepare_num_validating_clients = 1000
+
 # feature_creation_worker = jpg_handler
 root_dir = "data/openImg"
 client_data_mapping_dir = os.path.join(root_dir, "client_data_mapping")
@@ -29,6 +31,8 @@ train_data_dir = os.path.join(root_dir, "train")
 train_mapping_path = os.path.join(client_data_mapping_dir, "train.csv")
 test_data_dir = os.path.join(root_dir, "test")
 test_mapping_path = os.path.join(client_data_mapping_dir, "test.csv")
+val_data_dir = os.path.join(root_dir, "val")
+val_mapping_path = os.path.join(client_data_mapping_dir, "val.csv")
 
 gen_dir = os.path.join(root_dir, "jzf_openImg")
 train_gen_dir = os.path.join(gen_dir, 'train')
@@ -187,6 +191,17 @@ test_client_map = read_data_map(
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
 inspect_label_dist(test_client_map)
+
+val_client_map = read_data_map(
+    mapping_path=val_mapping_path,
+    num_clients=prepare_num_validating_clients
+)
+print(f"Validating data read. "
+      f"Elapsed time: {time.perf_counter() - start_time}")
+inspect_label_dist(val_client_map)
+
+
+
 
 if repack_train:
     repack_raw_data(train_client_map, train_gen_dir, train_data_dir, starting_cnt=1)
