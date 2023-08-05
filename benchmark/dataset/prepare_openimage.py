@@ -78,23 +78,25 @@ def read_data_map(mapping_path, num_clients=None, calibrate=None):
                 sample_path = row[1]
                 label = int(row[3])
 
-                if calibrate is not None and label not in label_list:
-                    continue
-                else:
-                    if label not in label_record:
-                        label_record[label] = 0
-                    elif label_record[label] >= sample_per_label:
-                        finish_label.append(label)
+                if calibrate is not None:
+                    if label not in label_list:
                         continue
-                    label_record[label] += 1
+                    else:
+                        if label not in label_record:
+                            label_record[label] = 0
+                        elif label_record[label] >= sample_per_label:
+                            finish_label.append(label)
+                            continue
+                        label_record[label] += 1
 
                 if client_id not in client_map:
-                    if calibrate is None and len(client_map.keys()) \
+                    if calibrate is None:
+                        if len(client_map.keys()) \
                             == num_clients:
-                        break
-                    elif calibrate is not None \
-                            and len(finish_label) == num_labels:
-                        break
+                            break
+                    elif calibrate is not None:
+                        if len(finish_label) == num_labels:
+                            break
                     client_map[client_id] = {
                         'sample_paths': [],
                         'labels': []
