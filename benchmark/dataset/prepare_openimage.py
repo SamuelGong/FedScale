@@ -53,9 +53,12 @@ if repack_test:
 
 
 # Reading Mapping information for training datasets
-def read_data_map(mapping_path, num_clients):
+def read_data_map(mapping_path, num_clients, follow=None):
     read_first = True
     client_map = {}
+
+    if follow is not None:
+        label_set = list(follow.keys())
 
     with open(mapping_path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -163,7 +166,7 @@ def merge_map(test_client_map):
     return new_test_client_map
 
 
-def inspect_label_dist(client_map):
+def inspect_label(client_map):
     temp = {}
     for raw_client_id, client_dict in client_map.items():
         for label in client_dict["labels"]:
@@ -173,8 +176,11 @@ def inspect_label_dist(client_map):
                 temp[label] += 1
 
     label_hist = {k: temp[k] for k in sorted(temp.keys())}
+    print(f"# Label: {len(label_hist)}, "
+          f"samples per label: mean {np.mean(list(label_hist.values()))}, "
+          f"var {np.std(list(label_hist.values()))}.")
     print(label_hist)
-
+    return label_hist
 
 train_client_map = read_data_map(
     mapping_path=train_mapping_path,
@@ -182,25 +188,24 @@ train_client_map = read_data_map(
 )
 print(f"Training data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
-inspect_label_dist(train_client_map)
+train_label_hist = inspect_label(train_client_map)
 
 test_client_map = read_data_map(
     mapping_path=test_mapping_path,
-    num_clients=prepare_num_testing_clients
+    num_clients=prepare_num_testing_clients,
+    follow=train_label_hist
 )
 print(f"Testing data read. "
       f"Elapsed time: {time.perf_counter() - start_time}")
-inspect_label_dist(test_client_map)
+_ = inspect_label(test_client_map)
 
-val_client_map = read_data_map(
-    mapping_path=val_mapping_path,
-    num_clients=prepare_num_validating_clients
-)
-print(f"Validating data read. "
-      f"Elapsed time: {time.perf_counter() - start_time}")
-inspect_label_dist(val_client_map)
-
-
+# val_client_map = read_data_map(
+#     mapping_path=val_mapping_path,
+#     num_clients=prepare_num_validating_clients
+# )
+# print(f"Validating data read. "
+#       f"Elapsed time: {time.perf_counter() - start_time}")
+# _ = inspect_label_dist(val_client_map)
 
 
 if repack_train:
